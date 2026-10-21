@@ -2,7 +2,7 @@
 
 Date: 2026-10-21
 Domain: Supply
-Status: Revised after inspecting the existing Admin Dashboard; awaiting written specification review
+Status: Approved for implementation planning through the user's writing-plans invocation; implementation has not started
 
 ## Purpose and agreed scope
 
@@ -19,7 +19,7 @@ Default to a local Supabase development stack for this demo. Docker and the Supa
 Source inspection on 2026-10-21 established these existing pieces:
 
 - `apps/web/src/main.tsx` lazy-loads the component library at `/` and `BookingDashboard` at the exact `/admin/bookings` pathname, under shared StrictMode, Suspense, and Motion providers.
-- `apps/web/src/admin/BookingDashboard.tsx` already owns the admin sidebar, header, three summary cards, filter board, selected-record panel, notices, and modal lifecycle. Its booking data is React state initialized by `createDemoBookings`.
+- `apps/web/src/admin/BookingDashboard.tsx` owns the admin sidebar, header, three summary cards, filter board, selected-record details, notices, and modal lifecycle. Its booking data is React state initialized by `createDemoBookings`. A refresh observed during implementation planning migrated it to the shared Sidebar family, Card metrics, Tabs, and booking-details Popovers; preserve that newer revision and its Motion transitions.
 - `booking-dashboard.css` contains both reusable admin layout rules and booking-specific timeline/status rules. Its current `.admin-nav a` selector styles every link as active, which needs scoping when adding Inventory.
 - `BookingSelect.tsx` is already a generic labelled Select wrapper used by `BookingDashboard.tsx` and `BookingEditor.tsx`.
 - `BookingDetails.tsx`, `BookingSchedule.tsx`, and `BookingEditor.tsx` demonstrate the established selected-record, Table, Dialog, error-retention, and focus-restoration patterns. Their booking logic is not inventory logic.
@@ -43,7 +43,7 @@ Keep demo copy accurate per section: bookings remain session-only, while invento
 - Filters: make, model, and days in stock. Age choices are all, 0–30, 31–60, 61–90, and over 90 days. Filters combine with AND; changing make clears an incompatible model selection. Include Clear filters and a matching-result count.
 - Inventory table: vehicle make/model/year, registration, price in GBP, days in stock, current action, and row action. Show all matching seeded vehicles; default order is oldest stock first, with vehicle ID as a stable tie-breaker.
 - Aging badge: label vehicles over 90 days as Aging stock. Aging vehicles without an action also show Needs action.
-- Details panel: selecting a vehicle opens a panel using the same layout as Booking details. Show registration, make/model/year, stock date, age, price, current action, note, and updated timestamp. Keep identity visible while reading or editing an action. Stack the panel below the table at narrow widths, as the existing dashboard does.
+- Details popover: selecting a vehicle opens the same shared Popover pattern now used for Booking details. Show registration, make/model/year, stock date, age, price, current action, note, and updated timestamp. Keep identity visible while reading or editing an action. Adapt positioning and constrain its size to the viewport on narrow screens. Preserve the popover while its action dialog is open.
 - Row/detail action: aging vehicles offer Log action or Edit action. Non-aging vehicles show their current action if one exists, but cannot receive new action edits through this workflow. The action opens the existing style of modal form, rather than creating another editing surface.
 
 The layout adapts to smaller screens, retaining vehicle identity and controls. A table may scroll horizontally inside its own container. Use existing labelled controls, accessible table markup, dialog focus management, and reduced-motion behavior.
@@ -197,4 +197,4 @@ Local Supabase requires a running container runtime. Postgres Changes and whole-
 
 ## Specification self-review
 
-Checked for placeholders, contradictory transport/storage decisions, aging/date boundaries, persistence semantics, reconnect gaps, error handling, access boundaries, existing-admin reuse, actual versus planned infrastructure, and unrelated scope. The revised design uses the actual pathname routing and dealership timezone, preserves booking-only actions and ephemeral booking storage, and distinguishes shared layout from domain rules. The defaults above remain subject to the user's review of this written specification.
+Checked for placeholders, contradictory transport/storage decisions, aging/date boundaries, persistence semantics, reconnect gaps, error handling, access boundaries, existing-admin reuse, actual versus planned infrastructure, and unrelated scope. The revised design uses the actual pathname routing and dealership timezone, preserves booking-only actions and ephemeral booking storage, and distinguishes shared layout from domain rules. The user subsequently invoked writing-plans to proceed with the implementation plan.
