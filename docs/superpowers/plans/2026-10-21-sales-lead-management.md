@@ -61,7 +61,7 @@ Important source facts from 2026-10-21:
 
 **Files:** Create or merge `supabase/config.toml`; create the migration and seed files in the map above. No reset commands.
 
-- [ ] **Step 1: Inspect existing local services before starting anything.**
+- [x] **Step 1: Inspect existing local services before starting anything.**
 
 ```sh
 git status --short
@@ -72,7 +72,7 @@ supabase status
 
 Expected: identify ownership of any running stack. A missing project/status is normal before initialization. Reuse the compatible project created by inventory if present. If occupied by another project, choose free API/database/Studio ports and record them in configuration and local env; do not stop that project. Default ports below apply only after this check.
 
-- [ ] **Step 2: Create configuration only if absent, and restrict host bindings.**
+- [x] **Step 2: Create configuration only if absent, and restrict host bindings.**
 
 ```sh
 supabase init
@@ -99,7 +99,7 @@ port = 54323
 
 These are edits to generated configuration, not a replacement of the generated file. If a compatible existing stack has different ports, retain its actual values. After startup, inspect Docker port mappings and require loopback for every published endpoint. If the installed CLI explicitly publishes wildcard addresses despite the network default, stop only the newly created feature stack with ordinary `supabase stop` (no data-discard flags), fix binding before loading data, and report the concrete limitation if it cannot be resolved.
 
-- [ ] **Step 3: Create the failing database contract check before the migration.**
+- [x] **Step 3: Create the failing database contract check before the migration.**
 
 Start the identified project using `supabase start --network-id keyloop-interview-local`. Obtain its container ID through `docker ps`; confirm the exact project label/name before using it. Run SQL through that container's `psql`:
 
@@ -109,7 +109,7 @@ docker exec -i supabase_db_keyloop-interview psql -U postgres -d postgres -v ON_
 
 Expected before the migration: relation `sales_leads` does not exist. Adapt the **verified** container name if using an existing compatible project. Do not assume the generated name when executing.
 
-- [ ] **Step 4: Write `supabase/migrations/20261021000300_sales_leads.sql`.**
+- [x] **Step 4: Write `supabase/migrations/20261021000300_sales_leads.sql`.**
 
 Check that this migration timestamp is unused; choose the next unused timestamp if concurrent work has taken it.
 
@@ -150,7 +150,7 @@ grant select, insert, update, delete on public.sales_lead_activities to service_
 
 No anonymous policies. Supabase's server service-role credential bypasses RLS; never send it to React. The database service role supports explicit isolated test cleanup; the application exposes no edit/delete routes. Activity timestamps have millisecond precision so PostgreSQL and JavaScript use the same timestamp resolution; ID is the explicit tie-breaker.
 
-- [ ] **Step 5: Write `supabase/seeds/sales-leads.sql` and apply it explicitly.**
+- [x] **Step 5: Write `supabase/seeds/sales-leads.sql` and apply it explicitly.**
 
 ```sql
 insert into public.sales_leads
@@ -189,7 +189,7 @@ docker exec -i supabase_db_keyloop-interview psql -U postgres -d postgres -v ON_
 
 Expected: three seeded leads and two seeded activities after either seed execution. Inspect only IDs/counts, not credentials. Preserve all other rows. Normal API startup must never run this seed.
 
-- [ ] **Step 6: Commit only newly created lead database files and reviewed configuration changes.**
+- [x] **Step 6: Commit only newly created lead database files and reviewed configuration changes.**
 
 ```sh
 git add -- supabase/migrations/20261021000300_sales_leads.sql supabase/seeds/sales-leads.sql
@@ -202,7 +202,7 @@ Include `supabase/config.toml` only after confirming it contains no credentials 
 
 **Files:** Create the three API feature files, controller tests and database test config. Modify AppModule/bootstrap, API package/env example and starter HTTP test. Use `.js` specifiers for local TypeScript imports in the NodeNext API.
 
-- [ ] **Step 1: Write `apps/api/src/leads/leads.controller.spec.ts` before production code.**
+- [x] **Step 1: Write `apps/api/src/leads/leads.controller.spec.ts` before production code.**
 
 ```ts
 import { Test } from '@nestjs/testing';
@@ -267,7 +267,7 @@ describe('leads HTTP contract', () => {
 Run `pnpm --filter @keyloop-interview/api test src/leads/leads.controller.spec.ts`.
 Expected first: import failure for missing controller/service, then failing behavior until implemented.
 
-- [ ] **Step 2: Add the single runtime dependency and write the feature module.**
+- [x] **Step 2: Add the single runtime dependency and write the feature module.**
 
 ```sh
 pnpm --filter @keyloop-interview/api add @supabase/supabase-js@2
@@ -394,7 +394,7 @@ export class LeadsController {
 }
 ```
 
-- [ ] **Step 3: Register the feature and preserve API startup/tests.**
+- [x] **Step 3: Register the feature and preserve API startup/tests.**
 
 In `apps/api/src/app.module.ts`, add the import and merge the module into the existing imports:
 
@@ -431,7 +431,7 @@ PORT=3000
 
 Do not silently add dotenv. Node can load a local env file via `node --env-file=.env` in the explicit run command documented in Task 7.
 
-- [ ] **Step 4: Verify red-to-green and commit the API change scope.**
+- [x] **Step 4: Verify red-to-green and commit the API change scope.**
 
 ```sh
 pnpm --filter @keyloop-interview/api test src/leads/leads.controller.spec.ts
@@ -445,7 +445,7 @@ Expected: contract tests and starter endpoint pass without real credentials. Inv
 
 **Files:** Create `apps/api/test/leads.db-test.ts`, `apps/api/vitest.config.leads-db.ts`; add `test:leads-db` to API scripts.
 
-- [ ] **Step 1: Create a dedicated disposable local test project before real database tests.**
+- [x] **Step 1: Create a dedicated disposable local test project before real database tests.**
 
 Repeat Task 1's local-only setup in a temporary directory with project ID
 `keyloop-leads-tests` and separate verified free ports (suggested 55321, 55322,
@@ -466,7 +466,7 @@ do not print them in tool output or commit them. If the stack cannot start,
 record the blocker and keep the database suite failing clearly rather than
 skipping it or claiming persistence proof from a mock.
 
-- [ ] **Step 2: Write the database suite and verify it fails before migrations.**
+- [x] **Step 2: Write the database suite and verify it fails before migrations.**
 
 `apps/api/vitest.config.leads-db.ts`:
 
@@ -591,7 +591,7 @@ The app restart in this test proves state is outside the Nest process; it does
 not replace Task 7's actual database restart proof. The equal-time case runs
 after the empty-B assertion and uses fixture IDs removed by the same cleanup.
 
-- [ ] **Step 3: Apply the migration to the identified test project and run green.**
+- [x] **Step 3: Apply the migration to the identified test project and run green.**
 
 Run from `apps/api`:
 
@@ -610,7 +610,7 @@ HTTP writes/reads, concurrent retries, constraints and anonymous denial pass.
 Keep env-file loading paths relative to `apps/api`. Ordinary `pnpm test` must
 not discover `*.db-test.ts` and must require no database credentials.
 
-- [ ] **Step 4: Commit the dedicated database test files only.**
+- [x] **Step 4: Commit the dedicated database test files only.**
 
 ```sh
 git add -- apps/api/test/leads.db-test.ts apps/api/vitest.config.leads-db.ts
@@ -621,7 +621,7 @@ git commit -m "test: verify lead persistence and concurrent activity retries"
 
 **Files:** Create `apps/web/src/admin/AdminLayout.tsx` and `admin-layout.css` if no compatible shared layout exists. Modify the current `BookingDashboard.tsx` and `booking-dashboard.css` narrowly. Do not edit shared Sidebar primitives.
 
-- [ ] **Step 1: Add a shell regression assertion to the current booking test.**
+- [x] **Step 1: Add a shell regression assertion to the current booking test.**
 
 Inside the existing booking test suite, using its existing `setup` helper:
 
@@ -640,7 +640,7 @@ it("keeps booking tools and links to Sales Leads", () => {
 Run `pnpm --filter @keyloop-interview/web test src/admin/BookingDashboard.test.tsx`.
 Expected new failure: Sales Leads link missing. Keep existing popover interaction tests unchanged.
 
-- [ ] **Step 2: Extract the shell using current shared Sidebar controls.**
+- [x] **Step 2: Extract the shell using current shared Sidebar controls.**
 
 `apps/web/src/admin/AdminLayout.tsx`:
 
@@ -725,7 +725,7 @@ These are targeted tag edits to the existing return body. Keep popover details i
 Tabs, selection defaults, portal focus handling, save/cancel handlers and booking
 footer copy exactly as implemented at execution time.
 
-- [ ] **Step 3: Move common CSS and restrict active-link styling.**
+- [x] **Step 3: Move common CSS and restrict active-link styling.**
 
 Move the existing declarations for `.admin-app`, `.admin-sidebar`, `.admin-brand`,
 `.admin-brand span`, `.admin-product`, `.admin-domain`, `.admin-domain-line`,
@@ -766,7 +766,7 @@ Moving code does not justify changing booking styles. Inspect the result at
 320px, 390px and desktop. Shared Sidebar width utilities must not create document
 overflow. Do not duplicate the complete booking stylesheet in the leads feature.
 
-- [ ] **Step 4: Run current booking tests and inspect the scoped extraction.**
+- [x] **Step 4: Run current booking tests and inspect the scoped extraction.**
 
 ```sh
 pnpm --filter @keyloop-interview/web test src/admin/BookingDashboard.test.tsx
@@ -782,7 +782,7 @@ contents as newly authored code.
 
 **Files:** Create `apps/web/src/admin/leads/leads-api.ts`, `ActivityDialog.tsx` and `ActivityDialog.test.tsx`. Use shared controls; no new frontend dependencies.
 
-- [ ] **Step 1: Write the HTTP client and activity interaction tests first.**
+- [x] **Step 1: Write the HTTP client and activity interaction tests first.**
 
 `apps/web/src/admin/leads/ActivityDialog.test.tsx`:
 
@@ -878,7 +878,7 @@ it("allows cancellation before saving", async () => {
 Run `pnpm --filter @keyloop-interview/web test src/admin/leads/ActivityDialog.test.tsx`.
 Expected first: missing dialog module, then behavioral failures until implemented.
 
-- [ ] **Step 2: Write the frontend HTTP boundary and timestamp formatter.**
+- [x] **Step 2: Write the frontend HTTP boundary and timestamp formatter.**
 
 `apps/web/src/admin/leads/leads-api.ts`:
 
@@ -918,7 +918,7 @@ export const formatLeadTime = (value: string) => formatter.format(new Date(value
 Keep response data in the database's field names; no redundant mapping layer.
 No Supabase keys or direct database client belong in this module.
 
-- [ ] **Step 3: Write the single-purpose dialog.**
+- [x] **Step 3: Write the single-purpose dialog.**
 
 `apps/web/src/admin/leads/ActivityDialog.tsx`:
 
@@ -986,7 +986,7 @@ follow-up fetch inside the save success path. The saved server record is enough
 to update the current view. The controller already returns identical retries as
 successful saved records.
 
-- [ ] **Step 4: Run the dialog suite and cover Escape.**
+- [x] **Step 4: Run the dialog suite and cover Escape.**
 
 In the dialog tests, exercise Escape before saving and expect `onClose` once.
 Use this complete additional case:
@@ -1018,7 +1018,7 @@ git commit -m "feat: log follow-ups with recoverable save errors"
 
 **Files:** Create `LeadInbox.tsx`, `LeadDetails.tsx`, `LeadsDashboard.tsx`, `leads.css` under `apps/web/src/admin/leads/`; add the route and proxy. Task 5 supplies the HTTP client and ActivityDialog.
 
-- [ ] **Step 1: Add initial UI tests before implementation.**
+- [x] **Step 1: Add initial UI tests before implementation.**
 
 Create `apps/web/src/admin/leads/LeadsDashboard.test.tsx`:
 
@@ -1109,7 +1109,7 @@ Run `pnpm --filter @keyloop-interview/web test src/admin/leads/LeadsDashboard.te
 Expected initial missing-module failures. The remount test proves re-fetching,
 not database durability; Task 3 and Task 7 prove actual persistence.
 
-- [ ] **Step 2: Write the inbox and detail/history display components.**
+- [x] **Step 2: Write the inbox and detail/history display components.**
 
 `apps/web/src/admin/leads/LeadInbox.tsx`:
 
@@ -1173,7 +1173,7 @@ export function LeadDetails({ lead, onLog }: { lead: LeadRecord; onLog: () => vo
 }
 ```
 
-- [ ] **Step 3: Write dashboard state and guard superseded reads.**
+- [x] **Step 3: Write dashboard state and guard superseded reads.**
 
 `apps/web/src/admin/leads/LeadsDashboard.tsx`:
 
@@ -1287,7 +1287,7 @@ active flag, because mocks or a completed network response may ignore abort.
 @media (max-width: 520px) { .lead-facts { grid-template-columns: minmax(0, 1fr); } }
 ```
 
-- [ ] **Step 4: Add the exact lazy route and local API proxy.**
+- [x] **Step 4: Add the exact lazy route and local API proxy.**
 
 Add this alongside existing lazy imports in `apps/web/src/main.tsx`:
 
@@ -1317,7 +1317,7 @@ server: {
 },
 ```
 
-- [ ] **Step 5: Run tests and commit owned feature files.**
+- [x] **Step 5: Run tests and commit owned feature files.**
 
 ```sh
 pnpm --filter @keyloop-interview/web test src/admin/leads/LeadsDashboard.test.tsx
@@ -1330,7 +1330,7 @@ git commit -m "feat: add sales lead inbox and complete history view"
 
 **Files:** Update the existing root, web and API READMEs with the exact setup and limitations. Preserve unrelated documentation. No application-wide cleanup.
 
-- [ ] **Step 1: Document commands that actually load configuration.**
+- [x] **Step 1: Document commands that actually load configuration.**
 
 Add this text to the relevant README sections, adapting ports only to the verified
 local configuration. All commands in the API block run from `apps/api`:
@@ -1397,7 +1397,7 @@ Before documenting `dist/main.js`, run the actual build and inspect the output.
 If the current compiler emits a different path, correct the README and existing
 start:prod script together. Do not infer the output solely from old scripts.
 
-- [ ] **Step 2: Run all required checks and inspect introduced failures.**
+- [x] **Step 2: Run all required checks and inspect introduced failures.**
 
 ```sh
 pnpm test
@@ -1418,7 +1418,7 @@ root endpoint remains `Hello World!`, and that frontend build output contains no
 service-role credential. Search for the env variable name and inspect client
 imports; never print the credential itself.
 
-- [ ] **Step 3: Verify the actual browser flow with the real local database.**
+- [x] **Step 3: Verify the actual browser flow with the real local database.**
 
 Use the available browser tool on the actual running URL, not a test render:
 
@@ -1450,7 +1450,7 @@ Use the available browser tool on the actual running URL, not a test render:
 The user declined visual brainstorming; that does not prohibit ordinary browser
 verification. Do not generate design alternatives or mockups.
 
-- [ ] **Step 4: Review the implementation against the spec before completion.**
+- [x] **Step 4: Review the implementation against the spec before completion.**
 
 Use the verification-before-completion skill and review changed sources locally.
 If using inline execution, review inline without spawning agents. Confirm:
@@ -1463,7 +1463,7 @@ If using inline execution, review inline without spawning agents. Confirm:
 - The feature integrates with the latest shell and routing, preserving concurrent
   inventory or booking work. No unrelated untracked files were staged.
 
-- [ ] **Step 5: Record the actual evidence and deliver the working route.**
+- [x] **Step 5: Record the actual evidence and deliver the working route.**
 
 Append an implementation evidence section to this plan with the actual passing
 commands, any failures/blockers, local URL, database project identity/ports,
@@ -1510,3 +1510,77 @@ was started and no application test/build was run for this planning task.
 - [Supabase insert API](https://supabase.com/docs/reference/javascript/insert): append rows and request returned records with `.select()`.
 - [Supabase local development](https://supabase.com/docs/guides/local-development): Docker-backed local stack and CLI setup. Exact flags were also checked against installed CLI 2.117.0 help.
 - [Docker bridge host binding](https://docs.docker.com/engine/network/drivers/bridge/#default-host-binding-address): loopback network option. Actual published addresses must still be inspected after startup.
+
+
+## Implementation evidence — 2026-10-22
+
+Implemented inline in `/Users/kai/works/side-project/keyloop-interview`.
+Working route: http://127.0.0.1:5177/admin/leads (task-owned API on 127.0.0.1:3007).
+
+### Adaptations to the current workspace
+
+Inventory work had already installed the Supabase SDK, introduced AdminLayout,
+and moved navigation into React Router's persistent layout route. Reused those
+pieces without adding dependencies, replacing the router, or extracting a second
+shell. Preserved the later removal of the duplicate workspace icon rail and the
+booking detail popovers. Added Sales Leads to the existing sidebar and layout
+route, including trailing-slash matching.
+
+The API's existing bootstrap already loads `.env` and binds loopback. Leads uses
+optional LEADS_SUPABASE configuration, falling back to the existing local inventory
+configuration. Missing configuration yields a safe 503 for lead requests without
+breaking other routes. Reused the running loopback-only `keyloop-inventory-local`
+Supabase project at API 55321 / PostgreSQL 55322; applied only the new leads
+migration and non-overwriting fictional seed. No shared database was restarted.
+
+A separate `keyloop-leads-tests` stack at 56321 / 56322 / 56323 was created for
+real database tests and restart proof. Its configuration is retained at
+`/var/folders/_x/_t0kc8qn5vs2xlpstygr0lvc0000gn/T/keyloop-leads-tests-3h071k86`.
+Its keys are in ignored `apps/api/.env.leads-test`, never committed. The temporary
+test stack is stopped with data retained. To rerun the explicit database suite,
+start that test project with its retained workdir and the existing loopback
+`keyloop-inventory-local` Docker network, then run the API's `test:leads-db` script.
+
+### Verification
+
+- Initial database check failed because sales_leads did not exist; migration and
+  seed then succeeded. A repeated seed inserted zero duplicate rows.
+- API contract suite: 13 tests pass. Real database suite: 5 tests pass, including
+  concurrent independent appends, concurrent identical retries, conflicting ID
+  reuse, lead isolation, ordering ties, constraints and anonymous denial.
+- Lead UI suites: 10 tests pass, covering initial details, inbox error recovery,
+  late response protection, re-fetch after remount, whitespace rejection, failed
+  drafts, stable/new retry IDs, pending dismissal prevention and Escape.
+- Final `pnpm test`: API 31 passed, web 85 passed / 3 opt-in inventory live tests
+  skipped, UI 1 passed, design tokens 2 passed. The earlier failures in concurrently
+  edited inventory tests were resolved by that work before the final run; no
+  inventory source or tests were changed by the leads implementation.
+- `pnpm typecheck`, `pnpm build`, `pnpm lint` all pass; lint reports zero warnings
+  and errors. `pnpm --filter @keyloop-interview/api test:e2e`: 4 pass.
+- Browser proof: inbox and original enquiries, existing oldest-first history,
+  initially empty Alex/Sam histories, activity creation, reload persistence and
+  lead isolation. Stopped only this task's API, confirmed the failed draft stayed
+  editable, restarted API and saved one copy on retry. Previously saved history
+  remained visible after this real API restart.
+- Real database restart: persisted a separate owned fixture, stopped and restarted
+  only the dedicated test stack with data retained, retrieved the same activity,
+  and removed only that fixture. Re-ran the 5 database tests successfully.
+- Responsive browser measurements: 390px viewport / 390px document, 320px viewport
+  / 320px document. Details stack below the inbox; horizontal table scrolling is
+  contained. Reset the temporary viewport override afterward.
+- Browser regressions: booking calendar/list, detail popover, Resources and Opening
+  hours; Inventory reached Live with its existing snapshot; component library
+  rendered. Shared sidebar remains mounted during React Router navigation.
+- Evidence images: `exports/sales-leads-desktop.png`, `exports/sales-leads-mobile.png`.
+  A fictional call and retry example are retained in Alex's demo history.
+
+### Delivery boundary
+
+Feature-owned new files are committed together rather than as separate task
+commits because the surrounding application and integration files were already
+untracked user work. Changes in existing untracked AppModule/package/router/shell/
+README files remain in the working tree; they were not silently committed as an
+entire unrelated application. Existing inventory and appointment changes were
+preserved. No push, pull request, hosted deployment, authentication or live website
+integration was performed. The seeded demo remains below Supabase's 1,000-row cap;
+paged reads are required before expanding lead or history datasets beyond it.
