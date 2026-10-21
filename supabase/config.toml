@@ -1,0 +1,32 @@
+project_id = "keyloop-inventory-local"
+[api]
+enabled = true
+port = 55321
+schemas = ["public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+[db]
+port = 55322
+shadow_port = 55320
+major_version = 17
+[db.seed]
+enabled = false
+[db.pooler]
+enabled = false
+[realtime]
+enabled = true
+[studio]
+enabled = true
+port = 55323
+api_url = "http://127.0.0.1"
+[inbucket]
+enabled = false
+[auth]
+enabled = true
+site_url = "http://127.0.0.1:5176"
+[storage]
+enabled = false
+[analytics]
+enabled = false
+[edge_runtime]
+enabled = false

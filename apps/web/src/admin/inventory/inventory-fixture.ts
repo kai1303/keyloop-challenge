@@ -1,0 +1,38 @@
+import type { InventorySnapshot } from "./inventory-model";
+export const snapshot: InventorySnapshot = {
+  dealershipDate: "2030-01-03",
+  timeZone: "Asia/Ho_Chi_Minh",
+  serverTime: "2030-01-03T02:00:00Z",
+  vehicles: [
+    {
+      id: "00000000-0000-4000-8000-000000000001",
+      registration: "KL-001",
+      make: "Toyota",
+      model: "Corolla",
+      modelYear: 2022,
+      pricePence: 1800000,
+      stockedOn: "2029-10-04",
+      currentAction: null,
+      note: null,
+      actionUpdatedAt: null,
+      version: 0,
+      daysInStock: 91,
+      aging: true,
+    },
+    {
+      id: "00000000-0000-4000-8000-000000000002",
+      registration: "KL-002",
+      make: "BMW",
+      model: "X1",
+      modelYear: 2023,
+      pricePence: 2200000,
+      stockedOn: "2029-10-05",
+      currentAction: null,
+      note: null,
+      actionUpdatedAt: null,
+      version: 0,
+      daysInStock: 90,
+      aging: false,
+    },
+  ],
+};

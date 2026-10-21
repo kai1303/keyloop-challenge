@@ -2,7 +2,7 @@
 
 Date: 2026-10-21
 Domain: Supply
-Status: Approved for implementation planning through the user's writing-plans invocation; implementation has not started
+Status: Implemented locally and verified after the user selected inline execution (option 2). Evidence: exports/inventory-browser-checks.json.
 
 ## Purpose and agreed scope
 
@@ -12,7 +12,7 @@ The user selected a working interview demo with seeded vehicles and database per
 
 Extend the existing Admin Dashboard with an Inventory section. Use its React layout and interaction patterns, shared Keyloop UI components, and NestJS API. Supabase PostgreSQL persists inventory; Supabase Realtime provides WebSocket updates. SSE and periodic polling are excluded.
 
-Default to a local Supabase development stack for this demo. Docker and the Supabase CLI are installed, and the Docker daemon responded during design exploration. No Supabase instance has been started for this feature. Hosted infrastructure provisioning and public deployment are outside scope.
+Default to a local Supabase development stack for this demo. Docker and the Supabase CLI are installed, and the Docker daemon responded during design exploration. The isolated keyloop-inventory-local Supabase stack is running on loopback ports 55321–55323. Hosted infrastructure provisioning and public deployment are outside scope.
 
 ## Current code and integration decisions
 

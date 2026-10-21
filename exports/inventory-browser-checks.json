@@ -1,0 +1,77 @@
+{
+  "checkedAt": "2026-10-21T16:51:34.800901+00:00",
+  "origin": "http://127.0.0.1:5176",
+  "supabaseProject": "keyloop-inventory-local",
+  "checks": [
+    {
+      "name": "inventory-and-filters",
+      "result": "passed",
+      "detail": "Browser: 24 seeded vehicles; 10 aging. Over-90-days and Toyota filters compose, while global metrics stay unchanged."
+    },
+    {
+      "name": "90-day-boundary",
+      "result": "passed",
+      "detail": "Browser distinguishes 90 days from aging at 91 days; model and SQL assertions also pass."
+    },
+    {
+      "name": "two-dashboard-save",
+      "result": "passed",
+      "detail": "Browser A saved KL-DEMO-008; browser B received Marketing Push Planned without manual refresh."
+    },
+    {
+      "name": "conflict-retains-draft",
+      "result": "passed",
+      "detail": "Two dialogs captured the same version. The stale save returned 409, retained its draft, and required explicit Load latest action before another save."
+    },
+    {
+      "name": "database-restart-persistence",
+      "result": "passed",
+      "detail": "Action, note, and version captured through HTTP matched after restarting only supabase_db_keyloop-inventory-local and waiting for readiness."
+    },
+    {
+      "name": "failed-save-retains-draft",
+      "result": "passed",
+      "detail": "Browser offline save showed Failed to fetch and kept Retain this offline manager draft. Canceled without persisting this test draft."
+    },
+    {
+      "name": "online-recovery",
+      "result": "passed",
+      "detail": "Browser marked inventory stale/offline, then returned to Live after network restoration. Offline/online watcher regression test passed after observing its initial failure."
+    },
+    {
+      "name": "database-originated-events",
+      "result": "passed",
+      "detail": "Inserted own INV-DB-PROOF fixture directly using SQL. Both open dashboards displayed it without an HTTP mutation; both removed it after its SQL deletion."
+    },
+    {
+      "name": "responsive",
+      "result": "passed",
+      "detail": "Read-only DOM measurements: document width equals viewport at 390px and 320px. Table uses contained horizontal overflow. Desktop and 390px screenshots saved; network and emulation overrides restored."
+    },
+    {
+      "name": "existing-routes",
+      "result": "passed",
+      "detail": "Browser: bookings Day to List switch, Resources and Opening hours dialogs work; root component library renders. Existing booking unit suite passes."
+    },
+    {
+      "name": "local-live-suite",
+      "result": "passed",
+      "detail": "3 explicit real Supabase tests passed: anonymous read/write restrictions, committed changes delivered to two independent WebSocket clients, concurrent saves yield 200/409. Random test row cleaned."
+    },
+    {
+      "name": "sql",
+      "result": "passed",
+      "detail": "Rollback-only PostgreSQL assertions pass. Final count 24, with zero INV-TEST or INV-DB-PROOF fixtures."
+    },
+    {
+      "name": "workspace",
+      "result": "passed",
+      "detail": "pnpm typecheck, build, test, lint and API test:e2e passed. Web 67 passed with 3 live tests skipped in ordinary run and executed separately; API 18 unit and 4 HTTP tests passed."
+    },
+    {
+      "name": "keyboard-audit",
+      "result": "not-run",
+      "detail": "Dialog Escape dismissal was exercised on booking dialogs. Full keyboard-only inventory filter/action and screen-reader audit was not run."
+    }
+  ]
+}

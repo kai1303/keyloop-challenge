@@ -300,7 +300,8 @@ api_url = "http://127.0.0.1"
 [inbucket]
 enabled = false
 [auth]
-enabled = false
+enabled = true
+site_url = "http://127.0.0.1:5176"
 [storage]
 enabled = false
 [analytics]
@@ -2113,3 +2114,18 @@ Planning validation performed: all Python snippets parse, 28 standalone TypeScri
 - [Local CLI configuration](https://supabase.com/docs/guides/local-development/cli/config)
 - [Supabase seed behavior](https://supabase.com/docs/guides/local-development/seeding-your-database)
 - Local CLI help for `supabase start` and `supabase migration up`; no hosted project was selected or changed.
+
+## Execution record — 2026-10-21
+
+Implemented inline on `codex/inventory-dashboard` after the user selected option 2. All eight feature tasks are implemented in the working checkout; the step checkboxes above retain the original proposed sequence, including commit and audit steps that were not all performed verbatim. This execution record and `exports/inventory-browser-checks.json` are the acceptance record.
+
+- Shared admin shell, labelled Select and dealer-date helper extracted while preserving concurrent sidebar/rail/logo/calendar changes and existing booking interactions. Inventory route, filtering, aging, details, current action/note persistence, conflicts, loading/error/empty states, and realtime lifecycle are implemented.
+- Local Supabase auth infrastructure is enabled because this CLI version otherwise omits the standard anonymous/service-role keys. There is no staff login UI. Anonymous access is SELECT-only; server-only RPC writes are version-checked in PostgreSQL. Actual environment files are ignored with mode 0600; example files contain no keys.
+- Added explicit browser offline/online recovery after a failing regression demonstrated stale state did not automatically recover on network restoration. The regression now passes; an actual offline save retained its draft and the page returned to Live after restoration.
+- `pnpm typecheck`, `pnpm build`, `pnpm test`, `pnpm lint` and API HTTP tests pass. Web: 67 passed, 3 opt-in tests skipped in normal runs; API: 18 unit + 4 HTTP passed. All 3 opt-in real-service tests passed separately. SQL assertions pass. No owned temporary fixture remains (24 vehicles).
+- Browser proof covers composed filters, 90/91-day boundary, two-tab committed action delivery, retained conflict draft and explicit latest-action loading, SQL-originated insert/delete in both tabs, failed-save draft retention, online recovery, database restart persistence, 390/320px containment, booking List/Resources/Opening hours and the root showcase. Full keyboard-only/screen-reader audit was not performed.
+- Running preview: `http://127.0.0.1:5176/admin/inventory`; task API: loopback port 3006; local project: `keyloop-inventory-local`. Preview and database remain available. Other previews were preserved.
+- Source and documentation self-review completed inline; no subagent review was used. No deployment, production data/feed, login, action history or vehicle CRUD was added.
+- Pre-existing untracked app/manifests/lockfile/README files remain outside scoped staging, as required by the baseline rule. New inventory-owned source/tests/SQL and tracked inventory documentation can be committed, but that commit alone does not establish a runnable repository baseline. Shared files with concurrent work also remain unstaged. No unrelated appointment changes were staged.
+
+Screenshots: `exports/inventory-dashboard.png`, `exports/inventory-mobile.png`. Detailed observed evidence: `exports/inventory-browser-checks.json`. Local auth/network overrides were restored and temporary browser tabs closed.
