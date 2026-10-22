@@ -14,6 +14,12 @@ import { AdminLayout } from "../AdminLayout";
 import { LeadsDashboard } from "./LeadsDashboard";
 import { listLeads, getLead, addActivity, type LeadDetails } from "./leads-api";
 
+const motionPreference = vi.hoisted(() => ({ reduced: false }));
+vi.mock("motion/react", async (importOriginal) => ({
+  ...(await importOriginal<typeof import("motion/react")>()),
+  useReducedMotion: () => motionPreference.reduced,
+}));
+
 vi.mock("./leads-api", async (importOriginal) => ({
   ...(await importOriginal<typeof import("./leads-api")>()),
   listLeads: vi.fn(),
@@ -37,10 +43,10 @@ const jamie: LeadDetails = {
   customer_name: "Jamie Taylor",
   email: "jamie@example.com",
 };
-function setup() {
+function setup(reducedMotion: "always" | "never" = "always") {
   render(
     <LazyMotion features={domAnimation} strict>
-      <MotionConfig reducedMotion="always">
+      <MotionConfig reducedMotion={reducedMotion}>
         <MemoryRouter>
           <AdminLayout activePage="leads">
             <LeadsDashboard />
@@ -53,6 +59,7 @@ function setup() {
 }
 beforeEach(() => {
   vi.resetAllMocks();
+  motionPreference.reduced = false;
   vi.stubGlobal(
     "matchMedia",
     vi.fn(() => ({
@@ -73,6 +80,76 @@ beforeEach(() => {
   vi.mocked(getLead).mockImplementation(async (id) =>
     id === alex.id ? structuredClone(alex) : structuredClone(jamie),
   );
+});
+
+it("matches Inventory entrances without replaying them when an activity is saved", async () => {
+  const activity = {
+    id: crypto.randomUUID(),
+    lead_id: alex.id,
+    note: "Called customer",
+    created_at: "2030-01-02T01:00:00Z",
+  };
+  vi.mocked(addActivity).mockResolvedValue(activity);
+  const user = setup("never");
+  const header = screen
+    .getByRole("heading", { name: "Sales Leads" })
+    .closest("header")!;
+  const card = screen
+    .getByRole("region", { name: "Lead inbox" })
+    .closest("[data-slot=card]")!;
+  const board = card.parentElement!;
+  expect(header.style.opacity).toBe("0");
+  expect(board.style.opacity).toBe("0");
+  await waitFor(() => {
+    expect(header.style.opacity).toBe("1");
+    expect(board.style.opacity).toBe("1");
+  });
+  await user.click(screen.getByRole("button", { name: "View Alex Morgan" }));
+  await screen.findByText("alex@example.com");
+  const details = screen.getByRole("complementary", { name: "Lead details" })
+    .firstElementChild as HTMLElement;
+  expect(details.style.opacity).not.toBe("");
+  await waitFor(() => expect(details.style.opacity).toBe("1"));
+  await user.click(screen.getByRole("button", { name: "Log activity" }));
+  await user.type(screen.getByLabelText("Activity note"), activity.note);
+  await user.click(screen.getByRole("button", { name: "Save activity" }));
+  await waitFor(() => expect(screen.queryByRole("dialog")).toBeNull());
+  expect(
+    screen.getByRole("heading", { name: "Sales Leads" }).closest("header"),
+  ).toBe(header);
+  expect(card.parentElement).toBe(board);
+  expect(
+    screen.getByRole("complementary", { name: "Lead details" })
+      .firstElementChild,
+  ).toBe(details);
+  expect(header.style.opacity).toBe("1");
+  expect(board.style.opacity).toBe("1");
+  expect(details.style.opacity).toBe("1");
+  const notice = screen.getByRole("status").firstElementChild as HTMLElement;
+  expect(notice.style.opacity).not.toBe("");
+  await waitFor(() => expect(notice.style.opacity).toBe("1"));
+});
+
+it("shows page and details immediately when reduced motion is requested", async () => {
+  motionPreference.reduced = true;
+  const user = setup();
+  const header = screen
+    .getByRole("heading", { name: "Sales Leads" })
+    .closest("header")!;
+  const card = screen
+    .getByRole("region", { name: "Lead inbox" })
+    .closest("[data-slot=card]")!;
+  expect(header.style.opacity).toBe("1");
+  expect(card.parentElement!.style.opacity).toBe("1");
+  expect(header.style.transform).toBe("none");
+  await user.click(
+    await screen.findByRole("button", { name: "View Alex Morgan" }),
+  );
+  await screen.findByText("alex@example.com");
+  const details = screen.getByRole("complementary", { name: "Lead details" })
+    .firstElementChild as HTMLElement;
+  expect(details.style.opacity).toBe("1");
+  expect(details.style.transform).toBe("none");
 });
 afterEach(() => {
   cleanup();

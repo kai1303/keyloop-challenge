@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useReducedMotion } from "motion/react";
+import * as m from "motion/react-m";
 import { Badge } from "@keyloop-interview/ui/components/badge";
 import { Button } from "@keyloop-interview/ui/components/button";
 import { Card, CardContent } from "@keyloop-interview/ui/components/card";
@@ -15,6 +17,12 @@ import {
 import "./leads.css";
 
 export function LeadsDashboard() {
+  const reduceMotion = useReducedMotion();
+  const entrance = reduceMotion ? false : { opacity: 0, y: 8 };
+  const transition = {
+    duration: reduceMotion ? 0 : 0.24,
+    ease: "easeOut" as const,
+  };
   const [leads, setLeads] = useState<LeadSummary[] | null>(null);
   const [inboxError, setInboxError] = useState("");
   const [inboxAttempt, setInboxAttempt] = useState(0);
@@ -104,7 +112,12 @@ export function LeadsDashboard() {
   const visibleDetail = detail?.id === selectedId ? detail : null;
   return (
     <>
-      <header className="admin-header">
+      <m.header
+        className="admin-header"
+        initial={entrance}
+        animate={{ opacity: 1, y: 0 }}
+        transition={transition}
+      >
         <div>
           <p className="admin-eyebrow">DEMAND / SALES</p>
           <h1>Sales Leads</h1>
@@ -113,74 +126,90 @@ export function LeadsDashboard() {
           </p>
         </div>
         <Badge variant="outline">Fictional leads · saved activities</Badge>
-      </header>
-      <Card className="gap-0 py-0">
-        <CardContent className="p-4 sm:p-6">
-          <div className="leads-workspace">
-            <section className="min-w-0" aria-labelledby="lead-inbox-heading">
-              <h2
-                id="lead-inbox-heading"
-                className="mb-4 font-heading text-lg font-semibold"
+      </m.header>
+      <m.div
+        initial={entrance}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ ...transition, delay: reduceMotion ? 0 : 0.08 }}
+      >
+        <Card className="gap-0 py-0">
+          <CardContent className="p-4 sm:p-6">
+            <div className="leads-workspace">
+              <section className="min-w-0" aria-labelledby="lead-inbox-heading">
+                <h2
+                  id="lead-inbox-heading"
+                  className="mb-4 font-heading text-lg font-semibold"
+                >
+                  Lead inbox
+                </h2>
+                {inboxError ? (
+                  <div role="alert">
+                    <p>{inboxError}</p>
+                    <Button
+                      variant="outline"
+                      onClick={() => setInboxAttempt((value) => value + 1)}
+                    >
+                      Retry inbox
+                    </Button>
+                  </div>
+                ) : leads === null ? (
+                  <p>Loading leads…</p>
+                ) : (
+                  <LeadInbox
+                    leads={leads}
+                    selectedId={selectedId}
+                    onSelect={select}
+                  />
+                )}
+              </section>
+              <aside
+                className="lead-details"
+                aria-label="Lead details"
+                aria-busy={Boolean(
+                  selectedId && !visibleDetail && !detailError,
+                )}
               >
-                Lead inbox
-              </h2>
-              {inboxError ? (
-                <div role="alert">
-                  <p>{inboxError}</p>
-                  <Button
-                    variant="outline"
-                    onClick={() => setInboxAttempt((value) => value + 1)}
-                  >
-                    Retry inbox
-                  </Button>
-                </div>
-              ) : leads === null ? (
-                <p>Loading leads…</p>
-              ) : (
-                <LeadInbox
-                  leads={leads}
-                  selectedId={selectedId}
-                  onSelect={select}
-                />
-              )}
-            </section>
-            <aside
-              className="lead-details"
-              aria-label="Lead details"
-              aria-busy={Boolean(selectedId && !visibleDetail && !detailError)}
-            >
-              {!selectedId ? (
-                <p className="text-sm text-muted-foreground">
-                  Select a lead to view the enquiry and follow-up history.
-                </p>
-              ) : detailError ? (
-                <div role="alert">
-                  <p>{detailError}</p>
-                  <Button
-                    variant="outline"
-                    onClick={() => setDetailAttempt((value) => value + 1)}
-                  >
-                    Retry lead details
-                  </Button>
-                </div>
-              ) : !visibleDetail ? (
-                <p>Loading lead details…</p>
-              ) : (
-                <LeadDetails
-                  lead={visibleDetail}
-                  onLog={() => setDialogLead(visibleDetail)}
-                />
-              )}
-            </aside>
-          </div>
-        </CardContent>
-      </Card>
+                {!selectedId ? (
+                  <p className="text-sm text-muted-foreground">
+                    Select a lead to view the enquiry and follow-up history.
+                  </p>
+                ) : detailError ? (
+                  <div role="alert">
+                    <p>{detailError}</p>
+                    <Button
+                      variant="outline"
+                      onClick={() => setDetailAttempt((value) => value + 1)}
+                    >
+                      Retry lead details
+                    </Button>
+                  </div>
+                ) : !visibleDetail ? (
+                  <p>Loading lead details…</p>
+                ) : (
+                  <LeadDetails
+                    lead={visibleDetail}
+                    onLog={() => setDialogLead(visibleDetail)}
+                  />
+                )}
+              </aside>
+            </div>
+          </CardContent>
+        </Card>
+      </m.div>
       <p
         role="status"
         aria-live="polite"
         className="mt-4 min-h-6 text-sm font-medium"
       >
-        {notice}
+        <m.span
+          key={notice}
+          className="inline-block"
+          initial={entrance}
+          animate={{ opacity: 1, y: 0 }}
+          transition={transition}
+        >
+          {notice}
+        </m.span>
       </p>
       <footer className="admin-page-footer">
         <span>Keyloop · Sales operations</span>

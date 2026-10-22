@@ -1,3 +1,5 @@
+import { useReducedMotion } from "motion/react";
+import * as m from "motion/react-m";
 import { Button } from "@keyloop-interview/ui/components/button";
 import { formatLeadTime, type LeadDetails as LeadRecord } from "./leads-api";
 
@@ -8,8 +10,14 @@ export function LeadDetails({
   lead: LeadRecord;
   onLog: () => void;
 }) {
+  const reduceMotion = useReducedMotion();
   return (
-    <>
+    <m.div
+      key={lead.id}
+      initial={reduceMotion ? false : { opacity: 0, x: 10 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: reduceMotion ? 0 : 0.2, ease: "easeOut" }}
+    >
       <div className="flex items-start justify-between gap-3">
         <div>
           <p className="admin-eyebrow">LEAD DETAILS</p>
@@ -73,6 +81,6 @@ export function LeadDetails({
           </p>
         )}
       </section>
-    </>
+    </m.div>
   );
 }
