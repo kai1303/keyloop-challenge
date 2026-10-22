@@ -1,6 +1,10 @@
 import { useReducedMotion } from "motion/react";
 import * as m from "motion/react-m";
 import { Button } from "@keyloop-interview/ui/components/button";
+import {
+  Timeline,
+  TimelineItem,
+} from "@keyloop-interview/ui/components/timeline";
 import { formatLeadTime, type LeadDetails as LeadRecord } from "./leads-api";
 
 export function LeadDetails({
@@ -59,12 +63,9 @@ export function LeadDetails({
           Oldest first · Asia/Ho_Chi_Minh
         </p>
         {lead.activities.length ? (
-          <ol className="space-y-5">
+          <Timeline aria-label="Follow-up activities">
             {lead.activities.map((activity) => (
-              <li
-                key={activity.id}
-                className="border-l-2 border-primary/30 pl-4"
-              >
+              <TimelineItem key={activity.id}>
                 <time
                   className="text-xs text-muted-foreground"
                   dateTime={activity.created_at}
@@ -72,9 +73,9 @@ export function LeadDetails({
                   {formatLeadTime(activity.created_at)}
                 </time>
                 <p className="lead-note mt-1">{activity.note}</p>
-              </li>
+              </TimelineItem>
             ))}
-          </ol>
+          </Timeline>
         ) : (
           <p className="text-sm text-muted-foreground">
             No follow-up activities yet.

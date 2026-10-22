@@ -174,6 +174,47 @@ it("opens full enquiry and contact details with an empty history", async () => {
     nav.getByRole("link", { name: "Sales Leads" }).getAttribute("aria-current"),
   ).toBe("page");
 });
+it("renders follow-ups in an accessible chronological timeline", async () => {
+  vi.mocked(getLead).mockResolvedValue({
+    ...alex,
+    activities: [
+      {
+        id: "call-1",
+        lead_id: alex.id,
+        note: "Called customer. Left a voicemail.",
+        created_at: "2030-01-01T02:00:00Z",
+      },
+      {
+        id: "call-2",
+        lead_id: alex.id,
+        note: "Customer called back.\nSaturday works for a test drive.",
+        created_at: "2030-01-01T03:00:00Z",
+      },
+    ],
+  });
+  const user = setup();
+  await user.click(
+    await screen.findByRole("button", { name: "View Alex Morgan" }),
+  );
+  const timeline = await screen.findByRole("list", {
+    name: "Follow-up activities",
+  });
+  expect(timeline.tagName).toBe("OL");
+  const entries = within(timeline).getAllByRole("listitem");
+  expect(entries).toHaveLength(2);
+  expect(entries[0].textContent).toContain(
+    "Called customer. Left a voicemail.",
+  );
+  expect(entries[1].textContent).toContain(
+    "Customer called back.\nSaturday works for a test drive.",
+  );
+  expect(entries[0].querySelector("time")?.dateTime).toBe(
+    "2030-01-01T02:00:00Z",
+  );
+  expect(entries[1].querySelector("time")?.dateTime).toBe(
+    "2030-01-01T03:00:00Z",
+  );
+});
 it("shows a recoverable inbox failure and a separate empty state", async () => {
   vi.mocked(listLeads)
     .mockRejectedValueOnce(new Error("Unavailable"))
