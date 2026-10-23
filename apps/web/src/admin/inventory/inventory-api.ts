@@ -1,3 +1,11 @@
+import { authenticatedFetch } from "../../auth/authenticated-fetch";
+import {
+  DEFAULT_INVENTORY_QUERY,
+  inventorySearchParams,
+  parseInventoryMetadata,
+  type InventoryQuery,
+  type InventoryPage,
+} from "./inventory-query";
 import { createClient } from "@supabase/supabase-js";
 import {
   parseSnapshot,
@@ -18,7 +26,7 @@ async function request(path: string, init: RequestInit = {}): Promise<unknown> {
   const signal = init.signal
     ? AbortSignal.any([init.signal, timeout])
     : timeout;
-  const response = await fetch("/api/inventory" + path, { ...init, signal });
+  const response = await authenticatedFetch("/api/inventory" + path, { ...init, signal });
   const data: unknown = await response.json().catch(() => null);
   if (!response.ok) {
     const message =
@@ -32,8 +40,32 @@ async function request(path: string, init: RequestInit = {}): Promise<unknown> {
   }
   return data;
 }
-export async function getInventory(signal?: AbortSignal) {
-  return parseSnapshot(await request("", { signal }));
+export async function getInventory(
+  query: InventoryQuery = DEFAULT_INVENTORY_QUERY,
+  signal?: AbortSignal,
+): Promise<InventoryPage> {
+  const body = await request("?" + inventorySearchParams(query), { signal });
+  const snapshot = parseSnapshot(body);
+  const page = body as InventoryPage;
+  if (
+    !Number.isInteger(page.pageSize) ||
+    page.pageSize < 1 ||
+    page.pageSize > 100 ||
+    snapshot.vehicles.length > page.pageSize ||
+    !(
+      page.nextCursor === null ||
+      (typeof page.nextCursor === "string" &&
+        /^[A-Za-z0-9_-]{1,4096}$/.test(page.nextCursor))
+    )
+  )
+    throw new Error("Inventory service returned an invalid page");
+  return { ...snapshot, pageSize: page.pageSize, nextCursor: page.nextCursor };
+}
+export async function getInventoryMetadata(signal?: AbortSignal) {
+  return parseInventoryMetadata(await request("/metadata", { signal }));
+}
+export async function getVehicle(id: string, signal?: AbortSignal) {
+  return parseVehicle(await request("/" + encodeURIComponent(id), { signal }));
 }
 export async function saveAction(id: string, draft: ActionDraft) {
   return parseVehicle(

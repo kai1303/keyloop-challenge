@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-22",
+  "scope": "Canonical booking resources, guarded item reads, creation Location, durable creation idempotency, and cursor-paginated leads",
+  "api": {
+    "unit_tests_passed": 118,
+    "http_tests_passed": 71,
+    "disposable_database_integration_tests_passed": 68,
+    "typecheck": "passed",
+    "build": "passed",
+    "lint": "passed without warnings"
+  },
+  "web": {
+    "tests_passed": 180,
+    "tests_skipped": 3,
+    "typecheck_and_build": "passed",
+    "clock_crossing_retry_regression": "failed before fix, passed after fix"
+  },
+  "local_shared_database": {
+    "host": "127.0.0.1",
+    "postgres_port": 55322,
+    "data_api_port": 55321,
+    "migration_applied": "BookingRequests1792713600001",
+    "only_pending_migration_applied": true,
+    "existing_booking_customer_resource_and_lead_hashes_unchanged": true,
+    "pagination_owned_records": 1005,
+    "pagination_pages": 11,
+    "timestamp_ties_and_microsecond_boundaries": "passed without omissions or duplicates",
+    "owned_fixture_cleanup": "passed; original counts and hashes restored"
+  },
+  "temporary_full_api_smoke_test": {
+    "public_booking_collection": 200,
+    "staff_item_without_jwt": 401,
+    "old_calendar_route": 404,
+    "old_creation_route_get": 404,
+    "public_item_lookup": 404,
+    "creation_without_idempotency_key": 400,
+    "temporary_process_stopped": true
+  },
+  "independent_review": "One guest clock-crossing recovery finding fixed and regression-tested; narrow follow-up review found no remaining issues",
+  "documentation_links_whitespace_and_preserved_diagrams": "passed",
+  "limitations": [
+    "Manual browser workflow was not rerun; frontend evidence is automated component and proxy testing.",
+    "No production deployment was performed.",
+    "External callers must adopt the new booking routes, required creation key, and lead page envelope.",
+    "Frontend creation keys survive retries for the mounted form or hook lifetime, not browser reloads."
+  ]
+}

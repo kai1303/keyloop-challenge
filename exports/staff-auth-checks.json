@@ -1,0 +1,211 @@
+{
+  "verifiedAt": "2026-10-22T06:10:23.666Z",
+  "api": "http://127.0.0.1:3006",
+  "frontend": "http://127.0.0.1:5176",
+  "checks": [
+    {
+      "path": "/staff/me",
+      "status": 401
+    },
+    {
+      "path": "/inventory?limit=1",
+      "status": 401
+    },
+    {
+      "path": "/leads",
+      "status": 401
+    },
+    {
+      "path": "/documents",
+      "status": 401
+    },
+    {
+      "path": "/admin/bookings/catalog",
+      "status": 401
+    },
+    {
+      "path": "/mock/sales/documents",
+      "status": 401
+    },
+    {
+      "path": "/admin/bookings/catalog",
+      "status": 401
+    },
+    {
+      "path": "/staff/me",
+      "status": 401
+    },
+    {
+      "path": "/staff/me",
+      "status": 200
+    },
+    {
+      "path": "/admin/bookings/catalog",
+      "status": 200
+    },
+    {
+      "path": "/admin/bookings?date=2026-10-22",
+      "status": 200
+    },
+    {
+      "path": "/inventory?limit=1",
+      "status": 200
+    },
+    {
+      "path": "/leads",
+      "status": 200
+    },
+    {
+      "path": "/documents",
+      "status": 200
+    },
+    {
+      "path": "/mock/sales/documents",
+      "status": 200
+    },
+    {
+      "path": "/staff/me",
+      "status": 401
+    },
+    {
+      "path": "/staff/me",
+      "status": 401
+    },
+    {
+      "role": "admin",
+      "jwtLifetimeSeconds": 300,
+      "proxyBearerForwarded": true,
+      "logoutImmediatelyRevokesJWT": true
+    },
+    {
+      "path": "/staff/me",
+      "status": 401
+    },
+    {
+      "path": "/staff/me",
+      "status": 200
+    },
+    {
+      "path": "/admin/bookings/catalog",
+      "status": 200
+    },
+    {
+      "path": "/admin/bookings?date=2026-10-22",
+      "status": 200
+    },
+    {
+      "path": "/inventory?limit=1",
+      "status": 403
+    },
+    {
+      "path": "/leads",
+      "status": 403
+    },
+    {
+      "path": "/documents",
+      "status": 403
+    },
+    {
+      "path": "/mock/sales/documents",
+      "status": 403
+    },
+    {
+      "path": "/staff/me",
+      "status": 401
+    },
+    {
+      "path": "/staff/me",
+      "status": 401
+    },
+    {
+      "role": "technician",
+      "jwtLifetimeSeconds": 300,
+      "proxyBearerForwarded": true,
+      "logoutImmediatelyRevokesJWT": true
+    },
+    {
+      "path": "/schedule",
+      "status": 200
+    },
+    {
+      "path": "/service-types",
+      "status": 200
+    },
+    {
+      "path": "/calendar-bookings?month=2026-10",
+      "status": 200
+    },
+    {
+      "inventoryAnonymousRead": 401,
+      "staffAuthDataAPI": 406,
+      "inventoryBroadcastDelivered": true,
+      "applicationPayloadFields": [],
+      "transportMetadataFields": [
+        "id"
+      ]
+    }
+  ],
+  "browser": {
+    "adminLoginInventoryLoaded": true,
+    "adminDocuments": {
+      "documents": 8,
+      "sources": [
+        "sales",
+        "service"
+      ]
+    },
+    "logoutReturnsToLogin": true,
+    "technicianLoginBookingDataLoaded": true,
+    "technicianNavigation": [
+      "Bookings"
+    ],
+    "technicianRescheduleAndStatusControlsVisible": true,
+    "technicianDirectInventoryRedirect": "/admin/bookings",
+    "signedOutGuestCalendarLoaded": true,
+    "responsiveSignOutVisible": true,
+    "finalRoute": "/login",
+    "screenshots": [
+      "staff-auth-login.jpg",
+      "staff-auth-admin.jpg",
+      "staff-auth-technician.jpg",
+      "staff-auth-guest.jpg"
+    ]
+  },
+  "validation": {
+    "apiUnitTests": 110,
+    "apiHTTPTests": 68,
+    "apiPostgreSQLIntegrationTests": 57,
+    "webUnitTests": 167,
+    "webLiveInventoryTests": 3,
+    "apiTypecheck": "passed",
+    "apiLint": "passed",
+    "apiBuild": "passed",
+    "webTypecheckAndBuild": "passed",
+    "sharedDatabaseSQL": "passed",
+    "inventorySQL": "passed",
+    "inventoryQuerySQL": "passed",
+    "review": "two session defects reproduced and fixed with regression tests",
+    "followupReview": "Both session fixes verified; no remaining defect found in focused review.",
+    "benchmarkHeaderSelfCheck": "passed; no performance rerun"
+  },
+  "dataPreservation": {
+    "businessTablesMatchingBaselineHashes": 10,
+    "inventoryRows": 1000000,
+    "bookingRows": 4,
+    "leadRows": 3,
+    "activityRows": 4,
+    "migrationHistoryAdditions": {
+      "TypeORM": 1,
+      "SupabaseCLI": 1
+    },
+    "baseline": "post-database-merge snapshot",
+    "fixtureCleanup": "live inventory fixture removed"
+  },
+  "limits": [
+    "Fictional loopback demo; HTTPS/proxy deployment not validated.",
+    "MFA, email delivery/recovery and staff-management UI not implemented.",
+    "Auth rate limiting falls back to a shared per-path bucket locally when client IP is unavailable.",
+    "Old inventory benchmark predates JWT checks; authentication throughput not measured.",
+    "No production or external identity-provider verification."
+  ]
+}

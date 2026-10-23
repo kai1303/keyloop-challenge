@@ -1,0 +1,378 @@
+[
+  {
+    "domain": "DEMAND",
+    "images": [
+      {
+        "alt": "Product Overview",
+        "height": 2806,
+        "src": "https://keyloop.b-cdn.net/app/uploads/2026/01/Homepage_Banner_Dark-Gradient-100-2.jpg",
+        "width": 4996
+      },
+      {
+        "alt": "Screenshot of Keyloop&#039;s Acquisition Hub product on white background.",
+        "height": 1446,
+        "src": "https://keyloop.b-cdn.net/app/uploads/2026/01/Acquisition-Hub_Hero-Image_White@3x-scaled.png",
+        "width": 2560
+      },
+      {
+        "alt": "Interested in learning more about our products?",
+        "height": 150,
+        "src": "data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%20432'%3E%3C/svg%3E",
+        "width": 267
+      },
+      {
+        "alt": "Interested in learning more about our products?",
+        "height": 432,
+        "src": "https://keyloop.b-cdn.net/app/uploads/2026/01/all-solutions-16-9.png",
+        "width": 768
+      }
+    ],
+    "options": [
+      {
+        "checked": false,
+        "label": "\n\t\t\t\t\t\tI am happy to receive emails from Keyloop  \n\t\t\t\t\t\t\n\t\t\t",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "label": "\n\t\t\t\t\t\tI am happy to receive emails from Keyloop  \n\t\t\t\t\t\t\n\t\t\t",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "label": "\n\t\t\t\t\t\tI am happy to receive emails from Keyloop  \n\t\t\t\t\t\t\n\t\t\t",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "label": "\n\t\t\t\t\t\tI am happy to receive emails from Keyloop  \n\t\t\t\t\t\t\n\t\t\t",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "label": "\n\t\t\t\t\t\tI am happy to receive emails from Keyloop  \n\t\t\t\t\t\t\n\t\t\t",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "label": "I am happy to receive emails from Keyloop",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "label": "\n\t\t\t\t\t\tI am happy to receive emails from Keyloop  \n\t\t\t\t\t\t\n\t\t\t",
+        "value": "1"
+      }
+    ],
+    "tabs": [
+      {
+        "background": "linear-gradient(90deg, rgb(108, 130, 221), rgb(53, 176, 238) 30%, rgb(0, 221, 255))",
+        "class": "rounded-lg border px-6 py-2.5 text-xs font-semibold tracking-[0.22em] transition-[box-shadow,border-color,background-color,color] duration-200 ease-in-out hover:shadow-[0_0_28px_var(--kl-glow)] focus:outline-none focus-visible:outline-none shadow-[0_0_36px_var(--kl-glow)] border-0 bg-clip-border bg-gradient-demand text-black",
+        "selected": "true",
+        "text": "DEMAND"
+      },
+      {
+        "background": "linear-gradient(rgb(11, 15, 22), rgb(11, 15, 22)), linear-gradient(90deg, rgb(108, 130, 221), rgb(144, 143, 232) 30%, rgb(179, 156, 243))",
+        "class": "rounded-lg border px-6 py-2.5 text-xs font-semibold tracking-[0.22em] transition-[box-shadow,border-color,background-color,color] duration-200 ease-in-out hover:shadow-[0_0_28px_var(--kl-glow)] focus:outline-none focus-visible:outline-none kl-gradient-border kl-border-supply bg-transparent text-white/90 hover:text-white",
+        "selected": "false",
+        "text": "SUPPLY"
+      },
+      {
+        "background": "linear-gradient(rgb(11, 15, 22), rgb(11, 15, 22)), linear-gradient(90deg, rgb(179, 156, 243), rgb(205, 164, 178) 30%, rgb(230, 172, 116))",
+        "class": "rounded-lg border px-6 py-2.5 text-xs font-semibold tracking-[0.22em] transition-[box-shadow,border-color,background-color,color] duration-200 ease-in-out hover:shadow-[0_0_28px_var(--kl-glow)] focus:outline-none focus-visible:outline-none kl-gradient-border kl-border-ownership bg-transparent text-white/90 hover:text-white",
+        "selected": "false",
+        "text": "OWNERSHIP"
+      },
+      {
+        "background": "linear-gradient(rgb(11, 15, 22), rgb(11, 15, 22)), linear-gradient(90deg, rgb(71, 155, 173), rgb(36, 201, 192) 30%, rgb(0, 246, 210))",
+        "class": "rounded-lg border px-6 py-2.5 text-xs font-semibold tracking-[0.22em] transition-[box-shadow,border-color,background-color,color] duration-200 ease-in-out hover:shadow-[0_0_28px_var(--kl-glow)] focus:outline-none focus-visible:outline-none kl-gradient-border kl-border-operate bg-transparent text-white/90 hover:text-white",
+        "selected": "false",
+        "text": "OPERATE"
+      }
+    ],
+    "text": "Keyloop Product Map\n\nKeyloop offers a wide variety of products to suit your needs, from first customer enquiry to long-term loyalty. At the centre is Fusion, Keyloop’s composable Automotive Retail Platform for retailers, manufacturers, financiers and fleet providers worldwide. It increases customer and vehicle lifetime value by optimising the sales and aftersales process to deliver a first-class omnichannel experience.\n\nTalk to our team\nFusing every element of the ecosystem to increase vehicle and customer lifetime value\n\nWe connect every phase of the automotive retail ecosystem by organising Fusion’s extensive capabilities into four domains:\n\nDEMAND\nSUPPLY\nOWNERSHIP\nOPERATE\nDemand products\n\nThe Demand domain brings together the tools you need to create seamless, data-driven customer journeys. It helps you acquire, convert and retain more customers by connecting marketing, enquiry management and sales into one continuous experience that protects deal profitability.\n\nHubs\nAcquisition Hub\nSales Hub\nProducts\nRetention Hub\nKeyloop Leads\nKeyloop Chat\nExperience\neMaster\nP360\nSales Docs\nenquiryMAX\nMarketing Services\nAcquisition Hub\nThe comprehensive car dealership website solution that brings every step of the digital customer journey into one platform. Turn more browsing into enquiries and appointments.\nIncrease website-to-lead conversion\nReduce drop-off across the journey\nImprove consistency across sites\nTalk to our team\nInterested in learning more about our products?\nPlease select your nearest region\nSelect a region\nAfrica\nAsia\nCanada & United States\nEurope\nUnited Kingdom & Ireland\nOther\nFirst Name *\nLast Name *\nEmail *\nPhone\nCompany *\nJob Title\nAftersales Associate\nAftersales Manager\nFinance Associate\nFinance Manager\nGM/Dealer Principal\nOEM Management\nIT Associate\nIT Manager\nMarketing Associate\nMarketing Manager\nMember Dealer/Prof. Assoc.\nOEM IT\nOEM MGMT\nOEM Zone Manager\nParts Associate\nParts Manager\nSales Associate\nSales Manager\nCountry *\nUnited Kingdom\nIreland\nHow can we help you? *\nI am happy to receive emails from Keyloop\n\nBy completing this form you are permitting Keyloop to process your data in accordance with our privacy notice.\n",
+    "url": "https://keyloop.com/product-overview"
+  },
+  {
+    "domain": "SUPPLY",
+    "images": [
+      {
+        "alt": "Product Overview",
+        "height": 2806,
+        "src": "https://keyloop.b-cdn.net/app/uploads/2026/01/Homepage_Banner_Dark-Gradient-100-2.jpg",
+        "width": 4996
+      },
+      {
+        "alt": "Screenshot of Keyloop&#039;s Vehicle Hub product on white background.",
+        "height": 0,
+        "src": "https://keyloop.b-cdn.net/app/uploads/2026/01/Vehicle-Hub_Hero-Image_White@3x-scaled.png",
+        "width": 0
+      },
+      {
+        "alt": "Interested in learning more about our products?",
+        "height": 150,
+        "src": "data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%20432'%3E%3C/svg%3E",
+        "width": 267
+      },
+      {
+        "alt": "Interested in learning more about our products?",
+        "height": 432,
+        "src": "https://keyloop.b-cdn.net/app/uploads/2026/01/all-solutions-16-9.png",
+        "width": 768
+      }
+    ],
+    "options": [
+      {
+        "checked": false,
+        "label": "\n\t\t\t\t\t\tI am happy to receive emails from Keyloop  \n\t\t\t\t\t\t\n\t\t\t",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "label": "\n\t\t\t\t\t\tI am happy to receive emails from Keyloop  \n\t\t\t\t\t\t\n\t\t\t",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "label": "\n\t\t\t\t\t\tI am happy to receive emails from Keyloop  \n\t\t\t\t\t\t\n\t\t\t",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "label": "\n\t\t\t\t\t\tI am happy to receive emails from Keyloop  \n\t\t\t\t\t\t\n\t\t\t",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "label": "\n\t\t\t\t\t\tI am happy to receive emails from Keyloop  \n\t\t\t\t\t\t\n\t\t\t",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "label": "I am happy to receive emails from Keyloop",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "label": "\n\t\t\t\t\t\tI am happy to receive emails from Keyloop  \n\t\t\t\t\t\t\n\t\t\t",
+        "value": "1"
+      }
+    ],
+    "tabs": [
+      {
+        "background": "linear-gradient(rgb(11, 15, 22), rgb(11, 15, 22)), linear-gradient(90deg, rgb(108, 130, 221), rgb(53, 176, 238) 30%, rgb(0, 221, 255))",
+        "class": "rounded-lg border px-6 py-2.5 text-xs font-semibold tracking-[0.22em] transition-[box-shadow,border-color,background-color,color] duration-200 ease-in-out hover:shadow-[0_0_28px_var(--kl-glow)] focus:outline-none focus-visible:outline-none kl-gradient-border kl-border-demand bg-transparent text-white/90 hover:text-white",
+        "selected": "false",
+        "text": "DEMAND"
+      },
+      {
+        "background": "linear-gradient(90deg, rgb(108, 130, 221), rgb(144, 143, 232) 30%, rgb(179, 156, 243))",
+        "class": "rounded-lg border px-6 py-2.5 text-xs font-semibold tracking-[0.22em] transition-[box-shadow,border-color,background-color,color] duration-200 ease-in-out hover:shadow-[0_0_28px_var(--kl-glow)] focus:outline-none focus-visible:outline-none shadow-[0_0_36px_var(--kl-glow)] border-0 bg-clip-border bg-gradient-supply text-black",
+        "selected": "true",
+        "text": "SUPPLY"
+      },
+      {
+        "background": "linear-gradient(rgb(11, 15, 22), rgb(11, 15, 22)), linear-gradient(90deg, rgb(179, 156, 243), rgb(205, 164, 178) 30%, rgb(230, 172, 116))",
+        "class": "rounded-lg border px-6 py-2.5 text-xs font-semibold tracking-[0.22em] transition-[box-shadow,border-color,background-color,color] duration-200 ease-in-out hover:shadow-[0_0_28px_var(--kl-glow)] focus:outline-none focus-visible:outline-none kl-gradient-border kl-border-ownership bg-transparent text-white/90 hover:text-white",
+        "selected": "false",
+        "text": "OWNERSHIP"
+      },
+      {
+        "background": "linear-gradient(rgb(11, 15, 22), rgb(11, 15, 22)), linear-gradient(90deg, rgb(71, 155, 173), rgb(36, 201, 192) 30%, rgb(0, 246, 210))",
+        "class": "rounded-lg border px-6 py-2.5 text-xs font-semibold tracking-[0.22em] transition-[box-shadow,border-color,background-color,color] duration-200 ease-in-out hover:shadow-[0_0_28px_var(--kl-glow)] focus:outline-none focus-visible:outline-none kl-gradient-border kl-border-operate bg-transparent text-white/90 hover:text-white",
+        "selected": "false",
+        "text": "OPERATE"
+      }
+    ],
+    "text": "Keyloop Product Map\n\nKeyloop offers a wide variety of products to suit your needs, from first customer enquiry to long-term loyalty. At the centre is Fusion, Keyloop’s composable Automotive Retail Platform for retailers, manufacturers, financiers and fleet providers worldwide. It increases customer and vehicle lifetime value by optimising the sales and aftersales process to deliver a first-class omnichannel experience.\n\nTalk to our team\nFusing every element of the ecosystem to increase vehicle and customer lifetime value\n\nWe connect every phase of the automotive retail ecosystem by organising Fusion’s extensive capabilities into four domains:\n\nDEMAND\nSUPPLY\nOWNERSHIP\nOPERATE\nSupply products\n\nThe Supply domain helps you achieve maximum profit per vehicle by giving you real-time control of every type of stock. It helps you manage, optimise and distribute inventory intelligently, so you can improve stock turn, protect margins and support sustainable growth across all channels and locations.\n\nHubs\nVehicle Hub\nProducts\nFleetbase\nAsset Risk Management - Forecast\nAsset Risk Management - Recalc\nVehicle Hub\nIntelligent inventory management software that simplifies and automates a vehicle’s journey through your organisation. Helping you to see reliably, market accurately and sell quickly.\nReduce manual updates from intake to live listings\nImprove stock turn and protect margin on aged units\nMinimise vehicle data errors across channels\nTalk to our team\nInterested in learning more about our products?\nPlease select your nearest region\nSelect a region\nAfrica\nAsia\nCanada & United States\nEurope\nUnited Kingdom & Ireland\nOther\nFirst Name *\nLast Name *\nEmail *\nPhone\nCompany *\nJob Title\nAftersales Associate\nAftersales Manager\nFinance Associate\nFinance Manager\nGM/Dealer Principal\nOEM Management\nIT Associate\nIT Manager\nMarketing Associate\nMarketing Manager\nMember Dealer/Prof. Assoc.\nOEM IT\nOEM MGMT\nOEM Zone Manager\nParts Associate\nParts Manager\nSales Associate\nSales Manager\nCountry *\nUnited Kingdom\nIreland\nHow can we help you? *\nI am happy to receive emails from Keyloop\n\nBy completing this form you are permitting Keyloop to process your data in accordance with our privacy notice.\n",
+    "url": "https://keyloop.com/product-overview"
+  },
+  {
+    "domain": "OWNERSHIP",
+    "images": [
+      {
+        "alt": "Product Overview",
+        "height": 2806,
+        "src": "https://keyloop.b-cdn.net/app/uploads/2026/01/Homepage_Banner_Dark-Gradient-100-2.jpg",
+        "width": 4996
+      },
+      {
+        "alt": "Screenshot of Keyloop&#039;s Service Hub product on white background.",
+        "height": 0,
+        "src": "https://keyloop.b-cdn.net/app/uploads/2026/01/Service-Hub_Hero-Image_White@3x-scaled.png",
+        "width": 0
+      },
+      {
+        "alt": "Interested in learning more about our products?",
+        "height": 150,
+        "src": "data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%20432'%3E%3C/svg%3E",
+        "width": 267
+      },
+      {
+        "alt": "Interested in learning more about our products?",
+        "height": 432,
+        "src": "https://keyloop.b-cdn.net/app/uploads/2026/01/all-solutions-16-9.png",
+        "width": 768
+      }
+    ],
+    "options": [
+      {
+        "checked": false,
+        "label": "\n\t\t\t\t\t\tI am happy to receive emails from Keyloop  \n\t\t\t\t\t\t\n\t\t\t",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "label": "\n\t\t\t\t\t\tI am happy to receive emails from Keyloop  \n\t\t\t\t\t\t\n\t\t\t",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "label": "\n\t\t\t\t\t\tI am happy to receive emails from Keyloop  \n\t\t\t\t\t\t\n\t\t\t",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "label": "\n\t\t\t\t\t\tI am happy to receive emails from Keyloop  \n\t\t\t\t\t\t\n\t\t\t",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "label": "\n\t\t\t\t\t\tI am happy to receive emails from Keyloop  \n\t\t\t\t\t\t\n\t\t\t",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "label": "I am happy to receive emails from Keyloop",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "label": "\n\t\t\t\t\t\tI am happy to receive emails from Keyloop  \n\t\t\t\t\t\t\n\t\t\t",
+        "value": "1"
+      }
+    ],
+    "tabs": [
+      {
+        "background": "linear-gradient(rgb(11, 15, 22), rgb(11, 15, 22)), linear-gradient(90deg, rgb(108, 130, 221), rgb(53, 176, 238) 30%, rgb(0, 221, 255))",
+        "class": "rounded-lg border px-6 py-2.5 text-xs font-semibold tracking-[0.22em] transition-[box-shadow,border-color,background-color,color] duration-200 ease-in-out hover:shadow-[0_0_28px_var(--kl-glow)] focus:outline-none focus-visible:outline-none kl-gradient-border kl-border-demand bg-transparent text-white/90 hover:text-white",
+        "selected": "false",
+        "text": "DEMAND"
+      },
+      {
+        "background": "linear-gradient(rgb(11, 15, 22), rgb(11, 15, 22)), linear-gradient(90deg, rgb(108, 130, 221), rgb(144, 143, 232) 30%, rgb(179, 156, 243))",
+        "class": "rounded-lg border px-6 py-2.5 text-xs font-semibold tracking-[0.22em] transition-[box-shadow,border-color,background-color,color] duration-200 ease-in-out hover:shadow-[0_0_28px_var(--kl-glow)] focus:outline-none focus-visible:outline-none kl-gradient-border kl-border-supply bg-transparent text-white/90 hover:text-white",
+        "selected": "false",
+        "text": "SUPPLY"
+      },
+      {
+        "background": "linear-gradient(90deg, rgb(179, 156, 243), rgb(205, 164, 178) 30%, rgb(230, 172, 116))",
+        "class": "rounded-lg border px-6 py-2.5 text-xs font-semibold tracking-[0.22em] transition-[box-shadow,border-color,background-color,color] duration-200 ease-in-out hover:shadow-[0_0_28px_var(--kl-glow)] focus:outline-none focus-visible:outline-none shadow-[0_0_36px_var(--kl-glow)] border-0 bg-clip-border bg-gradient-ownership text-black",
+        "selected": "true",
+        "text": "OWNERSHIP"
+      },
+      {
+        "background": "linear-gradient(rgb(11, 15, 22), rgb(11, 15, 22)), linear-gradient(90deg, rgb(71, 155, 173), rgb(36, 201, 192) 30%, rgb(0, 246, 210))",
+        "class": "rounded-lg border px-6 py-2.5 text-xs font-semibold tracking-[0.22em] transition-[box-shadow,border-color,background-color,color] duration-200 ease-in-out hover:shadow-[0_0_28px_var(--kl-glow)] focus:outline-none focus-visible:outline-none kl-gradient-border kl-border-operate bg-transparent text-white/90 hover:text-white",
+        "selected": "false",
+        "text": "OPERATE"
+      }
+    ],
+    "text": "Keyloop Product Map\n\nKeyloop offers a wide variety of products to suit your needs, from first customer enquiry to long-term loyalty. At the centre is Fusion, Keyloop’s composable Automotive Retail Platform for retailers, manufacturers, financiers and fleet providers worldwide. It increases customer and vehicle lifetime value by optimising the sales and aftersales process to deliver a first-class omnichannel experience.\n\nTalk to our team\nFusing every element of the ecosystem to increase vehicle and customer lifetime value\n\nWe connect every phase of the automotive retail ecosystem by organising Fusion’s extensive capabilities into four domains:\n\nDEMAND\nSUPPLY\nOWNERSHIP\nOPERATE\nOwnership products\n\nThe Ownership domain delivers the ultimate balance of internal workshop management and external aftersales engagement. It helps you grow, maximise and engage by increasing workshop yield, maximising technician productivity and keeping customers connected through convenient, omnichannel service experiences.\n\nHubs\nService Hub\nProducts\nService Docs\nService Hub\nThe aftersales journey solution that streamlines everything from booking to completion. Boost technician productivity, increase repair order value and deliver a frictionless customer experience.\nImprove workshop throughput and utilisation\nIncrease repair order value\nReduce customer friction and drop-off\nTalk to our team\nInterested in learning more about our products?\nPlease select your nearest region\nSelect a region\nAfrica\nAsia\nCanada & United States\nEurope\nUnited Kingdom & Ireland\nOther\nFirst Name *\nLast Name *\nEmail *\nPhone\nCompany *\nJob Title\nAftersales Associate\nAftersales Manager\nFinance Associate\nFinance Manager\nGM/Dealer Principal\nOEM Management\nIT Associate\nIT Manager\nMarketing Associate\nMarketing Manager\nMember Dealer/Prof. Assoc.\nOEM IT\nOEM MGMT\nOEM Zone Manager\nParts Associate\nParts Manager\nSales Associate\nSales Manager\nCountry *\nUnited Kingdom\nIreland\nHow can we help you? *\nI am happy to receive emails from Keyloop\n\nBy completing this form you are permitting Keyloop to process your data in accordance with our privacy notice.\n",
+    "url": "https://keyloop.com/product-overview"
+  },
+  {
+    "domain": "OPERATE",
+    "images": [
+      {
+        "alt": "Product Overview",
+        "height": 2806,
+        "src": "https://keyloop.b-cdn.net/app/uploads/2026/01/Homepage_Banner_Dark-Gradient-100-2.jpg",
+        "width": 4996
+      },
+      {
+        "alt": "A group of people talking around a desk in a car showroom.",
+        "height": 0,
+        "src": "https://keyloop.b-cdn.net/app/uploads/2026/01/Operate_Drive_02-1.png",
+        "width": 0
+      },
+      {
+        "alt": "Interested in learning more about our products?",
+        "height": 150,
+        "src": "data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%20432'%3E%3C/svg%3E",
+        "width": 267
+      },
+      {
+        "alt": "Interested in learning more about our products?",
+        "height": 432,
+        "src": "https://keyloop.b-cdn.net/app/uploads/2026/01/all-solutions-16-9.png",
+        "width": 768
+      }
+    ],
+    "options": [
+      {
+        "checked": false,
+        "label": "\n\t\t\t\t\t\tI am happy to receive emails from Keyloop  \n\t\t\t\t\t\t\n\t\t\t",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "label": "\n\t\t\t\t\t\tI am happy to receive emails from Keyloop  \n\t\t\t\t\t\t\n\t\t\t",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "label": "\n\t\t\t\t\t\tI am happy to receive emails from Keyloop  \n\t\t\t\t\t\t\n\t\t\t",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "label": "\n\t\t\t\t\t\tI am happy to receive emails from Keyloop  \n\t\t\t\t\t\t\n\t\t\t",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "label": "\n\t\t\t\t\t\tI am happy to receive emails from Keyloop  \n\t\t\t\t\t\t\n\t\t\t",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "label": "I am happy to receive emails from Keyloop",
+        "value": "1"
+      },
+      {
+        "checked": false,
+        "label": "\n\t\t\t\t\t\tI am happy to receive emails from Keyloop  \n\t\t\t\t\t\t\n\t\t\t",
+        "value": "1"
+      }
+    ],
+    "tabs": [
+      {
+        "background": "linear-gradient(rgb(11, 15, 22), rgb(11, 15, 22)), linear-gradient(90deg, rgb(108, 130, 221), rgb(53, 176, 238) 30%, rgb(0, 221, 255))",
+        "class": "rounded-lg border px-6 py-2.5 text-xs font-semibold tracking-[0.22em] transition-[box-shadow,border-color,background-color,color] duration-200 ease-in-out hover:shadow-[0_0_28px_var(--kl-glow)] focus:outline-none focus-visible:outline-none kl-gradient-border kl-border-demand bg-transparent text-white/90 hover:text-white",
+        "selected": "false",
+        "text": "DEMAND"
+      },
+      {
+        "background": "linear-gradient(rgb(11, 15, 22), rgb(11, 15, 22)), linear-gradient(90deg, rgb(108, 130, 221), rgb(144, 143, 232) 30%, rgb(179, 156, 243))",
+        "class": "rounded-lg border px-6 py-2.5 text-xs font-semibold tracking-[0.22em] transition-[box-shadow,border-color,background-color,color] duration-200 ease-in-out hover:shadow-[0_0_28px_var(--kl-glow)] focus:outline-none focus-visible:outline-none kl-gradient-border kl-border-supply bg-transparent text-white/90 hover:text-white",
+        "selected": "false",
+        "text": "SUPPLY"
+      },
+      {
+        "background": "linear-gradient(rgb(11, 15, 22), rgb(11, 15, 22)), linear-gradient(90deg, rgb(179, 156, 243), rgb(205, 164, 178) 30%, rgb(230, 172, 116))",
+        "class": "rounded-lg border px-6 py-2.5 text-xs font-semibold tracking-[0.22em] transition-[box-shadow,border-color,background-color,color] duration-200 ease-in-out hover:shadow-[0_0_28px_var(--kl-glow)] focus:outline-none focus-visible:outline-none kl-gradient-border kl-border-ownership bg-transparent text-white/90 hover:text-white",
+        "selected": "false",
+        "text": "OWNERSHIP"
+      },
+      {
+        "background": "linear-gradient(90deg, rgb(71, 155, 173), rgb(36, 201, 192) 30%, rgb(0, 246, 210))",
+        "class": "rounded-lg border px-6 py-2.5 text-xs font-semibold tracking-[0.22em] transition-[box-shadow,border-color,background-color,color] duration-200 ease-in-out hover:shadow-[0_0_28px_var(--kl-glow)] focus:outline-none focus-visible:outline-none shadow-[0_0_36px_var(--kl-glow)] border-0 bg-clip-border bg-gradient-operate text-black",
+        "selected": "true",
+        "text": "OPERATE"
+      }
+    ],
+    "text": "Keyloop Product Map\n\nKeyloop offers a wide variety of products to suit your needs, from first customer enquiry to long-term loyalty. At the centre is Fusion, Keyloop’s composable Automotive Retail Platform for retailers, manufacturers, financiers and fleet providers worldwide. It increases customer and vehicle lifetime value by optimising the sales and aftersales process to deliver a first-class omnichannel experience.\n\nTalk to our team\nFusing every element of the ecosystem to increase vehicle and customer lifetime value\n\nWe connect every phase of the automotive retail ecosystem by organising Fusion’s extensive capabilities into four domains:\n\nDEMAND\nSUPPLY\nOWNERSHIP\nOPERATE\nOperate products\n\nThe Operate domain underpins your business with peak operational efficiency. It helps you connect, enable and account for your financial transparency by unifying systems, enabling real-time data flow and simplifying financial control. This reduces rekeying, improves accuracy and gives you the agility to adapt quickly to change.\n\nProducts\nDrive\nAutoline\nEva\nEva+\nAswin\nWindrakkar\nAutomaster\nSerti\nDracar+\nVEGA\nDrive\nThe cloud-based SaaS platform that delivers the full power of Autoline and connects sales, service and finance in one modern DMS. Scale easily, update faster and reduce IT overheads.\nReduce IT overhead and infrastructure complexity\nScale across sites more easily\nStay current with faster updates\nTalk to our team\nInterested in learning more about our products?\nPlease select your nearest region\nSelect a region\nAfrica\nAsia\nCanada & United States\nEurope\nUnited Kingdom & Ireland\nOther\nFirst Name *\nLast Name *\nEmail *\nPhone\nCompany *\nJob Title\nAftersales Associate\nAftersales Manager\nFinance Associate\nFinance Manager\nGM/Dealer Principal\nOEM Management\nIT Associate\nIT Manager\nMarketing Associate\nMarketing Manager\nMember Dealer/Prof. Assoc.\nOEM IT\nOEM MGMT\nOEM Zone Manager\nParts Associate\nParts Manager\nSales Associate\nSales Manager\nCountry *\nUnited Kingdom\nIreland\nHow can we help you? *\nI am happy to receive emails from Keyloop\n\nBy completing this form you are permitting Keyloop to process your data in accordance with our privacy notice.\n",
+    "url": "https://keyloop.com/product-overview"
+  }
+]

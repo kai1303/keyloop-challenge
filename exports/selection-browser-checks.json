@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-21",
+  "checks": [
+    "Mixed checkbox exposes mixed semantics and the minus icon",
+    "Checkbox toggles with Space",
+    "Mixed checkbox becomes checked on activation",
+    "Switch toggles with Space",
+    "Toggle button exposes pressed state after keyboard activation",
+    "Disabled checkbox, switch and toggle examples expose disabled controls",
+    "Invalid checkbox has associated error text"
+  ]
+}

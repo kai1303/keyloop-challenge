@@ -1,0 +1,155 @@
+{
+  "startedAt": "2026-10-22T06:45:53.175Z",
+  "api": "http://127.0.0.1:3006",
+  "database": "local55322/postgres",
+  "before": {
+    "users": {
+      "count": 3,
+      "hash": "6a35bf23387b027081c858951661e9c9c3715cf7dd6fd1c730818827453b6409"
+    },
+    "vehicles": {
+      "count": 3,
+      "hash": "c23fa42a9b84f72755b78ff10dfc083a36d2b4a02443ad9bbec2c4af3baa5859"
+    },
+    "service_bookings": {
+      "count": 4,
+      "hash": "33713bd1236815f9119877db00aa3f841de7f3d3af4af56987d1afc2108d36d0"
+    }
+  },
+  "cases": [
+    {
+      "name": "HTTP auto matching persists qualified independent resource pairs",
+      "status": "PASS",
+      "evidence": {
+        "http": [
+          201,
+          201
+        ],
+        "qualified": true,
+        "distinctResources": true
+      }
+    },
+    {
+      "name": "Ten simultaneous confirmations produce one winner",
+      "status": "PASS",
+      "evidence": {
+        "requests": 10,
+        "http201": 1,
+        "http409": 9
+      }
+    },
+    {
+      "name": "Reschedule rolls back conflicts, rejects stale versions and cancellation releases claims",
+      "status": "PASS",
+      "evidence": {
+        "version": 2,
+        "occupiedMoveHttp": 409,
+        "staleEditHttp": 409,
+        "rebookHttp": 201
+      }
+    },
+    {
+      "name": "Racing reschedule and create cannot share destination",
+      "status": "PASS",
+      "evidence": {
+        "winners": 1,
+        "conflicts": 1
+      }
+    },
+    {
+      "name": "An in-flight slot CAS does not block another hour or date for the same resources",
+      "status": "PASS",
+      "evidence": {
+        "observedSlotWaiters": 1,
+        "otherHourHttp": 201,
+        "otherDateHttp": 201
+      }
+    },
+    {
+      "name": "Service and completion statuses retain occupied slots",
+      "status": "PASS",
+      "evidence": {
+        "completedVersion": 3,
+        "occupiedHttp": 409,
+        "fixtureCorrection": "Retested with email local part below 64 characters"
+      }
+    },
+    {
+      "name": "No explicit pessimistic SQL remains in booking runtime",
+      "status": "PASS",
+      "evidence": {
+        "explicitPessimisticLocks": 0
+      }
+    },
+    {
+      "name": "Browser confirmation and realtime occupied-slot update",
+      "status": "PASS",
+      "evidence": {
+        "confirmationModal": true,
+        "peerConfirmDisabled": true,
+        "peerFieldsRetained": true,
+        "broadcastSequence": 53,
+        "availabilityRefetchSequence": 55,
+        "calendarRefetchSequence": 56
+      }
+    },
+    {
+      "name": "Browser guest booking persists matching resources and optimistic claims",
+      "status": "PASS",
+      "evidence": {
+        "bookingId": "41242f1d-fd3e-4006-a44a-90552395ca0a",
+        "resourceClaims": 2,
+        "slotHour": 13
+      }
+    }
+  ],
+  "migration": {
+    "applied": [
+      "OptimisticSlots1792713600000"
+    ],
+    "originalDataUnchanged": true,
+    "claims": {
+      "rows": 10,
+      "total_occupancy": 12,
+      "shared_legacy_rows": 2
+    }
+  },
+  "date": "2026-10-26",
+  "nextDate": "2026-10-27",
+  "runId": "optimistic-bf470bbf-7fc0-4819-936e-712ec32b7ba7",
+  "timeZone": "UTC",
+  "services": {
+    "oil": "00000000-0000-4000-8000-000000000001",
+    "inspection": "00000000-0000-4000-8000-000000000002"
+  },
+  "cleanup": {
+    "bookings": 12,
+    "originalDataUnchanged": true
+  },
+  "after": {
+    "users": {
+      "count": 3,
+      "hash": "6a35bf23387b027081c858951661e9c9c3715cf7dd6fd1c730818827453b6409"
+    },
+    "vehicles": {
+      "count": 3,
+      "hash": "c23fa42a9b84f72755b78ff10dfc083a36d2b4a02443ad9bbec2c4af3baa5859"
+    },
+    "service_bookings": {
+      "count": 4,
+      "hash": "33713bd1236815f9119877db00aa3f841de7f3d3af4af56987d1afc2108d36d0"
+    }
+  },
+  "verification": {
+    "unit": 111,
+    "http": 68,
+    "postgresIntegration": 62,
+    "typecheck": "PASS",
+    "lint": "PASS",
+    "build": "PASS",
+    "specReview": "PASS",
+    "qualityReview": "PASS after DST correction",
+    "privateAdminWithoutSession": 401,
+    "cleanupUiAvailabilityRestored": true
+  }
+}

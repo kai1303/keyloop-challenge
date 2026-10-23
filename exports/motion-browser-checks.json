@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-21",
+  "checks": [
+    "Modal autofocus works with the lightweight Motion renderer",
+    "Animated dialog keeps keyboard focus trapped",
+    "Cancel exit releases pointer events and restores trigger focus",
+    "Save updates the displayed name after its exit transition",
+    "Reduced motion removes modal fade, scale and translation",
+    "Reduced-motion Escape exit cleans up and restores focus"
+  ],
+  "reducedMotionOverrideRestored": true,
+  "consoleErrors": 0
+}

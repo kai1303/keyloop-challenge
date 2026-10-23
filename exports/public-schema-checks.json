@@ -1,0 +1,70 @@
+{
+  "verifiedAt": "2026-10-23T04:28:19.560361+00:00",
+  "scope": "local shared keyloop-inventory-local database; no production deployment",
+  "migration": [
+    "PublicSchema1792800000000"
+  ],
+  "applicationNamespace": "public",
+  "publicTablesIncludingMigrationHistory": 19,
+  "movedTables": 15,
+  "preservedApplicationTables": 18,
+  "inventoryRows": 1000000,
+  "rowHashesAndTableOidsUnchanged": true,
+  "stockTable": "public.vehicles",
+  "customerVehicleTable": "public.booking_vehicles",
+  "oldApplicationSchemasRemoved": [
+    "scheduler",
+    "staff_auth"
+  ],
+  "browserAccessDeniedTables": [
+    "users",
+    "booking_vehicles",
+    "service_types",
+    "technicians",
+    "service_bays",
+    "technician_service_types",
+    "service_bookings",
+    "resource_slots",
+    "booking_requests",
+    "user",
+    "session",
+    "account",
+    "verification",
+    "jwks",
+    "rateLimit"
+  ],
+  "existingStaffSessionVerified": true,
+  "publicApiRoutes": [
+    "/schedule",
+    "/service-types",
+    "/bookings?month=2031-01",
+    "/availability/slots"
+  ],
+  "staffApiRoutes": [
+    "/staff/me",
+    "/admin/bookings/catalog",
+    "/admin/bookings?date=2031-01-02",
+    "/inventory/metadata",
+    "/leads?limit=1"
+  ],
+  "liveBookingRealtimeBroadcast": true,
+  "realtimeNote": "First cold-start subscription missed a message during Broadcast replication initialization; verification passed after replication readiness. No application realtime behavior changed.",
+  "backupDirectory": ".local/schema-merge/20261023T041228Z",
+  "backupRestore": "Application archive restored into isolated PostgreSQL; all 18 restored/migrated application hashes matched live originals. Full platform disaster recovery was not tested.",
+  "freshSupabaseTypeormMigrations": 10,
+  "tests": {
+    "apiUnit": 118,
+    "apiHttp": 71,
+    "postgresIntegration": 70,
+    "web": 180,
+    "webSkipped": 3
+  },
+  "checks": [
+    "API build",
+    "web build",
+    "API typecheck",
+    "API lint",
+    "shared-database SQL privacy/trigger assertions"
+  ],
+  "manualBrowserWalkthrough": false
+}

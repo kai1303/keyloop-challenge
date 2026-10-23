@@ -64,7 +64,7 @@ afterAll(async () => {
 });
 it('sorts inbox leads newest first', async () => {
   const response = await request(app.getHttpServer()).get('/leads').expect(200);
-  const ids = response.body.map((lead: { id: string }) => lead.id);
+  const ids = response.body.leads.map((lead: { id: string }) => lead.id);
   expect(ids.indexOf(leadA)).toBeLessThan(ids.indexOf(leadB));
 });
 it('preserves concurrent appends, isolates leads, and deduplicates concurrent retries', async () => {

@@ -1,0 +1,181 @@
+{
+  "startedAt": "2026-10-22T07:17:38.079Z",
+  "api": "http://127.0.0.1:3006",
+  "database": "local55322/postgres",
+  "before": {
+    "users": {
+      "count": 3,
+      "hash": "6a35bf23387b027081c858951661e9c9c3715cf7dd6fd1c730818827453b6409"
+    },
+    "vehicles": {
+      "count": 3,
+      "hash": "c23fa42a9b84f72755b78ff10dfc083a36d2b4a02443ad9bbec2c4af3baa5859"
+    },
+    "service_bookings": {
+      "count": 4,
+      "hash": "33713bd1236815f9119877db00aa3f841de7f3d3af4af56987d1afc2108d36d0"
+    }
+  },
+  "slotsBefore": {
+    "rows": 10,
+    "occupancy": 12,
+    "shared": 2
+  },
+  "cases": [
+    {
+      "name": "HTTP auto matching persists qualified independent resource pairs",
+      "status": "PASS",
+      "evidence": {
+        "http": [
+          201,
+          201
+        ],
+        "qualified": true,
+        "distinctResources": true
+      }
+    },
+    {
+      "name": "Ten simultaneous confirmations produce one winner",
+      "status": "PASS",
+      "evidence": {
+        "requests": 10,
+        "http201": 1,
+        "http409": 9
+      }
+    },
+    {
+      "name": "Reschedule rolls back conflicts, rejects stale versions and cancellation releases claims",
+      "status": "PASS",
+      "evidence": {
+        "version": 2,
+        "occupiedMoveHttp": 409,
+        "staleEditHttp": 409,
+        "rebookHttp": 201
+      }
+    },
+    {
+      "name": "Racing reschedule and create cannot share destination",
+      "status": "PASS",
+      "evidence": {
+        "winners": 1,
+        "conflicts": 1
+      }
+    },
+    {
+      "name": "An in-flight slot CAS does not block another hour or date for the same resources",
+      "status": "PASS",
+      "evidence": {
+        "observedSlotWaiters": 1,
+        "otherHourHttp": 201,
+        "otherDateHttp": 201
+      }
+    },
+    {
+      "name": "Service and completion statuses retain occupied slots",
+      "status": "PASS",
+      "evidence": {
+        "completedVersion": 3,
+        "occupiedHttp": 409
+      }
+    },
+    {
+      "name": "No explicit pessimistic SQL remains in booking runtime",
+      "status": "PASS",
+      "evidence": {
+        "explicitPessimisticLocks": 0
+      }
+    },
+    {
+      "name": "Two-browser Realtime disables occupied slot without reload",
+      "status": "PASS",
+      "evidence": {
+        "peerConfirmDisabled": true,
+        "selectedTime": "13:00 · Fully booked",
+        "network": [
+          {
+            "method": "Network.webSocketFrameReceived",
+            "sequence": 35,
+            "availabilityChanged": true
+          },
+          {
+            "method": "Network.webSocketFrameReceived",
+            "sequence": 36,
+            "availabilityChanged": true
+          },
+          {
+            "method": "Network.requestWillBeSent",
+            "sequence": 37,
+            "url": "/guest-booking-api/availability/slots"
+          },
+          {
+            "method": "Network.requestWillBeSent",
+            "sequence": 38,
+            "url": "/guest-booking-api/calendar-bookings"
+          }
+        ],
+        "screenshot": "exports/optimistic-booking-retest-confirmed.png",
+        "reenabledAfterCleanup": true
+      }
+    },
+    {
+      "name": "Browser guest booking persists matching resources and optimistic claims",
+      "status": "PASS",
+      "evidence": {
+        "bookingId": "a098f952-50c8-4378-94aa-a82fbce1c1a1",
+        "resourceClaims": 2,
+        "slotHour": 13
+      }
+    }
+  ],
+  "date": "2026-10-26",
+  "nextDate": "2026-10-27",
+  "runId": "optimistic-92afe737-f2dd-4a90-8e8f-3d4bb44cd970",
+  "timeZone": "UTC",
+  "services": {
+    "oil": "00000000-0000-4000-8000-000000000001",
+    "inspection": "00000000-0000-4000-8000-000000000002"
+  },
+  "cleanup": {
+    "bookings": 11,
+    "originalDataUnchanged": true
+  },
+  "after": {
+    "users": {
+      "count": 3,
+      "hash": "6a35bf23387b027081c858951661e9c9c3715cf7dd6fd1c730818827453b6409"
+    },
+    "vehicles": {
+      "count": 3,
+      "hash": "c23fa42a9b84f72755b78ff10dfc083a36d2b4a02443ad9bbec2c4af3baa5859"
+    },
+    "service_bookings": {
+      "count": 4,
+      "hash": "33713bd1236815f9119877db00aa3f841de7f3d3af4af56987d1afc2108d36d0"
+    }
+  },
+  "slotsAfter": {
+    "rows": 10,
+    "occupancy": 12,
+    "shared": 2
+  },
+  "automated": {
+    "apiUnit": {
+      "passed": 111
+    },
+    "apiHttp": {
+      "passed": 68
+    },
+    "postgresIntegration": {
+      "passed": 62
+    },
+    "web": {
+      "passed": 172,
+      "skipped": 3,
+      "skipReason": "Opt-in inventory live tests"
+    },
+    "apiTypecheck": "PASS",
+    "apiLint": "PASS",
+    "webTypecheck": "PASS"
+  },
+  "completedAt": "2026-10-22T07:19:13.755Z"
+}

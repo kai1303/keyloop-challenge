@@ -1,0 +1,656 @@
+{
+  "headings": [
+    {
+      "tag": "H1",
+      "text": "Keyloop DMS"
+    },
+    {
+      "tag": "H2",
+      "text": "Join the companies transforming their operations with Keyloop’s Dealer Management Systems."
+    },
+    {
+      "tag": "H4",
+      "text": "Stephen Lay"
+    },
+    {
+      "tag": "H2",
+      "text": "Connected retail through dealer management excellence."
+    },
+    {
+      "tag": "H3",
+      "text": "Data sharing and insights"
+    },
+    {
+      "tag": "H3",
+      "text": "Digital transformation"
+    },
+    {
+      "tag": "H3",
+      "text": "Choice and flexibility"
+    },
+    {
+      "tag": "H3",
+      "text": "A future-proof platform"
+    },
+    {
+      "tag": "H2",
+      "text": "Refining operations for your automotive retail group"
+    },
+    {
+      "tag": "H2",
+      "text": "The global technology platform of choice"
+    },
+    {
+      "tag": "H3",
+      "text": "Designed for today’s dynamic automotive era and changing consumer priorities – deliver experiences that foster loyalty and growth."
+    },
+    {
+      "tag": "H3",
+      "text": "Real-time connectivity between every department"
+    },
+    {
+      "tag": "H3",
+      "text": "Continuous 360° consumer view"
+    },
+    {
+      "tag": "H3",
+      "text": "Powerful integrations"
+    },
+    {
+      "tag": "H3",
+      "text": "Seamless omnichannel journeys"
+    },
+    {
+      "tag": "H1",
+      "text": "A connected foundation for dealership operations"
+    },
+    {
+      "tag": "H2",
+      "text": ""
+    },
+    {
+      "tag": "H3",
+      "text": "Keyloop DMS"
+    },
+    {
+      "tag": "H4",
+      "text": "Products"
+    },
+    {
+      "tag": "H3",
+      "text": "Drive"
+    },
+    {
+      "tag": "H2",
+      "text": "Features you can trust"
+    },
+    {
+      "tag": "H3",
+      "text": "Schedule test drives"
+    },
+    {
+      "tag": "H3",
+      "text": "Open APIs"
+    },
+    {
+      "tag": "H3",
+      "text": "Easy trade-ins"
+    },
+    {
+      "tag": "H3",
+      "text": "Manufacturer and retailer incentives"
+    },
+    {
+      "tag": "H3",
+      "text": "Integrations"
+    },
+    {
+      "tag": "H3",
+      "text": "Complaint management"
+    },
+    {
+      "tag": "H3",
+      "text": "Campaign management"
+    },
+    {
+      "tag": "H3",
+      "text": "Customised invoicing"
+    },
+    {
+      "tag": "H3",
+      "text": "Stock segmentation"
+    },
+    {
+      "tag": "H3",
+      "text": "FIFO (first in - first out)"
+    },
+    {
+      "tag": "H3",
+      "text": "Single ledger accounting"
+    },
+    {
+      "tag": "H3",
+      "text": "Accountability and compliance"
+    },
+    {
+      "tag": "H2",
+      "text": "Retail got harder, your DMS should make things simple."
+    },
+    {
+      "tag": "H2",
+      "text": "The evolution of the Dealer Management System"
+    },
+    {
+      "tag": "H2",
+      "text": "Keyloop's global impact"
+    },
+    {
+      "tag": "H3",
+      "text": "80+"
+    },
+    {
+      "tag": "H3",
+      "text": "90+"
+    },
+    {
+      "tag": "H3",
+      "text": "20k+"
+    },
+    {
+      "tag": "H3",
+      "text": "20m+"
+    },
+    {
+      "tag": "H3",
+      "text": "1b+"
+    },
+    {
+      "tag": "H2",
+      "text": "Brands we work with"
+    },
+    {
+      "tag": "H2",
+      "text": "Discover what Keyloop DMS can do for your business"
+    }
+  ],
+  "links": [
+    {
+      "text": "",
+      "url": "https://keyloop.com/"
+    },
+    {
+      "text": "Get started",
+      "url": "https://keyloop.com/dms#contact"
+    },
+    {
+      "text": "Read their success story",
+      "url": "https://keyloop.com/testimonials/mhd-success-story"
+    },
+    {
+      "text": "Talk to our team",
+      "url": "https://keyloop.com/dms"
+    },
+    {
+      "text": "Explore Fusion ARP",
+      "url": "https://keyloop.com/fusion-arp"
+    },
+    {
+      "text": "privacy notice.",
+      "url": "https://keyloop.com/privacy-policy"
+    },
+    {
+      "text": "privacy notice.",
+      "url": "https://keyloop.com/privacy-policy"
+    },
+    {
+      "text": "privacy notice.",
+      "url": "https://keyloop.com/privacy-policy"
+    },
+    {
+      "text": "privacy notice.",
+      "url": "https://keyloop.com/privacy-policy"
+    },
+    {
+      "text": "privacy notice.",
+      "url": "https://keyloop.com/privacy-policy"
+    },
+    {
+      "text": "privacy notice.",
+      "url": "https://keyloop.com/privacy-policy"
+    },
+    {
+      "text": "privacy notice.",
+      "url": "https://keyloop.com/privacy-policy"
+    }
+  ],
+  "samples": [
+    {
+      "class": "flex items-center justify-between gap-3 font-normal no-underline decoration-blue-700 underline-offset-8 transition-all hover:underline",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(255, 255, 255)",
+        "borderRadius": "0px",
+        "color": "rgb(255, 255, 255)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "20px",
+        "padding": "0px"
+      },
+      "tag": "A",
+      "text": ""
+    },
+    {
+      "class": "!font-bold text-4xl md:text-5xl lg:text-[58px] xl:text-[70px] !mb-0",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(255, 255, 255)",
+        "borderRadius": "0px",
+        "color": "rgb(255, 255, 255)",
+        "fontFamily": "\"Plus Jakarta Sans\", \"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "70px",
+        "fontWeight": "700",
+        "lineHeight": "70px",
+        "padding": "0px"
+      },
+      "tag": "H1",
+      "text": "Keyloop DMS"
+    },
+    {
+      "class": "!text-xl",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(255, 255, 255)",
+        "borderRadius": "0px",
+        "color": "rgb(255, 255, 255)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "20px",
+        "fontWeight": "400",
+        "lineHeight": "28px",
+        "padding": "0px"
+      },
+      "tag": "P",
+      "text": "Your DMS forms the foundation of your business. The best dealer management systems allow you to run your dealership's sales, service, parts and accounting in on"
+    },
+    {
+      "class": "group m-0 no-underline select-none space-x-2 relative duration-300 justify-between text-base flex items-center overflow-hidden font-semibold border rounded-md py-2.5 px-4 transition-all bg-blue-900 border-blue-900 hover:bg-white hover:border-white text-carbon-900 md:w-auto",
+      "style": {
+        "backgroundColor": "rgb(61, 165, 255)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(61, 165, 255)",
+        "borderRadius": "6px",
+        "color": "rgb(17, 24, 28)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "600",
+        "lineHeight": "24px",
+        "padding": "10px 16px"
+      },
+      "tag": "A",
+      "text": "Get started"
+    },
+    {
+      "class": "!m-0",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(17, 24, 39)",
+        "borderRadius": "0px",
+        "color": "rgb(17, 24, 39)",
+        "fontFamily": "\"Plus Jakarta Sans\", \"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "42px",
+        "fontWeight": "700",
+        "lineHeight": "54px",
+        "padding": "0px"
+      },
+      "tag": "H2",
+      "text": "Join the companies transforming their operations with Keyloop’s Dealer Management Systems."
+    },
+    {
+      "class": "",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(17, 24, 39)",
+        "borderRadius": "0px",
+        "color": "rgb(17, 24, 39)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "30px",
+        "fontWeight": "400",
+        "lineHeight": "41.25px",
+        "padding": "0px"
+      },
+      "tag": "P",
+      "text": "With Keyloop, the great thing is we have a 360 degree view. What we’re able to do is pull every single part of the customer journey together in one place, which"
+    },
+    {
+      "class": "!m-0 text-lg",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(107, 114, 128)",
+        "borderRadius": "0px",
+        "color": "rgb(107, 114, 128)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "18px",
+        "fontWeight": "400",
+        "lineHeight": "28px",
+        "padding": "0px"
+      },
+      "tag": "P",
+      "text": "Director, MHD"
+    },
+    {
+      "class": "group m-0 no-underline select-none space-x-2 relative duration-300 justify-between text-base flex items-center overflow-hidden font-semibold border rounded-md py-2.5 px-4 transition-all bg-transparent border-0 !pl-0 hover:text-carbon-900 mt-2 inline-flex",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(17, 24, 39)",
+        "borderRadius": "6px",
+        "color": "rgb(17, 24, 39)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "600",
+        "lineHeight": "24px",
+        "padding": "10px 16px 10px 0px"
+      },
+      "tag": "A",
+      "text": "Read their success story"
+    },
+    {
+      "class": "",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(17, 24, 39)",
+        "borderRadius": "0px",
+        "color": "rgb(17, 24, 39)",
+        "fontFamily": "\"Plus Jakarta Sans\", \"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "42px",
+        "fontWeight": "700",
+        "lineHeight": "54px",
+        "padding": "0px"
+      },
+      "tag": "H2",
+      "text": "Connected retail through dealer management excellence."
+    },
+    {
+      "class": "",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(55, 65, 81)",
+        "borderRadius": "0px",
+        "color": "rgb(55, 65, 81)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "28px",
+        "padding": "0px"
+      },
+      "tag": "P",
+      "text": "Automotive retail margins are under serious pressure, and customer expectations keep rising. We’ve built our dealer management systems to address the core chall"
+    },
+    {
+      "class": "!m-0 !font-semibold lg:!text-lg",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(17, 24, 39)",
+        "borderRadius": "0px",
+        "color": "rgb(17, 24, 39)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "18px",
+        "fontWeight": "600",
+        "lineHeight": "28px",
+        "padding": "0px"
+      },
+      "tag": "H3",
+      "text": "Data sharing and insights"
+    },
+    {
+      "class": "",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(55, 65, 81)",
+        "borderRadius": "0px",
+        "color": "rgb(55, 65, 81)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "28px",
+        "padding": "0px"
+      },
+      "tag": "P",
+      "text": "Your dealer management software shares data across systems in real time, cutting the manual reporting that eats into your day."
+    },
+    {
+      "class": "!m-0 !font-semibold lg:!text-lg",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(17, 24, 39)",
+        "borderRadius": "0px",
+        "color": "rgb(17, 24, 39)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "18px",
+        "fontWeight": "600",
+        "lineHeight": "28px",
+        "padding": "0px"
+      },
+      "tag": "H3",
+      "text": "Digital transformation"
+    },
+    {
+      "class": "",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(55, 65, 81)",
+        "borderRadius": "0px",
+        "color": "rgb(55, 65, 81)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "28px",
+        "padding": "0px"
+      },
+      "tag": "P",
+      "text": "Move from paper processes to a connected dealer management system without disrupting how your teams already work."
+    },
+    {
+      "class": "!m-0 !font-semibold lg:!text-lg",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(17, 24, 39)",
+        "borderRadius": "0px",
+        "color": "rgb(17, 24, 39)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "18px",
+        "fontWeight": "600",
+        "lineHeight": "28px",
+        "padding": "0px"
+      },
+      "tag": "H3",
+      "text": "Choice and flexibility"
+    },
+    {
+      "class": "",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(55, 65, 81)",
+        "borderRadius": "0px",
+        "color": "rgb(55, 65, 81)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "28px",
+        "padding": "0px"
+      },
+      "tag": "P",
+      "text": "Keep the car dealer software tools and integrations that work for your business. The right DMS connects them rather than replacing them."
+    },
+    {
+      "class": "!m-0 !font-semibold lg:!text-lg",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(17, 24, 39)",
+        "borderRadius": "0px",
+        "color": "rgb(17, 24, 39)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "18px",
+        "fontWeight": "600",
+        "lineHeight": "28px",
+        "padding": "0px"
+      },
+      "tag": "H3",
+      "text": "A future-proof platform"
+    },
+    {
+      "class": "",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(55, 65, 81)",
+        "borderRadius": "0px",
+        "color": "rgb(55, 65, 81)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "28px",
+        "padding": "0px"
+      },
+      "tag": "P",
+      "text": "Built to extend as automotive retail software requirements change, not to be rebuilt every few years."
+    },
+    {
+      "class": "!mt-0 !text-2xl !leading-snug 2xl:!text-5xl",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(255, 255, 255)",
+        "borderRadius": "0px",
+        "color": "rgb(255, 255, 255)",
+        "fontFamily": "\"Plus Jakarta Sans\", \"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "24px",
+        "fontWeight": "700",
+        "lineHeight": "33px",
+        "padding": "0px"
+      },
+      "tag": "H2",
+      "text": "Refining operations for your automotive retail group"
+    },
+    {
+      "class": "",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(255, 255, 255)",
+        "borderRadius": "0px",
+        "color": "rgb(255, 255, 255)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "28px",
+        "padding": "0px"
+      },
+      "tag": "P",
+      "text": "Keyloop’s DMS serves as the foundation for retailers, efficiently managing retail group operations. Our open API operational layer connects the DMS data to appr"
+    },
+    {
+      "class": "",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(255, 255, 255)",
+        "borderRadius": "0px",
+        "color": "rgb(255, 255, 255)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "28px",
+        "padding": "0px"
+      },
+      "tag": "P",
+      "text": ""
+    },
+    {
+      "class": "!mt-0 lg:!text-5xl",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(17, 24, 39)",
+        "borderRadius": "0px",
+        "color": "rgb(17, 24, 39)",
+        "fontFamily": "\"Plus Jakarta Sans\", \"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "48px",
+        "fontWeight": "700",
+        "lineHeight": "48px",
+        "padding": "0px"
+      },
+      "tag": "H2",
+      "text": "The global technology platform of choice"
+    },
+    {
+      "class": "",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(17, 24, 39)",
+        "borderRadius": "0px",
+        "color": "rgb(17, 24, 39)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "26px",
+        "fontWeight": "600",
+        "lineHeight": "36px",
+        "padding": "0px"
+      },
+      "tag": "H3",
+      "text": "Designed for today’s dynamic automotive era and changing consumer priorities – deliver experiences that foster loyalty and growth."
+    },
+    {
+      "class": "!m-0 leading-none transition-all !font-semibold",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(17, 24, 39)",
+        "borderRadius": "0px",
+        "color": "rgb(17, 24, 39)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "26px",
+        "fontWeight": "600",
+        "lineHeight": "36px",
+        "padding": "0px"
+      },
+      "tag": "H3",
+      "text": "Real-time connectivity between every department"
+    },
+    {
+      "class": "",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(55, 65, 81)",
+        "borderRadius": "0px",
+        "color": "rgb(55, 65, 81)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "28px",
+        "padding": "0px"
+      },
+      "tag": "P",
+      "text": "Unleash the power of connected data and enjoy seamless data transfer between every department. With daily data for every department displayed in clear, easy gra"
+    }
+  ],
+  "text": "Keyloop DMS – Dealer Management System\nKeyloop DMS\n\nYour DMS forms the foundation of your business. The best dealer management systems allow you to run your dealership's sales, service, parts and accounting in one place. It connects your team, your manufacturers and your partner ecosystem.\n\nGet started\nJoin the companies transforming their operations with Keyloop’s Dealer Management Systems.\n\nWith Keyloop, the great thing is we have a 360 degree view. What we’re able to do is pull every single part of the customer journey together in one place, which is critical for us. We can look at car sales, finance, service functions and then start to build the whole picture for the customer. It gives us great visibility.\n\nStephen Lay\n\nDirector, MHD\n\nRead their success story\nConnected retail through dealer management excellence.\n\nAutomotive retail margins are under serious pressure, and customer expectations keep rising. We’ve built our dealer management systems to address the core challenges of every modern retailer.  \n\nData sharing and insights\n\nYour dealer management software shares data across systems in real time, cutting the manual reporting that eats into your day. \n\nDigital transformation\n\nMove from paper processes to a connected dealer management system without disrupting how your teams already work.\n\nChoice and flexibility\n\nKeep the car dealer software tools and integrations that work for your business. The right DMS connects them rather than replacing them.\n\nA future-proof platform\n\nBuilt to extend as automotive retail software requirements change, not to be rebuilt every few years. \n\nRefining operations for your automotive retail group\n\nKeyloop’s DMS serves as the foundation for retailers, efficiently managing retail group operations. Our open API operational layer connects the DMS data to approved applications from manufacturers and partners. To enhance performance in sales or service teams, retailers can choose additional Keyloop solutions, tailoring the technology to meet specific business goals. We back this up with expert professional services, that deliver dedicated support and training for speedy and successful implementation.\n\n \n\nA connected foundation for dealership operations\n\nBring together core operational systems to increase accuracy, reduce manual effort and support financial and operational transparency across every part of the dealership.\n\nOPERATE\nKeyloop DMS\n\nKeyloop DMS is part of Fusion Automotive Retail Platform's Operate domain, which underpins your business with peak operational efficiency. It helps you connect, enable and account for your financial transparency by unifying systems, enabling real-time data flow and simplifying financial control. This reduces rekeying, improves accuracy and gives you the agility to adapt quickly to change.\n\nProducts\nDrive\nAutoline\nEva\nEva+\nAswin\nWindrakkar\nAutomaster\nSerti\nDracar+\nDrive\nThe cloud-based SaaS platform that delivers the full power of Autoline and connects sales, service and finance in one modern DMS. Scale easily, update faster and reduce IT overheads.\nReduce IT overhead and infrastructure complexity\nScale across sites more easily\nStay current with faster updates\nTalk to our team",
+  "title": "Dealer Management System (DMS) Software for Automotive Retailers | Keyloop",
+  "url": "https://keyloop.com/dms"
+}

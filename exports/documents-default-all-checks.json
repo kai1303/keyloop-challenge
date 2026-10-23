@@ -1,0 +1,24 @@
+{
+  "page": "http://127.0.0.1:5176/admin/documents",
+  "default": {
+    "documents": 8,
+    "sales": 4,
+    "service": 4,
+    "vehicles": 3
+  },
+  "vinFilterAndReset": "passed",
+  "previewOtherVehicle": "WVWZZZ1JZXW000001",
+  "mobile": {
+    "viewport": 320,
+    "documentWidth": 320,
+    "rows": 8
+  },
+  "checks": {
+    "webTests": "107 passed; 3 unrelated live tests skipped",
+    "apiUnit": "43 passed",
+    "httpE2e": "16 passed",
+    "typecheck": "passed",
+    "lint": "passed",
+    "build": "passed"
+  }
+}

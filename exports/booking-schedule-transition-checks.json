@@ -1,0 +1,44 @@
+{
+  "beforeFix": {
+    "loadedHeight": 596,
+    "loadingHeight": 72,
+    "documentHeights": [
+      1409,
+      885
+    ]
+  },
+  "afterFix": [
+    {
+      "busy": "false",
+      "documentHeight": 1409,
+      "height": 596,
+      "stage": "loaded-populated"
+    },
+    {
+      "busy": "true",
+      "documentHeight": 1409,
+      "height": 596,
+      "opacity": "1",
+      "stage": "loading-empty",
+      "transform": "none"
+    },
+    {
+      "documentHeight": 1409,
+      "height": 596,
+      "stage": "loaded-empty"
+    },
+    {
+      "busy": "true",
+      "documentHeight": 1409,
+      "height": 596,
+      "opacity": "1",
+      "stage": "datepicker-loading"
+    },
+    {
+      "busy": "true",
+      "documentHeight": 1409,
+      "height": 596,
+      "stage": "list-loading"
+    }
+  ]
+}

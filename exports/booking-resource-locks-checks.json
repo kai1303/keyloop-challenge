@@ -1,0 +1,168 @@
+{
+  "verifiedAt": "2026-10-23T06:04:24.211705+00:00",
+  "scope": "Local shared keyloop-inventory-local database; no production deployment",
+  "migration": "BookingResourceLocks1792800000002",
+  "publicTablesIncludingMigrationHistory": 16,
+  "removedTable": "public.resource_slots",
+  "occupancySource": "public.service_bookings",
+  "concurrency": "READ COMMITTED; sorted union of old/new technician users, then sorted service bays FOR UPDATE; fresh selected-pair availability recheck; bounded transaction retry; conditional booking versions retained",
+  "compatibility": "Hourly service/start rules and derived in-memory bitmap remain; no GiST index or new dependency",
+  "limitations": [
+    "All booking writers must follow application locking protocol; direct SQL writes bypass it",
+    "Writes sharing a technician or bay serialize across hours and dates",
+    "Downgrade requires stopped writers and verified source/backup or deliberate claim re-backfill"
+  ],
+  "remainingRowsAndTableOidsUnchanged": true,
+  "inventoryRows": 1000000,
+  "existingBookingIntervalsVersionsAndRelationshipsPreserved": true,
+  "existingAuthAccountsSessionsAndIdentityRowsPreserved": true,
+  "historicalMigrationFilesUnchanged": 15,
+  "backupDirectory": ".local/booking-resource-locks/20261023T055431Z",
+  "backupChecksumsVerified": true,
+  "backupRestore": "Full and application archives retained privately. Application archive restored into isolated PostgreSQL, all original public table counts/hashes matched, migration rehearsed. Ownership/ACL restoration omitted; current privacy checked separately. Full Supabase platform disaster recovery not tested.",
+  "freshSetup": {
+    "migrations": 12,
+    "publicTables": 13,
+    "bookingCreated": true,
+    "realtime": "stub only"
+  },
+  "tests": {
+    "apiUnit": 119,
+    "apiHttp": 72,
+    "postgresIntegration": 75
+  },
+  "checks": [
+    "API typecheck",
+    "API lint",
+    "API build",
+    "Web typecheck",
+    "Web build",
+    "SQL RLS/ACL/trigger assertions",
+    "Focused code review, cross-midnight finding fixed and re-reviewed",
+    "Historical migrations compared against private source snapshot"
+  ],
+  "regressionsCovered": [
+    "Competing first bookings",
+    "Shared bay with different technicians",
+    "Retry to alternate qualified resources",
+    "Unrelated resources remain independent",
+    "Same-resource hours/dates serialize",
+    "Opposing reschedules lock old/new resource union",
+    "Cancellation waits for resource lock",
+    "Stale concurrent edits and racing create/reschedule",
+    "Cross-midnight legacy overlap, adjacency and cancellation",
+    "Idempotency replay and rollback"
+  ],
+  "liveHttpCases": [
+    {
+      "name": "HTTP auto matching persists qualified independent resource pairs",
+      "status": "PASS",
+      "evidence": {
+        "http": [
+          201,
+          201
+        ],
+        "qualified": true,
+        "distinctResources": true
+      }
+    },
+    {
+      "name": "Ten simultaneous confirmations produce one winner",
+      "status": "PASS",
+      "evidence": {
+        "requests": 10,
+        "http201": 1,
+        "http409": 9
+      }
+    },
+    {
+      "name": "Reschedule rolls back conflicts, rejects stale versions and cancellation releases capacity",
+      "status": "PASS",
+      "evidence": {
+        "version": 2,
+        "occupiedMoveHttp": 409,
+        "staleEditHttp": 409,
+        "rebookHttp": 201
+      }
+    },
+    {
+      "name": "Racing reschedule and create cannot share destination",
+      "status": "PASS",
+      "evidence": {
+        "winners": 1,
+        "conflicts": 1
+      }
+    },
+    {
+      "name": "Resource locks serialize different hours and dates for the same technician",
+      "status": "PASS",
+      "evidence": {
+        "observedResourceWaiters": 3,
+        "http": [
+          201,
+          201,
+          201
+        ]
+      }
+    },
+    {
+      "name": "Service and completion statuses retain occupied slots",
+      "status": "PASS",
+      "evidence": {
+        "completedVersion": 3,
+        "occupiedHttp": 409
+      }
+    },
+    {
+      "name": "Occupancy exists only in booking records",
+      "status": "PASS",
+      "evidence": {
+        "resourceSlotsRemoved": true
+      }
+    }
+  ],
+  "liveHttpReport": "exports/booking-locks-e2e-results.json",
+  "publicApiRoutes": [
+    "/schedule",
+    "/service-types",
+    "/bookings?month=2031-01",
+    "/availability/slots"
+  ],
+  "staffApiRoutes": [
+    "/staff/me",
+    "/admin/bookings/catalog",
+    "/admin/bookings?date=2031-01-02",
+    "/inventory/metadata",
+    "/leads?limit=1"
+  ],
+  "existingStaffSessionVerified": true,
+  "anonymousDatabaseDeniedTables": [
+    "users",
+    "booking_vehicles",
+    "service_types",
+    "service_bays",
+    "technician_service_types",
+    "service_bookings",
+    "booking_requests",
+    "session",
+    "account",
+    "verification",
+    "jwks",
+    "rateLimit"
+  ],
+  "liveBookingRealtimeBroadcast": true,
+  "realtimeVerification": "Verified date-only booking Broadcast after replication readiness with status=status; original stored values/versions unchanged",
+  "cleanup": {
+    "syntheticBookingsRemoved": 9,
+    "originalDataUnchanged": true,
+    "temporaryApiStopped": true,
+    "taskCreatedDatabasesDropped": [
+      "booking_locks_rehearsal_20261023",
+      "booking_locks_fresh_20261023"
+    ],
+    "backupsRetained": true
+  },
+  "manualBrowserWalkthrough": false,
+  "webTestsRerun": false,
+  "productionDeployment": false
+}

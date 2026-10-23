@@ -1,0 +1,304 @@
+{
+  "url": "http://127.0.0.1:5173/appointments",
+  "environment": "Vite development server with React StrictMode",
+  "reload": [
+    {
+      "requestId": "41522.150",
+      "path": "/guest-booking-api/schedule",
+      "method": "GET",
+      "timestamp": 293900.791374,
+      "cancelled": true,
+      "error": "net::ERR_ABORTED",
+      "initiator": [
+        {
+          "function": "bookingRequest",
+          "file": "/src/booking/booking-api.ts",
+          "line": 9
+        },
+        {
+          "function": "",
+          "file": "/src/booking/BookingCalendar.tsx",
+          "line": 39
+        },
+        {
+          "function": "react_stack_bottom_frame",
+          "file": "/node_modules/.vite/deps/react-dom_client.js",
+          "line": 14175
+        },
+        {
+          "function": "runWithFiberInDEV",
+          "file": "/node_modules/.vite/deps/react-dom_client.js",
+          "line": 941
+        },
+        {
+          "function": "commitHookEffectListMount",
+          "file": "/node_modules/.vite/deps/react-dom_client.js",
+          "line": 6898
+        }
+      ]
+    },
+    {
+      "requestId": "41522.151",
+      "path": "/guest-booking-api/service-types",
+      "method": "GET",
+      "timestamp": 293900.791632,
+      "cancelled": true,
+      "error": "net::ERR_ABORTED",
+      "initiator": [
+        {
+          "function": "bookingRequest",
+          "file": "/src/booking/booking-api.ts",
+          "line": 9
+        },
+        {
+          "function": "",
+          "file": "/src/booking/BookingCalendar.tsx",
+          "line": 39
+        },
+        {
+          "function": "react_stack_bottom_frame",
+          "file": "/node_modules/.vite/deps/react-dom_client.js",
+          "line": 14175
+        },
+        {
+          "function": "runWithFiberInDEV",
+          "file": "/node_modules/.vite/deps/react-dom_client.js",
+          "line": 941
+        },
+        {
+          "function": "commitHookEffectListMount",
+          "file": "/node_modules/.vite/deps/react-dom_client.js",
+          "line": 6898
+        }
+      ]
+    },
+    {
+      "requestId": "41522.152",
+      "path": "/guest-booking-api/schedule",
+      "method": "GET",
+      "timestamp": 293900.792914,
+      "status": 200,
+      "cancelled": false,
+      "initiator": [
+        {
+          "function": "bookingRequest",
+          "file": "/src/booking/booking-api.ts",
+          "line": 9
+        },
+        {
+          "function": "",
+          "file": "/src/booking/BookingCalendar.tsx",
+          "line": 39
+        },
+        {
+          "function": "react_stack_bottom_frame",
+          "file": "/node_modules/.vite/deps/react-dom_client.js",
+          "line": 14175
+        },
+        {
+          "function": "runWithFiberInDEV",
+          "file": "/node_modules/.vite/deps/react-dom_client.js",
+          "line": 941
+        },
+        {
+          "function": "commitHookEffectListMount",
+          "file": "/node_modules/.vite/deps/react-dom_client.js",
+          "line": 6898
+        }
+      ]
+    },
+    {
+      "requestId": "41522.153",
+      "path": "/guest-booking-api/service-types",
+      "method": "GET",
+      "timestamp": 293900.793044,
+      "status": 200,
+      "cancelled": false,
+      "initiator": [
+        {
+          "function": "bookingRequest",
+          "file": "/src/booking/booking-api.ts",
+          "line": 9
+        },
+        {
+          "function": "",
+          "file": "/src/booking/BookingCalendar.tsx",
+          "line": 39
+        },
+        {
+          "function": "react_stack_bottom_frame",
+          "file": "/node_modules/.vite/deps/react-dom_client.js",
+          "line": 14175
+        },
+        {
+          "function": "runWithFiberInDEV",
+          "file": "/node_modules/.vite/deps/react-dom_client.js",
+          "line": 941
+        },
+        {
+          "function": "commitHookEffectListMount",
+          "file": "/node_modules/.vite/deps/react-dom_client.js",
+          "line": 6898
+        }
+      ]
+    },
+    {
+      "requestId": "41522.154",
+      "path": "/guest-booking-api/bookings?month=2026-10",
+      "method": "GET",
+      "timestamp": 293900.844197,
+      "status": 200,
+      "cancelled": false,
+      "initiator": [
+        {
+          "function": "bookingRequest",
+          "file": "/src/booking/booking-api.ts",
+          "line": 9
+        },
+        {
+          "function": "refresh",
+          "file": "/src/booking/use-calendar-bookings.ts",
+          "line": 18
+        },
+        {
+          "function": "",
+          "file": "/src/booking/use-calendar-bookings.ts",
+          "line": 32
+        },
+        {
+          "function": "react_stack_bottom_frame",
+          "file": "/node_modules/.vite/deps/react-dom_client.js",
+          "line": 14175
+        },
+        {
+          "function": "runWithFiberInDEV",
+          "file": "/node_modules/.vite/deps/react-dom_client.js",
+          "line": 941
+        }
+      ]
+    },
+    {
+      "requestId": "41522.156",
+      "path": "/guest-booking-api/bookings?month=2026-10",
+      "method": "GET",
+      "timestamp": 293901.080344,
+      "status": 200,
+      "cancelled": false,
+      "initiator": [
+        {
+          "function": "bookingRequest",
+          "file": "/src/booking/booking-api.ts",
+          "line": 9
+        },
+        {
+          "function": "refresh",
+          "file": "/src/booking/use-calendar-bookings.ts",
+          "line": 18
+        },
+        {
+          "function": "run",
+          "file": "/src/booking/watch-availability.ts",
+          "line": 15
+        },
+        {
+          "function": "",
+          "file": "/src/booking/watch-availability.ts",
+          "line": 29
+        }
+      ]
+    }
+  ],
+  "bookingForm": [
+    {
+      "path": "/guest-booking-api/availability/slots?serviceTypeId=00000000-0000-4000-8000-000000000002&date=2026-10-26",
+      "method": "GET",
+      "timestamp": 293963.059411,
+      "cancelled": true,
+      "initiator": [
+        {
+          "function": "bookingRequest",
+          "file": "/src/booking/booking-api.ts",
+          "line": 9
+        },
+        {
+          "function": "refresh",
+          "file": "/src/booking/BookingForm.tsx",
+          "line": 60
+        },
+        {
+          "function": "",
+          "file": "/src/booking/BookingForm.tsx",
+          "line": 81
+        },
+        {
+          "function": "react_stack_bottom_frame",
+          "file": "/node_modules/.vite/deps/react-dom_client.js",
+          "line": 14175
+        }
+      ]
+    },
+    {
+      "path": "/guest-booking-api/availability/slots?serviceTypeId=00000000-0000-4000-8000-000000000002&date=2026-10-26",
+      "method": "GET",
+      "timestamp": 293963.068676,
+      "status": 200,
+      "cancelled": false,
+      "initiator": [
+        {
+          "function": "bookingRequest",
+          "file": "/src/booking/booking-api.ts",
+          "line": 9
+        },
+        {
+          "function": "refresh",
+          "file": "/src/booking/BookingForm.tsx",
+          "line": 60
+        },
+        {
+          "function": "",
+          "file": "/src/booking/BookingForm.tsx",
+          "line": 81
+        },
+        {
+          "function": "react_stack_bottom_frame",
+          "file": "/node_modules/.vite/deps/react-dom_client.js",
+          "line": 14175
+        }
+      ]
+    },
+    {
+      "path": "/guest-booking-api/availability/slots?serviceTypeId=00000000-0000-4000-8000-000000000002&date=2026-10-26",
+      "method": "GET",
+      "timestamp": 293963.330792,
+      "status": 200,
+      "cancelled": false,
+      "initiator": [
+        {
+          "function": "bookingRequest",
+          "file": "/src/booking/booking-api.ts",
+          "line": 9
+        },
+        {
+          "function": "refresh",
+          "file": "/src/booking/BookingForm.tsx",
+          "line": 60
+        },
+        {
+          "function": "run",
+          "file": "/src/booking/watch-availability.ts",
+          "line": 15
+        },
+        {
+          "function": "",
+          "file": "/src/booking/watch-availability.ts",
+          "line": 29
+        }
+      ]
+    }
+  ],
+  "causes": [
+    "Development StrictMode effect replay aborts first requests and starts replacements",
+    "Initial snapshot followed by 200ms debounced refresh after Realtime SUBSCRIBED"
+  ],
+  "note": "Network observation only. No POST requests submitted; no source changes. Initial static-asset event buffer was truncated; these are observed guest API requests."
+}

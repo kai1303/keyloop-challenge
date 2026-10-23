@@ -1,0 +1,154 @@
+{
+  "cases": [
+    {
+      "name": "HTTP auto matching persists qualified independent resource pairs",
+      "status": "PASS",
+      "evidence": {
+        "http": [
+          201,
+          201
+        ],
+        "qualified": true,
+        "distinctResources": true
+      }
+    },
+    {
+      "name": "Ten simultaneous confirmations produce one winner",
+      "status": "PASS",
+      "evidence": {
+        "requests": 10,
+        "http201": 1,
+        "http409": 9
+      }
+    },
+    {
+      "name": "Reschedule rolls back conflicts, rejects stale versions and cancellation releases capacity",
+      "status": "PASS",
+      "evidence": {
+        "version": 2,
+        "occupiedMoveHttp": 409,
+        "staleEditHttp": 409,
+        "rebookHttp": 201
+      }
+    },
+    {
+      "name": "Racing reschedule and create cannot share destination",
+      "status": "PASS",
+      "evidence": {
+        "winners": 1,
+        "conflicts": 1
+      }
+    },
+    {
+      "name": "Resource locks serialize different hours and dates for the same technician",
+      "status": "PASS",
+      "evidence": {
+        "observedResourceWaiters": 3,
+        "http": [
+          201,
+          201,
+          201
+        ]
+      }
+    },
+    {
+      "name": "Service and completion statuses retain occupied slots",
+      "status": "PASS",
+      "evidence": {
+        "completedVersion": 3,
+        "occupiedHttp": 409
+      }
+    },
+    {
+      "name": "Occupancy exists only in booking records",
+      "status": "PASS",
+      "evidence": {
+        "resourceSlotsRemoved": true
+      }
+    }
+  ],
+  "before": {
+    "users": {
+      "count": 7,
+      "hash": "3aea8cc0cccb2fa8b116e6db2492f5b7"
+    },
+    "vehicles": {
+      "count": 1000000,
+      "hash": "b1dc0e6d7a7bcb63a5b029141ce50f52"
+    },
+    "booking_vehicles": {
+      "count": 3,
+      "hash": "b0e9e821faa8a640610cc43fe05ab985"
+    },
+    "service_bookings": {
+      "count": 4,
+      "hash": "9ebf31e9950b44b2544b09752a779138"
+    },
+    "account": {
+      "count": 2,
+      "hash": "059e0e3b1f2e4578bcfe4f1fff7dc6e3"
+    },
+    "session": {
+      "count": 1,
+      "hash": "da54ecd925a1396923d297aaf45a9d34"
+    }
+  },
+  "date": "2026-10-27",
+  "nextDate": "2026-10-28",
+  "runId": "booking-locks-e3d6e7b7-8528-40b4-80c9-b89ad3a9e231",
+  "timeZone": "UTC",
+  "services": {
+    "oil": "00000000-0000-4000-8000-000000000001",
+    "inspection": "00000000-0000-4000-8000-000000000002"
+  },
+  "creationKeys": [
+    "94f99f18-dad7-42a8-add4-311b90a070c3",
+    "d7cf3907-a076-4e13-bcc5-d40dca34ae73",
+    "f201e12b-f052-4fb6-a19a-a026f7ce6356",
+    "a46244a5-b460-467f-a2f1-4a4cba104b30",
+    "0837b586-14a5-40de-a00a-4130e719de71",
+    "7e27a957-3132-4c6e-8bce-a50e12a41313",
+    "1b396bf5-4eb0-42d8-8478-c455f02434da",
+    "9b217b21-d685-42be-a15c-0dca43f338d3",
+    "5c332130-f12d-478e-aacc-cc4f0d71274e",
+    "bbdc6b7a-59b2-44fd-9cff-1630959b1d35",
+    "63ee880d-792c-4e33-a035-672ffda9c676",
+    "f54efce7-562d-46d0-8363-2e5ba584333f",
+    "b181aaf3-edc0-4c2e-b47e-6747dc1f9230",
+    "fa369bc0-db32-40c8-a4fc-7397d7c9a941",
+    "5c0607ef-4dae-4295-9b57-525a30eab3ae",
+    "b3c21c5e-5816-45a7-a9d8-36b7d009b724",
+    "587b91a1-e2a6-45ec-b07a-eab471fd2024",
+    "f66e9817-3c96-4f88-853d-39a058c4114c"
+  ],
+  "cleanup": {
+    "bookings": 9,
+    "originalDataUnchanged": true
+  },
+  "after": {
+    "users": {
+      "count": 7,
+      "hash": "3aea8cc0cccb2fa8b116e6db2492f5b7"
+    },
+    "vehicles": {
+      "count": 1000000,
+      "hash": "b1dc0e6d7a7bcb63a5b029141ce50f52"
+    },
+    "booking_vehicles": {
+      "count": 3,
+      "hash": "b0e9e821faa8a640610cc43fe05ab985"
+    },
+    "service_bookings": {
+      "count": 4,
+      "hash": "9ebf31e9950b44b2544b09752a779138"
+    },
+    "account": {
+      "count": 2,
+      "hash": "059e0e3b1f2e4578bcfe4f1fff7dc6e3"
+    },
+    "session": {
+      "count": 1,
+      "hash": "da54ecd925a1396923d297aaf45a9d34"
+    }
+  }
+}

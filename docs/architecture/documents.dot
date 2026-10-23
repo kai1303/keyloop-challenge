@@ -1,0 +1,20 @@
+digraph Documents {
+  graph [rankdir=TB, bgcolor="#ffffff", pad=0.35, nodesep=0.5, ranksep=0.6, fontname="Helvetica", fontsize=20, label="04 | Unified Document Viewer", labelloc=t];
+  node [shape=box, style="rounded,filled", fillcolor="#eef2ff", color="#818cf8", fontname="Helvetica", fontsize=12, margin="0.20,0.14"];
+  edge [fontname="Helvetica", fontsize=10, color="#64748b", arrowsize=0.7];
+  ui [label="Document viewer + API client\nAll documents / VIN search\nSource labels + text preview"];
+  subgraph cluster_main {
+    label="Main NestJS process (all boxes below share one deployment)"; fontsize=14; color="#cbd5e1"; style=rounded;
+    aggregate [label="Controller + aggregation service\nValidate VIN / parallel loads\nMerge / sort / source status"];
+    transport [label="Document sources HTTP client\nConcurrent HTTP / 3-second timeout\nLoopback URLs / no redirects"];
+    adapters [label="Adapter factory + normalizer\nSales / Service field mapping\nShared document shape + source IDs", fillcolor="#f8fafc", color="#94a3b8"];
+    sales [label="Mock Sales API\n/mock/sales/...\nSales-shaped fixture JSON", fillcolor="#fff7ed", color="#fb923c"];
+    service [label="Mock Service API\n/mock/service/...\nService-shaped fixture JSON", fillcolor="#fff7ed", color="#fb923c"];
+    aggregate -> transport [label="Promise.allSettled"];
+    transport -> adapters [label="resolve path / normalize response"];
+    transport -> sales [label="local HTTP"];
+    transport -> service [label="local HTTP"];
+    { rank=same; sales; service; adapters; }
+  }
+  ui -> aggregate [label="GET /api/documents\noptional ?vin=..."];
+}

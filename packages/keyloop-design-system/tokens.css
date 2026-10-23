@@ -1,0 +1,62 @@
+/* Source: Keyloop public theme, captured 2026-10-21. Export names are local. */
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 300 700; font-display: swap; src: url("./fonts/ibm-plex-sans.ttf") format("truetype"); }
+@font-face { font-family: "IBM Plex Sans"; font-style: italic; font-weight: 300 700; font-display: swap; src: url("./fonts/ibm-plex-sans-italic.ttf") format("truetype"); }
+@font-face { font-family: "Plus Jakarta Sans"; font-style: normal; font-weight: 200 800; font-display: swap; src: url("./fonts/plus-jakarta-sans.ttf") format("truetype"); }
+
+:root {
+  --kl-color-ink: #11181c;
+  --kl-color-heading: #111827;
+  --kl-color-muted: #6b7280;
+  --kl-color-canvas: #f1f1f3;
+  --kl-color-white: #ffffff;
+  --kl-color-border: #e6e7e8;
+  --kl-color-border-strong: #d1d5db;
+  --kl-color-field-blue: #76afdc;
+  --kl-color-focus: #1290cc;
+  --kl-color-panel-dark: #0b0f16;
+  --kl-color-cyan: #00c7f2;
+  --kl-color-cta: #3da5ff;
+  --kl-font-family-body: "IBM Plex Sans", system-ui, sans-serif;
+  --kl-font-family-heading: "Plus Jakarta Sans", "IBM Plex Sans", system-ui, sans-serif;
+  --kl-font-size-label: 12px;
+  --kl-font-size-small: 14px;
+  --kl-font-size-body: 16px;
+  --kl-font-size-lead: 20px;
+  --kl-font-size-card: 26px;
+  --kl-font-size-section: 42px;
+  --kl-font-size-hero: 70px;
+  --kl-line-height-label: 16px;
+  --kl-line-height-small: 20px;
+  --kl-line-height-body: 24px;
+  --kl-line-height-lead: 28px;
+  --kl-line-height-card: 36px;
+  --kl-line-height-section: 54px;
+  --kl-line-height-hero: 70px;
+  --kl-space-1: 4px;
+  --kl-space-2: 8px;
+  --kl-space-control-y: 10px;
+  --kl-space-3: 12px;
+  --kl-space-4: 16px;
+  --kl-space-5: 20px;
+  --kl-space-6: 24px;
+  --kl-space-8: 32px;
+  --kl-space-9: 36px;
+  --kl-space-12: 48px;
+  --kl-space-16: 64px;
+  --kl-space-20: 80px;
+  --kl-radius-control: 6px;
+  --kl-radius-domain: 8px;
+  --kl-radius-calculator-tab: 12px;
+  --kl-radius-card: 16px;
+  --kl-radius-pill: 9999px;
+  --kl-layout-content-max: 1440px;
+  --kl-layout-hero-copy-max: 1020px;
+  --kl-layout-header-height: 68px;
+  --kl-layout-header-padding-x: 32px;
+  --kl-layout-input-height: 40px;
+  --kl-layout-select-height: 36px;
+  --kl-duration-fast: 200ms;
+  --kl-duration-standard: 300ms;
+  --kl-gradient-operate: linear-gradient(90deg, #479bad, #24c9c0 30%, #00f6d2);
+  --kl-shadow-product-card: 0 24px 70px rgba(0, 0, 0, 0.35);
+}

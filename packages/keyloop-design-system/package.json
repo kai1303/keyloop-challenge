@@ -1,0 +1,15 @@
+{
+  "name": "@keyloop-interview/design-system",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./tokens.json": "./tokens.json",
+    "./tokens.css": "./tokens.css",
+    "./components.css": "./components.css",
+    "./products.json": "./products.json"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}

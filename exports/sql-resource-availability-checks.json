@@ -1,0 +1,95 @@
+{
+  "checkedAt": "2026-10-23T10:46:56.842Z",
+  "checks": [
+    {
+      "service": "00000000-0000-4000-8000-000000000001",
+      "startsAt": "2026-10-23T11:00:00.000Z",
+      "technicians": [
+        "Technician A",
+        "Technician C"
+      ],
+      "bays": [
+        "Bay B"
+      ],
+      "matched": true
+    },
+    {
+      "service": "00000000-0000-4000-8000-000000000001",
+      "startsAt": "2026-10-23T12:00:00.000Z",
+      "technicians": [
+        "Technician A",
+        "Technician C"
+      ],
+      "bays": [
+        "Bay A",
+        "Bay B"
+      ],
+      "matched": true
+    },
+    {
+      "service": "00000000-0000-4000-8000-000000000002",
+      "startsAt": "2026-10-23T11:00:00.000Z",
+      "technicians": [
+        "Technician C"
+      ],
+      "bays": [
+        "Bay B"
+      ],
+      "matched": true
+    },
+    {
+      "service": "00000000-0000-4000-8000-000000000002",
+      "startsAt": "2026-10-23T12:00:00.000Z",
+      "technicians": [
+        "Technician B",
+        "Technician C"
+      ],
+      "bays": [
+        "Bay A",
+        "Bay B"
+      ],
+      "matched": true
+    }
+  ],
+  "calendarAnonymous": true,
+  "sharedDatabaseBusinessWrites": false,
+  "tests": {
+    "webPassed": 186,
+    "webSkipped": 3,
+    "apiUnitPassed": 114,
+    "httpPassed": 78,
+    "postgresPassed": 80
+  },
+  "browser": {
+    "initialResources": [
+      {
+        "path": "/api/availability?serviceTypeId=00000000-0000-4000-8000-000000000002&startsAt=2026-10-23T11%3A00%3A00.000Z",
+        "method": "GET"
+      }
+    ],
+    "timeChange": [
+      {
+        "path": "/api/availability?serviceTypeId=00000000-0000-4000-8000-000000000002&startsAt=2026-10-23T12%3A00%3A00.000Z",
+        "method": "GET"
+      }
+    ],
+    "realtimeRefresh": [
+      {
+        "path": "/api/bookings?month=2026-10",
+        "method": "GET"
+      },
+      {
+        "path": "/api/availability?serviceTypeId=00000000-0000-4000-8000-000000000002&startsAt=2026-10-23T12%3A00%3A00.000Z",
+        "method": "GET"
+      }
+    ],
+    "capturesTruncated": [
+      false,
+      false,
+      false
+    ],
+    "noLiveBookingSubmitted": true
+  },
+  "buildsPassed": true,
+  "apiTypecheckAndLintPassed": true
+}

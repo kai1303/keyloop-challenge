@@ -39,12 +39,12 @@ BEGIN
   EXCEPTION WHEN SQLSTATE 'P0002' THEN NULL;
   END;
   ASSERT (SELECT relrowsecurity FROM pg_class WHERE oid='public.vehicles'::regclass);
-  ASSERT has_table_privilege('anon','public.vehicles','SELECT');
+  ASSERT NOT has_table_privilege('anon','public.vehicles','SELECT');
   ASSERT NOT has_table_privilege('anon','public.vehicles','UPDATE');
   ASSERT NOT has_table_privilege('anon','public.vehicles','INSERT');
   ASSERT NOT has_table_privilege('anon','public.vehicles','DELETE');
   ASSERT NOT has_function_privilege('anon','public.save_inventory_action(uuid,text,text,integer)','EXECUTE');
-  ASSERT EXISTS(SELECT 1 FROM pg_publication_tables WHERE pubname='supabase_realtime' AND schemaname='public' AND tablename='vehicles');
+  ASSERT EXISTS(SELECT 1 FROM pg_trigger WHERE tgname='inventory_changed' AND tgrelid='public.vehicles'::regclass AND tgenabled='O');
 END;
 $test$;
 ROLLBACK;

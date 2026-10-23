@@ -1,0 +1,56 @@
+{
+  "reproduction": "1800ms network latency; Documents to Inventory; inspect immediately when data table appears",
+  "beforeFix": {
+    "loadingTableTop": 304,
+    "firstDataTableTop": 384.045,
+    "metricOpacity": 0.811889,
+    "boardOpacity": 0.36937,
+    "warningInsertedAbove": true,
+    "loadingColumnX": [
+      257,
+      440,
+      600,
+      737,
+      880,
+      1063
+    ],
+    "dataColumnX": [
+      257,
+      396,
+      562,
+      679,
+      853,
+      1073
+    ]
+  },
+  "afterFix": {
+    "loadingTableTop": 304,
+    "firstDataTableTop": 304,
+    "metricOpacity": 1,
+    "boardOpacity": 1,
+    "warningInsertedAbove": false,
+    "loadingColumnX": [
+      257,
+      431,
+      585,
+      721,
+      866,
+      1088
+    ],
+    "dataColumnX": [
+      257,
+      431,
+      585,
+      721,
+      866,
+      1088
+    ],
+    "syncStatus": "Updating inventory\u2026"
+  },
+  "mobile": {
+    "viewport": 320,
+    "pageWidth": 320,
+    "scrollableTableWidth": 860
+  },
+  "browserEmulation": "restored; temporary test tab closed"
+}

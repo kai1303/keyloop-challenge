@@ -76,7 +76,10 @@ beforeEach(() => {
       disconnect() {}
     },
   );
-  vi.mocked(listLeads).mockResolvedValue([alex, jamie]);
+  vi.mocked(listLeads).mockResolvedValue({
+    leads: [alex, jamie],
+    nextCursor: null,
+  });
   vi.mocked(getLead).mockImplementation(async (id) =>
     id === alex.id ? structuredClone(alex) : structuredClone(jamie),
   );
@@ -218,7 +221,7 @@ it("renders follow-ups in an accessible chronological timeline", async () => {
 it("shows a recoverable inbox failure and a separate empty state", async () => {
   vi.mocked(listLeads)
     .mockRejectedValueOnce(new Error("Unavailable"))
-    .mockResolvedValueOnce([]);
+    .mockResolvedValueOnce({ leads: [], nextCursor: null });
   const user = setup();
   expect(await screen.findByRole("alert")).toBeTruthy();
   await user.click(screen.getByRole("button", { name: "Retry inbox" }));
@@ -271,4 +274,33 @@ it("saves a note, renders the server result and reads saved history after remoun
     await screen.findByRole("button", { name: "View Alex Morgan" }),
   );
   expect(await screen.findByText("Called customer")).toBeTruthy();
+});
+
+vi.mock("../../auth/StaffAuth", () => ({
+  useStaffAuth: () => ({
+    user: { id: "test-admin", name: "Admin", role: "admin" },
+    loading: false,
+    signOut: async () => {},
+  }),
+}));
+
+it("loads another lead page and keeps earlier rows and selection after a failed request", async () => {
+  vi.mocked(listLeads)
+    .mockResolvedValueOnce({ leads: [alex], nextCursor: "next-page" })
+    .mockRejectedValueOnce(new Error("Next page unavailable"))
+    .mockResolvedValueOnce({ leads: [jamie], nextCursor: null });
+  const user = setup();
+  await user.click(
+    await screen.findByRole("button", { name: "View Alex Morgan" }),
+  );
+  await screen.findByText(alex.email);
+  await user.click(screen.getByRole("button", { name: "Load more leads" }));
+  await screen.findByText("Next page unavailable");
+  expect(screen.getByRole("button", { name: "View Alex Morgan" })).toBeTruthy();
+  expect(screen.getByText(alex.email)).toBeTruthy();
+  await user.click(screen.getByRole("button", { name: "Retry inbox" }));
+  await screen.findByRole("button", { name: "View Jamie Taylor" });
+  expect(screen.getByRole("button", { name: "View Alex Morgan" })).toBeTruthy();
+  expect(screen.queryByRole("button", { name: "Load more leads" })).toBeNull();
+  expect(vi.mocked(listLeads).mock.calls.at(-1)?.[1]).toBe("next-page");
 });

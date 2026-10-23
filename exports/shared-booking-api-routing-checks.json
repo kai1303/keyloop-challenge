@@ -1,0 +1,29 @@
+{
+  "url": "http://127.0.0.1:5173/appointments",
+  "calendarVisible": true,
+  "requests": [
+    {
+      "path": "/api/schedule",
+      "status": 200
+    },
+    {
+      "path": "/api/service-types",
+      "status": 200
+    },
+    {
+      "path": "/api/bookings?month=2026-10",
+      "status": 200
+    }
+  ],
+  "availabilityEndpointStatus": 200,
+  "staffCatalogWithoutJwtStatus": 401,
+  "publicBookingItemStatus": 404,
+  "guestPrefixProxyRemoved": true,
+  "sharedLocalApiOrigin": "http://127.0.0.1:3006",
+  "frontendTests": {
+    "passed": 184,
+    "skipped": 3
+  },
+  "build": true,
+  "noBookingsCreated": true
+}

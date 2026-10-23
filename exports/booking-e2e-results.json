@@ -1,0 +1,302 @@
+{
+  "runId": "e2e-e4012713-0070-47f4-ba4a-8fe2f4411218",
+  "startedAt": "2026-10-22T03:31:04.878Z",
+  "api": "http://127.0.0.1:3000/",
+  "date": "2026-10-26",
+  "timeZone": "UTC",
+  "before": {
+    "users": {
+      "count": 3,
+      "hash": "6a35bf23387b027081c858951661e9c9c3715cf7dd6fd1c730818827453b6409"
+    },
+    "vehicles": {
+      "count": 3,
+      "hash": "c23fa42a9b84f72755b78ff10dfc083a36d2b4a02443ad9bbec2c4af3baa5859"
+    },
+    "service_bookings": {
+      "count": 4,
+      "hash": "33713bd1236815f9119877db00aa3f841de7f3d3af4af56987d1afc2108d36d0"
+    }
+  },
+  "cases": [
+    {
+      "name": "Auto matching: qualification and independent same-hour resources",
+      "status": "PASS",
+      "started": "2026-10-22T03:31:05.314Z",
+      "evidence": {
+        "http": [
+          201,
+          201
+        ],
+        "assignments": [
+          {
+            "id": "11d71281-ae3a-45c3-99be-38d0f11ec48c",
+            "technician": "Technician B",
+            "bay": "Bay B",
+            "service": "00000000-0000-4000-8000-000000000002",
+            "minutes": "60.0000000000000000",
+            "date": "2026-10-26",
+            "slot": 9,
+            "qualified": true
+          },
+          {
+            "id": "48b0df41-69d8-478d-b5df-b7d243429e65",
+            "technician": "Technician A",
+            "bay": "Bay A",
+            "service": "00000000-0000-4000-8000-000000000001",
+            "minutes": "60.0000000000000000",
+            "date": "2026-10-26",
+            "slot": 9,
+            "qualified": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Occupied technician rejected while next hour remains available",
+      "status": "PASS",
+      "started": "2026-10-22T03:31:05.387Z",
+      "evidence": {
+        "occupiedHttp": 409,
+        "adjacentHttp": 201,
+        "rejectedCustomerRows": 0
+      }
+    },
+    {
+      "name": "Concurrent same-service requests: one winner, no duplicate resource",
+      "status": "PASS",
+      "started": "2026-10-22T03:31:05.407Z",
+      "evidence": {
+        "requests": 10,
+        "http201": 1,
+        "http409": 9,
+        "observedLockWaiters": 5,
+        "maximumMs": 54
+      }
+    },
+    {
+      "name": "Concurrent mixed services: two distinct pairs, excess rejected",
+      "status": "PASS",
+      "started": "2026-10-22T03:31:05.465Z",
+      "evidence": {
+        "requests": 10,
+        "http201": 2,
+        "http409": 8,
+        "assignments": [
+          {
+            "id": "914d344d-55ca-4b6d-be2c-dba2c6dd9674",
+            "technician": "Technician A",
+            "bay": "Bay A",
+            "service": "00000000-0000-4000-8000-000000000001",
+            "minutes": "60.0000000000000000",
+            "date": "2026-10-26",
+            "slot": 13,
+            "qualified": true
+          },
+          {
+            "id": "cf0560c7-25d3-4258-9419-484d4c7d7aa8",
+            "technician": "Technician B",
+            "bay": "Bay B",
+            "service": "00000000-0000-4000-8000-000000000002",
+            "minutes": "60.0000000000000000",
+            "date": "2026-10-26",
+            "slot": 13,
+            "qualified": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Boundary validation rejects off-grid and after-hours requests without writes",
+      "status": "PASS",
+      "started": "2026-10-22T03:31:05.509Z",
+      "evidence": {
+        "offGridHttp": 400,
+        "afterHoursHttp": 400
+      }
+    },
+    {
+      "name": "No duplicate resource intervals or orphan fixture customers",
+      "status": "PASS",
+      "started": "2026-10-22T03:31:05.518Z",
+      "evidence": {
+        "conflictingBookings": 0,
+        "orphanCustomers": 0
+      }
+    },
+    {
+      "name": "Admin browser creates persistent booking with automatic matching",
+      "status": "PASS",
+      "evidence": {
+        "id": "364af839-67bf-49ac-a7bf-32cc69e9769f",
+        "date": "2026-10-27",
+        "time": "09:00",
+        "technician": "Technician B",
+        "bay": "Bay A"
+      }
+    },
+    {
+      "name": "Admin second tab receives broadcast and automatically refetches while form stays open",
+      "status": "PASS",
+      "evidence": {
+        "broadcastSequence": 62,
+        "refetchSequence": 63,
+        "formRetained": true
+      }
+    },
+    {
+      "name": "Admin stale form cannot double-book same technician and slot",
+      "status": "PASS",
+      "evidence": {
+        "visibleError": "No qualified technician and bay are available",
+        "formRetained": true
+      }
+    },
+    {
+      "name": "Admin reload, reschedule and cancellation persist in PostgreSQL",
+      "status": "PASS",
+      "evidence": {
+        "id": "364af839-67bf-49ac-a7bf-32cc69e9769f",
+        "version": 3,
+        "status": "CANCELLED",
+        "time": "10:00"
+      }
+    },
+    {
+      "name": "Cancelled slot can be assigned again with identical resources",
+      "status": "PASS",
+      "evidence": {
+        "id": "5bce3e16-e058-45fa-9a7a-30a100a74570",
+        "time": "10:00",
+        "technicianId": "00000000-0000-4000-8000-000000000012",
+        "serviceBayId": "00000000-0000-4000-8000-000000000021"
+      }
+    },
+    {
+      "name": "Stale version cannot overwrite appointment",
+      "status": "PASS",
+      "evidence": {
+        "successfulVersion": 2,
+        "staleHttp": 409
+      }
+    },
+    {
+      "name": "Admin concurrent requests cannot allocate duplicate technician or bay",
+      "status": "PASS",
+      "evidence": {
+        "requests": 10,
+        "http201": 1,
+        "http409": 9
+      }
+    },
+    {
+      "name": "Private admin routes reject requests through guest proxy",
+      "status": "PASS",
+      "evidence": {
+        "guestProxyHttp": 403
+      }
+    },
+    {
+      "name": "Admin start and complete service propagate across tabs",
+      "status": "PASS",
+      "evidence": {
+        "confirmedToInServiceToCompleted": true,
+        "otherTabCompleted": true
+      }
+    },
+    {
+      "name": "Guest regression: confirmation modal and realtime occupied-slot disabling",
+      "status": "PASS",
+      "evidence": {
+        "broadcastSequence": 32,
+        "calendarRefetchSequence": 34,
+        "availabilityRefetchSequence": 35,
+        "occupied11Disabled": true,
+        "confirmDisabled": true,
+        "enteredDetailsRetained": true
+      }
+    },
+    {
+      "name": "Browser submission persisted qualified technician, bay, vehicle and guest",
+      "status": "PASS",
+      "started": "2026-10-22T03:35:07.921Z",
+      "evidence": {
+        "associationsPersisted": true,
+        "assignments": [
+          {
+            "id": "11bfabd5-a2dc-4d6c-81ff-8bf48abad0ad",
+            "technician": "Technician A",
+            "bay": "Bay A",
+            "service": "00000000-0000-4000-8000-000000000001",
+            "minutes": "60.0000000000000000",
+            "date": "2026-10-26",
+            "slot": 11,
+            "qualified": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "A stale browser preview cannot confirm the occupied slot through HTTP",
+      "status": "PASS",
+      "started": "2026-10-22T03:35:07.929Z",
+      "evidence": {
+        "status": 409
+      }
+    }
+  ],
+  "services": {
+    "oil": "00000000-0000-4000-8000-000000000001",
+    "inspection": "00000000-0000-4000-8000-000000000002"
+  },
+  "replacement": {
+    "id": "5bce3e16-e058-45fa-9a7a-30a100a74570",
+    "name": "Admin Replacement",
+    "email": "e2e-e4012713-0070-47f4-ba4a-8fe2f4411218-admin-replacement@example.com",
+    "phoneNumber": "+84901234567",
+    "registrationNumber": "E2E-REPLACEMENT",
+    "serviceTypeId": "00000000-0000-4000-8000-000000000002",
+    "technicianId": "00000000-0000-4000-8000-000000000012",
+    "serviceBayId": "00000000-0000-4000-8000-000000000021",
+    "status": "CONFIRMED",
+    "version": 2,
+    "startsAt": "2026-10-27T11:00:00.000Z",
+    "endsAt": "2026-10-27T12:00:00.000Z",
+    "date": "2026-10-27",
+    "time": "11:00",
+    "durationMinutes": 60
+  },
+  "cleanup": {
+    "bookings": 10,
+    "vehicles": 10,
+    "customers": 10,
+    "originalDataUnchanged": true,
+    "uiSlotReenabled": true
+  },
+  "after": {
+    "users": {
+      "count": 3,
+      "hash": "6a35bf23387b027081c858951661e9c9c3715cf7dd6fd1c730818827453b6409"
+    },
+    "vehicles": {
+      "count": 3,
+      "hash": "c23fa42a9b84f72755b78ff10dfc083a36d2b4a02443ad9bbec2c4af3baa5859"
+    },
+    "service_bookings": {
+      "count": 4,
+      "hash": "33713bd1236815f9119877db00aa3f841de7f3d3af4af56987d1afc2108d36d0"
+    }
+  },
+  "finishedAt": "2026-10-22T03:35:08.282Z",
+  "verification": {
+    "backendUnit": 40,
+    "backendHttp": 42,
+    "postgresIntegration": 39,
+    "frontendFullSuitePassed": 106,
+    "frontendFullSuiteSkipped": 3,
+    "additionalCancelledOverlapRegressionPassed": true,
+    "frontendBuild": "PASS",
+    "adminSecretAbsentFromBrowserBuild": true,
+    "privateGuestAdminHttp": 403
+  }
+}

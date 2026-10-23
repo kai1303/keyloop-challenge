@@ -1,0 +1,332 @@
+{
+  "reverseSorts": [
+    {
+      "sort": "vehicle:desc",
+      "firstMs": 36.885,
+      "nextMs": 26.914,
+      "correctOrderAndDistinctPages": true
+    },
+    {
+      "sort": "registration:desc",
+      "firstMs": 32.594,
+      "nextMs": 61.49,
+      "correctOrderAndDistinctPages": true
+    },
+    {
+      "sort": "currentAction:desc,pricePence:asc",
+      "firstMs": 153.819,
+      "nextMs": 147.359,
+      "correctOrderAndDistinctPages": true
+    }
+  ],
+  "isolatedSpotchecks": [
+    {
+      "name": "empty_filter",
+      "summary": {
+        "requests": 20,
+        "successes": 20,
+        "failures": 0,
+        "p50Ms": 6.39,
+        "p95Ms": 20.21,
+        "maxMs": 21.5,
+        "meanBytes": 147
+      },
+      "samples": [
+        {
+          "case": "empty_filter",
+          "ms": 19.055,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 20.206,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 19.228,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 21.5,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 6.939,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 8.305,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 6.143,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 6.623,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 7.172,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 6.284,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 5.489,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 6.49,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 6.074,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 5.95,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 6.161,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 6.618,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 6.012,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 5.56,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 5.68,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 6.015,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "saved_action_price",
+      "summary": {
+        "requests": 20,
+        "successes": 20,
+        "failures": 0,
+        "p50Ms": 13.26,
+        "p95Ms": 32.13,
+        "maxMs": 36.81,
+        "meanBytes": 9326
+      },
+      "samples": [
+        {
+          "case": "saved_action_price",
+          "ms": 8.052,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 7.369,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 6.902,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 8.068,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 7.799,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 7.111,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 10.434,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 18.338,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 16.86,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 29.193,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 9.929,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 32.132,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 15.347,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 36.807,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 15.984,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 16.19,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 17.267,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 13.505,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 11.087,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 13.012,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        }
+      ]
+    }
+  ]
+}

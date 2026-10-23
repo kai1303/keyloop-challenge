@@ -198,3 +198,13 @@ Local Supabase requires a running container runtime. Postgres Changes and whole-
 ## Specification self-review
 
 Checked for placeholders, contradictory transport/storage decisions, aging/date boundaries, persistence semantics, reconnect gaps, error handling, access boundaries, existing-admin reuse, actual versus planned infrastructure, and unrelated scope. The revised design uses the actual pathname routing and dealership timezone, preserves booking-only actions and ephemeral booking storage, and distinguishes shared layout from domain rules. The user subsequently invoked writing-plans to proceed with the implementation plan.
+
+## Navigation follow-up
+
+The user requested consistent sidebars and React Router Link navigation after
+the initial demo. React Router now owns the routes, with a persistent AdminLayout
+and an Outlet inside Suspense. Both sections have identical sidebar text and
+links; only the active marker changes. Resources and Opening hours moved to the
+booking toolbar. This supersedes the earlier ordinary-link/no-router decision.
+Switching sections no longer reloads the document; page-specific state remains
+scoped to its route, while inventory actions stay database-backed.

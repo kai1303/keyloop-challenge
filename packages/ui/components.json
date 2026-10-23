@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "new-york",
+  "rsc": false,
+  "tsx": true,
+  "tailwind": {
+    "config": "",
+    "css": "src/styles/globals.css",
+    "baseColor": "neutral",
+    "cssVariables": true
+  },
+  "iconLibrary": "lucide",
+  "aliases": {
+    "components": "@keyloop-interview/ui/components",
+    "hooks": "@keyloop-interview/ui/hooks",
+    "lib": "@keyloop-interview/ui/lib",
+    "utils": "@keyloop-interview/ui/lib/utils",
+    "ui": "@keyloop-interview/ui/components"
+  }
+}

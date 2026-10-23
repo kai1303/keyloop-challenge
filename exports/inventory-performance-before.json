@@ -1,0 +1,4107 @@
+{
+  "startedAt": "2026-10-22T06:43:19.687010+00:00",
+  "baseUrl": "http://127.0.0.1:3006/inventory",
+  "databaseContainer": "supabase_db_keyloop-inventory-local",
+  "before": {
+    "total": 1000000,
+    "sizeBytes": 389840896,
+    "originalHash": "0046f4fff47dac740b71600511c3e181"
+  },
+  "environment": {
+    "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+    "hardware": [
+      "MacBookPro18,3",
+      "8",
+      "34359738368"
+    ],
+    "docker": "8 8386445312",
+    "postgres": {
+      "version": "17.6",
+      "workMem": "4MB",
+      "sharedBuffers": "128MB",
+      "maxParallelWorkersPerGather": "2"
+    }
+  },
+  "method": {
+    "warmupsPerCase": 2,
+    "measuredPerCase": 20,
+    "timeoutSeconds": 10,
+    "percentile": "nearest rank; p50 median; successful validated HTTP responses only",
+    "cache": "warm/mixed shared cache; no OS/DB cache eviction",
+    "client": "Python stdlib urllib; new HTTP request per sample, no persistent client pool",
+    "scope": "HTTP client -> existing local Nest API -> PostgREST -> PostgreSQL; JSON body read/validated",
+    "load": "closed-loop 100 requests at each of concurrency 5 and 10; not a saturation/capacity test",
+    "deepCursor": "75% boundary selected with SQL OFFSET during untimed setup; measured API uses only keyset cursor",
+    "limits": "Synthetic data, shared development machine, active local services; no cold-cache, browser paint or sustained traffic measurement",
+    "authentication": "Existing Admin session; fresh signed JWT; normal per-request current-session/role checks. Credentials excluded."
+  },
+  "sequential": [
+    {
+      "name": "oldest_first_25",
+      "query": {
+        "limit": 25
+      },
+      "path": "",
+      "summary": {
+        "requests": 20,
+        "successes": 20,
+        "failures": 0,
+        "p50Ms": 6.77,
+        "p95Ms": 9.43,
+        "maxMs": 17.18,
+        "meanBytes": 8022
+      },
+      "warmups": [
+        {
+          "case": "oldest_first_25",
+          "ms": 24.557,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 6.753,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        }
+      ],
+      "samples": [
+        {
+          "case": "oldest_first_25",
+          "ms": 8.331,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 6.21,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 7.402,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 5.862,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 6.905,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 9.432,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 5.18,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 6.432,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 7.336,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 6.563,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 6.484,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 7.484,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 5.226,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 6.122,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 5.57,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 7.352,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 6.633,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 7.449,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 8.643,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 17.184,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "oldest_next_page",
+      "query": {
+        "limit": 25,
+        "after": "eyJ2IjoxLCJxIjoiNTkwYmY3ZjNiMzZiZTdiMzc2Nzc1MTk0MmI1NGZmNTBlZDAzYWYyMGE1ODI5ZTg0ZWExY2NjMGQ5ZmQ0OTUwNiIsInZhbHVlcyI6WyIyMDI0LTEwLTIyIiwiYjEwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDE3NzU1Il19"
+      },
+      "path": "",
+      "summary": {
+        "requests": 20,
+        "successes": 20,
+        "failures": 0,
+        "p50Ms": 6.77,
+        "p95Ms": 10.76,
+        "maxMs": 12.78,
+        "meanBytes": 8047
+      },
+      "warmups": [
+        {
+          "case": "oldest_next_page",
+          "ms": 15.56,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 8.227,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        }
+      ],
+      "samples": [
+        {
+          "case": "oldest_next_page",
+          "ms": 7.549,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 7.128,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 9.746,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 8.319,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 10.761,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 12.782,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 6.591,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 5.612,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 6.221,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 6.704,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 6.903,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 7.264,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 6.163,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 6.071,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 7.901,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 6.445,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 6.105,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 6.829,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 5.142,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 5.515,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "oldest_cursor_after_750000",
+      "query": {
+        "limit": 25,
+        "after": "eyJ2IjoxLCJxIjoiNTkwYmY3ZjNiMzZiZTdiMzc2Nzc1MTk0MmI1NGZmNTBlZDAzYWYyMGE1ODI5ZTg0ZWExY2NjMGQ5ZmQ0OTUwNiIsInZhbHVlcyI6WyIyMDI2LTA0LTIzIiwiYjEwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMjYwNTc3Il19"
+      },
+      "path": "",
+      "summary": {
+        "requests": 20,
+        "successes": 20,
+        "failures": 0,
+        "p50Ms": 6.69,
+        "p95Ms": 8.91,
+        "maxMs": 9.33,
+        "meanBytes": 8053
+      },
+      "warmups": [
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 11.061,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 7.372,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        }
+      ],
+      "samples": [
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 6.092,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 4.824,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 5.918,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 8.87,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 6.922,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 6.309,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 6.178,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 5.997,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 6.99,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 6.572,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 6.07,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 6.14,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 8.884,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 7.873,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 6.814,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 6.24,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 7.662,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 8.911,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 9.332,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 7.706,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "oldest_first_100",
+      "query": {
+        "limit": 100
+      },
+      "path": "",
+      "summary": {
+        "requests": 20,
+        "successes": 20,
+        "failures": 0,
+        "p50Ms": 8.1,
+        "p95Ms": 15.84,
+        "maxMs": 27.12,
+        "meanBytes": 31141
+      },
+      "warmups": [
+        {
+          "case": "oldest_first_100",
+          "ms": 11.599,
+          "status": 200,
+          "bytes": 31141,
+          "error": null
+        },
+        {
+          "case": "oldest_first_100",
+          "ms": 10.035,
+          "status": 200,
+          "bytes": 31141,
+          "error": null
+        }
+      ],
+      "samples": [
+        {
+          "case": "oldest_first_100",
+          "ms": 11.65,
+          "status": 200,
+          "bytes": 31141,
+          "error": null
+        },
+        {
+          "case": "oldest_first_100",
+          "ms": 8.164,
+          "status": 200,
+          "bytes": 31141,
+          "error": null
+        },
+        {
+          "case": "oldest_first_100",
+          "ms": 7.662,
+          "status": 200,
+          "bytes": 31141,
+          "error": null
+        },
+        {
+          "case": "oldest_first_100",
+          "ms": 8.168,
+          "status": 200,
+          "bytes": 31141,
+          "error": null
+        },
+        {
+          "case": "oldest_first_100",
+          "ms": 7.91,
+          "status": 200,
+          "bytes": 31141,
+          "error": null
+        },
+        {
+          "case": "oldest_first_100",
+          "ms": 9.729,
+          "status": 200,
+          "bytes": 31141,
+          "error": null
+        },
+        {
+          "case": "oldest_first_100",
+          "ms": 15.837,
+          "status": 200,
+          "bytes": 31141,
+          "error": null
+        },
+        {
+          "case": "oldest_first_100",
+          "ms": 9.177,
+          "status": 200,
+          "bytes": 31141,
+          "error": null
+        },
+        {
+          "case": "oldest_first_100",
+          "ms": 6.132,
+          "status": 200,
+          "bytes": 31141,
+          "error": null
+        },
+        {
+          "case": "oldest_first_100",
+          "ms": 7.323,
+          "status": 200,
+          "bytes": 31141,
+          "error": null
+        },
+        {
+          "case": "oldest_first_100",
+          "ms": 6.3,
+          "status": 200,
+          "bytes": 31141,
+          "error": null
+        },
+        {
+          "case": "oldest_first_100",
+          "ms": 8.039,
+          "status": 200,
+          "bytes": 31141,
+          "error": null
+        },
+        {
+          "case": "oldest_first_100",
+          "ms": 7.115,
+          "status": 200,
+          "bytes": 31141,
+          "error": null
+        },
+        {
+          "case": "oldest_first_100",
+          "ms": 10.006,
+          "status": 200,
+          "bytes": 31141,
+          "error": null
+        },
+        {
+          "case": "oldest_first_100",
+          "ms": 27.116,
+          "status": 200,
+          "bytes": 31141,
+          "error": null
+        },
+        {
+          "case": "oldest_first_100",
+          "ms": 9.171,
+          "status": 200,
+          "bytes": 31141,
+          "error": null
+        },
+        {
+          "case": "oldest_first_100",
+          "ms": 7.8,
+          "status": 200,
+          "bytes": 31141,
+          "error": null
+        },
+        {
+          "case": "oldest_first_100",
+          "ms": 7.422,
+          "status": 200,
+          "bytes": 31141,
+          "error": null
+        },
+        {
+          "case": "oldest_first_100",
+          "ms": 7.386,
+          "status": 200,
+          "bytes": 31141,
+          "error": null
+        },
+        {
+          "case": "oldest_first_100",
+          "ms": 9.277,
+          "status": 200,
+          "bytes": 31141,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "price_ascending",
+      "query": {
+        "sort": "pricePence:asc"
+      },
+      "path": "",
+      "summary": {
+        "requests": 20,
+        "successes": 20,
+        "failures": 0,
+        "p50Ms": 7.37,
+        "p95Ms": 10.57,
+        "maxMs": 13.45,
+        "meanBytes": 8002
+      },
+      "warmups": [
+        {
+          "case": "price_ascending",
+          "ms": 13.119,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 7.838,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        }
+      ],
+      "samples": [
+        {
+          "case": "price_ascending",
+          "ms": 8.224,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 8.083,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 13.451,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 7.627,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 8.824,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 9.207,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 7.155,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 10.571,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 10.242,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 7.906,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 6.906,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 7.576,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 5.257,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 6.399,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 5.928,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 6.022,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 5.361,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 6.512,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 6.071,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 6.585,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "price_descending",
+      "query": {
+        "sort": "pricePence:desc"
+      },
+      "path": "",
+      "summary": {
+        "requests": 20,
+        "successes": 20,
+        "failures": 0,
+        "p50Ms": 6.58,
+        "p95Ms": 8.24,
+        "maxMs": 10.05,
+        "meanBytes": 7781
+      },
+      "warmups": [
+        {
+          "case": "price_descending",
+          "ms": 18.44,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 6.655,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        }
+      ],
+      "samples": [
+        {
+          "case": "price_descending",
+          "ms": 5.94,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 7.029,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 7.805,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 7.085,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 6.588,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 6.656,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 6.426,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 8.238,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 7.385,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 10.048,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 6.975,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 6.602,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 6.379,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 5.931,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 5.554,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 6.323,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 6.572,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 6.492,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 6.387,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 5.792,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "vehicle_ascending",
+      "query": {
+        "sort": "vehicle:asc"
+      },
+      "path": "",
+      "summary": {
+        "requests": 20,
+        "successes": 20,
+        "failures": 0,
+        "p50Ms": 942.33,
+        "p95Ms": 976.05,
+        "maxMs": 1003.71,
+        "meanBytes": 7681
+      },
+      "warmups": [
+        {
+          "case": "vehicle_ascending",
+          "ms": 1188.796,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 962.58,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        }
+      ],
+      "samples": [
+        {
+          "case": "vehicle_ascending",
+          "ms": 935.049,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 954.904,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 955.228,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 956.731,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 952.193,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 976.05,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 943.388,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 934.432,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 928.085,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 927.769,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 936.488,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 941.271,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 945.237,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 961.924,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 948.833,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 1003.707,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 929.796,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 921.328,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 937.658,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 939.902,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "registration_ascending",
+      "query": {
+        "sort": "registration:asc"
+      },
+      "path": "",
+      "summary": {
+        "requests": 20,
+        "successes": 20,
+        "failures": 0,
+        "p50Ms": 887.11,
+        "p95Ms": 966.2,
+        "maxMs": 975.99,
+        "meanBytes": 7979
+      },
+      "warmups": [
+        {
+          "case": "registration_ascending",
+          "ms": 885.893,
+          "status": 200,
+          "bytes": 7979,
+          "error": null
+        },
+        {
+          "case": "registration_ascending",
+          "ms": 894.698,
+          "status": 200,
+          "bytes": 7979,
+          "error": null
+        }
+      ],
+      "samples": [
+        {
+          "case": "registration_ascending",
+          "ms": 880.574,
+          "status": 200,
+          "bytes": 7979,
+          "error": null
+        },
+        {
+          "case": "registration_ascending",
+          "ms": 895.452,
+          "status": 200,
+          "bytes": 7979,
+          "error": null
+        },
+        {
+          "case": "registration_ascending",
+          "ms": 888.687,
+          "status": 200,
+          "bytes": 7979,
+          "error": null
+        },
+        {
+          "case": "registration_ascending",
+          "ms": 898.928,
+          "status": 200,
+          "bytes": 7979,
+          "error": null
+        },
+        {
+          "case": "registration_ascending",
+          "ms": 966.203,
+          "status": 200,
+          "bytes": 7979,
+          "error": null
+        },
+        {
+          "case": "registration_ascending",
+          "ms": 964.79,
+          "status": 200,
+          "bytes": 7979,
+          "error": null
+        },
+        {
+          "case": "registration_ascending",
+          "ms": 941.671,
+          "status": 200,
+          "bytes": 7979,
+          "error": null
+        },
+        {
+          "case": "registration_ascending",
+          "ms": 915.325,
+          "status": 200,
+          "bytes": 7979,
+          "error": null
+        },
+        {
+          "case": "registration_ascending",
+          "ms": 888.738,
+          "status": 200,
+          "bytes": 7979,
+          "error": null
+        },
+        {
+          "case": "registration_ascending",
+          "ms": 875.332,
+          "status": 200,
+          "bytes": 7979,
+          "error": null
+        },
+        {
+          "case": "registration_ascending",
+          "ms": 928.887,
+          "status": 200,
+          "bytes": 7979,
+          "error": null
+        },
+        {
+          "case": "registration_ascending",
+          "ms": 876.505,
+          "status": 200,
+          "bytes": 7979,
+          "error": null
+        },
+        {
+          "case": "registration_ascending",
+          "ms": 879.79,
+          "status": 200,
+          "bytes": 7979,
+          "error": null
+        },
+        {
+          "case": "registration_ascending",
+          "ms": 872.749,
+          "status": 200,
+          "bytes": 7979,
+          "error": null
+        },
+        {
+          "case": "registration_ascending",
+          "ms": 885.523,
+          "status": 200,
+          "bytes": 7979,
+          "error": null
+        },
+        {
+          "case": "registration_ascending",
+          "ms": 877.675,
+          "status": 200,
+          "bytes": 7979,
+          "error": null
+        },
+        {
+          "case": "registration_ascending",
+          "ms": 877.459,
+          "status": 200,
+          "bytes": 7979,
+          "error": null
+        },
+        {
+          "case": "registration_ascending",
+          "ms": 871.194,
+          "status": 200,
+          "bytes": 7979,
+          "error": null
+        },
+        {
+          "case": "registration_ascending",
+          "ms": 975.986,
+          "status": 200,
+          "bytes": 7979,
+          "error": null
+        },
+        {
+          "case": "registration_ascending",
+          "ms": 884.71,
+          "status": 200,
+          "bytes": 7979,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "action_ascending",
+      "query": {
+        "sort": "currentAction:asc"
+      },
+      "path": "",
+      "summary": {
+        "requests": 20,
+        "successes": 20,
+        "failures": 0,
+        "p50Ms": 906.38,
+        "p95Ms": 985.38,
+        "maxMs": 1119.45,
+        "meanBytes": 9320
+      },
+      "warmups": [
+        {
+          "case": "action_ascending",
+          "ms": 892.368,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 898.547,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        }
+      ],
+      "samples": [
+        {
+          "case": "action_ascending",
+          "ms": 886.091,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 952.151,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 900.904,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 906.018,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 922.084,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 901.547,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 890.792,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 900.157,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 914.988,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 909.204,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 1119.451,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 985.383,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 911.579,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 892.473,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 938.152,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 934.412,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 900.893,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 906.735,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 899.103,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 903.071,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "toyota_aging_needs_action",
+      "query": {
+        "make": "Toyota",
+        "age": "aging",
+        "action": "needsAction"
+      },
+      "path": "",
+      "summary": {
+        "requests": 20,
+        "successes": 20,
+        "failures": 0,
+        "p50Ms": 6.1,
+        "p95Ms": 8.3,
+        "maxMs": 8.72,
+        "meanBytes": 7217
+      },
+      "warmups": [
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 7.914,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 5.253,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        }
+      ],
+      "samples": [
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 6.806,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 8.296,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 8.72,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 7.152,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 6.607,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 7.032,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 5.702,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 6.493,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 5.814,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 5.058,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 6.15,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 5.683,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 6.108,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 4.88,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 6.003,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 5.966,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 4.76,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 6.092,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 6.504,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 4.399,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "combined_three_sorts",
+      "query": {
+        "make": "Toyota",
+        "model": "Corolla",
+        "age": "aging",
+        "action": "needsAction",
+        "sort": "daysInStock:desc,pricePence:asc,registration:desc"
+      },
+      "path": "",
+      "summary": {
+        "requests": 20,
+        "successes": 20,
+        "failures": 0,
+        "p50Ms": 7.34,
+        "p95Ms": 9.28,
+        "maxMs": 11.35,
+        "meanBytes": 7292
+      },
+      "warmups": [
+        {
+          "case": "combined_three_sorts",
+          "ms": 8.011,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 7.468,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        }
+      ],
+      "samples": [
+        {
+          "case": "combined_three_sorts",
+          "ms": 7.773,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 7.216,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 7.289,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 6.532,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 6.214,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 7.226,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 7.391,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 7.377,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 6.968,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 8.448,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 8.182,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 7.597,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 7.754,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 7.002,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 7.311,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 7.199,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 7.614,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 7.116,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 9.277,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 11.35,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "saved_action_price",
+      "query": {
+        "action": "Price Reduction Planned",
+        "age": "aging",
+        "sort": "pricePence:asc"
+      },
+      "path": "",
+      "summary": {
+        "requests": 20,
+        "successes": 20,
+        "failures": 0,
+        "p50Ms": 5.8,
+        "p95Ms": 6.87,
+        "maxMs": 10.71,
+        "meanBytes": 9326
+      },
+      "warmups": [
+        {
+          "case": "saved_action_price",
+          "ms": 7.433,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 5.803,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        }
+      ],
+      "samples": [
+        {
+          "case": "saved_action_price",
+          "ms": 5.206,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 5.511,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 6.432,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 6.4,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 5.775,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 4.7,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 5.734,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 5.799,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 6.406,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 5.19,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 5.992,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 5.259,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 6.697,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 5.03,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 5.148,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 6.038,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 5.801,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 6.874,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 10.707,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        },
+        {
+          "case": "saved_action_price",
+          "ms": 6.021,
+          "status": 200,
+          "bytes": 9326,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "empty_filter",
+      "query": {
+        "make": "No such make"
+      },
+      "path": "",
+      "summary": {
+        "requests": 20,
+        "successes": 20,
+        "failures": 0,
+        "p50Ms": 5.44,
+        "p95Ms": 5.99,
+        "maxMs": 7.76,
+        "meanBytes": 147
+      },
+      "warmups": [
+        {
+          "case": "empty_filter",
+          "ms": 8.637,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 5.532,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        }
+      ],
+      "samples": [
+        {
+          "case": "empty_filter",
+          "ms": 5.32,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 5.471,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 4.198,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 5.528,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 5.267,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 5.627,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 5.857,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 5.807,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 4.884,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 5.369,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 5.991,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 5.406,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 7.757,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 5.488,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 5.146,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 5.196,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 5.267,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 4.614,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 5.652,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        },
+        {
+          "case": "empty_filter",
+          "ms": 5.809,
+          "status": 200,
+          "bytes": 147,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "global_metadata",
+      "query": {},
+      "path": "/metadata",
+      "summary": {
+        "requests": 20,
+        "successes": 20,
+        "failures": 0,
+        "p50Ms": 512.1,
+        "p95Ms": 729.21,
+        "maxMs": 1907.22,
+        "meanBytes": 481
+      },
+      "warmups": [
+        {
+          "case": "global_metadata",
+          "ms": 458.349,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 452.072,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        }
+      ],
+      "samples": [
+        {
+          "case": "global_metadata",
+          "ms": 450.213,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 491.488,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 560.699,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 578.178,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 638.288,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 678.061,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 1907.223,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 729.21,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 598.423,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 534.424,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 617.331,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 505.332,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 504.138,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 483.932,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 518.861,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 478.935,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 467.731,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 486.562,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 476.017,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 502.049,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        }
+      ]
+    }
+  ],
+  "concurrent": [
+    {
+      "concurrency": 5,
+      "summary": {
+        "requests": 100,
+        "successes": 100,
+        "failures": 0,
+        "p50Ms": 42.0,
+        "p95Ms": 3600.92,
+        "maxMs": 6791.2,
+        "meanBytes": 7190,
+        "elapsedSeconds": 17.293,
+        "completedRequestsPerSecond": 5.78
+      },
+      "byCase": {
+        "oldest_first_25": {
+          "requests": 10,
+          "successes": 10,
+          "failures": 0,
+          "p50Ms": 30.97,
+          "p95Ms": 74.91,
+          "maxMs": 74.91,
+          "meanBytes": 8022
+        },
+        "oldest_next_page": {
+          "requests": 10,
+          "successes": 10,
+          "failures": 0,
+          "p50Ms": 15.29,
+          "p95Ms": 163.94,
+          "maxMs": 163.94,
+          "meanBytes": 8047
+        },
+        "oldest_cursor_after_750000": {
+          "requests": 10,
+          "successes": 10,
+          "failures": 0,
+          "p50Ms": 18.78,
+          "p95Ms": 364.42,
+          "maxMs": 364.42,
+          "meanBytes": 8053
+        },
+        "price_ascending": {
+          "requests": 10,
+          "successes": 10,
+          "failures": 0,
+          "p50Ms": 20.67,
+          "p95Ms": 229.52,
+          "maxMs": 229.52,
+          "meanBytes": 8002
+        },
+        "price_descending": {
+          "requests": 10,
+          "successes": 10,
+          "failures": 0,
+          "p50Ms": 18.88,
+          "p95Ms": 128.56,
+          "maxMs": 128.56,
+          "meanBytes": 7781
+        },
+        "vehicle_ascending": {
+          "requests": 10,
+          "successes": 10,
+          "failures": 0,
+          "p50Ms": 2569.18,
+          "p95Ms": 4484.51,
+          "maxMs": 4484.51,
+          "meanBytes": 7681
+        },
+        "action_ascending": {
+          "requests": 10,
+          "successes": 10,
+          "failures": 0,
+          "p50Ms": 2819.59,
+          "p95Ms": 6791.2,
+          "maxMs": 6791.2,
+          "meanBytes": 9320
+        },
+        "toyota_aging_needs_action": {
+          "requests": 10,
+          "successes": 10,
+          "failures": 0,
+          "p50Ms": 15.97,
+          "p95Ms": 74.74,
+          "maxMs": 74.74,
+          "meanBytes": 7217
+        },
+        "combined_three_sorts": {
+          "requests": 10,
+          "successes": 10,
+          "failures": 0,
+          "p50Ms": 26.09,
+          "p95Ms": 170.55,
+          "maxMs": 170.55,
+          "meanBytes": 7292
+        },
+        "global_metadata": {
+          "requests": 10,
+          "successes": 10,
+          "failures": 0,
+          "p50Ms": 1166.51,
+          "p95Ms": 2324.57,
+          "maxMs": 2324.57,
+          "meanBytes": 481
+        }
+      },
+      "samples": [
+        {
+          "case": "oldest_first_25",
+          "ms": 74.914,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 163.941,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 14.029,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 164.084,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 75.829,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 2021.535,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 1826.62,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 16.73,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 63.081,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 1705.005,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 19.81,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 17.958,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 47.729,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 43.56,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 26.831,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 4484.513,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 6791.198,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 11.85,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 16.725,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 1065.038,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 15.436,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 12.576,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 23.528,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 21.236,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 16.437,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 3469.943,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 3600.923,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 74.74,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 170.553,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 2324.565,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 34.179,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 66.783,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 51.935,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 40.754,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 14.704,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 2960.802,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 2311.284,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 42.213,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 69.315,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 748.672,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 11.777,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 13.196,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 12.358,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 12.544,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 14.383,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 2114.117,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 5926.796,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 15.218,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 27.498,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 1267.984,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 45.171,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 9.258,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 9.318,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 10.27,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 12.683,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 2199.827,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 2185.26,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 14.651,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 18.861,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 1782.845,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 41.785,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 13.245,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 29.976,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 13.2,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 14.55,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 3897.383,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 5644.772,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 12.266,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 13.459,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 1333.162,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 23.306,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 16.047,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 364.423,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 229.519,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 128.562,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 1842.086,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 1767.892,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 30.892,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 24.686,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 793.505,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 27.767,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 14.533,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 12.157,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 20.104,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 21.332,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 2938.524,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 1812.935,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 12.837,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 22.688,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 798.202,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 36.137,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 28.057,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 12.863,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 14.898,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 90.466,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 1850.913,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 3327.889,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 52.435,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 47.807,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 741.448,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        }
+      ]
+    },
+    {
+      "concurrency": 10,
+      "summary": {
+        "requests": 100,
+        "successes": 99,
+        "failures": 1,
+        "p50Ms": 36.7,
+        "p95Ms": 6289.19,
+        "maxMs": 7648.42,
+        "meanBytes": 7168,
+        "elapsedSeconds": 11.875,
+        "completedRequestsPerSecond": 8.42
+      },
+      "byCase": {
+        "oldest_first_25": {
+          "requests": 10,
+          "successes": 10,
+          "failures": 0,
+          "p50Ms": 26.58,
+          "p95Ms": 45.74,
+          "maxMs": 45.74,
+          "meanBytes": 8022
+        },
+        "oldest_next_page": {
+          "requests": 10,
+          "successes": 10,
+          "failures": 0,
+          "p50Ms": 34.67,
+          "p95Ms": 56.29,
+          "maxMs": 56.29,
+          "meanBytes": 8047
+        },
+        "oldest_cursor_after_750000": {
+          "requests": 10,
+          "successes": 10,
+          "failures": 0,
+          "p50Ms": 28.58,
+          "p95Ms": 105.55,
+          "maxMs": 105.55,
+          "meanBytes": 8053
+        },
+        "price_ascending": {
+          "requests": 10,
+          "successes": 10,
+          "failures": 0,
+          "p50Ms": 16.21,
+          "p95Ms": 39.97,
+          "maxMs": 39.97,
+          "meanBytes": 8002
+        },
+        "price_descending": {
+          "requests": 10,
+          "successes": 10,
+          "failures": 0,
+          "p50Ms": 23.6,
+          "p95Ms": 66.79,
+          "maxMs": 66.79,
+          "meanBytes": 7781
+        },
+        "vehicle_ascending": {
+          "requests": 10,
+          "successes": 10,
+          "failures": 0,
+          "p50Ms": 3182.67,
+          "p95Ms": 7232.7,
+          "maxMs": 7232.7,
+          "meanBytes": 7681
+        },
+        "action_ascending": {
+          "requests": 10,
+          "successes": 9,
+          "failures": 1,
+          "p50Ms": 3631.48,
+          "p95Ms": 7648.42,
+          "maxMs": 7648.42,
+          "meanBytes": 9320
+        },
+        "toyota_aging_needs_action": {
+          "requests": 10,
+          "successes": 10,
+          "failures": 0,
+          "p50Ms": 34.05,
+          "p95Ms": 48.87,
+          "maxMs": 48.87,
+          "meanBytes": 7217
+        },
+        "combined_three_sorts": {
+          "requests": 10,
+          "successes": 10,
+          "failures": 0,
+          "p50Ms": 31.9,
+          "p95Ms": 53.86,
+          "maxMs": 53.86,
+          "meanBytes": 7292
+        },
+        "global_metadata": {
+          "requests": 10,
+          "successes": 10,
+          "failures": 0,
+          "p50Ms": 1146.32,
+          "p95Ms": 1680.37,
+          "maxMs": 1680.37,
+          "meanBytes": 481
+        }
+      },
+      "samples": [
+        {
+          "case": "oldest_first_25",
+          "ms": 13.366,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 45.189,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 17.4,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 14.925,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 31.005,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 2569.901,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 2082.289,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 15.717,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 32.207,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 966.007,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 21.079,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 32.822,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 20.607,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 18.163,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 66.79,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 3084.286,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 6417.731,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 36.703,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 37.576,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 1077.641,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 41.254,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 56.286,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 64.778,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 39.965,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 33.279,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 7232.701,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 8023.92,
+          "status": 503,
+          "bytes": 0,
+          "error": "HTTPError: HTTP Error 503: Service Unavailable"
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 9.301,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 16.696,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 1491.672,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 15.864,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 12.429,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 16.33,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 16.57,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 16.199,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 7063.298,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 7648.424,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 36.705,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 45.038,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 1115.634,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 23.816,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 15.749,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 26.236,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 15.606,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 10.601,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 6289.186,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 3043.26,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 46.938,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 25.817,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 1658.731,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 15.808,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 11.598,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 25.358,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 15.434,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 10.723,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 3101.485,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 3315.277,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 45.247,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 45.957,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 1177.011,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 33.257,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 36.527,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 33.432,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 21.222,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 9.116,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 2683.443,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 5481.658,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 17.47,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 14.012,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 866.816,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 45.737,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 49.298,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 30.921,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 15.858,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 15.474,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 3263.862,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 2436.997,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 31.391,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 53.86,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 1680.367,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 30.684,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 47.269,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 32.062,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 23.562,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 38.751,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 4397.271,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 4441.774,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 48.869,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 31.6,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 928.674,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        },
+        {
+          "case": "oldest_first_25",
+          "ms": 29.351,
+          "status": 200,
+          "bytes": 8022,
+          "error": null
+        },
+        {
+          "case": "oldest_next_page",
+          "ms": 32.47,
+          "status": 200,
+          "bytes": 8047,
+          "error": null
+        },
+        {
+          "case": "oldest_cursor_after_750000",
+          "ms": 105.546,
+          "status": 200,
+          "bytes": 8053,
+          "error": null
+        },
+        {
+          "case": "price_ascending",
+          "ms": 7.904,
+          "status": 200,
+          "bytes": 8002,
+          "error": null
+        },
+        {
+          "case": "price_descending",
+          "ms": 58.086,
+          "status": 200,
+          "bytes": 7781,
+          "error": null
+        },
+        {
+          "case": "vehicle_ascending",
+          "ms": 1966.308,
+          "status": 200,
+          "bytes": 7681,
+          "error": null
+        },
+        {
+          "case": "action_ascending",
+          "ms": 3631.484,
+          "status": 200,
+          "bytes": 9320,
+          "error": null
+        },
+        {
+          "case": "toyota_aging_needs_action",
+          "ms": 12.207,
+          "status": 200,
+          "bytes": 7217,
+          "error": null
+        },
+        {
+          "case": "combined_three_sorts",
+          "ms": 25.391,
+          "status": 200,
+          "bytes": 7292,
+          "error": null
+        },
+        {
+          "case": "global_metadata",
+          "ms": 1417.42,
+          "status": 200,
+          "bytes": 481,
+          "error": null
+        }
+      ]
+    }
+  ],
+  "after": {
+    "total": 1000000,
+    "originalHash": "0046f4fff47dac740b71600511c3e181"
+  },
+  "finishedAt": "2026-10-22T06:45:05.973373+00:00"
+}

@@ -36,7 +36,7 @@ it("separates 90 from 91 days and combines all filters", () => {
   });
 });
 it("checks API shape and age consistency", () => {
-  expect(parseSnapshot(snapshot)).toEqual(snapshot);
+  expect(parseSnapshot(snapshot).vehicles).toEqual(snapshot.vehicles);
   expect(() =>
     parseSnapshot({
       ...snapshot,
@@ -52,4 +52,36 @@ it("checks API shape and age consistency", () => {
 });
 it("refreshes at dealership midnight using server time", () => {
   expect(midnightDelay(snapshot)).toBe(15 * 60 * 60 * 1000 + 50);
+});
+
+it("sorts filtered inventory numerically or by text without mutating the snapshot", () => {
+  const filters = { make: "all", model: "all", age: "all" as const };
+  const order = (
+    key:
+      | "vehicle"
+      | "registration"
+      | "pricePence"
+      | "daysInStock"
+      | "currentAction",
+    direction: "asc" | "desc",
+  ) =>
+    filterVehicles(snapshot.vehicles, filters, { key, direction }).map(
+      (v) => v.registration,
+    );
+  expect(order("pricePence", "desc")).toEqual(["KL-002", "KL-001"]);
+  expect(order("daysInStock", "asc")).toEqual(["KL-002", "KL-001"]);
+  expect(order("vehicle", "asc")).toEqual(["KL-002", "KL-001"]);
+  expect(order("registration", "desc")).toEqual(["KL-002", "KL-001"]);
+  expect(order("currentAction", "asc")).toEqual(["KL-001", "KL-002"]);
+  expect(snapshot.vehicles.map((v) => v.registration)).toEqual([
+    "KL-001",
+    "KL-002",
+  ]);
+  expect(
+    filterVehicles(
+      snapshot.vehicles,
+      { ...filters, age: "aging" },
+      { key: "pricePence", direction: "desc" },
+    ),
+  ).toHaveLength(1);
 });

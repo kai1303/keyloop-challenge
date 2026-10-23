@@ -1,0 +1,10 @@
+# Unified application users
+
+The user chose one public.users table for customers, staff, and technicians. Retain existing staff IDs to preserve sessions/JWT subjects. Store all IDs as text; preserve UUID IDs as their exact string representation. Add customer/technician/admin roles and Better Auth profile fields. Customer email/phone validation remains at the guest API boundary; migrated technicians without contact data have NULL email/phone and no credentials. Email uniqueness permits staff/customer identity consolidation; prefer the existing staff ID, retain the customer phone, and remap booking/vehicle foreign keys. Never match technicians to staff by name or invent credentials.
+
+1. Write and run a failing regression expecting public.users technician roles and no separate technician table.
+2. Add a forward migration after the schema move. Preserve foreign-key behavior while repointing all identity references to users, merge matching customer/staff emails, migrate technicians, retain auth account/session IDs, drop obsolete user/technician tables without CASCADE, and retain RLS/grants.
+3. Configure Better Auth to use users; update staff verification, qualification/catalog queries, seed profiles, and technician ID validation. Guest requests must never overwrite roles, credentials, or staff profile fields.
+4. Update disposable fixtures and historical migration test adapters. Test same-email merging, existing sessions/credentials, non-UUID technicians, role/ban filtering, auth-role enforcement and transaction rollback. Run API/web checks and update current docs and diagrams.
+5. Back up and restore-verify the local database, rehearse the migration and fresh setup in isolation, apply only the pending migration locally, verify preserved relations/rows and real auth/booking/Realtime paths, and remove task-created verification databases/processes.
+6. Keep trusted staff provisioning usable for customer-first emails and explicit legacy technician IDs, with transactional credential attachment and no replacement of existing logins. Test real sign-ins and rejection rollback.

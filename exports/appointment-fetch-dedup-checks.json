@@ -1,0 +1,71 @@
+{
+  "url": "http://127.0.0.1:5173/appointments",
+  "normalLoadRequests": [
+    {
+      "path": "/guest-booking-api/schedule",
+      "status": 200,
+      "cancelled": false
+    },
+    {
+      "path": "/guest-booking-api/service-types",
+      "status": 200,
+      "cancelled": false
+    },
+    {
+      "path": "/guest-booking-api/bookings?month=2026-10",
+      "status": 200,
+      "cancelled": false
+    },
+    {
+      "path": "/guest-booking-api/availability/slots?serviceTypeId=00000000-0000-4000-8000-000000000002&date=2026-10-26",
+      "status": 200,
+      "cancelled": false
+    }
+  ],
+  "frontendTests": {
+    "passed": 184,
+    "skipped": 3
+  },
+  "build": true,
+  "typecheck": true,
+  "behavior": "Initial calendar/form read follows all subscription acknowledgments; one-second fallback when unavailable; events/reconnect/focus still refresh",
+  "codeChanged": [
+    "watch-availability.ts",
+    "use-calendar-bookings.ts",
+    "BookingForm.tsx"
+  ],
+  "noBookingSubmitted": true,
+  "afterSingleRealtimeEvent": [
+    {
+      "path": "/guest-booking-api/schedule",
+      "status": 200,
+      "cancelled": false
+    },
+    {
+      "path": "/guest-booking-api/service-types",
+      "status": 200,
+      "cancelled": false
+    },
+    {
+      "path": "/guest-booking-api/bookings?month=2026-10",
+      "status": 200,
+      "cancelled": false
+    },
+    {
+      "path": "/guest-booking-api/availability/slots?serviceTypeId=00000000-0000-4000-8000-000000000002&date=2026-10-26",
+      "status": 200,
+      "cancelled": false
+    },
+    {
+      "path": "/guest-booking-api/bookings?month=2026-10",
+      "status": 200,
+      "cancelled": false
+    },
+    {
+      "path": "/guest-booking-api/availability/slots?serviceTypeId=00000000-0000-4000-8000-000000000002&date=2026-10-26",
+      "status": 200,
+      "cancelled": false
+    }
+  ],
+  "realtimeCheck": "One date-only test Broadcast; one additional calendar request and one additional form request; no business rows changed"
+}

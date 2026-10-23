@@ -1,0 +1,476 @@
+{
+  "source": "https://keyloop.com/product-overview",
+  "captured": "2026-10-21",
+  "scope": "Public product-map entries; not authenticated application UI.",
+  "products": [
+    {
+      "domain": "demand",
+      "benefits": [
+        "Increase website-to-lead conversion",
+        "Reduce drop-off across the journey",
+        "Improve consistency across sites"
+      ],
+      "image": {
+        "alt": "Screenshot of Keyloop&#039;s Acquisition Hub product on white background.",
+        "height": 1446,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Acquisition-Hub_Hero-Image_White@3x-scaled.png",
+        "width": 2560
+      },
+      "name": "Acquisition Hub",
+      "description": "The comprehensive car dealership website solution that brings every step of the digital customer journey into one platform. Turn more browsing into enquiries and appointments."
+    },
+    {
+      "domain": "demand",
+      "benefits": [
+        "Reduce process friction and delays",
+        "Improve deal control and visibility",
+        "Increase productivity per salesperson"
+      ],
+      "image": {
+        "alt": "Screenshot of Keyloop&#039;s Sales Hub product on white background.",
+        "height": 0,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/02/Sales-Hub_Hero-Image_White@3x-scaled.png",
+        "width": 0
+      },
+      "name": "Sales Hub",
+      "description": "The connected sales process capability that reduces cost and inefficiency end to end. Drive every deal to close faster with clearer workflows and fewer delays."
+    },
+    {
+      "domain": "demand",
+      "benefits": [
+        "Target upgrade-ready customers automatically",
+        "Increase renewal and repeat purchase conversion",
+        "Reduce wasted outreach and missed opportunities"
+      ],
+      "image": {
+        "alt": "A man talking to a salesperson about buying a new car.",
+        "height": 0,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Demand_Retention-Hub_02-Edit.png",
+        "width": 0
+      },
+      "name": "Retention Hub",
+      "description": "The automated retention marketing solution powered by AI-driven propensity modelling. Identify when a customer is most likely to upgrade so you can re-engage with the right message at the right moment."
+    },
+    {
+      "domain": "demand",
+      "benefits": [
+        "Improve response speed and follow-up discipline",
+        "Prioritise the best opportunities automatically",
+        "Increase conversion visibility and consistency"
+      ],
+      "image": {
+        "alt": "A couple talking to a salesperson about buying a new car and looking at a tablet to complete the deal.",
+        "height": 0,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Demand_Keyloop-Leads_02-1.png",
+        "width": 0
+      },
+      "name": "Keyloop Leads",
+      "description": "The connected lead handling solution that turns disconnected enquiries into one revenue-driving process. Your sales teams respond faster, prioritise opportunities and convert more customers."
+    },
+    {
+      "domain": "demand",
+      "benefits": [
+        "Capture more enquiries from messaging",
+        "Respond instantly across channels",
+        "Keep a single conversation history"
+      ],
+      "image": {
+        "alt": "A couple sitting on a sofa in car dealership and discussing the idea of buying a new car whilst looking at a tablet to complete the deal.",
+        "height": 0,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Demand_Keyloop-Chat_02-Edit.png",
+        "width": 0
+      },
+      "name": "Keyloop Chat",
+      "description": "The unified digital conversations platform that brings web chat and WhatsApp into one place. Capture every lead, respond instantly and deliver a consistent, always-on experience."
+    },
+    {
+      "domain": "demand",
+      "benefits": [
+        "Boost online engagement and buyer confidence",
+        "Support upsell and option take-up",
+        "Reduce reliance on physical demos"
+      ],
+      "image": {
+        "alt": "A couple sitting on a sofa at home and discussing the idea of buying a new car whilst looking at a tablet to complete the deal.",
+        "height": 0,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Demand_Experience_02.png",
+        "width": 0
+      },
+      "name": "Experience",
+      "description": "The 3D visualisation experience that brings every car to life on any device, anywhere. Buyers explore options interactively while OEMs and retailers reduce demo costs, accelerate launches and increase upsells."
+    },
+    {
+      "domain": "demand",
+      "benefits": [
+        "Identify renewal-ready customers faster",
+        "Improve offer relevance and conversion",
+        "Reduce mis-quotes and equity errors"
+      ],
+      "image": {
+        "alt": "A couple talking to a salesperson about buying a new car.",
+        "height": 0,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Demand_eMaster_02.png",
+        "width": 0
+      },
+      "name": "eMaster",
+      "description": "The finance optimisation tool that calculates each customer\u2019s current equity accurately. Identify the best candidates for renewal and present more relevant finance offers."
+    },
+    {
+      "domain": "demand",
+      "benefits": [
+        "Improve retention and repeat purchase rates",
+        "Personalise campaigns at scale",
+        "Increase campaign timing accuracy"
+      ],
+      "image": {
+        "alt": "A lady smiling and looking at her phone whilst sitting in the inside of her car.",
+        "height": 0,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Demand_P360_02-Edit.png",
+        "width": 0
+      },
+      "name": "P360",
+      "description": "Combining automated marketing with AI-driven propensity modelling powered by Kortical. Built to predict upgrade intent and trigger timely, personalised campaigns that keep customers for longer."
+    },
+    {
+      "domain": "demand",
+      "benefits": [
+        "Speed up contract completion and handover",
+        "Reduce errors, rework and duplicated entry",
+        "Strengthen audit trails and compliance accuracy"
+      ],
+      "image": {
+        "alt": "A couple talking to a salesperson about buying a new car and looking at a tablet to complete the deal.",
+        "height": 0,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Demand_Sales-Docs_02-Edit.png",
+        "width": 0
+      },
+      "name": "Sales Docs",
+      "description": "The sales document automation solution that removes paperwork from the deal. Complete contracts, capture signatures and maintain compliance without rekeying or delays."
+    },
+    {
+      "domain": "demand",
+      "benefits": [
+        "Reduce duplicated entry and handoffs",
+        "Improve compliance consistency",
+        "Move deals forward faster"
+      ],
+      "image": {
+        "alt": "A couple talking and shaking hands with a car salesperson about buying a new car.",
+        "height": 0,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Demand_enquiryMAX_02-Edit.png",
+        "width": 0
+      },
+      "name": "enquiryMAX",
+      "description": "The unified sales journey system that brings lead capture, appraisal and compliance into one workflow. Complete key steps with less admin and more accuracy."
+    },
+    {
+      "domain": "demand",
+      "benefits": [
+        "A single product and marketing partner",
+        "The latest marketing trends",
+        "Data-driven with ROI tracking"
+      ],
+      "image": {
+        "alt": "A lady talking to a salesperson about buying a new car and looking at a tablet to complete the deal.",
+        "height": 0,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Demand_Marketing-Services_02-1.png",
+        "width": 0
+      },
+      "name": "Marketing Services",
+      "description": "High-impact marketing made simple, using the perfect balance of data-driven insights and human expertise."
+    },
+    {
+      "domain": "supply",
+      "benefits": [
+        "Reduce manual updates from intake to live listings",
+        "Improve stock turn and protect margin on aged units",
+        "Minimise vehicle data errors across channels"
+      ],
+      "image": {
+        "alt": "Screenshot of Keyloop&#039;s Vehicle Hub product on white background.",
+        "height": 1446,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Vehicle-Hub_Hero-Image_White@3x-scaled.png",
+        "width": 2560
+      },
+      "name": "Vehicle Hub",
+      "description": "Intelligent inventory management software that simplifies and automates a vehicle\u2019s journey through your organisation. Helping you to see reliably, market accurately and sell quickly."
+    },
+    {
+      "domain": "supply",
+      "benefits": [
+        "Speed up quote-to-order and delivery workflows",
+        "Lower admin cost per order and reduce delays",
+        "Improve control and traceability across the fleet journey"
+      ],
+      "image": {
+        "alt": "A couple of colleagues are talking in front of a fleet car park.",
+        "height": 0,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Supply_Fleetbase_02-Edit.png",
+        "width": 0
+      },
+      "name": "Fleetbase",
+      "description": "The real-time fleet platform built for leasing companies, brokers and OEMs. Helping you process orders faster, manage stock visibility and automate complex workflows from quote to delivery."
+    },
+    {
+      "domain": "supply",
+      "benefits": [
+        "Shorten planning cycles with clearer forward visibility",
+        "Protect profitability through improved forecasting accuracy",
+        "Reduce exposure to volatility and poor renewal decisions"
+      ],
+      "image": {
+        "alt": "A couple talking to a car salesman in a car showroom.",
+        "height": 0,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Supply_ARM-Forecast_02-Edit.png",
+        "width": 0
+      },
+      "name": "Asset Risk Management - Forecast",
+      "description": "The forecasting capability that helps you take control of vehicle and customer lifecycles. Protect margins, optimise supply and make confident, data-driven renewal decisions."
+    },
+    {
+      "domain": "supply",
+      "benefits": [
+        "Accelerate portfolio reviews and revaluation decisions",
+        "Maximise value by making smarter pricing and disposal calls",
+        "Reduce residual value shocks and incorrect valuations"
+      ],
+      "image": {
+        "alt": "A lady looking at a car in the forecourt of a car showroom.",
+        "height": 0,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Supply_ARM-Recalc_02-Edit.png",
+        "width": 0
+      },
+      "name": "Asset Risk Management - Recalc",
+      "description": "Strengthen residual value management across your portfolio. Recalculate, forecast and protect every vehicle\u2019s true worth to maximise profit and reduce risk."
+    },
+    {
+      "domain": "ownership",
+      "benefits": [
+        "Improve workshop throughput and utilisation",
+        "Increase repair order value",
+        "Reduce customer friction and drop-off"
+      ],
+      "image": {
+        "alt": "Screenshot of Keyloop&#039;s Service Hub product on white background.",
+        "height": 1446,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Service-Hub_Hero-Image_White@3x-scaled.png",
+        "width": 2560
+      },
+      "name": "Service Hub",
+      "description": "The aftersales journey solution that streamlines everything from booking to completion. Boost technician productivity, increase repair order value and deliver a frictionless customer experience."
+    },
+    {
+      "domain": "ownership",
+      "benefits": [
+        "Speed up contract completion and handover",
+        "Reduce errors, rework and duplicated entry",
+        "Strengthen audit trails and compliance accuracy"
+      ],
+      "image": {
+        "alt": "A couple of colleagues are talking in a car service centre.",
+        "height": 0,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Ownership_Service-Docs_02-Edit.png",
+        "width": 0
+      },
+      "name": "Service Docs",
+      "description": "The service document automation solution that removes paperwork from the equation. Accurately track job files with digital customer signatures and audit trails."
+    },
+    {
+      "domain": "operate",
+      "benefits": [
+        "Reduce IT overhead and infrastructure complexity",
+        "Scale across sites more easily",
+        "Stay current with faster updates"
+      ],
+      "image": {
+        "alt": "A group of people talking around a desk in a car showroom.",
+        "height": 840,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Operate_Drive_02-1.png",
+        "width": 1488
+      },
+      "name": "Drive",
+      "description": "The cloud-based SaaS platform that delivers the full power of Autoline and connects sales, service and finance in one modern DMS. Scale easily, update faster and reduce IT overheads."
+    },
+    {
+      "domain": "operate",
+      "benefits": [
+        "Standardise workflows across departments",
+        "Improve operational consistency and reporting",
+        "Support compliance and control"
+      ],
+      "image": {
+        "alt": "A group of people talking in a car service centre.",
+        "height": 0,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Operate_Autoline_02-1.png",
+        "width": 0
+      },
+      "name": "Autoline",
+      "description": "The trusted DMS powering dealerships worldwide. Manage every department efficiently while staying compliant, consistent and connected to the latest innovations."
+    },
+    {
+      "domain": "operate",
+      "benefits": [
+        "Connect departments in one system",
+        "Improve resource planning and visibility",
+        "Support OEM compliance requirements"
+      ],
+      "image": {
+        "alt": "A group of people talking in a car service centre.",
+        "height": 0,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Operate_Eva_02-Edit.png",
+        "width": 0
+      },
+      "name": "Eva",
+      "description": "The DMS that unites sales, service, parts and finance for dealers across the Netherlands. Simplify operations, stay compliant with OEM standards and plan resources with confidence."
+    },
+    {
+      "domain": "operate",
+      "benefits": [
+        "Unify sales, service and accounting workflows",
+        "Reduce duplication and manual processes",
+        "Support local regulatory compliance"
+      ],
+      "image": {
+        "alt": "A group of people talking in a car service centre.",
+        "height": 0,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Operate_Eva_02-2.png",
+        "width": 0
+      },
+      "name": "Eva+",
+      "description": "The compliant DMS for Belgium and Luxembourg that brings sales, service and accounting into one system. Meet strict local legal requirements while keeping operations seamless."
+    },
+    {
+      "domain": "operate",
+      "benefits": [
+        "Manage high volumes more efficiently",
+        "Simplify end-to-end dealership operations",
+        "Support compliance and control"
+      ],
+      "image": {
+        "alt": "A group of people talking in a car park.",
+        "height": 0,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Operate_Aswin_02-1.png",
+        "width": 0
+      },
+      "name": "Aswin",
+      "description": "The DMS built for the Iberian market, combining every dealership process in one platform. Designed to handle high volumes, stay compliant and deliver fast, reliable service."
+    },
+    {
+      "domain": "operate",
+      "benefits": [
+        "Simplify tax and regulatory processes",
+        "Improve operational consistency",
+        "Strengthen compliance and governance"
+      ],
+      "image": {
+        "alt": "A group of people talking around a desk in a car showroom.",
+        "height": 0,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Operate_Windrakkar_02-Edit.png",
+        "width": 0
+      },
+      "name": "Windrakkar",
+      "description": "The DMS designed for Italy\u2019s complex tax and regulatory environment. Simplify compliance, unify operations and maintain profitability with confidence."
+    },
+    {
+      "domain": "operate",
+      "benefits": [
+        "Standardise reporting across sites",
+        "Reduce duplication and rekeying",
+        "Improve visibility for multi-branch management"
+      ],
+      "image": {
+        "alt": "A couple of colleagues is talking in a car dealership.",
+        "height": 0,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Operate_Automaster_02-Edit.png",
+        "width": 0
+      },
+      "name": "Automaster",
+      "description": "The integrated DMS for Nordic multi-site retailers. Standardise reporting, eliminate duplication and focus on customer experience across every branch."
+    },
+    {
+      "domain": "operate",
+      "benefits": [
+        "Connect easily with an open partner ecosystem",
+        "Reduce custom integration effort",
+        "Improve consistency across connected systems"
+      ],
+      "image": {
+        "alt": "A group of people talking around a desk in a car showroom.",
+        "height": 0,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Operate_Serti_02-1.png",
+        "width": 0
+      },
+      "name": "Serti",
+      "description": "The open, flexible DMS platform built for the Canadian market. Built to connect retailers with manufacturers and approved partners to deliver frictionless consumer experiences."
+    },
+    {
+      "domain": "operate",
+      "benefits": [
+        "Simplify multi-branch operations and reporting",
+        "Improve cross-department efficiency",
+        "Support regional compliance requirements"
+      ],
+      "image": {
+        "alt": "A group of people talking in a car service centre.",
+        "height": 0,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Operate_Dracar_02-Edit.png",
+        "width": 0
+      },
+      "name": "Dracar+",
+      "description": "The DMS that unites sales, service, parts and accounting for dealers across the DACH and Nordic regions. Manage multi-branch operations efficiently, stay compliant and grow profitability."
+    },
+    {
+      "domain": "operate",
+      "benefits": [
+        "Surface issues and opportunities earlier",
+        "Improve forecasting and performance planning",
+        "Align teams on consistent insight"
+      ],
+      "image": {
+        "alt": "A group of colleagues talking in a car dealership.",
+        "height": 0,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Operate_VEGA_02-Edit.png",
+        "width": 0
+      },
+      "name": "VEGA",
+      "description": "The predictive intelligence platform that turns insight into action across your dealership. Make faster, smarter decisions across every department."
+    }
+  ],
+  "mainNavigation": [
+    {
+      "name": "Sales Hub",
+      "url": "https://keyloop.com/sales-hub",
+      "evidence": "evidence/sales-hub.png"
+    },
+    {
+      "name": "Acquisition Hub",
+      "url": "https://keyloop.com/acquisition-hub",
+      "evidence": "evidence/acquisition-hub.png"
+    },
+    {
+      "name": "Marketing Services",
+      "url": "https://keyloop.com/products/marketing-services",
+      "evidence": "evidence/marketing-services.png"
+    },
+    {
+      "name": "Vehicle Hub",
+      "url": "https://keyloop.com/vehicle-hub",
+      "evidence": "evidence/vehicle-hub.png"
+    },
+    {
+      "name": "Service Hub",
+      "url": "https://keyloop.com/service-hub",
+      "evidence": "evidence/service-hub.png"
+    },
+    {
+      "name": "Keyloop DMS",
+      "url": "https://keyloop.com/dms",
+      "evidence": "evidence/dms.png"
+    },
+    {
+      "name": "VEGA",
+      "url": "https://keyloop.com/operate-vega",
+      "evidence": "evidence/operate-vega.png"
+    }
+  ]
+}

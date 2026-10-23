@@ -1,0 +1,130 @@
+{
+  "downloaded": [
+    {
+      "source": "https://keyloop.com/app/themes/keyloop/public/css/app.acf9b4.css",
+      "file": "evidence/source-theme.css"
+    },
+    {
+      "source": "https://keyloop.com/app/themes/keyloop/public/fonts/IBM_Plex_Sans/IBMPlexSans-VariableFont_wdth,wght.b9dbc3.ttf",
+      "file": "fonts/ibm-plex-sans.ttf"
+    },
+    {
+      "source": "https://keyloop.com/app/themes/keyloop/public/fonts/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.58996b.ttf",
+      "file": "fonts/plus-jakarta-sans.ttf"
+    },
+    {
+      "source": "https://keyloop.com/app/themes/keyloop/public/fonts/IBM_Plex_Sans/IBMPlexSans-Italic-VariableFont_wdth,wght.9ab1af.ttf",
+      "file": "fonts/ibm-plex-sans-italic.ttf"
+    },
+    {
+      "source": "https://keyloop.b-cdn.net/app/uploads/2026/01/Operate_VEGA_02-Edit.png",
+      "file": "evidence/Operate_VEGA_02-Edit.png"
+    }
+  ],
+  "unavailableProductImages": [
+    {
+      "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Acquisition-Hub_Hero-Image_White@3x-scaled.png",
+      "reason": "The browser asset exporter could not retrieve this CDN image."
+    },
+    {
+      "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Vehicle-Hub_Hero-Image_White@3x-scaled.png",
+      "reason": "The browser asset exporter could not retrieve this CDN image."
+    },
+    {
+      "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Service-Hub_Hero-Image_White@3x-scaled.png",
+      "reason": "The browser asset exporter could not retrieve this CDN image."
+    },
+    {
+      "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Operate_Drive_02-1.png",
+      "reason": "The browser asset exporter could not retrieve this CDN image."
+    },
+    {
+      "url": "https://keyloop.b-cdn.net/app/uploads/2026/02/Sales-Hub_Hero-Image_White@3x-scaled.png",
+      "reason": "The browser asset exporter could not retrieve this CDN image."
+    },
+    {
+      "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Demand_Retention-Hub_02-Edit.png",
+      "reason": "The browser asset exporter could not retrieve this CDN image."
+    },
+    {
+      "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Demand_Keyloop-Leads_02-1.png",
+      "reason": "The browser asset exporter could not retrieve this CDN image."
+    },
+    {
+      "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Demand_Keyloop-Chat_02-Edit.png",
+      "reason": "The browser asset exporter could not retrieve this CDN image."
+    },
+    {
+      "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Demand_Experience_02.png",
+      "reason": "The browser asset exporter could not retrieve this CDN image."
+    },
+    {
+      "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Demand_eMaster_02.png",
+      "reason": "The browser asset exporter could not retrieve this CDN image."
+    },
+    {
+      "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Demand_P360_02-Edit.png",
+      "reason": "The browser asset exporter could not retrieve this CDN image."
+    },
+    {
+      "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Demand_Sales-Docs_02-Edit.png",
+      "reason": "The browser asset exporter could not retrieve this CDN image."
+    },
+    {
+      "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Demand_enquiryMAX_02-Edit.png",
+      "reason": "The browser asset exporter could not retrieve this CDN image."
+    },
+    {
+      "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Demand_Marketing-Services_02-1.png",
+      "reason": "The browser asset exporter could not retrieve this CDN image."
+    },
+    {
+      "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Supply_Fleetbase_02-Edit.png",
+      "reason": "The browser asset exporter could not retrieve this CDN image."
+    },
+    {
+      "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Supply_ARM-Forecast_02-Edit.png",
+      "reason": "The browser asset exporter could not retrieve this CDN image."
+    },
+    {
+      "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Supply_ARM-Recalc_02-Edit.png",
+      "reason": "The browser asset exporter could not retrieve this CDN image."
+    },
+    {
+      "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Ownership_Service-Docs_02-Edit.png",
+      "reason": "The browser asset exporter could not retrieve this CDN image."
+    },
+    {
+      "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Operate_Autoline_02-1.png",
+      "reason": "The browser asset exporter could not retrieve this CDN image."
+    },
+    {
+      "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Operate_Eva_02-Edit.png",
+      "reason": "The browser asset exporter could not retrieve this CDN image."
+    },
+    {
+      "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Operate_Eva_02-2.png",
+      "reason": "The browser asset exporter could not retrieve this CDN image."
+    },
+    {
+      "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Operate_Aswin_02-1.png",
+      "reason": "The browser asset exporter could not retrieve this CDN image."
+    },
+    {
+      "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Operate_Windrakkar_02-Edit.png",
+      "reason": "The browser asset exporter could not retrieve this CDN image."
+    },
+    {
+      "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Operate_Automaster_02-Edit.png",
+      "reason": "The browser asset exporter could not retrieve this CDN image."
+    },
+    {
+      "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Operate_Serti_02-1.png",
+      "reason": "The browser asset exporter could not retrieve this CDN image."
+    },
+    {
+      "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Operate_Dracar_02-Edit.png",
+      "reason": "The browser asset exporter could not retrieve this CDN image."
+    }
+  ]
+}

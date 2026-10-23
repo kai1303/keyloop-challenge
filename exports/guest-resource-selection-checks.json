@@ -1,0 +1,91 @@
+{
+  "checkedAt": "2026-10-23T09:44:08.795Z",
+  "customerFieldsExcluded": true,
+  "missingGuestSelectionsRejected": true,
+  "noBusinessWrites": true,
+  "checks": [
+    {
+      "service": "00000000-0000-4000-8000-000000000001",
+      "start": "2026-10-23T10:00:00.000Z",
+      "technicians": [
+        "Technician A",
+        "Technician C"
+      ],
+      "bays": [
+        "Bay B"
+      ],
+      "matchesDatabase": true
+    },
+    {
+      "service": "00000000-0000-4000-8000-000000000001",
+      "start": "2026-10-23T12:00:00.000Z",
+      "technicians": [
+        "Technician A",
+        "Technician C"
+      ],
+      "bays": [
+        "Bay A",
+        "Bay B"
+      ],
+      "matchesDatabase": true
+    },
+    {
+      "service": "00000000-0000-4000-8000-000000000002",
+      "start": "2026-10-23T10:00:00.000Z",
+      "technicians": [
+        "Technician C"
+      ],
+      "bays": [
+        "Bay B"
+      ],
+      "matchesDatabase": true
+    },
+    {
+      "service": "00000000-0000-4000-8000-000000000002",
+      "start": "2026-10-23T12:00:00.000Z",
+      "technicians": [
+        "Technician B",
+        "Technician C"
+      ],
+      "bays": [
+        "Bay A",
+        "Bay B"
+      ],
+      "matchesDatabase": true
+    }
+  ],
+  "browser": {
+    "resourceInteractionRequests": [],
+    "interactionCaptureTruncated": false,
+    "liveRefreshRequests": [
+      {
+        "path": "/api/bookings?month=2026-10",
+        "method": "GET"
+      }
+    ],
+    "refreshCaptureTruncated": false,
+    "validPairPreserved": true,
+    "timeChangeClearedSelections": true,
+    "atNoon": {
+      "availableTechnicians": [
+        "Technician B",
+        "Technician C"
+      ],
+      "availableBays": [
+        "Bay A",
+        "Bay B"
+      ]
+    },
+    "noLiveBookingSubmitted": true
+  },
+  "tests": {
+    "webPassed": 191,
+    "webSkipped": 3,
+    "apiUnitPassed": 119,
+    "httpPassed": 77,
+    "postgresPassed": 78,
+    "buildsPassed": true,
+    "apiTypecheckPassed": true,
+    "apiLintPassed": true
+  }
+}

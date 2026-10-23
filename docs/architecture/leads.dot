@@ -1,0 +1,22 @@
+digraph Leads {
+  graph [rankdir=TB, bgcolor="#ffffff", pad=0.35, nodesep=0.65, ranksep=0.65, fontname="Helvetica", fontsize=20, label="03 | Sales Lead Management", labelloc=t];
+  node [shape=box, style="rounded,filled", fillcolor="#eef2ff", color="#818cf8", fontname="Helvetica", fontsize=12, margin="0.20,0.14"];
+  edge [fontname="Helvetica", fontsize=10, color="#64748b", arrowsize=0.7];
+  ui [label="Lead inbox + detail panel\nEnquiry + contact details\nChronological follow-up history"];
+  activity [label="Activity dialog\nNote + activity UUID\nKeep draft / reuse ID on retry"];
+  client [label="Leads API client\nFetch list / detail / save\nValidate API responses"];
+  api [label="NestJS Leads module\nController: input validation\nService: reads + idempotent append"];
+  rest [label="Supabase Data API\nServer-side service-role access", fillcolor="#f8fafc", color="#94a3b8"];
+  db [shape=cylinder, label="Shared Supabase PostgreSQL\npublic.sales_leads\npublic.sales_lead_activities\nUUID uniqueness + foreign key", fillcolor="#ecfdf5", color="#34d399"];
+  seed [label="Explicit fictional seed\nInitial enquiries only\nNo live website ingestion", fillcolor="#fff7ed", color="#fb923c"];
+  { rank=same; ui; activity; }
+  { rank=same; client; api; }
+  { rank=same; rest; seed; }
+  ui -> client [label="list / detail"];
+  ui -> activity [label="log follow-up"];
+  activity -> client [label="POST activity"];
+  client -> api [label="REST via /api proxy"];
+  api -> rest [label="read / insert / retry lookup"];
+  rest -> db [label="SQL"];
+  seed -> db [label="one-time / repeatable insert"];
+}

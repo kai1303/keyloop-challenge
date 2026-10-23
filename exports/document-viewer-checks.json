@@ -1,0 +1,32 @@
+{
+  "checkedAt": "2026-10-22T02:09:09.468323+00:00",
+  "origin": "http://127.0.0.1:5176/admin/documents",
+  "apiOrigin": "http://127.0.0.1:3006",
+  "checks": {
+    "exampleVINReturnsFourDocuments": true,
+    "salesDocuments": 2,
+    "serviceDocuments": 2,
+    "sourceLabelsVisible": true,
+    "documentPreviewOpenedInDashboard": true,
+    "previewEscDismissal": true,
+    "unknownVINShowsEmptyResult": true,
+    "navigationDoesNotReloadDocument": true,
+    "narrowViewportWidth": 320,
+    "narrowDocumentWidth": 320,
+    "mobilePreviewWidth": 288,
+    "webTestsPassed": 104,
+    "webLiveTestsSkipped": 3,
+    "apiUnitTestsPassed": 41,
+    "apiHttpTestsPassed": 14,
+    "typecheckPassed": true,
+    "buildPassed": true,
+    "lintWarnings": 0,
+    "lintErrors": 0,
+    "actualConcurrentHttpRequestsVerified": true,
+    "partialSourceFailureHttpAndUiTests": true,
+    "timeoutHttpTest": true,
+    "previewSafeTextTest": true,
+    "outOfOrderSearchTest": true
+  },
+  "evidenceBoundary": "The two mock HTTP namespaces are hosted in the existing Nest process. Integration tests use real HTTP and gate both responses until both requests arrive. Previews show fictional plain-text content. No production dealership systems or real PDFs are connected; Supabase live tests were not rerun because this feature does not change its database paths."
+}

@@ -1,0 +1,27 @@
+{
+  "checkedAt": "2026-10-22T03:23:56.958393+00:00",
+  "project": "keyloop-inventory-local",
+  "container": "supabase_db_keyloop-inventory-local",
+  "seedFile": "supabase/seeds/inventory-benchmark.sql",
+  "stats": {
+    "aging": 875505,
+    "makes": 12,
+    "total": 1000000,
+    "original": 24,
+    "sizeBytes": 389816320,
+    "synthetic": 999976,
+    "needsAction": 525304,
+    "makeModelPairs": 36,
+    "originalSavedActions": 4
+  },
+  "checks": {
+    "preexistingRowsUnchanged": "SQL EXCEPT assertion passed before commit",
+    "analyzed": true,
+    "apiGlobalSummaryMatchesDatabase": true,
+    "apiFirstTwoPagesDistinct": true,
+    "apiCombinedFiltersAndSort": true,
+    "originalSavedActionReadable": true
+  },
+  "benchmarkRun": false,
+  "distribution": "Synthetic; weighted makes and deterministic repeated prices/ages, not production traffic"
+}

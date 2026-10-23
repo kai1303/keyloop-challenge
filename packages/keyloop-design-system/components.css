@@ -1,0 +1,63 @@
+@import "./tokens.css";
+
+.kl-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--kl-space-2);
+  padding: var(--kl-space-control-y) var(--kl-space-4);
+  border: 1px solid var(--kl-color-ink);
+  border-radius: var(--kl-radius-control);
+  background: var(--kl-color-ink);
+  color: var(--kl-color-white);
+  font: 600 var(--kl-font-size-body) / var(--kl-line-height-body) var(--kl-font-family-body);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--kl-duration-standard);
+}
+
+.kl-button:hover { background: var(--kl-color-muted); }
+.kl-button--primary { background: var(--kl-color-cta); border-color: var(--kl-color-cta); color: var(--kl-color-ink); }
+.kl-button--primary:hover { background: var(--kl-color-white); border-color: var(--kl-color-white); }
+.kl-button--light { background: var(--kl-color-white); border-color: var(--kl-color-white); color: var(--kl-color-ink); }
+.kl-button--light:hover { background: var(--kl-color-border); }
+
+.kl-card {
+  padding: var(--kl-space-5);
+  border-radius: var(--kl-radius-card);
+  background: var(--kl-color-white);
+  color: var(--kl-color-ink);
+}
+
+.kl-input {
+  box-sizing: border-box;
+  min-height: var(--kl-layout-input-height);
+  padding: 0 var(--kl-space-3);
+  border: 1px solid var(--kl-color-border);
+  border-radius: var(--kl-radius-control);
+  background: var(--kl-color-white);
+  color: var(--kl-color-ink);
+  font: 400 var(--kl-font-size-body) / var(--kl-line-height-body) var(--kl-font-family-body);
+}
+
+.kl-domain {
+  display: inline-block;
+  padding: var(--kl-space-control-y) var(--kl-space-6);
+  border-radius: var(--kl-radius-domain);
+  background: var(--kl-gradient-operate);
+  color: var(--kl-color-ink);
+  font: 600 var(--kl-font-size-label) / var(--kl-line-height-label) var(--kl-font-family-body);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+
+/* Explicit keyboard focus is an export addition; source controls sometimes suppress it. */
+.kl-button:focus-visible, .kl-input:focus-visible {
+  outline: 2px solid var(--kl-color-focus);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kl-button { transition: none; }
+}

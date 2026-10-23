@@ -1,0 +1,24 @@
+{
+  "checkedAt": "2026-10-21T17:10:37.071400+00:00",
+  "origin": "http://127.0.0.1:5176/admin/inventory",
+  "checks": {
+    "numericPriceSortingInBrowser": true,
+    "makeAndAgeFiltersCombinedInBrowser": true,
+    "globalMetricsUnaffectedByFiltering": true,
+    "filtersRemainAvailableForNoMatch": true,
+    "modelResetsWhenMakeChanges": true,
+    "sortPersistsAcrossLivePriceUpdates": true,
+    "defaultOldestStockFirst": true,
+    "narrowViewportWidth": 320,
+    "narrowDocumentWidth": 320,
+    "narrowPopupBounds": {
+      "left": 29,
+      "right": 285
+    },
+    "webTestsPassed": 85,
+    "liveTestsSkipped": 3,
+    "typecheckPassed": true,
+    "productionBuildPassed": true
+  },
+  "evidenceBoundary": "Browser proof and unit/UI tests; backend and real Supabase suites not repeated. No database records were edited by these header checks."
+}

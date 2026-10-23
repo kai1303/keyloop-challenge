@@ -1,52 +1,137 @@
-import { afterEach, beforeEach, expect, it, vi } from 'vitest';
+import { afterAll, beforeAll, beforeEach, expect, it, vi } from 'vitest';
 import { Test } from '@nestjs/testing';
 import type { INestApplication } from '@nestjs/common';
 import request from 'supertest';
-import { AppModule } from '../src/app.module.js';
-
-let app: INestApplication;
-const order = vi.fn();
+import { InventoryModule } from '../src/inventory/inventory.module.js';
+const id = '00000000-0000-4000-8000-000000000001';
+const row = {
+  id,
+  registration: 'QUERY-HTTP',
+  make: 'Ford',
+  model: 'Kuga',
+  model_year: 2022,
+  price_pence: 100,
+  stocked_on: '2020-01-01',
+  current_action: null,
+  note: null,
+  action_updated_at: null,
+  version: 0,
+};
+const rpc = vi.fn();
 const single = vi.fn();
-beforeEach(async () => {
-  single.mockClear();
-  order.mockClear();
-  order.mockResolvedValue({ data: [], error: null });
-  single.mockResolvedValue({ data: null, error: { code: '40001' } });
-  const module = await Test.createTestingModule({ imports: [AppModule] })
+let app: INestApplication;
+beforeAll(async () => {
+  const module = await Test.createTestingModule({ imports: [InventoryModule] })
     .overrideProvider('INVENTORY_DB')
     .useValue({
-      from: () => ({ select: () => ({ order }) }),
-      rpc: () => ({ single }),
+      rpc,
+      from: () => ({ select: () => ({ eq: () => ({ maybeSingle: single }) }) }),
     })
     .compile();
   app = module.createNestApplication();
   await app.init();
 });
-afterEach(async () => {
-  await app.close();
+afterAll(async () => {
+  await app?.close();
 });
-it('returns a real empty snapshot with dealership metadata', async () => {
-  const response = await request(app.getHttpServer())
+beforeEach(() => {
+  rpc.mockReset().mockImplementation(async (name) => ({
+    data:
+      name === 'inventory_metadata'
+        ? {
+            summary: { total: 1000, aging: 200, needsAction: 100 },
+            options: { Ford: ['Kuga'] },
+          }
+        : [
+            { vehicle: row, cursor_values: [row.stocked_on, id] },
+            {
+              vehicle: { ...row, id: '00000000-0000-4000-8000-000000000002' },
+              cursor_values: [
+                row.stocked_on,
+                '00000000-0000-4000-8000-000000000002',
+              ],
+            },
+          ],
+    error: null,
+  }));
+  single.mockReset().mockResolvedValue({ data: row, error: null });
+});
+it('combines validated filters, database ordering and opaque cursor pagination', async () => {
+  const first = await request(app.getHttpServer())
     .get('/inventory')
+    .query({
+      make: ['Ford', 'Toyota'],
+      model: 'Kuga',
+      age: 'aging',
+      action: 'needsAction',
+      limit: 1,
+    })
     .expect(200);
-  expect(response.body.vehicles).toEqual([]);
-  expect(response.body.timeZone).toBe('Asia/Ho_Chi_Minh');
-  expect(response.body.dealershipDate).toMatch(/^\d{4}-\d{2}-\d{2}$/);
-});
-it('rejects unexpected fields before writing', async () => {
+  expect(first.body.vehicles).toHaveLength(1);
+  expect(first.body.nextCursor).toEqual(expect.any(String));
+  expect(rpc).toHaveBeenLastCalledWith(
+    'inventory_page',
+    expect.objectContaining({
+      p_make: ['Ford', 'Toyota'],
+      p_model: ['Kuga'],
+      p_age: 'aging',
+      p_action: 'needsAction',
+      p_limit: 1,
+      p_after: null,
+    }),
+  );
   await request(app.getHttpServer())
-    .patch('/inventory/00000000-0000-4000-8000-000000000008/action')
-    .send({ action: 'Monitor Stock', expectedVersion: 0, pricePence: 0 })
+    .get('/inventory')
+    .query({
+      make: ['Ford', 'Toyota'],
+      model: 'Kuga',
+      age: 'aging',
+      action: 'needsAction',
+      limit: 1,
+      after: first.body.nextCursor,
+    })
+    .expect(200);
+  expect(rpc).toHaveBeenLastCalledWith(
+    'inventory_page',
+    expect.objectContaining({ p_after: [row.stocked_on, id] }),
+  );
+  rpc.mockClear();
+  await request(app.getHttpServer())
+    .get('/inventory')
+    .query({ limit: 1, after: first.body.nextCursor })
     .expect(400);
-  expect(single).not.toHaveBeenCalled();
+  expect(rpc).not.toHaveBeenCalled();
 });
-it('rejects malformed IDs and exposes version conflicts as 409', async () => {
+it('returns global metadata and reloads a vehicle independently of page membership', async () => {
+  const result = await request(app.getHttpServer())
+    .get('/inventory/metadata')
+    .expect(200);
+  expect(result.body.summary.total).toBe(1000);
+  expect(
+    (
+      await request(app.getHttpServer())
+        .get('/inventory/' + id)
+        .expect(200)
+    ).body.id,
+  ).toBe(id);
+  single.mockResolvedValueOnce({ data: null, error: null });
   await request(app.getHttpServer())
-    .patch('/inventory/not-an-id/action')
-    .send({ action: 'Monitor Stock', expectedVersion: 0 })
-    .expect(400);
-  await request(app.getHttpServer())
-    .patch('/inventory/00000000-0000-4000-8000-000000000008/action')
-    .send({ action: 'Monitor Stock', expectedVersion: 0 })
-    .expect(409);
+    .get('/inventory/' + id)
+    .expect(404);
+});
+it.each([
+  { limit: 101 },
+  { sort: 'note:asc' },
+  { after: 'invalid' },
+  { unknown: 'field' },
+])('rejects invalid input before querying storage', async (query) => {
+  await request(app.getHttpServer()).get('/inventory').query(query).expect(400);
+  expect(rpc).not.toHaveBeenCalled();
+});
+it('bounds storage failures without exposing private errors', async () => {
+  rpc.mockRejectedValueOnce(new Error('private connection detail'));
+  const result = await request(app.getHttpServer())
+    .get('/inventory')
+    .expect(503);
+  expect(result.body.message).toBe('Unable to load inventory');
 });

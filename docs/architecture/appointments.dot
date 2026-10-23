@@ -1,0 +1,32 @@
+digraph Appointments {
+  graph [rankdir=TB, newrank=true, bgcolor="#ffffff", pad=0.35, nodesep=0.65, ranksep=0.6, fontname="Helvetica", fontsize=20, label="01 | Appointment Scheduler", labelloc=t];
+  node [shape=box, style="rounded,filled", fillcolor="#eef2ff", color="#818cf8", fontname="Helvetica", fontsize=12, margin="0.20,0.14"];
+  edge [fontname="Helvetica", fontsize=10, color="#64748b", arrowsize=0.7];
+  subgraph cluster_frontend {
+    label="One React frontend / apps/web"; fontsize=14; color="#cbd5e1"; style=rounded;
+    guest [label="Guest calendar + form\n/appointments\nAvailability preview / confirmation"];
+    staff [label="Staff booking dashboard\n/admin/bookings\nCreate / reschedule / status"];
+  }
+  subgraph cluster_api {
+    label="BookingsModule / unified NestJS API"; fontsize=14; color="#cbd5e1"; style=rounded;
+    public [label="Guest REST controller\nPublic fields + validated input"];
+    admin [label="Staff JWT guard + controller\nAdmin or Technician\nVersioned edit requests"];
+    service [label="Booking service\nSingle transaction per write\nLock technician users + bays → recheck → save"];
+    rules [label="Schedule rules + SQL\nTimezone / hours / qualifications\nNOT EXISTS overlap checks", fillcolor="#f8fafc", color="#94a3b8"];
+    public -> service;
+    admin -> service;
+    service -> rules [label="validate / allocate"];
+    { rank=same; public; admin; }
+    { rank=same; service; rules; }
+  }
+  db [shape=cylinder, label="Shared Supabase PostgreSQL\nProtected public booking tables\nUsers + roles + vehicles + bookings\nServices + qualifications + bays", fillcolor="#ecfdf5", color="#34d399"];
+  realtime [label="Trigger + Realtime Broadcast\navailability:YYYY-MM-DD\nApplication payload: date only", fillcolor="#f0fdfa", color="#2dd4bf"];
+  { rank=same; guest; staff; }
+  { rank=same; db; realtime; }
+  guest -> public [label="/api\npublic endpoints only"];
+  staff -> admin [label="/booking-api\nBearer JWT from browser"];
+  service -> db [label="TypeORM transaction / SQL"];
+  db -> realtime [style=dashed, label="committed changes"];
+  realtime -> guest [style=dashed, label="invalidate → HTTP refetch", constraint=false, color="#0d9488"];
+  realtime -> staff [style=dashed, label="invalidate → HTTP refetch", constraint=false, color="#0d9488"];
+}

@@ -1,0 +1,113 @@
+{
+  "checkedAt": "2026-10-23T09:02:14.893Z",
+  "snapshotPrivacy": true,
+  "comparisons": [
+    {
+      "date": "2026-10-22",
+      "service": "Inspection",
+      "slots": 0,
+      "available": 0,
+      "matched": true
+    },
+    {
+      "date": "2026-10-22",
+      "service": "Oil change",
+      "slots": 0,
+      "available": 0,
+      "matched": true
+    },
+    {
+      "date": "2026-10-23",
+      "service": "Inspection",
+      "slots": 7,
+      "available": 7,
+      "matched": true
+    },
+    {
+      "date": "2026-10-23",
+      "service": "Oil change",
+      "slots": 7,
+      "available": 7,
+      "matched": true
+    },
+    {
+      "date": "2026-10-24",
+      "service": "Inspection",
+      "slots": 0,
+      "available": 0,
+      "matched": true
+    },
+    {
+      "date": "2026-10-24",
+      "service": "Oil change",
+      "slots": 0,
+      "available": 0,
+      "matched": true
+    },
+    {
+      "date": "2026-10-26",
+      "service": "Inspection",
+      "slots": 8,
+      "available": 8,
+      "matched": true
+    },
+    {
+      "date": "2026-10-26",
+      "service": "Oil change",
+      "slots": 8,
+      "available": 8,
+      "matched": true
+    },
+    {
+      "date": "2026-10-30",
+      "service": "Inspection",
+      "slots": 8,
+      "available": 8,
+      "matched": true
+    },
+    {
+      "date": "2026-10-30",
+      "service": "Oil change",
+      "slots": 8,
+      "available": 8,
+      "matched": true
+    }
+  ],
+  "noDatabaseWrites": true,
+  "browser": {
+    "initialObservedRequests": [
+      {
+        "path": "/api/schedule",
+        "method": "GET"
+      },
+      {
+        "path": "/api/service-types",
+        "method": "GET"
+      },
+      {
+        "path": "/api/bookings?month=2026-10",
+        "method": "GET"
+      }
+    ],
+    "initialCaptureTruncated": true,
+    "serviceSwitchRequests": [],
+    "serviceSwitchCaptureTruncated": false,
+    "realtimeRefreshRequests": [
+      {
+        "path": "/api/bookings?month=2026-10",
+        "method": "GET"
+      }
+    ],
+    "realtimeCaptureTruncated": false
+  },
+  "tests": {
+    "webPassed": 188,
+    "webSkipped": 3,
+    "apiUnitPassed": 119,
+    "httpPassed": 72,
+    "postgresPassed": 76,
+    "buildsPassed": true,
+    "apiTypecheckPassed": true,
+    "apiLintPassed": true
+  }
+}

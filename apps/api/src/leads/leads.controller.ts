@@ -7,6 +7,7 @@ import {
   Param,
   ParseUUIDPipe,
   Post,
+  Query,
   Res,
 } from '@nestjs/common';
 import type { Response } from 'express';
@@ -20,8 +21,8 @@ export class LeadsController {
   constructor(@Inject(LeadsService) private readonly leads: LeadsService) {}
 
   @Get()
-  list() {
-    return this.leads.list();
+  list(@Query() query: Record<string, unknown>) {
+    return this.leads.list(query);
   }
 
   @Get(':id')

@@ -1,0 +1,152 @@
+{
+  "name": "Keyloop DMS",
+  "source": "https://keyloop.com/dms",
+  "captured": "2026-10-21",
+  "scope": "Nine DMS products observed on the public DMS page, with descriptions from the public product map. VEGA is a separate Operate product and is excluded from this family.",
+  "products": [
+    {
+      "domain": "operate",
+      "benefits": [
+        "Reduce IT overhead and infrastructure complexity",
+        "Scale across sites more easily",
+        "Stay current with faster updates"
+      ],
+      "image": {
+        "alt": "A group of people talking around a desk in a car showroom.",
+        "height": 840,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Operate_Drive_02-1.png",
+        "width": 1488
+      },
+      "name": "Drive",
+      "description": "The cloud-based SaaS platform that delivers the full power of Autoline and connects sales, service and finance in one modern DMS. Scale easily, update faster and reduce IT overheads."
+    },
+    {
+      "domain": "operate",
+      "benefits": [
+        "Standardise workflows across departments",
+        "Improve operational consistency and reporting",
+        "Support compliance and control"
+      ],
+      "image": {
+        "alt": "A group of people talking in a car service centre.",
+        "height": 0,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Operate_Autoline_02-1.png",
+        "width": 0
+      },
+      "name": "Autoline",
+      "description": "The trusted DMS powering dealerships worldwide. Manage every department efficiently while staying compliant, consistent and connected to the latest innovations."
+    },
+    {
+      "domain": "operate",
+      "benefits": [
+        "Connect departments in one system",
+        "Improve resource planning and visibility",
+        "Support OEM compliance requirements"
+      ],
+      "image": {
+        "alt": "A group of people talking in a car service centre.",
+        "height": 0,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Operate_Eva_02-Edit.png",
+        "width": 0
+      },
+      "name": "Eva",
+      "description": "The DMS that unites sales, service, parts and finance for dealers across the Netherlands. Simplify operations, stay compliant with OEM standards and plan resources with confidence."
+    },
+    {
+      "domain": "operate",
+      "benefits": [
+        "Unify sales, service and accounting workflows",
+        "Reduce duplication and manual processes",
+        "Support local regulatory compliance"
+      ],
+      "image": {
+        "alt": "A group of people talking in a car service centre.",
+        "height": 0,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Operate_Eva_02-2.png",
+        "width": 0
+      },
+      "name": "Eva+",
+      "description": "The compliant DMS for Belgium and Luxembourg that brings sales, service and accounting into one system. Meet strict local legal requirements while keeping operations seamless."
+    },
+    {
+      "domain": "operate",
+      "benefits": [
+        "Manage high volumes more efficiently",
+        "Simplify end-to-end dealership operations",
+        "Support compliance and control"
+      ],
+      "image": {
+        "alt": "A group of people talking in a car park.",
+        "height": 0,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Operate_Aswin_02-1.png",
+        "width": 0
+      },
+      "name": "Aswin",
+      "description": "The DMS built for the Iberian market, combining every dealership process in one platform. Designed to handle high volumes, stay compliant and deliver fast, reliable service."
+    },
+    {
+      "domain": "operate",
+      "benefits": [
+        "Simplify tax and regulatory processes",
+        "Improve operational consistency",
+        "Strengthen compliance and governance"
+      ],
+      "image": {
+        "alt": "A group of people talking around a desk in a car showroom.",
+        "height": 0,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Operate_Windrakkar_02-Edit.png",
+        "width": 0
+      },
+      "name": "Windrakkar",
+      "description": "The DMS designed for Italy\u2019s complex tax and regulatory environment. Simplify compliance, unify operations and maintain profitability with confidence."
+    },
+    {
+      "domain": "operate",
+      "benefits": [
+        "Standardise reporting across sites",
+        "Reduce duplication and rekeying",
+        "Improve visibility for multi-branch management"
+      ],
+      "image": {
+        "alt": "A couple of colleagues is talking in a car dealership.",
+        "height": 0,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Operate_Automaster_02-Edit.png",
+        "width": 0
+      },
+      "name": "Automaster",
+      "description": "The integrated DMS for Nordic multi-site retailers. Standardise reporting, eliminate duplication and focus on customer experience across every branch."
+    },
+    {
+      "domain": "operate",
+      "benefits": [
+        "Connect easily with an open partner ecosystem",
+        "Reduce custom integration effort",
+        "Improve consistency across connected systems"
+      ],
+      "image": {
+        "alt": "A group of people talking around a desk in a car showroom.",
+        "height": 0,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Operate_Serti_02-1.png",
+        "width": 0
+      },
+      "name": "Serti",
+      "description": "The open, flexible DMS platform built for the Canadian market. Built to connect retailers with manufacturers and approved partners to deliver frictionless consumer experiences."
+    },
+    {
+      "domain": "operate",
+      "benefits": [
+        "Simplify multi-branch operations and reporting",
+        "Improve cross-department efficiency",
+        "Support regional compliance requirements"
+      ],
+      "image": {
+        "alt": "A group of people talking in a car service centre.",
+        "height": 0,
+        "url": "https://keyloop.b-cdn.net/app/uploads/2026/01/Operate_Dracar_02-Edit.png",
+        "width": 0
+      },
+      "name": "Dracar+",
+      "description": "The DMS that unites sales, service, parts and accounting for dealers across the DACH and Nordic regions. Manage multi-branch operations efficiently, stay compliant and grow profitability."
+    }
+  ]
+}

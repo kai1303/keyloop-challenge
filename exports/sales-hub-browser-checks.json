@@ -1,0 +1,21 @@
+{
+  "url": "http://127.0.0.1:5173/#sales-hub",
+  "source": "https://keyloop.com/sales-hub",
+  "checks": [
+    "Slider ArrowRight updates input and metric",
+    "Number input clamps above maximum on blur",
+    "Empty number input restores last valid value",
+    "Currency field preserves decimal input, prefix and alignment",
+    "FAQ opens with Enter",
+    "FAQ arrow key moves to the next heading",
+    "Opening another FAQ collapses the previous row",
+    "Lead action opens the matching details dialog",
+    "Lead details show the selected reference",
+    "Lead dialog Escape restores focus to its row action",
+    "No browser errors or warnings during component checks"
+  ],
+  "limitations": [
+    "Desktop browser smoke check; no mobile or screen-reader session",
+    "Sample data only; no ROI formula or backend"
+  ]
+}

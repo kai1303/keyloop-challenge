@@ -1,3 +1,4 @@
+import { parseLeadsQuery, leadCursor } from './leads-query.js';
 import {
   ConflictException,
   Inject,
@@ -31,17 +32,25 @@ export class LeadsService {
     }
   }
 
-  async list() {
-    // shortcut: this seeded demo fits below the Supabase 1,000-row cap; add paged reads before larger datasets.
-    const { data, error } = await this.query(
-      this.database()
-        .from('sales_leads')
-        .select('id,customer_name,vehicle_interest,enquiry,source,received_at')
-        .order('received_at', { ascending: false })
-        .order('id'),
-    );
-    if (error) throw unavailable();
-    return data;
+  async list(input: Record<string, unknown> = {}) {
+    const { limit, after } = parseLeadsQuery(input);
+    let query = this.database()
+      .from('sales_leads')
+      .select('id,customer_name,vehicle_interest,enquiry,source,received_at')
+      .order('received_at', { ascending: false })
+      .order('id', { ascending: true });
+    if (after)
+      query = query.or(
+        `received_at.lt.${after.received_at},and(received_at.eq.${after.received_at},id.gt.${after.id})`,
+      );
+    const { data, error } = await this.query(query.limit(limit + 1));
+    if (error || !data) throw unavailable();
+    const leads = data.slice(0, limit);
+    return {
+      leads,
+      nextCursor:
+        data.length > limit ? leadCursor(leads[leads.length - 1]) : null,
+    };
   }
 
   async detail(id: string) {

@@ -1,0 +1,39 @@
+{
+  "checkedAt": "2026-10-21T17:04:20.715192+00:00",
+  "origin": "http://127.0.0.1:5176/admin/inventory",
+  "motion": {
+    "header": {
+      "durationSeconds": 0.24,
+      "y": 8,
+      "easing": "easeOut"
+    },
+    "metrics": {
+      "durationSeconds": 0.22,
+      "staggerSeconds": 0.06
+    },
+    "board": {
+      "durationSeconds": 0.24,
+      "delaySeconds": 0.08
+    },
+    "vehicleDetails": {
+      "durationSeconds": 0.2,
+      "x": 10
+    },
+    "reducedMotion": "Uses the existing useReducedMotion/MotionConfig pattern; reduced-motion rendering exercised by existing UI tests."
+  },
+  "checks": {
+    "pageEntranceAndLiveSnapshotNoReplayTest": true,
+    "detailsEntranceTest": true,
+    "browserMetricAndBoardInitialOpacityZero": true,
+    "browserSettledOpacityOne": true,
+    "browserDetailsOpenAndEscape": true,
+    "duplicateIconRailAbsentBothRoutes": true,
+    "relevantWebTestsPassed": 73,
+    "typecheckPassed": true,
+    "productionBuildPassed": true
+  },
+  "notRepeated": [
+    "backend suites",
+    "real Supabase integration suite"
+  ]
+}

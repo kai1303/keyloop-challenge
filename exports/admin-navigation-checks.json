@@ -1,0 +1,14 @@
+{
+  "checkedAt": "2026-10-21T16:59:52.894725+00:00",
+  "origin": "http://127.0.0.1:5176",
+  "checks": {
+    "identicalSidebarText": true,
+    "bookingResourcesToolbarDialog": true,
+    "bookingOpeningHoursToolbarDialog": true,
+    "reactRouterSectionSwitchKeepsDocument": true,
+    "browserBackAndForwardKeepDocument": true,
+    "sidebarDOMIdentityPreservedInRouterTest": true
+  },
+  "verification": "69 web tests passed; 3 opt-in live tests skipped. Web typecheck and production build passed. API and database code unchanged; backend suites not repeated.",
+  "limitation": "Page components unmount when leaving their route. Temporary booking state resets; inventory actions remain persisted."
+}

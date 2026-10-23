@@ -1,0 +1,44 @@
+{
+  "frontend": "apps/web",
+  "previewOrigin": "http://127.0.0.1:5176",
+  "guestRoutes": [
+    "/appointments",
+    "/appointments/availability",
+    "/appointments/monitor"
+  ],
+  "staffRoutes": [
+    "/admin/bookings",
+    "/admin/inventory",
+    "/admin/leads",
+    "/admin/documents"
+  ],
+  "automated": {
+    "webTestsPassed": 157,
+    "webLiveTestsSkipped": 3,
+    "productionBuild": "passed",
+    "typecheck": "passed as part of production build"
+  },
+  "proxyChecks": [
+    "guest public reads and confirmation reach appointment fixture without server admin key",
+    "private and encoded private paths rejected by guest proxy",
+    "staff admin key retained only on existing staff proxy",
+    "main API requests reach separate operations fixture"
+  ],
+  "browser": {
+    "guestCalendarLoaded": true,
+    "guestFormAvailabilityLoaded": true,
+    "guestRealtimeConnected": true,
+    "staffPersistedBookingsLoaded": true,
+    "staffRealtimeConnected": true,
+    "bookingWritesPerformed": false
+  },
+  "screenshots": [
+    "unified-frontend-guest.jpg",
+    "unified-frontend-staff.jpg"
+  ],
+  "limits": [
+    "Appointment API still runs in the separate appointment workspace",
+    "Database consolidation remains a target design",
+    "No live booking submission or database restart was performed for this frontend merge"
+  ]
+}

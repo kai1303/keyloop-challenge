@@ -11,7 +11,7 @@ import {
 import { Label } from "@keyloop-interview/ui/components/label";
 import { Textarea } from "@keyloop-interview/ui/components/textarea";
 import { AdminSelect } from "../AdminSelect";
-import { getInventory, InventoryError, saveAction } from "./inventory-api";
+import { getVehicle, InventoryError, saveAction } from "./inventory-api";
 import { ACTIONS, type Action, type Vehicle } from "./inventory-model";
 
 export function InventoryActionDialog({
@@ -40,10 +40,7 @@ export function InventoryActionDialog({
   async function reviewLatest() {
     setReviewing(true);
     try {
-      const snapshot = await getInventory();
-      const latest = snapshot.vehicles.find((item) => item.id === vehicle.id);
-      if (!latest)
-        throw new InventoryError("Vehicle is no longer in inventory", 404);
+      const latest = await getVehicle(vehicle.id);
       if (!latest.aging)
         throw new InventoryError("Vehicle is no longer aging stock", 400);
       setBase(latest);
@@ -175,6 +172,7 @@ export function InventoryActionDialog({
             </Button>
             <Button
               type="submit"
+              className="bg-[image:var(--kl-gradient-operate)] hover:opacity-90"
               disabled={!action || saving || reviewing || conflict || missing}
             >
               {saving ? "Saving…" : "Save action"}

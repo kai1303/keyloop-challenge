@@ -1,0 +1,253 @@
+{
+  "durationMs": 160,
+  "enterFrames": [
+    {
+      "time": 1792652533521,
+      "opacity": "0.1267",
+      "present": true,
+      "transform": "matrix(0.982534, 0, 0, 0.982534, 0, -5.2398)"
+    },
+    {
+      "time": 1792652533531,
+      "opacity": "0.275177",
+      "present": true,
+      "transform": "matrix(0.985504, 0, 0, 0.985504, 0, -4.34894)"
+    },
+    {
+      "time": 1792652533541,
+      "opacity": "0.357492",
+      "present": true,
+      "transform": "matrix(0.98715, 0, 0, 0.98715, 0, -3.85505)"
+    },
+    {
+      "time": 1792652533551,
+      "opacity": "0.427021",
+      "present": true,
+      "transform": "matrix(0.98854, 0, 0, 0.98854, 0, -3.43787)"
+    },
+    {
+      "time": 1792652533561,
+      "opacity": "0.489678",
+      "present": true,
+      "transform": "matrix(0.989794, 0, 0, 0.989794, 0, -3.06193)"
+    },
+    {
+      "time": 1792652533571,
+      "opacity": "0.555799",
+      "present": true,
+      "transform": "matrix(0.991116, 0, 0, 0.991116, 0, -2.6652)"
+    },
+    {
+      "time": 1792652533580,
+      "opacity": "0.621469",
+      "present": true,
+      "transform": "matrix(0.992429, 0, 0, 0.992429, 0, -2.27118)"
+    },
+    {
+      "time": 1792652533589,
+      "opacity": "0.678581",
+      "present": true,
+      "transform": "matrix(0.993572, 0, 0, 0.993572, 0, -1.92851)"
+    },
+    {
+      "time": 1792652533599,
+      "opacity": "0.779869",
+      "present": true,
+      "transform": "matrix(0.995597, 0, 0, 0.995597, 0, -1.32079)"
+    },
+    {
+      "time": 1792652533608,
+      "opacity": "0.831963",
+      "present": true,
+      "transform": "matrix(0.996639, 0, 0, 0.996639, 0, -1.00822)"
+    },
+    {
+      "time": 1792652533621,
+      "opacity": "0.873292",
+      "present": true,
+      "transform": "matrix(0.997466, 0, 0, 0.997466, 0, -0.760247)"
+    },
+    {
+      "time": 1792652533630,
+      "opacity": "0.910299",
+      "present": true,
+      "transform": "matrix(0.998206, 0, 0, 0.998206, 0, -0.538208)"
+    },
+    {
+      "time": 1792652533639,
+      "opacity": "0.939138",
+      "present": true,
+      "transform": "matrix(0.998783, 0, 0, 0.998783, 0, -0.36517)"
+    },
+    {
+      "time": 1792652533648,
+      "opacity": "0.968118",
+      "present": true,
+      "transform": "matrix(0.999362, 0, 0, 0.999362, 0, -0.191294)"
+    },
+    {
+      "time": 1792652533657,
+      "opacity": "0.986442",
+      "present": true,
+      "transform": "matrix(0.999729, 0, 0, 0.999729, 0, -0.0813482)"
+    },
+    {
+      "time": 1792652533665,
+      "opacity": "0.997614",
+      "present": true,
+      "transform": "matrix(0.999952, 0, 0, 0.999952, 0, -0.0143173)"
+    },
+    {
+      "time": 1792652533674,
+      "opacity": "1",
+      "present": true,
+      "transform": "none"
+    },
+    {
+      "time": 1792652533683,
+      "opacity": "1",
+      "present": true,
+      "transform": "none"
+    }
+  ],
+  "exitFrames": [
+    {
+      "time": 1792652446672,
+      "opacity": "0.948029",
+      "present": true,
+      "transform": "matrix(0.998961, 0, 0, 0.998961, 0, -0.207883)",
+      "triggerFocused": false
+    },
+    {
+      "time": 1792652446685,
+      "opacity": "0.785803",
+      "present": true,
+      "transform": "matrix(0.995716, 0, 0, 0.995716, 0, -0.856788)",
+      "triggerFocused": false
+    },
+    {
+      "time": 1792652446695,
+      "opacity": "0.716696",
+      "present": true,
+      "transform": "matrix(0.994334, 0, 0, 0.994334, 0, -1.13322)",
+      "triggerFocused": false
+    },
+    {
+      "time": 1792652446705,
+      "opacity": "0.716696",
+      "present": true,
+      "transform": "matrix(0.994334, 0, 0, 0.994334, 0, -1.13322)",
+      "triggerFocused": false
+    },
+    {
+      "time": 1792652446713,
+      "opacity": "0.572431",
+      "present": true,
+      "transform": "matrix(0.991449, 0, 0, 0.991449, 0, -1.71028)",
+      "triggerFocused": false
+    },
+    {
+      "time": 1792652446722,
+      "opacity": "0.501583",
+      "present": true,
+      "transform": "matrix(0.990032, 0, 0, 0.990032, 0, -1.99367)",
+      "triggerFocused": false
+    },
+    {
+      "time": 1792652446732,
+      "opacity": "0.501583",
+      "present": true,
+      "transform": "matrix(0.990032, 0, 0, 0.990032, 0, -1.99367)",
+      "triggerFocused": false
+    },
+    {
+      "time": 1792652446740,
+      "opacity": "0.375911",
+      "present": true,
+      "transform": "matrix(0.987518, 0, 0, 0.987518, 0, -2.49636)",
+      "triggerFocused": false
+    },
+    {
+      "time": 1792652446748,
+      "opacity": "0.3167",
+      "present": true,
+      "transform": "matrix(0.986334, 0, 0, 0.986334, 0, -2.7332)",
+      "triggerFocused": false
+    },
+    {
+      "time": 1792652446757,
+      "opacity": "0.3167",
+      "present": true,
+      "transform": "matrix(0.986334, 0, 0, 0.986334, 0, -2.7332)",
+      "triggerFocused": false
+    },
+    {
+      "time": 1792652446765,
+      "opacity": "0.212151",
+      "present": true,
+      "transform": "matrix(0.984243, 0, 0, 0.984243, 0, -3.1514)",
+      "triggerFocused": false
+    },
+    {
+      "time": 1792652446774,
+      "opacity": "0.164862",
+      "present": true,
+      "transform": "matrix(0.983297, 0, 0, 0.983297, 0, -3.34055)",
+      "triggerFocused": false
+    }
+  ],
+  "exitSettled": {
+    "present": false,
+    "triggerFocused": true
+  },
+  "reducedMotionFrames": [
+    {
+      "opacity": "0.165363",
+      "present": true,
+      "transform": "none"
+    },
+    {
+      "opacity": "0.251505",
+      "present": true,
+      "transform": "none"
+    },
+    {
+      "opacity": "0.398253",
+      "present": true,
+      "transform": "none"
+    },
+    {
+      "opacity": "0.463952",
+      "present": true,
+      "transform": "none"
+    },
+    {
+      "opacity": "0.592903",
+      "present": true,
+      "transform": "none"
+    },
+    {
+      "opacity": "0.651836",
+      "present": true,
+      "transform": "none"
+    },
+    {
+      "opacity": "0.651836",
+      "present": true,
+      "transform": "none"
+    },
+    {
+      "opacity": "0.76054",
+      "present": true,
+      "transform": "none"
+    }
+  ],
+  "reducedMotionMovementSkipped": true,
+  "mediaEmulationRestored": true,
+  "tests": {
+    "webPassed": 172,
+    "webSkipped": 3,
+    "webBuild": "passed",
+    "sharedUITypecheck": "passed"
+  }
+}

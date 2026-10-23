@@ -1,0 +1,20 @@
+{
+  "name": "keyloop-interview",
+  "private": true,
+  "packageManager": "pnpm@8.10.3",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "typecheck": "turbo run typecheck",
+    "supabase:start": "supabase start",
+    "supabase:stop": "supabase stop --project-id keyloop-inventory-local"
+  },
+  "devDependencies": {
+    "turbo": "2.11.10"
+  }
+}

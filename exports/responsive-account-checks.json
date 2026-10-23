@@ -1,0 +1,51 @@
+{
+  "tablet": {
+    "headerHeight": 90.125,
+    "pageWidth": 770,
+    "popover": {
+      "bottom": 199.5,
+      "right": 750,
+      "x": 530
+    },
+    "trigger": {
+      "height": 44,
+      "width": 44
+    },
+    "width": 770
+  },
+  "phone": {
+    "headerHeight": 186.125,
+    "pageWidth": 390,
+    "popover": {
+      "bottom": 200,
+      "right": 370,
+      "x": 150
+    },
+    "trigger": {
+      "height": 44,
+      "width": 44,
+      "x": 326,
+      "y": 22.5625
+    },
+    "width": 390
+  },
+  "desktop": {
+    "accountDisplay": "block",
+    "footerBottomGap": 16,
+    "menuTriggerDisplay": "none",
+    "pageWidth": 959,
+    "width": 959
+  },
+  "keyboard": {
+    "escapeCloses": true,
+    "focusReturnsToTrigger": true
+  },
+  "tests": {
+    "focused": 14,
+    "build": "passed",
+    "fullWebSuite": {
+      "passed": 170,
+      "skipped": 3
+    }
+  }
+}

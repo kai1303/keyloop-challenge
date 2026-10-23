@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-21",
+  "checks": [
+    "Mixed checkbox initializes correctly",
+    "Controlled mixed checkbox transitions to a checkmark",
+    "Unchecking removes the animated indicator after exit",
+    "Uncontrolled checkbox toggles with the keyboard",
+    "Uncontrolled checkbox animates back to unchecked",
+    "Reduced motion shows the indicator immediately without scaling"
+  ],
+  "reducedMotionOverrideRestored": true
+}

@@ -10,6 +10,7 @@ describe.skipIf(env.RUN_INVENTORY_LIVE !== "1")(
     let server: SupabaseClient | undefined;
     let anonymous: SupabaseClient | undefined;
     let url: string, publicKey: string, origin: string;
+    let headers: Record<string, string>;
     const id = randomUUID();
     const auth = {
       persistSession: false,
@@ -30,6 +31,12 @@ describe.skipIf(env.RUN_INVENTORY_LIVE !== "1")(
         !publicKey
       )
         throw new Error("Explicit local inventory test configuration required");
+      if (!env.INVENTORY_TEST_ACCESS_TOKEN)
+        throw new Error("A fresh Admin JWT is required");
+      headers = { Authorization: "Bearer " + env.INVENTORY_TEST_ACCESS_TOKEN };
+      const profile = await fetch(origin + "/staff/me", { headers });
+      if (!profile.ok || (await profile.json()).role !== "admin")
+        throw new Error("A valid Admin JWT is required");
       server = createClient(url, env.INVENTORY_TEST_SERVICE_ROLE_KEY, { auth });
       anonymous = createClient(url, publicKey, { auth });
       const today = dealerDate();
@@ -38,17 +45,15 @@ describe.skipIf(env.RUN_INVENTORY_LIVE !== "1")(
       )
         .toISOString()
         .slice(0, 10);
-      const inserted = await server
-        .from("vehicles")
-        .insert({
-          id,
-          registration: "INV-TEST-" + id.slice(0, 8),
-          make: "Test",
-          model: "Owned fixture",
-          model_year: 2022,
-          price_pence: 1000000,
-          stocked_on: stockedOn,
-        });
+      const inserted = await server.from("vehicles").insert({
+        id,
+        registration: "INV-TEST-" + id.slice(0, 8),
+        make: "Test",
+        model: "Owned fixture",
+        model_year: 2022,
+        price_pence: 1000000,
+        stocked_on: stockedOn,
+      });
       if (inserted.error)
         throw new Error("Unable to insert the owned local test fixture");
     });
@@ -64,7 +69,7 @@ describe.skipIf(env.RUN_INVENTORY_LIVE !== "1")(
     async function write(action: string, expectedVersion: number) {
       return fetch(origin + "/inventory/" + id + "/action", {
         method: "PATCH",
-        headers: { "Content-Type": "application/json" },
+        headers: { ...headers, "Content-Type": "application/json" },
         body: JSON.stringify({
           action,
           note: "Owned realtime verification fixture",
@@ -72,14 +77,14 @@ describe.skipIf(env.RUN_INVENTORY_LIVE !== "1")(
         }),
       });
     }
-    it("permits anonymous reads but rejects table writes and action RPC", async () => {
+    it("rejects anonymous reads, table writes and action RPC", async () => {
       const read = await anonymous!
         .from("vehicles")
         .select("id")
         .eq("id", id)
         .single();
-      expect(read.error).toBeNull();
-      expect(read.data?.id).toBe(id);
+      expect(read.error).not.toBeNull();
+      expect(read.data).toBeNull();
       const update = await anonymous!
         .from("vehicles")
         .update({ note: "forbidden" })
@@ -112,17 +117,13 @@ describe.skipIf(env.RUN_INVENTORY_LIVE !== "1")(
         let channel: ReturnType<SupabaseClient["channel"]>;
         const ready = new Promise<void>((resolve, reject) => {
           channel = client
-            .channel("inventory-proof-" + randomUUID())
-            .on(
-              "postgres_changes",
-              {
-                event: "UPDATE",
-                schema: "public",
-                table: "vehicles",
-                filter: "id=eq." + id,
-              },
-              notify,
-            )
+            .channel("inventory")
+            .on("broadcast", { event: "inventory_changed" }, (message) => {
+              expect(
+                Object.keys(message.payload).filter((key) => key !== "id"),
+              ).toEqual([]);
+              notify();
+            })
             .subscribe((status) => {
               if (status === "SUBSCRIBED") resolve();
               else if (
@@ -162,14 +163,10 @@ describe.skipIf(env.RUN_INVENTORY_LIVE !== "1")(
             );
           }),
         ]);
-        const read = await fetch(origin + "/inventory");
+        const read = await fetch(origin + "/inventory/" + id, { headers });
         expect(read.status).toBe(200);
-        const snapshot = await read.json();
-        expect(
-          snapshot.vehicles.find(
-            (vehicle: { id: string }) => vehicle.id === id,
-          ),
-        ).toMatchObject({
+        const vehicle = await read.json();
+        expect(vehicle).toMatchObject({
           currentAction: "Monitor Stock",
           version: saved.version,
         });

@@ -1,0 +1,945 @@
+{
+  "samples": [
+    {
+      "class": "home wp-singular page-template page-template-front-page page wp-embed-responsive wp-theme-keyloop bg-stone-800 font-sans antialiased overflow-y overflow-x-hidden animate-fade-in cmplz-functional cmplz-false cmplz-other",
+      "rect": {
+        "height": 7254.4140625,
+        "width": 1512
+      },
+      "selector": "body",
+      "style": {
+        "backgroundColor": "rgb(241, 241, 243)",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "borderWidth": "0px",
+        "boxShadow": "none",
+        "color": "rgb(0, 0, 0)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "gap": "normal",
+        "letterSpacing": "normal",
+        "lineHeight": "24px",
+        "maxWidth": "none",
+        "padding": "0px"
+      },
+      "tag": "BODY",
+      "text": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-54GQZH2\" height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe>         Skip to cont"
+    },
+    {
+      "class": "!font-bold !text-4xl md:!text-[4rem] md:!leading-[4.5rem] lg:!text-[6rem] lg:!leading-[6.5rem] xl:!text-[8rem] xl:!leading-[8.5rem] mix-blend-overlay !mb-0",
+      "rect": {
+        "height": 136,
+        "width": 1020
+      },
+      "selector": "h1",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(255, 255, 255)",
+        "borderRadius": "0px",
+        "borderWidth": "0px",
+        "boxShadow": "none",
+        "color": "rgb(255, 255, 255)",
+        "fontFamily": "\"Plus Jakarta Sans\", \"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "128px",
+        "fontWeight": "700",
+        "gap": "normal",
+        "letterSpacing": "normal",
+        "lineHeight": "136px",
+        "maxWidth": "none",
+        "padding": "0px"
+      },
+      "tag": "H1",
+      "text": "Capacity?"
+    },
+    {
+      "class": "",
+      "rect": {
+        "height": 54,
+        "width": 1020
+      },
+      "selector": "h2",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(255, 255, 255)",
+        "borderRadius": "0px",
+        "borderWidth": "0px",
+        "boxShadow": "none",
+        "color": "rgb(255, 255, 255)",
+        "fontFamily": "\"Plus Jakarta Sans\", \"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "42px",
+        "fontWeight": "700",
+        "gap": "normal",
+        "letterSpacing": "normal",
+        "lineHeight": "54px",
+        "maxWidth": "none",
+        "padding": "0px"
+      },
+      "tag": "H2",
+      "text": "We’d rather talk control."
+    },
+    {
+      "class": "!m-0",
+      "rect": {
+        "height": 108,
+        "width": 1202.078125
+      },
+      "selector": "h2",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(17, 24, 39)",
+        "borderRadius": "0px",
+        "borderWidth": "0px",
+        "boxShadow": "none",
+        "color": "rgb(17, 24, 39)",
+        "fontFamily": "\"Plus Jakarta Sans\", \"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "42px",
+        "fontWeight": "700",
+        "gap": "normal",
+        "letterSpacing": "normal",
+        "lineHeight": "54px",
+        "maxWidth": "none",
+        "padding": "0px"
+      },
+      "tag": "H2",
+      "text": "Join the companies transforming automotive retail with Keyloop."
+    },
+    {
+      "class": "",
+      "rect": {
+        "height": 108,
+        "width": 1440
+      },
+      "selector": "h2",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(17, 24, 39)",
+        "borderRadius": "0px",
+        "borderWidth": "0px",
+        "boxShadow": "none",
+        "color": "rgb(17, 24, 39)",
+        "fontFamily": "\"Plus Jakarta Sans\", \"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "42px",
+        "fontWeight": "700",
+        "gap": "normal",
+        "letterSpacing": "normal",
+        "lineHeight": "54px",
+        "maxWidth": "none",
+        "padding": "0px"
+      },
+      "tag": "H2",
+      "text": "Promises? We’d rather talk proof.  Real outcomes. Real dealerships. No small print."
+    },
+    {
+      "class": "",
+      "rect": {
+        "height": 108,
+        "width": 479.2265625
+      },
+      "selector": "h2",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(17, 24, 39)",
+        "borderRadius": "0px",
+        "borderWidth": "0px",
+        "boxShadow": "none",
+        "color": "rgb(17, 24, 39)",
+        "fontFamily": "\"Plus Jakarta Sans\", \"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "42px",
+        "fontWeight": "700",
+        "gap": "normal",
+        "letterSpacing": "normal",
+        "lineHeight": "54px",
+        "maxWidth": "none",
+        "padding": "0px"
+      },
+      "tag": "H2",
+      "text": "Fusion. The Automotive Retail Platform."
+    },
+    {
+      "class": "mb-0 mt-0",
+      "rect": {
+        "height": 36,
+        "width": 432
+      },
+      "selector": "h3",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(17, 24, 39)",
+        "borderRadius": "0px",
+        "borderWidth": "0px",
+        "boxShadow": "none",
+        "color": "rgb(17, 24, 39)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "26px",
+        "fontWeight": "600",
+        "gap": "normal",
+        "letterSpacing": "normal",
+        "lineHeight": "36px",
+        "maxWidth": "none",
+        "padding": "0px"
+      },
+      "tag": "H3",
+      "text": "Careers"
+    },
+    {
+      "class": "mb-0 mt-0",
+      "rect": {
+        "height": 36,
+        "width": 432
+      },
+      "selector": "h3",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(17, 24, 39)",
+        "borderRadius": "0px",
+        "borderWidth": "0px",
+        "boxShadow": "none",
+        "color": "rgb(17, 24, 39)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "26px",
+        "fontWeight": "600",
+        "gap": "normal",
+        "letterSpacing": "normal",
+        "lineHeight": "36px",
+        "maxWidth": "none",
+        "padding": "0px"
+      },
+      "tag": "H3",
+      "text": "Resources"
+    },
+    {
+      "class": "text-white m-0 leading-tight relative z-10",
+      "rect": {
+        "height": 36,
+        "width": 300.640625
+      },
+      "selector": "h3",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(255, 255, 255)",
+        "borderRadius": "0px",
+        "borderWidth": "0px",
+        "boxShadow": "none",
+        "color": "rgb(255, 255, 255)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "26px",
+        "fontWeight": "600",
+        "gap": "normal",
+        "letterSpacing": "normal",
+        "lineHeight": "36px",
+        "maxWidth": "none",
+        "padding": "0px"
+      },
+      "tag": "H3",
+      "text": "2-3 hour saved per day"
+    },
+    {
+      "class": "text-white m-0 leading-tight relative z-10",
+      "rect": {
+        "height": 72,
+        "width": 300.640625
+      },
+      "selector": "h3",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(255, 255, 255)",
+        "borderRadius": "0px",
+        "borderWidth": "0px",
+        "boxShadow": "none",
+        "color": "rgb(255, 255, 255)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "26px",
+        "fontWeight": "600",
+        "gap": "normal",
+        "letterSpacing": "normal",
+        "lineHeight": "36px",
+        "maxWidth": "none",
+        "padding": "0px"
+      },
+      "tag": "H3",
+      "text": "26% growth in new car sales"
+    },
+    {
+      "class": "!text-xl",
+      "rect": {
+        "height": 84,
+        "width": 1020
+      },
+      "selector": "main p",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(255, 255, 255)",
+        "borderRadius": "0px",
+        "borderWidth": "0px",
+        "boxShadow": "none",
+        "color": "rgb(255, 255, 255)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "20px",
+        "fontWeight": "400",
+        "gap": "normal",
+        "letterSpacing": "normal",
+        "lineHeight": "28px",
+        "maxWidth": "1020px",
+        "padding": "0px"
+      },
+      "tag": "P",
+      "text": "Keeping track of the work should not become the work. Yet many workshop managers spend their days chasing approvals, tracking progress and piecing together info"
+    },
+    {
+      "class": "",
+      "rect": {
+        "height": 206.25,
+        "width": 1023.5078125
+      },
+      "selector": "main p",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(17, 24, 39)",
+        "borderRadius": "0px",
+        "borderWidth": "0px",
+        "boxShadow": "none",
+        "color": "rgb(17, 24, 39)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "30px",
+        "fontWeight": "400",
+        "gap": "normal",
+        "letterSpacing": "normal",
+        "lineHeight": "41.25px",
+        "maxWidth": "none",
+        "padding": "0px"
+      },
+      "tag": "P",
+      "text": "With Service Hub, our average invoice value has increased by £57 per invoice. The online check-in has really helped us and no shows have decreased massively. Th"
+    },
+    {
+      "class": "!m-0 text-lg",
+      "rect": {
+        "height": 28,
+        "width": 350.6796875
+      },
+      "selector": "main p",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(107, 114, 128)",
+        "borderRadius": "0px",
+        "borderWidth": "0px",
+        "boxShadow": "none",
+        "color": "rgb(107, 114, 128)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "18px",
+        "fontWeight": "400",
+        "gap": "normal",
+        "letterSpacing": "normal",
+        "lineHeight": "28px",
+        "maxWidth": "none",
+        "padding": "0px"
+      },
+      "tag": "P",
+      "text": "Group Service Manager, Park's Motor Group"
+    },
+    {
+      "class": "text-white mt-2 mb-0 relative z-10",
+      "rect": {
+        "height": 28,
+        "width": 300.640625
+      },
+      "selector": "main p",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(255, 255, 255)",
+        "borderRadius": "0px",
+        "borderWidth": "0px",
+        "boxShadow": "none",
+        "color": "rgb(255, 255, 255)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "gap": "normal",
+        "letterSpacing": "normal",
+        "lineHeight": "28px",
+        "maxWidth": "none",
+        "padding": "0px"
+      },
+      "tag": "P",
+      "text": "using Service Hub."
+    },
+    {
+      "class": "bg-stone-800 cd-morph-dropdown sticky h-[70px] lg:h-[68px] top-0 z-40 w-full px-8 py-6 lg:py-0 backdrop-filter transition-transform duration-300",
+      "rect": {
+        "height": 68,
+        "width": 1512
+      },
+      "selector": "header",
+      "style": {
+        "backgroundColor": "rgb(241, 241, 243)",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "borderWidth": "0px",
+        "boxShadow": "none",
+        "color": "rgb(0, 0, 0)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "gap": "normal",
+        "letterSpacing": "normal",
+        "lineHeight": "24px",
+        "maxWidth": "none",
+        "padding": "0px 32px"
+      },
+      "tag": "HEADER",
+      "text": "SolutionsProductsCompanyResourcesRetain customers Turn one-time buyers into loyal advocates. Operate effectively Drive profit by streamlining daily operations. "
+    },
+    {
+      "class": "flex items-end justify-between mb-4",
+      "rect": {
+        "height": 108,
+        "width": 1440
+      },
+      "selector": "header",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "borderWidth": "0px",
+        "boxShadow": "none",
+        "color": "rgb(0, 0, 0)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "gap": "normal",
+        "letterSpacing": "normal",
+        "lineHeight": "24px",
+        "maxWidth": "none",
+        "padding": "0px"
+      },
+      "tag": "HEADER",
+      "text": "Fusion. The Automotive Retail Platform. Learn more"
+    },
+    {
+      "class": "",
+      "rect": {
+        "height": 482.5,
+        "width": 448
+      },
+      "selector": "header",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(55, 65, 81)",
+        "borderRadius": "0px",
+        "borderWidth": "0px",
+        "boxShadow": "none",
+        "color": "rgb(55, 65, 81)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "gap": "normal",
+        "letterSpacing": "normal",
+        "lineHeight": "28px",
+        "maxWidth": "none",
+        "padding": "0px"
+      },
+      "tag": "HEADER",
+      "text": "Customer Story Jonathan Royle, Head of Marketing, RRG Group “We've grown to over 12% of our customers who now reserve vehicles online, and the number of people "
+    },
+    {
+      "class": "",
+      "rect": {
+        "height": 401,
+        "width": 448
+      },
+      "selector": "header",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(55, 65, 81)",
+        "borderRadius": "0px",
+        "borderWidth": "0px",
+        "boxShadow": "none",
+        "color": "rgb(55, 65, 81)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "gap": "normal",
+        "letterSpacing": "normal",
+        "lineHeight": "28px",
+        "maxWidth": "none",
+        "padding": "0px"
+      },
+      "tag": "HEADER",
+      "text": "Press Release  Oct 12, 2026 KeyShift announces a new committee"
+    },
+    {
+      "class": "group m-0 no-underline select-none space-x-2 relative duration-300 justify-between text-base flex items-center overflow-hidden font-semibold border rounded-md py-2.5 px-4 transition-all bg-white border-white hover:bg-stone-400 hover:border-stone-40 text-carbon-900 hover:text-carbon-900 md:w-auto",
+      "rect": {
+        "height": 46,
+        "width": 211
+      },
+      "selector": "main a",
+      "style": {
+        "backgroundColor": "rgb(255, 255, 255)",
+        "borderColor": "rgb(255, 255, 255)",
+        "borderRadius": "6px",
+        "borderWidth": "1px",
+        "boxShadow": "none",
+        "color": "rgb(17, 24, 28)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "600",
+        "gap": "normal",
+        "letterSpacing": "normal",
+        "lineHeight": "24px",
+        "maxWidth": "none",
+        "padding": "10px 16px"
+      },
+      "tag": "A",
+      "text": "Start a conversation"
+    },
+    {
+      "class": "",
+      "rect": {
+        "height": 32,
+        "width": 32
+      },
+      "selector": "main a",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "borderWidth": "0px",
+        "boxShadow": "none",
+        "color": "rgb(0, 0, 0)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "gap": "normal",
+        "letterSpacing": "normal",
+        "lineHeight": "24px",
+        "maxWidth": "none",
+        "padding": "0px"
+      },
+      "tag": "A",
+      "text": "Scroll Down to Next Section"
+    },
+    {
+      "class": "group m-0 no-underline select-none space-x-2 relative duration-300 justify-between text-base flex items-center overflow-hidden font-semibold border rounded-md py-2.5 px-4 transition-all bg-transparent border-0 !pl-0 hover:text-carbon-900 mt-2 inline-flex",
+      "rect": {
+        "height": 68,
+        "width": 213.921875
+      },
+      "selector": "main a",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(17, 24, 39)",
+        "borderRadius": "6px",
+        "borderWidth": "0px",
+        "boxShadow": "none",
+        "color": "rgb(17, 24, 39)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "600",
+        "gap": "normal",
+        "letterSpacing": "normal",
+        "lineHeight": "24px",
+        "maxWidth": "none",
+        "padding": "10px 16px 10px 0px"
+      },
+      "tag": "A",
+      "text": "Read all customer stories"
+    },
+    {
+      "class": "group m-0 no-underline select-none space-x-2 relative duration-300 justify-between text-base flex items-center overflow-hidden font-semibold border rounded-md py-2.5 px-4 transition-all bg-transparent border-0 !pl-0 hover:text-carbon-900 mt-2 inline-flex",
+      "rect": {
+        "height": 44,
+        "width": 224.1796875
+      },
+      "selector": "main a",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(17, 24, 39)",
+        "borderRadius": "6px",
+        "borderWidth": "0px",
+        "boxShadow": "none",
+        "color": "rgb(17, 24, 39)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "600",
+        "gap": "normal",
+        "letterSpacing": "normal",
+        "lineHeight": "24px",
+        "maxWidth": "none",
+        "padding": "10px 16px 10px 0px"
+      },
+      "tag": "A",
+      "text": "Read their success story"
+    },
+    {
+      "class": "rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-gray-700 will-change-transform will-change-width bg-black w-8 h-2 transition-all duration-700 ease-in-out",
+      "rect": {
+        "height": 8,
+        "width": 32
+      },
+      "selector": "main button",
+      "style": {
+        "backgroundColor": "rgb(17, 24, 28)",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "9999px",
+        "borderWidth": "0px",
+        "boxShadow": "none",
+        "color": "rgb(0, 0, 0)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "gap": "normal",
+        "letterSpacing": "normal",
+        "lineHeight": "24px",
+        "maxWidth": "none",
+        "padding": "0px"
+      },
+      "tag": "BUTTON",
+      "text": "Go to slide 2"
+    },
+    {
+      "class": "rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-gray-700 will-change-transform will-change-width bg-stone-400 hover:bg-black w-2 h-2 transition-all duration-700 ease-in-out",
+      "rect": {
+        "height": 8,
+        "width": 8
+      },
+      "selector": "main button",
+      "style": {
+        "backgroundColor": "rgb(209, 213, 219)",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "9999px",
+        "borderWidth": "0px",
+        "boxShadow": "none",
+        "color": "rgb(0, 0, 0)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "gap": "normal",
+        "letterSpacing": "normal",
+        "lineHeight": "24px",
+        "maxWidth": "none",
+        "padding": "0px"
+      },
+      "tag": "BUTTON",
+      "text": "Go to slide 3"
+    },
+    {
+      "class": "rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-gray-700 will-change-transform will-change-width bg-stone-400 hover:bg-black w-2 h-2 transition-all duration-700 ease-in-out",
+      "rect": {
+        "height": 8,
+        "width": 8
+      },
+      "selector": "main button",
+      "style": {
+        "backgroundColor": "rgb(209, 213, 219)",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "9999px",
+        "borderWidth": "0px",
+        "boxShadow": "none",
+        "color": "rgb(0, 0, 0)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "gap": "normal",
+        "letterSpacing": "normal",
+        "lineHeight": "24px",
+        "maxWidth": "none",
+        "padding": "0px"
+      },
+      "tag": "BUTTON",
+      "text": "Go to slide 4"
+    },
+    {
+      "class": "rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-gray-700 will-change-transform will-change-width bg-stone-400 hover:bg-black w-2 h-2 transition-all duration-700 ease-in-out",
+      "rect": {
+        "height": 8,
+        "width": 8
+      },
+      "selector": "main button",
+      "style": {
+        "backgroundColor": "rgb(209, 213, 219)",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "9999px",
+        "borderWidth": "0px",
+        "boxShadow": "none",
+        "color": "rgb(0, 0, 0)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "gap": "normal",
+        "letterSpacing": "normal",
+        "lineHeight": "24px",
+        "maxWidth": "none",
+        "padding": "0px"
+      },
+      "tag": "BUTTON",
+      "text": "Go to slide 5"
+    },
+    {
+      "class": "w-full h-9 px-2 pr-8 rounded-md border border-[#76AFDC] cursor-pointer bg-white text-sm sm:text-base transition-all focus:outline-none outline-none",
+      "rect": {
+        "height": 36,
+        "width": 300
+      },
+      "selector": "select",
+      "style": {
+        "backgroundColor": "rgb(255, 255, 255)",
+        "borderColor": "rgb(118, 175, 220)",
+        "borderRadius": "6px",
+        "borderWidth": "1px",
+        "boxShadow": "none",
+        "color": "rgb(0, 0, 0)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "gap": "normal",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "maxWidth": "none",
+        "padding": "0px 32px 0px 8px"
+      },
+      "tag": "SELECT",
+      "text": "UK poundsEurosCADZARUSD"
+    },
+    {
+      "class": "w-full h-9 px-2 pr-8 rounded-md border border-[#76AFDC] cursor-pointer bg-white text-sm sm:text-base transition-all focus:outline-none outline-none",
+      "rect": {
+        "height": 36,
+        "width": 300
+      },
+      "selector": "select",
+      "style": {
+        "backgroundColor": "rgb(255, 255, 255)",
+        "borderColor": "rgb(118, 175, 220)",
+        "borderRadius": "6px",
+        "borderWidth": "1px",
+        "boxShadow": "none",
+        "color": "rgb(0, 0, 0)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "gap": "normal",
+        "letterSpacing": "normal",
+        "lineHeight": "normal",
+        "maxWidth": "none",
+        "padding": "0px 32px 0px 8px"
+      },
+      "tag": "SELECT",
+      "text": "0-500  500-1,000  1,000+"
+    },
+    {
+      "class": "h-11 sm:h-10 w-full border border-[#E6E7E8] hover:border-gray-300 rounded-md px-3 text-right bg-white text-base sm:text-base focus:border-[#1290CC]",
+      "rect": {
+        "height": 40,
+        "width": 144
+      },
+      "selector": "input[type=\"text\"]",
+      "style": {
+        "backgroundColor": "rgb(255, 255, 255)",
+        "borderColor": "rgb(230, 231, 232)",
+        "borderRadius": "6px",
+        "borderWidth": "1px",
+        "boxShadow": "none",
+        "color": "rgb(0, 0, 0)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "gap": "normal",
+        "letterSpacing": "normal",
+        "lineHeight": "24px",
+        "maxWidth": "none",
+        "padding": "0px 12px"
+      },
+      "tag": "INPUT",
+      "text": ""
+    },
+    {
+      "class": "h-11 sm:h-10 w-full border border-[#E6E7E8] hover:border-gray-300 rounded-md px-3 text-right bg-white text-base sm:text-base focus:border-[#1290CC]",
+      "rect": {
+        "height": 40,
+        "width": 144
+      },
+      "selector": "input[type=\"text\"]",
+      "style": {
+        "backgroundColor": "rgb(255, 255, 255)",
+        "borderColor": "rgb(230, 231, 232)",
+        "borderRadius": "6px",
+        "borderWidth": "1px",
+        "boxShadow": "none",
+        "color": "rgb(0, 0, 0)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "gap": "normal",
+        "letterSpacing": "normal",
+        "lineHeight": "24px",
+        "maxWidth": "none",
+        "padding": "0px 12px"
+      },
+      "tag": "INPUT",
+      "text": ""
+    },
+    {
+      "class": "h-11 sm:h-10 w-full border border-[#E6E7E8] hover:border-gray-300 rounded-md pl-7 pr-3 text-right bg-white text-base sm:text-base focus:outline-none focus:border-[#1290CC]",
+      "rect": {
+        "height": 40,
+        "width": 144
+      },
+      "selector": "input[type=\"text\"]",
+      "style": {
+        "backgroundColor": "rgb(255, 255, 255)",
+        "borderColor": "rgb(230, 231, 232)",
+        "borderRadius": "6px",
+        "borderWidth": "1px",
+        "boxShadow": "none",
+        "color": "rgb(0, 0, 0)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "gap": "normal",
+        "letterSpacing": "normal",
+        "lineHeight": "24px",
+        "maxWidth": "none",
+        "padding": "0px 12px 0px 28px"
+      },
+      "tag": "INPUT",
+      "text": ""
+    },
+    {
+      "class": "h-11 sm:h-10 w-full border border-[#E6E7E8] hover:border-gray-300 rounded-md pl-7 pr-3 text-right bg-white text-base sm:text-base focus:outline-none focus:border-[#1290CC]",
+      "rect": {
+        "height": 40,
+        "width": 144
+      },
+      "selector": "input[type=\"text\"]",
+      "style": {
+        "backgroundColor": "rgb(255, 255, 255)",
+        "borderColor": "rgb(230, 231, 232)",
+        "borderRadius": "6px",
+        "borderWidth": "1px",
+        "boxShadow": "none",
+        "color": "rgb(0, 0, 0)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "gap": "normal",
+        "letterSpacing": "normal",
+        "lineHeight": "24px",
+        "maxWidth": "none",
+        "padding": "0px 12px 0px 28px"
+      },
+      "tag": "INPUT",
+      "text": ""
+    },
+    {
+      "class": "px-5 py-2 rounded-xl font-semibold tracking-widest uppercase transition-opacity duration-300 ease-out hover:opacity-80 text-gray-900 focus:outline-none bg-gradient-to-r from-[#2792ff] via-[#42b7ff] to-[#12c6ff]",
+      "rect": {
+        "height": 40,
+        "width": 116.5859375
+      },
+      "selector": "[role=\"tab\"]",
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "12px",
+        "borderWidth": "0px",
+        "boxShadow": "none",
+        "color": "rgb(0, 0, 0)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "600",
+        "gap": "normal",
+        "letterSpacing": "1.6px",
+        "lineHeight": "24px",
+        "maxWidth": "none",
+        "padding": "8px 20px"
+      },
+      "tag": "BUTTON",
+      "text": "Demand"
+    },
+    {
+      "class": "px-5 py-2 rounded-xl font-semibold tracking-widest uppercase transition-opacity duration-300 ease-out hover:opacity-80 text-gray-900 focus:outline-none bg-[#E6E7E8] hover:bg-gradient-to-r hover:from-[#5967d9] hover:via-[#8a7be7] hover:to-[#b6a6f2]",
+      "rect": {
+        "height": 40,
+        "width": 108.046875
+      },
+      "selector": "[role=\"tab\"]",
+      "style": {
+        "backgroundColor": "rgb(230, 231, 232)",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "12px",
+        "borderWidth": "0px",
+        "boxShadow": "none",
+        "color": "rgb(0, 0, 0)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "600",
+        "gap": "normal",
+        "letterSpacing": "1.6px",
+        "lineHeight": "24px",
+        "maxWidth": "none",
+        "padding": "8px 20px"
+      },
+      "tag": "BUTTON",
+      "text": "Supply"
+    },
+    {
+      "class": "px-5 py-2 rounded-xl font-semibold tracking-widest uppercase transition-opacity duration-300 ease-out hover:opacity-80 text-gray-900 focus:outline-none bg-[#E6E7E8] hover:bg-gradient-to-r hover:from-[#b299ff] hover:via-[#d29c86] hover:to-[#e7a86f]",
+      "rect": {
+        "height": 40,
+        "width": 150.75
+      },
+      "selector": "[role=\"tab\"]",
+      "style": {
+        "backgroundColor": "rgb(230, 231, 232)",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "12px",
+        "borderWidth": "0px",
+        "boxShadow": "none",
+        "color": "rgb(0, 0, 0)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "600",
+        "gap": "normal",
+        "letterSpacing": "1.6px",
+        "lineHeight": "24px",
+        "maxWidth": "none",
+        "padding": "8px 20px"
+      },
+      "tag": "BUTTON",
+      "text": "Ownership"
+    },
+    {
+      "class": "px-5 py-2 rounded-xl font-semibold tracking-widest uppercase transition-opacity duration-300 ease-out hover:opacity-80 text-gray-900 focus:outline-none bg-[#E6E7E8] hover:bg-gradient-to-r hover:from-[#48a9a6] hover:via-[#34d1bf] hover:to-[#00f5d4]",
+      "rect": {
+        "height": 40,
+        "width": 121.6796875
+      },
+      "selector": "[role=\"tab\"]",
+      "style": {
+        "backgroundColor": "rgb(230, 231, 232)",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "12px",
+        "borderWidth": "0px",
+        "boxShadow": "none",
+        "color": "rgb(0, 0, 0)",
+        "fontFamily": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "fontWeight": "600",
+        "gap": "normal",
+        "letterSpacing": "1.6px",
+        "lineHeight": "24px",
+        "maxWidth": "none",
+        "padding": "8px 20px"
+      },
+      "tag": "BUTTON",
+      "text": "Operate"
+    }
+  ],
+  "url": "https://keyloop.com/",
+  "viewport": {
+    "height": 778,
+    "width": 1512
+  }
+}

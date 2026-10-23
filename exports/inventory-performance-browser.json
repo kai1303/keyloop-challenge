@@ -1,0 +1,33 @@
+{
+  "before": {
+    "loading": {
+      "cardTop": 424,
+      "tableTop": 522
+    },
+    "loaded": {
+      "cardTop": 424,
+      "tableTop": 497
+    },
+    "tableShiftPixels": -25
+  },
+  "after": {
+    "loading": {
+      "cardTop": 424,
+      "tableTop": 497
+    },
+    "loaded": {
+      "cardTop": 424,
+      "rows": 25,
+      "tableTop": 497
+    },
+    "tableShiftPixels": 0
+  },
+  "sortCheck": {
+    "alerts": 0,
+    "firstVehicle": "Audi A32025",
+    "rows": 25,
+    "sort": "ascending"
+  },
+  "networkConditionsRestored": true,
+  "method": "Actual Chromium DOM geometry across initial skeleton and loaded table, 750ms artificial request latency to expose the transition. This is not a CLS/Lighthouse measurement."
+}

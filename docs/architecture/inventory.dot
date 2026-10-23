@@ -1,0 +1,20 @@
+digraph Inventory {
+  graph [rankdir=TB, bgcolor="#ffffff", pad=0.35, nodesep=0.65, ranksep=0.7, fontname="Helvetica", fontsize=20, label="02 | Intelligent Inventory Dashboard", labelloc=t];
+  node [shape=box, style="rounded,filled", fillcolor="#eef2ff", color="#818cf8", fontname="Helvetica", fontsize=12, margin="0.20,0.14"];
+  edge [fontname="Helvetica", fontsize=10, color="#64748b", arrowsize=0.7];
+  ui [label="Dashboard + TanStack Table\nFilter / sort / cursor pages\nAging stock + action dialog"];
+  client [label="TanStack Query + API client\nPage and metadata queries\nValidate / cache / cancel"];
+  api [label="NestJS Inventory module\nAdmin JWT guard + controller/service\nValidate query / action / version"];
+  rest [label="Supabase Data API\nServer-side service-role access", fillcolor="#f8fafc", color="#94a3b8"];
+  db [shape=cylinder, label="Shared Supabase PostgreSQL\npublic.vehicles\ninventory_page / inventory_metadata\nsave_inventory_action\nRow lock + age/version checks", fillcolor="#ecfdf5", color="#34d399"];
+  realtime [label="Supabase Realtime\ninventory_changed Broadcast\nEmpty application payload", fillcolor="#f0fdfa", color="#2dd4bf"];
+  { rank=same; ui; client; }
+  { rank=same; api; rest; }
+  { rank=same; db; realtime; }
+  ui -> client [label="query / save"];
+  client -> api [label="Bearer JWT via /api proxy"];
+  api -> rest [label="reads / RPC calls"];
+  rest -> db [label="SQL functions / table reads"];
+  db -> realtime [style=dashed, label="committed row changes"];
+  realtime -> client [style=dashed, label="WebSocket invalidation\n→ refetch page + metadata", constraint=false, color="#0d9488"];
+}

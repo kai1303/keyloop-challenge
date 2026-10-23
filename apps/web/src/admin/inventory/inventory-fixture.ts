@@ -1,8 +1,10 @@
-import type { InventorySnapshot } from "./inventory-model";
-export const snapshot: InventorySnapshot = {
+import type { InventoryPage } from "./inventory-query";
+export const snapshot: InventoryPage = {
   dealershipDate: "2030-01-03",
   timeZone: "Asia/Ho_Chi_Minh",
   serverTime: "2030-01-03T02:00:00Z",
+  nextCursor: null,
+  pageSize: 25,
   vehicles: [
     {
       id: "00000000-0000-4000-8000-000000000001",

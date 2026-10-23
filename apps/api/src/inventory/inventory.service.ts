@@ -6,6 +6,11 @@ import {
   NotFoundException,
   ServiceUnavailableException,
 } from '@nestjs/common';
+import {
+  parseInventoryQuery,
+  decodeInventoryCursor,
+  encodeInventoryCursor,
+} from './inventory-query.js';
 import type { SupabaseClient } from '@supabase/supabase-js';
 import {
   dealerDate,
@@ -28,27 +33,69 @@ export class InventoryService {
       );
     return this.database;
   }
-  async list() {
+  private async read(
+    query: PromiseLike<{ data: unknown; error: unknown }>,
+    message: string,
+  ): Promise<unknown> {
     try {
-      // shortcut: the fictional inventory fits within 1,000 rows, add pagination before expanding that limit.
-      const { data, error } = await this.db()
-        .from('vehicles')
-        .select('*')
-        .order('stocked_on');
-      if (error || !data)
-        throw new ServiceUnavailableException('Unable to load inventory');
-      const now = new Date();
-      const today = dealerDate(now);
-      return {
-        vehicles: (data as VehicleRow[]).map((row) => vehicleView(row, today)),
-        dealershipDate: today,
-        timeZone: TIME_ZONE,
-        serverTime: now.toISOString(),
-      };
-    } catch (failure) {
-      if (failure instanceof ServiceUnavailableException) throw failure;
-      throw new ServiceUnavailableException('Unable to load inventory');
+      const result = await query;
+      if (result.error) throw new Error();
+      return result.data;
+    } catch {
+      throw new ServiceUnavailableException(message);
     }
+  }
+  async list(input: Record<string, unknown> = {}) {
+    const query = parseInventoryQuery(input);
+    const after = decodeInventoryCursor(query);
+    const now = new Date();
+    const today = dealerDate(now);
+    const data = await this.read(
+      this.db().rpc('inventory_page', {
+        p_make: query.make,
+        p_model: query.model,
+        p_age: query.age,
+        p_action: query.action,
+        p_sort: query.sort,
+        p_after: after,
+        p_limit: query.limit,
+        p_today: today,
+      }),
+      'Unable to load inventory',
+    );
+    if (!Array.isArray(data))
+      throw new ServiceUnavailableException('Unable to load inventory');
+    const rows = data as { vehicle: VehicleRow; cursor_values: unknown[] }[];
+    const page = rows.slice(0, query.limit);
+    return {
+      vehicles: page.map((row) => vehicleView(row.vehicle, today)),
+      nextCursor:
+        rows.length > query.limit
+          ? encodeInventoryCursor(query, page.at(-1)!.cursor_values)
+          : null,
+      pageSize: query.limit,
+      dealershipDate: today,
+      timeZone: TIME_ZONE,
+      serverTime: now.toISOString(),
+    };
+  }
+  async metadata() {
+    const data = await this.read(
+      this.db().rpc('inventory_metadata'),
+      'Unable to load inventory summary',
+    );
+    if (!data)
+      throw new ServiceUnavailableException('Unable to load inventory summary');
+    return data as unknown;
+  }
+  async find(id: string) {
+    validateId(id);
+    const data = await this.read(
+      this.db().from('vehicles').select('*').eq('id', id).maybeSingle(),
+      'Unable to load vehicle',
+    );
+    if (!data) throw new NotFoundException('Vehicle is no longer in inventory');
+    return vehicleView(data as VehicleRow, dealerDate());
   }
   async save(id: string, value: unknown) {
     validateId(id);

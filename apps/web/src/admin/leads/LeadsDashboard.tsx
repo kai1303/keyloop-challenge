@@ -25,6 +25,9 @@ export function LeadsDashboard() {
   };
   const [leads, setLeads] = useState<LeadSummary[] | null>(null);
   const [inboxError, setInboxError] = useState("");
+  const [cursor, setCursor] = useState<string | undefined>();
+  const [nextCursor, setNextCursor] = useState<string | null>(null);
+  const [loadingPage, setLoadingPage] = useState(false);
   const [inboxAttempt, setInboxAttempt] = useState(0);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [detail, setDetail] = useState<LeadRecord | null>(null);
@@ -43,23 +46,39 @@ export function LeadsDashboard() {
   useEffect(() => {
     const controller = new AbortController();
     let active = true;
-    setLeads(null);
+    if (!cursor) setLeads(null);
+    setLoadingPage(true);
     setInboxError("");
-    listLeads(controller.signal)
-      .then((value) => {
-        if (active) setLeads(value);
+    listLeads(controller.signal, cursor)
+      .then((page) => {
+        if (active) {
+          setLeads((current) =>
+            cursor
+              ? [
+                  ...(current ?? []),
+                  ...page.leads.filter(
+                    (lead) => !current?.some((row) => row.id === lead.id),
+                  ),
+                ]
+              : page.leads,
+          );
+          setNextCursor(page.nextCursor);
+        }
       })
       .catch((error) => {
         if (active)
           setInboxError(
             error instanceof Error ? error.message : "Unable to load leads.",
           );
+      })
+      .finally(() => {
+        if (active) setLoadingPage(false);
       });
     return () => {
       active = false;
       controller.abort();
     };
-  }, [inboxAttempt]);
+  }, [inboxAttempt, cursor]);
   useEffect(() => {
     if (!selectedId) return;
     const controller = new AbortController();
@@ -142,7 +161,7 @@ export function LeadsDashboard() {
                 >
                   Lead inbox
                 </h2>
-                {inboxError ? (
+                {inboxError && leads === null ? (
                   <div role="alert">
                     <p>{inboxError}</p>
                     <Button
@@ -155,11 +174,38 @@ export function LeadsDashboard() {
                 ) : leads === null ? (
                   <p>Loading leads…</p>
                 ) : (
-                  <LeadInbox
-                    leads={leads}
-                    selectedId={selectedId}
-                    onSelect={select}
-                  />
+                  <>
+                    <LeadInbox
+                      leads={leads}
+                      selectedId={selectedId}
+                      onSelect={select}
+                    />
+                    {inboxError && (
+                      <div role="alert">
+                        <p>{inboxError}</p>
+                        <Button
+                          variant="outline"
+                          onClick={() => setInboxAttempt((value) => value + 1)}
+                        >
+                          Retry inbox
+                        </Button>
+                      </div>
+                    )}
+                    {nextCursor && (
+                      <Button
+                        className="mt-4"
+                        variant="outline"
+                        disabled={loadingPage}
+                        onClick={() => {
+                          if (cursor === nextCursor)
+                            setInboxAttempt((value) => value + 1);
+                          else setCursor(nextCursor);
+                        }}
+                      >
+                        {loadingPage ? "Loading leads…" : "Load more leads"}
+                      </Button>
+                    )}
+                  </>
                 )}
               </section>
               <aside

@@ -1,0 +1,20 @@
+{
+  "documentUnitTests": 25,
+  "apiUnitTests": 56,
+  "webTests": {
+    "passed": 110,
+    "skippedUnrelatedLiveTests": 3
+  },
+  "httpTests": 18,
+  "thirdSource": "test-only Finance adapter: different path and payload; three parallel HTTP requests; VIN and all modes",
+  "typecheck": "passed",
+  "lint": "passed",
+  "build": "passed",
+  "browser": {
+    "defaultRows": 8,
+    "filteredRows": 4,
+    "preview": "passed",
+    "mobileViewport": 320,
+    "mobilePageWidth": 320
+  }
+}

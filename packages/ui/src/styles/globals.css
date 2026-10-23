@@ -1,0 +1,94 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "@keyloop-interview/design-system/tokens.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@source "../components";
+@source "../../../../apps/web/src";
+
+@theme inline {
+  --font-sans: var(--kl-font-family-body);
+  --font-heading: var(--kl-font-family-heading);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--primary);
+  --color-sidebar-primary-foreground: var(--primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: var(--kl-radius-domain);
+  --radius-xl: var(--kl-radius-card);
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  @keyframes accordion-down {
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
+  }
+  @keyframes accordion-up {
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
+  }
+}
+
+:root {
+  --background: var(--kl-color-canvas);
+  --foreground: var(--kl-color-ink);
+  --card: var(--kl-color-white);
+  --card-foreground: var(--kl-color-ink);
+  --popover: var(--kl-color-white);
+  --popover-foreground: var(--kl-color-ink);
+  --primary: var(--kl-color-cta);
+  --primary-foreground: var(--kl-color-ink);
+  --secondary: var(--kl-color-white);
+  --secondary-foreground: var(--kl-color-ink);
+  --muted: var(--kl-color-canvas);
+  --muted-foreground: #515b66;
+  --accent: var(--kl-color-canvas);
+  --accent-foreground: var(--kl-color-ink);
+  /* Proposed UI states, not colors recovered from an authenticated DMS. */
+  --destructive: #b91c1c;
+  --border: var(--kl-color-border);
+  --input: #87929c;
+  --ring: var(--kl-color-focus);
+  --radius: var(--kl-radius-control);
+  --sidebar: var(--kl-color-ink);
+  --sidebar-foreground: var(--kl-color-white);
+  --sidebar-accent: color-mix(in srgb, var(--kl-color-white) 12%, transparent);
+  --sidebar-border: color-mix(in srgb, var(--kl-color-white) 30%, transparent);
+}
+
+@layer base {
+  * { @apply border-border outline-ring/50; }
+  body { @apply bg-background text-foreground font-sans antialiased; }
+  h1, h2 { @apply font-heading; }
+  button:not(:disabled), [role="combobox"]:not(:disabled) { cursor: pointer; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

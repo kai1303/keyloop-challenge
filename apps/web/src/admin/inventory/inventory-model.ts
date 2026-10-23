@@ -33,6 +33,11 @@ export interface Filters {
   model: string;
   age: Age;
 }
+export interface InventorySort {
+  key:
+    "vehicle" | "registration" | "pricePence" | "daysInStock" | "currentAction";
+  direction: "asc" | "desc";
+}
 export interface ActionDraft {
   action: Action;
   note: string;
@@ -140,7 +145,15 @@ export function parseSnapshot(value: unknown): InventorySnapshot {
 export function filterVehicles(
   vehicles: Vehicle[],
   filters: Filters,
+  sort: InventorySort = { key: "daysInStock", direction: "desc" },
 ): Vehicle[] {
+  const value = (vehicle: Vehicle) =>
+    sort.key === "vehicle"
+      ? vehicle.make + " " + vehicle.model
+      : sort.key === "currentAction"
+        ? (vehicle.currentAction ??
+          (vehicle.aging ? "Needs action" : "No action required"))
+        : vehicle[sort.key];
   return vehicles
     .filter((vehicle) => {
       const age = vehicle.daysInStock;
@@ -159,7 +172,21 @@ export function filterVehicles(
         matchesAge
       );
     })
-    .sort((a, b) => b.daysInStock - a.daysInStock || a.id.localeCompare(b.id));
+    .sort((a, b) => {
+      const left = value(a),
+        right = value(b);
+      const comparison =
+        typeof left === "number" && typeof right === "number"
+          ? left - right
+          : String(left).localeCompare(String(right), "en", {
+              numeric: true,
+              sensitivity: "base",
+            });
+      return (
+        (sort.direction === "asc" ? comparison : -comparison) ||
+        a.id.localeCompare(b.id)
+      );
+    });
 }
 export function summary(vehicles: Vehicle[]) {
   return {

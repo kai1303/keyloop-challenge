@@ -1,0 +1,95 @@
+{
+  "verifiedAt": "2026-10-23T05:09:46.196238+00:00",
+  "scope": "Local shared keyloop-inventory-local database; no production deployment",
+  "migration": "UnifiedUsers1792800000001",
+  "identityTable": "public.users",
+  "roles": [
+    "customer",
+    "technician",
+    "admin"
+  ],
+  "roleCounts": {
+    "customer": 3,
+    "technician": 3,
+    "admin": 1
+  },
+  "removedTables": [
+    "public.technicians",
+    "public.user"
+  ],
+  "publicTablesIncludingMigrationHistory": 17,
+  "unifiedUserCount": 7,
+  "identityIds": "Text; original UUID and Better Auth text IDs retained. Matching customer/staff email uses staff ID and remaps customer references.",
+  "localEmailCollisions": 0,
+  "matchingEmailMergeTestedInDisposableDatabase": true,
+  "legacyTechnicianProfilesWithoutEmailOrCredentials": 2,
+  "originalProfilesAndRelationshipsPreserved": true,
+  "authAccountsAndSessionsUnchanged": true,
+  "bookingAndResourceVersionsPreserved": true,
+  "unaffectedTableRowsAndOidsUnchanged": true,
+  "inventoryRows": 1000000,
+  "foreignKeysToUnifiedUsers": 7,
+  "historicalMigrationFilesUnchanged": 14,
+  "backupDirectory": ".local/unified-users/20261023T044839Z",
+  "backupRestore": "Checksummed full and application archives retained privately. Application archive restored and migrated in isolated PostgreSQL. Ownership/ACL restoration omitted; current privacy verified separately. Full Supabase disaster recovery not tested.",
+  "freshSupabaseTypeormMigrations": 11,
+  "freshTypeormPublicTables": 14,
+  "existingStaffSessionVerified": true,
+  "publicApiRoutes": [
+    "/schedule",
+    "/service-types",
+    "/bookings?month=2031-01",
+    "/availability/slots"
+  ],
+  "staffApiRoutes": [
+    "/staff/me",
+    "/admin/bookings/catalog",
+    "/admin/bookings?date=2031-01-02",
+    "/inventory/metadata",
+    "/leads?limit=1"
+  ],
+  "anonymousDatabaseDenied": [
+    "users",
+    "booking_vehicles",
+    "service_types",
+    "service_bays",
+    "technician_service_types",
+    "service_bookings",
+    "resource_slots",
+    "booking_requests",
+    "session",
+    "account",
+    "verification",
+    "jwks",
+    "rateLimit"
+  ],
+  "liveBookingRealtimeBroadcast": true,
+  "realtimeVerification": "Passed after Broadcast replication readiness; used status=status UPDATE and verified original business values/versions remained unchanged.",
+  "staffProvisioning": "Real disposable-DB sign-ins verified for new staff, existing customer email and explicit legacy technician ID. Existing credentials/sessions cannot be replaced; conflicting identities roll back.",
+  "tests": {
+    "apiUnit": 119,
+    "apiHttp": 72,
+    "postgresIntegration": 73
+  },
+  "checks": [
+    "API typecheck",
+    "API lint",
+    "API build",
+    "Web typecheck",
+    "Web build",
+    "SQL RLS/ACL and trigger assertions",
+    "Backup restore and migration rehearsal",
+    "Fresh database setup",
+    "Focused review; provisioning finding fixed and re-reviewed"
+  ],
+  "manualBrowserWalkthrough": false,
+  "webTestsRerunForThisIdentityChange": false,
+  "cleanup": {
+    "temporaryApiStopped": true,
+    "taskCreatedVerificationDatabasesDropped": [
+      "users_merge_rehearsal_20261023",
+      "users_merge_fresh_20261023"
+    ],
+    "backupsRetained": true
+  }
+}

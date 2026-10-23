@@ -1,0 +1,135 @@
+{
+  "date": "2026-10-22",
+  "project": "keyloop-inventory-local",
+  "http": [
+    {
+      "path": "/inventory?limit=1",
+      "status": 200
+    },
+    {
+      "path": "/leads",
+      "status": 200
+    },
+    {
+      "path": "/documents",
+      "status": 200
+    },
+    {
+      "path": "/schedule",
+      "status": 200
+    },
+    {
+      "path": "/service-types",
+      "status": 200
+    },
+    {
+      "path": "/calendar-bookings?month=2026-10",
+      "status": 200
+    },
+    {
+      "path": "/admin/bookings/catalog",
+      "status": 200
+    },
+    {
+      "path": "/admin/bookings without key",
+      "status": 403
+    },
+    {
+      "path": "anonymous Data API: appointment_scheduler_migrations",
+      "status": 401
+    },
+    {
+      "path": "anonymous Data API: sales_leads",
+      "status": 401
+    },
+    {
+      "path": "anonymous Data API: sales_lead_activities",
+      "status": 401
+    },
+    {
+      "path": "Data API scheduler schema is not exposed",
+      "status": 406
+    }
+  ],
+  "realtime": {
+    "supabaseApi": "http://127.0.0.1:55321",
+    "bookingBroadcast": {
+      "received": true,
+      "event": "availability_changed",
+      "applicationPayloadKeys": [
+        "date"
+      ],
+      "supabaseTransportFields": [
+        "id"
+      ],
+      "date": "2026-10-22"
+    },
+    "inventoryPostgresChanges": {
+      "received": true,
+      "event": "UPDATE",
+      "schema": "public",
+      "table": "vehicles"
+    },
+    "method": "Committed no-op updates; application fields and versions preserved"
+  },
+  "demoRecordChanges": false,
+  "preservation": {
+    "applicationTablesUnchanged": 10,
+    "cliMigrationHistoryUnchanged": true,
+    "priorTypeOrmMigrationHistoryUnchanged": true,
+    "newPermissionMigrationRecorded": true,
+    "tableCounts": {
+      "public.appointment_scheduler_migrations": 6,
+      "public.sales_lead_activities": 4,
+      "public.sales_leads": 3,
+      "public.vehicles": 1000000,
+      "scheduler.service_bays": 2,
+      "scheduler.service_bookings": 4,
+      "scheduler.service_types": 2,
+      "scheduler.technician_service_types": 2,
+      "scheduler.technicians": 2,
+      "scheduler.users": 3,
+      "scheduler.vehicles": 3,
+      "supabase_migrations.schema_migrations": 3
+    },
+    "comparison": "SHA-256 of canonical sorted rows, both restore rehearsal and final live data"
+  },
+  "verification": {
+    "apiUnitPassed": 107,
+    "apiHttpPassed": 65,
+    "postgresIntegrationPassed": 40,
+    "frontendPassed": 158,
+    "frontendSkipped": 3,
+    "apiBuild": "passed",
+    "apiTypecheck": "passed",
+    "apiLint": "passed",
+    "frontendBuild": "passed",
+    "sharedSchemaSql": "passed",
+    "inventorySql": "passed",
+    "inventoryQuerySql": "passed",
+    "diagramVisualInspection": "passed"
+  },
+  "browser": {
+    "staff": "Existing two bookings for 22 October loaded, live updates connected",
+    "guest": "Calendar records and live availability connected",
+    "screenshots": [
+      "shared-database-staff.jpg",
+      "shared-database-guest.jpg"
+    ]
+  },
+  "recovery": {
+    "privateBackupDirectory": ".local/database-merge/20261022T050159Z",
+    "applicationRestoreRehearsal": "passed; all 12 original application/history tables matched",
+    "fullSupabasePlatformRestoreTested": false,
+    "formerProject": "keyloop-interview",
+    "formerProjectStopped": true,
+    "formerProjectVolumeRetained": true,
+    "oldStackAbsentFromRunningContainers": true
+  },
+  "limits": [
+    "Fresh-machine Supabase provisioning not rerun",
+    "No browser booking creation or cross-tab UI mutation test during consolidation"
+  ],
+  "httpAfterOldStackStopped": "6 scenario endpoints returned 200",
+  "review": "One rollback-network finding fixed: separate loopback-bound network; no other findings"
+}

@@ -1,0 +1,28 @@
+{
+  "reproduction": "5000ms browser network latency; navigate Documents to Inventory",
+  "loading": {
+    "metricHeight": 130,
+    "tableTop": 304,
+    "placeholderRows": 6
+  },
+  "loaded": {
+    "metricHeight": 130,
+    "tableTop": 304,
+    "vehicleRows": 24
+  },
+  "reducedMotion": {
+    "skeletonAnimation": "none"
+  },
+  "mobileLoading": {
+    "viewport": 320,
+    "documentWidth": 320
+  },
+  "checks": {
+    "webTestsPassed": 124,
+    "unrelatedLiveTestsSkipped": 3,
+    "typecheck": "passed",
+    "build": "passed",
+    "diffCheck": "passed"
+  },
+  "browserEmulation": "restored; temporary test tab closed"
+}

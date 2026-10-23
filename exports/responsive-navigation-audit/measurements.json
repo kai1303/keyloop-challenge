@@ -1,0 +1,166 @@
+{
+  "tablet": {
+    "account": {
+      "bottom": 111,
+      "height": 95,
+      "right": 750,
+      "width": 86.15625,
+      "x": 663.84375,
+      "y": 16
+    },
+    "brand": {
+      "bottom": 92.0625,
+      "height": 57.125,
+      "right": 158.90625,
+      "width": 138.90625,
+      "x": 20,
+      "y": 34.9375
+    },
+    "header": {
+      "bottom": 128,
+      "height": 128,
+      "right": 770,
+      "width": 770,
+      "x": 0,
+      "y": 0
+    },
+    "links": [
+      {
+        "bottom": 82.5,
+        "height": 38,
+        "label": "Bookings",
+        "right": 280.640625,
+        "width": 101.734375,
+        "x": 178.90625,
+        "y": 44.5
+      },
+      {
+        "bottom": 82.5,
+        "height": 38,
+        "label": "Inventory",
+        "right": 390.515625,
+        "width": 105.875,
+        "x": 284.640625,
+        "y": 44.5
+      },
+      {
+        "bottom": 82.5,
+        "height": 38,
+        "label": "Sales Leads",
+        "right": 511.421875,
+        "width": 116.90625,
+        "x": 394.515625,
+        "y": 44.5
+      },
+      {
+        "bottom": 82.5,
+        "height": 38,
+        "label": "Documents",
+        "right": 630.1171875,
+        "width": 114.6953125,
+        "x": 515.421875,
+        "y": 44.5
+      }
+    ],
+    "navigation": {
+      "bottom": 82.5,
+      "height": 38,
+      "right": 643.84375,
+      "width": 464.9375,
+      "x": 178.90625,
+      "y": 44.5
+    },
+    "pageWidth": 770,
+    "signOut": {
+      "bottom": 111,
+      "height": 40,
+      "right": 750,
+      "width": 86.15625,
+      "x": 663.84375,
+      "y": 71
+    },
+    "viewport": 770
+  },
+  "phone": {
+    "account": {
+      "bottom": 284.125,
+      "height": 95,
+      "right": 106.15625,
+      "width": 86.15625,
+      "x": 20,
+      "y": 189.125
+    },
+    "brand": {
+      "bottom": 73.125,
+      "height": 57.125,
+      "right": 158.90625,
+      "width": 138.90625,
+      "x": 20,
+      "y": 16
+    },
+    "header": {
+      "bottom": 301.125,
+      "height": 301.125,
+      "right": 390,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "links": [
+      {
+        "bottom": 169.125,
+        "height": 76,
+        "label": "Bookings",
+        "right": 104.5,
+        "width": 84.5,
+        "x": 20,
+        "y": 93.125
+      },
+      {
+        "bottom": 169.125,
+        "height": 76,
+        "label": "Inventory",
+        "right": 193,
+        "width": 84.5,
+        "x": 108.5,
+        "y": 93.125
+      },
+      {
+        "bottom": 169.125,
+        "height": 76,
+        "label": "Sales Leads",
+        "right": 281.5,
+        "width": 84.5,
+        "x": 197,
+        "y": 93.125
+      },
+      {
+        "bottom": 169.125,
+        "height": 76,
+        "label": "Documents",
+        "right": 370,
+        "width": 84.5,
+        "x": 285.5,
+        "y": 93.125
+      }
+    ],
+    "navigation": {
+      "bottom": 169.125,
+      "height": 76,
+      "right": 370,
+      "width": 350,
+      "x": 20,
+      "y": 93.125
+    },
+    "pageWidth": 390,
+    "signOut": {
+      "bottom": 284.125,
+      "height": 40,
+      "right": 106.15625,
+      "width": 86.15625,
+      "x": 20,
+      "y": 244.125
+    },
+    "viewport": 390
+  }
+}

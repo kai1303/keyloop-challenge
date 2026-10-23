@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-21",
+  "url": "http://127.0.0.1:5173/",
+  "checks": [
+    "Preview has no horizontal overflow",
+    "Disabled, read-only and invalid inputs expose their states",
+    "Select exposes all nine DMS products",
+    "Modal opens accessibly and focuses its first input",
+    "Shift+Tab stays inside the modal",
+    "Tab wraps from close button to modal input",
+    "Whitespace-only name does not submit",
+    "Valid modal save closes the dialog",
+    "Modal save updates the visible dealership name",
+    "Closing restores focus to the trigger",
+    "Cancel discards unsaved modal edits",
+    "Escape dismisses the modal",
+    "Escape restores trigger focus",
+    "Light-mode inputs remain transparent on white cards",
+    "Brand fonts load and the page fits its viewport",
+    "Selecting Autoline updates the select value",
+    "Checkbox selection updates its accessible checked state"
+  ]
+}

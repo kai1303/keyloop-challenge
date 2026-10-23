@@ -1,0 +1,67 @@
+Hi, I'm Kai. For this exercise, I chose to focus on the Appointment Scheduler for a vehicle dealership.
+
+The customer needs a convenient way to book a service. The dealership needs to make sure that a qualified technician and a service bay are both available.
+
+I'll walk through the architecture, explain the main implementation decisions and how I worked with AI, then demonstrate the booking flow and share what I learned.
+
+
+The application has one React frontend, one NestJS API, and one PostgreSQL database provided by Supabase. The wider application contains other dealership features, but this walkthrough focuses on the booking module.
+
+React provides separate guest and staff experiences. NestJS handles validation, authorization, scheduling rules, and booking operations. TypeORM manages the database connection and transactions.
+
+I kept these as modules within one application because the demo does not need the operational complexity of separate services. PostgreSQL gives the booking workflow a transactional foundation, and Luxon handles dealership-local dates and opening hours.
+
+Supabase Realtime tells open clients when a date has changed. They then fetch the latest data from the API. A notification contains the affected date, with no customer details. The database remains the authority for whether a booking can actually be confirmed.
+
+
+The most important distinction is between showing availability and reserving capacity. An available time on screen is only a preview.
+
+When the customer confirms, the backend validates the service, opening hours, time, and technician qualifications. It selects a technician and bay, then claims their hourly capacity using version checks inside a database transaction.
+
+If another request changes a slot first, the transaction rolls back and retries with fresh state. The resource claims and booking are saved together.
+
+Staff edits also send the booking version they read. A stale edit returns a conflict rather than silently overwriting somebody else's change.
+
+Staff access uses Better Auth and signed JWTs. The backend checks the current session and role; the browser does not get direct access to customer tables.
+
+
+I used AI as a collaborator for design, implementation, tests, and documentation. My role was to define the business rules, challenge the suggestions, and decide what evidence was needed before accepting a change.
+
+I started with concrete rules: a booking needs a qualified technician and a bay, must fit within opening hours, and must remain correct when requests arrive together. I also asked the AI to reuse the existing application and UI components.
+
+I worked in small steps. For each change, I reviewed the affected code and checked the behavior with tests. The important cases included scheduling boundaries, competing bookings, failed reschedules, stale staff edits, and unauthorized access.
+
+I separated different kinds of evidence. Unit tests check rules with controlled inputs. Database integration tests check transactions and concurrency. Browser checks exercise the user journey and live updates. A passing mock does not prove that the database or WebSocket path works.
+
+One recent example was frontend tests failing during concurrent checks. We limited frontend test workers and repeated uncached concurrent runs while keeping the same assertions and timeouts.
+
+AI accelerated the work, while review and verification determined what I accepted.
+
+
+I'll start with the customer experience. I choose a future day when the dealership is open, select a service, and choose an available start time. The end time is calculated for me. In this version, services last one hour and start on whole hours.
+
+I'll use fictional customer and vehicle details, then confirm the appointment. The confirmation means the backend has saved the booking and allocated the required resources. Merely selecting the time earlier did not reserve them.
+
+Now I'll switch to the staff dashboard for the same date. The booking appears in the day's schedule. I can search for the registration and open the details to see the customer, service, technician, and bay.
+
+Next, I'll move this confirmed appointment to another available time. The backend validates and claims the replacement capacity in the same transaction as the move. If that move fails, the original appointment remains intact.
+
+I'll reload the page to show that the updated appointment is persisted, then open it again.
+
+Finally, I'll cancel the appointment and record a reason. The booking remains visible as cancelled, and its resource capacity is released.
+
+That demonstrates the customer journey and staff workflow using the same persisted booking data and shared scheduling rules.
+
+
+The biggest challenge was concurrency. Two customers can see the same available time, so the confirmation transaction has to resolve the competition safely. An in-memory availability calculation alone is not enough.
+
+Timezone handling was another challenge. Opening hours and calendar dates belong to the dealership's timezone, and daylight-saving boundaries need explicit tests.
+
+I also learned to distinguish a convincing interface from a complete workflow. Persistence, stale edits, cancellation, and failed reschedules all need their own checks.
+
+This is a local interview demo. Before a production rollout, I would add structured logging, operational metrics and tracing, and review deployment security and capacity. Those are next steps, not capabilities I am claiming are already installed.
+
+
+This scheduler connects a simple booking experience to validated, transactional resource allocation and a protected staff workflow.
+
+The repository includes the architecture, setup instructions, AI collaboration narrative, and automated tests. Thank you for watching.

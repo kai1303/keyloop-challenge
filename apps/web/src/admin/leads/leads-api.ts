@@ -1,3 +1,4 @@
+import { authenticatedFetch } from "../../auth/authenticated-fetch";
 import { DEALER_TIMEZONE } from "../dealer-date";
 
 export type LeadSummary = {
@@ -21,7 +22,7 @@ export type LeadDetails = LeadSummary & {
 };
 
 async function read<T>(path: string, init?: RequestInit): Promise<T> {
-  const response = await fetch(`/api/leads${path}`, init);
+  const response = await authenticatedFetch(`/api/leads${path}`, init);
   if (!response.ok) {
     const body = await response.json().catch(() => null);
     throw new Error(
@@ -32,8 +33,24 @@ async function read<T>(path: string, init?: RequestInit): Promise<T> {
   }
   return response.json() as Promise<T>;
 }
-export const listLeads = (signal?: AbortSignal) =>
-  read<LeadSummary[]>("", { signal });
+export type LeadPage = { leads: LeadSummary[]; nextCursor: string | null };
+export async function listLeads(
+  signal?: AbortSignal,
+  after?: string,
+): Promise<LeadPage> {
+  const query = new URLSearchParams({
+    limit: "50",
+    ...(after ? { after } : {}),
+  });
+  const page = await read<LeadPage>("?" + query, { signal });
+  if (
+    !page ||
+    !Array.isArray(page.leads) ||
+    (page.nextCursor !== null && typeof page.nextCursor !== "string")
+  )
+    throw new Error("Invalid lead page response");
+  return page;
+}
 export const getLead = (id: string, signal?: AbortSignal) =>
   read<LeadDetails>(`/${encodeURIComponent(id)}`, { signal });
 export const addActivity = (
