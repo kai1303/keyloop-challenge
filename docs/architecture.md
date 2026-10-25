@@ -17,7 +17,7 @@ notifications. HTTP responses return along the request path.
 | Component roles | Component tables in sections 1–5 |
 | Data flow | [End-to-end data flow](#6-end-to-end-data-flow) |
 | Technologies and justifications | [Technology choices and tradeoffs](#7-technology-choices-and-tradeoffs) |
-| Logging, metrics, and tracing strategy | [Observability strategy](#8-observability-strategy), separating implemented diagnostics from proposed instrumentation |
+| Logging, metrics, and tracing strategy | [Observability strategy](#8-observability-strategy), separating implemented diagnostics from the proposed Loki, Prometheus, and Grafana stack |
 | GenAI assistance in the design phase | [GenAI-assisted design](#9-genai-assisted-design) |
 
 ## 1. Overall architecture
@@ -322,14 +322,44 @@ are not installed. Saved browser, concurrency, and benchmark reports under
 [`inventory state`](../apps/web/src/admin/inventory/useInventory.ts), and
 [`booking subscriptions`](../apps/web/src/admin/watch-bookings.ts).
 
-### Proposed deployment work — not implemented
+### Chosen deployment stack — not implemented
 
-| Signal | Instrumentation and use |
+Use **Loki for logs**, **Prometheus for metrics**, and **Grafana to visualize
+both**. This fits the single NestJS API and PostgreSQL deployment: API and
+dependency failures can be inspected beside request rates, latency, booking
+conflicts, and database pressure. These are technology choices for a future
+deployment; the local demo has no Loki log collector, Prometheus exporter or
+scrape configuration, or Grafana dashboards. The trace backend has not been
+selected.
+
+### Target data flow for logs and metrics
+
+![Proposed logs and metrics architecture](architecture/observability.svg)
+
+The arrows show where telemetry data moves. Each API replica would write
+redacted, structured JSON logs to stdout; a proposed Grafana Alloy collector
+would ship them to Loki. The API would expose an internal `/metrics` endpoint,
+and a PostgreSQL exporter would expose database health and connection metrics.
+Prometheus would scrape both endpoints and store the resulting time series.
+Grafana would query Loki and Prometheus for dashboards and alert rules. None of
+these telemetry endpoints or services is present in the local demo.
+
+An operator would first narrow an error or latency spike by time, service, and
+route in a Grafana metric panel, then inspect Loki logs from the same window.
+The request ID would group log entries for one request; it would not be a
+Prometheus label. Grafana access and the telemetry endpoints should remain
+private to the deployment. This design follows the documented
+[Prometheus scrape model](https://prometheus.io/docs/prometheus/latest/getting_started/),
+[Loki log ingestion with Alloy](https://grafana.com/docs/loki/latest/send-data/alloy/),
+and [Grafana data sources](https://grafana.com/docs/grafana/latest/datasources/).
+
+| Signal and tool | Instrumentation and use |
 | --- | --- |
-| Structured logs | Add request completion and error logging at the API boundary with timestamp, severity, service/version, generated request ID, route template, method, status, and duration. Preserve safe internal failure categories for storage/source errors while returning safe messages to users. Record booking contention/retry exhaustion and document-source failures explicitly, including degraded HTTP 200 responses. Collect stdout in a central log store with access and retention controls. |
-| Metrics and dashboards | Measure request volume, status classes, and latency by route; database pool pressure/query duration; booking version conflicts, retries/exhaustion, and conditional-update lock waits; Data API errors; per-document-source latency, timeouts, and partial/all-source failures. Add browser error and Realtime disconnect/refetch-failure measurements to detect stale clients. Keep labels bounded to route, operation, source, and outcome, rather than customer or record IDs. |
-| Traces | Introduce OpenTelemetry instrumentation for inbound NestJS HTTP, auth/session database checks, TypeORM/pg operations, Data API HTTP calls, and document source calls. Add spans for allocation attempts and source normalization where automatic instrumentation cannot explain the delay. Propagate trace context on supported HTTP hops and export sampled traces through a collector. Database-triggered Broadcasts are asynchronous; do not claim their events already share the originating request trace. Measure reconnect/refetch recovery separately. |
-| Health and alerting | Add separate liveness and bounded readiness probes for required database/auth/Data API paths, with safe responses. Monitor Realtime independently. Dashboard availability, latency, errors, and dependency saturation together; alert on sustained failures/latency, repeated booking retry exhaustion, document-source outages, and prolonged refresh failures. Set thresholds from measured baselines and agreed service objectives. Treat expected validation/409 conflicts separately from server failures. Link alerts to logs/traces and a dependency-specific recovery runbook. |
+| Logs → Loki | Add structured request completion and error logs at the API boundary with timestamp, severity, service/version, generated request ID, route template, method, status, and duration. Preserve safe internal failure categories for storage/source errors while returning safe messages to users. Record booking contention/retry exhaustion and document-source failures explicitly, including degraded HTTP 200 responses. Ship API stdout through Grafana Alloy to Loki with access and retention controls; keep high-cardinality request IDs in log fields rather than Loki labels. |
+| Metrics → Prometheus | Expose application metrics for Prometheus to scrape and add deployment exporters for database and process health. Measure request volume, status classes, and latency by route; database pool pressure/query duration; booking version conflicts, retries/exhaustion, and conditional-update lock waits; Data API errors; per-document-source latency, timeouts, and partial/all-source failures. Add browser error and Realtime disconnect/refetch-failure measurements only after a collection path exists. Keep labels bounded to route, operation, source, and outcome, rather than customer or record IDs. |
+| Visualization → Grafana | Build dashboards from Prometheus metrics and Loki logs for API availability, latency, errors, dependency pressure, booking contention, and Realtime recovery. Narrow by time, service, and route before using the request ID to group log entries; dashboard panels must not imply an end-to-end trace where none exists. Restrict dashboard access and retain links to dependency-specific runbooks. |
+| Traces → backend undecided | Introduce OpenTelemetry instrumentation for inbound NestJS HTTP, auth/session database checks, TypeORM/pg operations, Data API HTTP calls, and document source calls. Add spans for allocation attempts and source normalization where automatic instrumentation cannot explain the delay. Propagate trace context on supported HTTP hops and export sampled traces after selecting a backend. Database-triggered Broadcasts are asynchronous; do not claim their events already share the originating request trace. Measure reconnect/refetch recovery separately. |
+| Health and alerting | Add separate liveness and bounded readiness probes for required database/auth/Data API paths, with safe responses. Monitor Realtime independently. Alert on sustained failures/latency, repeated booking retry exhaustion, document-source outages, and prolonged refresh failures using the proposed metrics and dashboards. Set thresholds from measured baselines and agreed service objectives. Treat expected validation/409 conflicts separately from server failures. |
 
 Customer names, email/phone, VIN/registration, lead notes, document content,
 passwords, bearer tokens, cookies, and service-role/database secrets must not be
