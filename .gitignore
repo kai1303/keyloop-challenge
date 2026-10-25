@@ -14,8 +14,6 @@ coverage/
 .codegraph/
 supabase/.temp/
 supabase/.branches/
-infra/appointments/supabase/.temp/
-infra/appointments/supabase/.branches/
 
 # Private local database backups and environment snapshots.
 .local/

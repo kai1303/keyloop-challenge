@@ -42,11 +42,15 @@ matching-email upgrade case was verified in disposable PostgreSQL. Legacy
 technician names are not used to guess staff identities. Deactivate users through
 roles/bans rather than deleting identities referenced by appointment history.
 
-The subsequent `BookingResourceLocks1792800000002` migration removes only the
-redundant `public.resource_slots` table. The current layout has 16 public tables,
-including migration history. Occupancy comes from service_bookings; booking
-writers lock existing technician users and bays before rechecking availability.
-Old binaries must be stopped before this cutover. Its separate checksummed backup
+The `BookingResourceLocks1792800000002` migration removed only the redundant
+`public.resource_slots` table. The current layout has 16 public tables,
+including migration history. Occupancy comes from `service_bookings`. The later
+`OptimisticResourceVersions1792886400000` migration adds non-null
+`scheduling_version` counters to `public.users` and `public.service_bays`.
+Booking writers conditionally increment those counters and recheck availability
+in one transaction; existing rows and relationships remain. Old booking API
+binaries must be stopped before applying this migration and restarting with the
+new allocation code. The historical removal's separate checksummed backup
 and restore rehearsal are retained under
 `.local/booking-resource-locks/20261023T055431Z/`; see
 [booking-resource-locks-checks.json](../exports/booking-resource-locks-checks.json).
@@ -179,15 +183,11 @@ Keeping the shared database and repairing the application is usually simpler.
 
 If no business writes occurred since cutover, the previous route can be restored:
 
-1. Create a separate loopback-bound network if absent, then start the retained
-   old stack. Keep the shared inventory stack running, since Inventory and Leads
-   still use it in the prior configuration:
-
-   ```sh
-   docker network inspect keyloop-appointments-local >/dev/null 2>&1 || \
-     docker network create -o com.docker.network.bridge.host_binding_ipv4=127.0.0.1 keyloop-appointments-local
-   supabase --workdir infra/appointments start --network-id keyloop-appointments-local
-   ```
+1. Recover the former scheduler project configuration from Git history into a
+   separate local recovery directory. Start that stack on a loopback-bound network.
+   Keep the shared inventory stack running, since Inventory and Leads still use
+   it in the prior configuration. The former project configuration is no longer
+   included in the current checkout.
 2. Copy `api.env` back to `apps/api/.env` and `web.env` back to
    `apps/web/.env.local`, using the private backup directory above. Preserve owner
    permissions. The earlier API environment used an externally supplied

@@ -1,3 +1,4 @@
+import { OptimisticResourceVersions1792886400000 } from './migrations/1792886400000-optimistic-resource-versions.js';
 import { BookingResourceLocks1792800000002 } from './migrations/1792800000002-booking-resource-locks.js';
 import { UnifiedUsers1792800000001 } from './migrations/1792800000001-unified-users.js';
 import { PublicSchema1792800000000 } from './migrations/1792800000000-public-schema.js';
@@ -28,6 +29,7 @@ export default new DataSource({
     PublicSchema1792800000000,
     UnifiedUsers1792800000001,
     BookingResourceLocks1792800000002,
+    OptimisticResourceVersions1792886400000,
   ],
   migrationsTableName: 'appointment_scheduler_migrations',
 });

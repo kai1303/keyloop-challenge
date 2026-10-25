@@ -212,62 +212,63 @@ export function BookingCalendar() {
             >
               {days.map((day, index) => {
                 const date = day.toISODate()!;
-                const current = day.toFormat("yyyy-MM") === month;
+                if (day.toFormat("yyyy-MM") !== month)
+                  return (
+                    <div
+                      key={date}
+                      aria-hidden="true"
+                      className={
+                        "min-h-32 border-b bg-muted/25 sm:min-h-44 lg:min-h-48 " +
+                        (index % 7 < 6 ? "border-r" : "")
+                      }
+                    />
+                  );
                 const closed =
                   catalog && !catalog.schedule.hours[day.weekday - 1];
                 const disabled =
                   !catalog?.services.length ||
-                  !current ||
                   day < today ||
                   !!closed;
                 const label = day
                   .setLocale("en")
                   .toFormat("cccc, LLLL d, yyyy");
-                const entries = current
-                  ? appointments.items.filter(
-                      (item) =>
-                        DateTime.fromISO(item.startsAt)
-                          .setZone(zone)
-                          .toISODate() === date,
-                    )
-                  : [];
+                const entries = appointments.items.filter(
+                  (item) =>
+                    DateTime.fromISO(item.startsAt)
+                      .setZone(zone)
+                      .toISODate() === date,
+                );
                 const expanded = expandedDate === date;
                 const remaining = Math.max(0, entries.length - 3);
                 return (
                   <div
                     key={date}
                     className={
-                      "flex min-h-32 min-w-0 flex-col gap-2 border-b p-1.5 sm:min-h-44 sm:p-2 lg:min-h-48 lg:p-3 " +
+                      "relative flex min-h-32 min-w-0 flex-col gap-2 border-b p-1.5 sm:min-h-44 sm:p-2 lg:min-h-48 lg:p-3 " +
                       (index % 7 < 6 ? "border-r " : "") +
                       (disabled ? "bg-muted/25" : "hover:bg-primary/5")
                     }
                   >
-                    <m.button
+                    <button
                       type="button"
                       disabled={disabled}
                       aria-label={(disabled ? "" : "Book ") + label}
-                      whileHover={
-                        disabled || reduceMotion ? undefined : { y: -2 }
-                      }
-                      whileTap={
-                        disabled || reduceMotion ? undefined : { scale: 0.98 }
-                      }
-                      transition={{ duration: 0.14, ease: "easeOut" }}
                       aria-current={
                         day.hasSame(today, "day") ? "date" : undefined
                       }
-                      className={
-                        "flex w-full justify-center rounded-md py-0.5 outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:cursor-default " +
-                        (disabled
-                          ? "text-muted-foreground/60"
-                          : "hover:bg-primary/10")
-                      }
+                      className="absolute inset-0 cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary disabled:cursor-default"
                       onClick={(event) => {
                         anchor.current = event.currentTarget;
                         setSelected(date);
                         setConfirmed(false);
                         setOpen(true);
                       }}
+                    />
+                    <div
+                      className={
+                        "pointer-events-none flex justify-center py-0.5 " +
+                        (disabled ? "text-muted-foreground/60" : "")
+                      }
                     >
                       <span
                         className={
@@ -279,7 +280,7 @@ export function BookingCalendar() {
                       >
                         {day.day}
                       </span>
-                    </m.button>
+                    </div>
                     {entries.length > 0 && (
                       <ul
                         aria-label={"Appointments for " + label}
@@ -331,29 +332,15 @@ export function BookingCalendar() {
                           day.toFormat("LLLL d")
                         }
                         onClick={() => setExpandedDate(expanded ? "" : date)}
-                        className="rounded px-1 py-1 text-left text-[10px] font-medium text-primary outline-none hover:bg-primary/10 focus-visible:ring-2 focus-visible:ring-primary sm:text-xs"
+                        className="relative rounded px-1 py-1 text-left text-[10px] font-medium text-primary outline-none hover:bg-primary/10 focus-visible:ring-2 focus-visible:ring-primary sm:text-xs"
                       >
                         {expanded ? "Show less" : "+" + remaining + " more"}
                       </button>
                     )}
-                    {current && closed ? (
+                    {closed ? (
                       <span className="mt-auto py-1 text-center text-[10px] text-muted-foreground sm:text-xs">
                         Closed
                       </span>
-                    ) : !disabled ? (
-                      <button
-                        type="button"
-                        aria-label={"Add a service appointment on " + label}
-                        onClick={(event) => {
-                          anchor.current = event.currentTarget;
-                          setSelected(date);
-                          setConfirmed(false);
-                          setOpen(true);
-                        }}
-                        className="mt-auto rounded px-1 py-1.5 text-left text-[10px] text-muted-foreground outline-none hover:bg-primary/10 hover:text-primary focus-visible:ring-2 focus-visible:ring-primary sm:text-xs"
-                      >
-                        + Book a service
-                      </button>
                     ) : null}
                   </div>
                 );
@@ -409,7 +396,8 @@ export function BookingCalendar() {
                   <DialogClose asChild>
                     <Button
                       variant="ghost"
-                      size="icon-sm"
+                      size="icon-lg"
+                      className="text-2xl leading-none"
                       aria-label={
                         confirmed ? "Close confirmation" : "Close booking form"
                       }

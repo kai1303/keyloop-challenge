@@ -11,7 +11,7 @@ digraph Appointments {
     label="BookingsModule / unified NestJS API"; fontsize=14; color="#cbd5e1"; style=rounded;
     public [label="Guest REST controller\nPublic fields + validated input"];
     admin [label="Staff JWT guard + controller\nAdmin or Technician\nVersioned edit requests"];
-    service [label="Booking service\nSingle transaction per write\nLock technician users + bays → recheck → save"];
+    service [label="Booking service\nSingle transaction per write\nClaim resource versions → recheck → save"];
     rules [label="Schedule rules + SQL\nTimezone / hours / qualifications\nNOT EXISTS overlap checks", fillcolor="#f8fafc", color="#94a3b8"];
     public -> service;
     admin -> service;

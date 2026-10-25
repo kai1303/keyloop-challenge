@@ -4,6 +4,7 @@ import { BookingsService } from '../src/bookings/bookings.service.js';
 import { ScheduleRules } from '../src/bookings/schedule-rules.js';
 import { seedCatalog } from '../src/database/seed.js';
 import { testDatabase } from './database-fixture.js';
+import { CandidateChanged, claimResources } from '../src/bookings/resource-claims.js';
 
 const oil = '00000000-0000-4000-8000-000000000001';
 const inspection = '00000000-0000-4000-8000-000000000002';
@@ -13,7 +14,7 @@ const bayB = '00000000-0000-4000-8000-000000000022';
 const base = DateTime.utc().plus({ days: 1 }).startOf('day').plus({ hours: 10 });
 const at = (minutes = 0) => base.plus({ minutes }).toISO()!;
 
-describe('booking persistence and resource row locks', () => {
+describe('booking persistence and optimistic resource versions', () => {
   const db = testDatabase();
   const rules = new ScheduleRules({
     timeZone: 'UTC',
@@ -40,7 +41,7 @@ describe('booking persistence and resource row locks', () => {
     const runner = db.createQueryRunner();
     await runner.connect();
     await runner.startTransaction();
-    await runner.query('SELECT id FROM public.' + (table === 'technicians' ? 'users' : 'service_bays') + ' WHERE id=$1 FOR UPDATE', [id]);
+    await runner.query('UPDATE public.' + (table === 'technicians' ? 'users' : 'service_bays') + ' SET scheduling_version=scheduling_version+1 WHERE id=$1', [id]);
     return async () => {
       try { await runner.commitTransaction(); }
       finally { await runner.release(); }
@@ -51,7 +52,7 @@ describe('booking persistence and resource row locks', () => {
     const [row] = await db.query<{ count: number }[]>(
       'SELECT count(*)::int AS count FROM pg_stat_activity ' +
       "WHERE datname = current_database() AND application_name = 'appointment-scheduler' " +
-      "AND wait_event_type = 'Lock' AND query LIKE $1", ['%public.' + (table === 'technicians' ? 'users' : 'service_bays') + '%FOR UPDATE%'],
+      "AND wait_event_type = 'Lock' AND query LIKE $1", ['%UPDATE public.' + (table === 'technicians' ? 'users' : 'service_bays') + '%scheduling_version%'],
     );
     return row.count;
   }
@@ -62,7 +63,7 @@ describe('booking persistence and resource row locks', () => {
       if (await waiterCount(table) >= expected) return;
       await new Promise(resolve => setTimeout(resolve, 10));
     }
-    throw new Error('Expected concurrent resource-row waiters did not appear');
+    throw new Error('Expected concurrent conditional-write waiters did not appear');
   }
 
   it('lists only public fields in dealership-local month order, including simultaneous bookings', async () => {
@@ -317,6 +318,8 @@ describe('booking persistence and resource row locks', () => {
         const [{ count }] = await db.query('SELECT count(*)::int AS count FROM public.' + table + (table === 'users' ? " WHERE role='customer'" : ''));
         expect(count).toBe(0);
       }
+      expect((await db.query('SELECT scheduling_version AS version FROM public.users WHERE id=$1', [techA]))[0].version).toBe(0);
+      expect((await db.query('SELECT scheduling_version AS version FROM public.service_bays WHERE id=$1', [bayA]))[0].version).toBe(0);
     } finally {
       await db.query('DROP TRIGGER reject_test_booking ON public.service_bookings');
       await db.query('DROP FUNCTION public.reject_test_booking()');
@@ -335,6 +338,21 @@ describe('booking persistence and resource row locks', () => {
     expect(results.filter(result => result.status === 'fulfilled')).toHaveLength(1);
     const failed = results.find(result => result.status === 'rejected');
     expect(failed?.status === 'rejected' && failed.reason).toBeInstanceOf(ConflictException);
+    const [technician] = await db.query('SELECT scheduling_version AS version FROM public.users WHERE id=$1', [techA]);
+    const [bay] = await db.query('SELECT scheduling_version AS version FROM public.service_bays WHERE id=$1', [bayA]);
+    expect(technician.version).toBe(2);
+    expect(bay.version).toBe(1);
+  });
+
+  it('rolls back the technician claim when a bay version changes before its conditional update', async () => {
+    const release = await hold('service_bays', bayA);
+    const pending = db.transaction(manager => claimResources(manager, { technicianId: techA, bayId: bayA }));
+    const settled = Promise.allSettled([pending]);
+    try { await waitForWaiters('service_bays', 1); }
+    finally { await release(); await settled; }
+    await expect(pending).rejects.toBeInstanceOf(CandidateChanged);
+    expect((await db.query('SELECT scheduling_version AS version FROM public.users WHERE id=$1', [techA]))[0].version).toBe(0);
+    expect((await db.query('SELECT scheduling_version AS version FROM public.service_bays WHERE id=$1', [bayA]))[0].version).toBe(1);
   });
 
   it('protects a shared bay even when technicians differ', async () => {
@@ -381,16 +399,17 @@ describe('booking persistence and resource row locks', () => {
     expect((await pending)[0].status).toBe('fulfilled');
   });
 
-  it('serializes different hours and dates for the same resources', async () => {
+  it('retries version conflicts across different hours and dates for the same resources', async () => {
     const release = await hold('technicians', techA);
     const attempts = Promise.allSettled([
       service.create(input('same-hour@example.com')),
       service.create(input('other-hour@example.com', oil, 60)),
-      service.create({ ...input('other-date@example.com'), startsAt: base.plus({ days: 1 }).toISO()! }),
     ]);
-    try { await waitForWaiters('technicians', 3); }
+    try { await waitForWaiters('technicians', 2); }
     finally { await release(); await attempts; }
     expect((await attempts).every(result => result.status === 'fulfilled')).toBe(true);
+    await expect(service.create({ ...input('other-date@example.com'), startsAt: base.plus({ days: 1 }).toISO()! }))
+      .resolves.toHaveProperty('id');
   });
 
   it('allows only one winner under competing first bookings', async () => {

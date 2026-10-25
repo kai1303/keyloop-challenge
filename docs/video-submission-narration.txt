@@ -16,9 +16,9 @@ Supabase Realtime tells open clients when a date has changed. They then fetch th
 
 The most important distinction is between showing availability and reserving capacity. An available time on screen is only a preview.
 
-When the customer confirms, the backend validates the service, opening hours, time, and technician qualifications. It selects a technician and bay, then claims their hourly capacity using version checks inside a database transaction.
+When the customer confirms, the backend validates the service, opening hours, time, and technician qualifications. The customer selects a technician and bay; the backend conditionally claims their resource versions inside a database transaction.
 
-If another request changes a slot first, the transaction rolls back and retries with fresh state. The resource claims and booking are saved together.
+If another request changes a resource version first, the transaction rolls back and retries with fresh state. The resource claims and booking are saved together.
 
 Staff edits also send the booking version they read. A stale edit returns a conflict rather than silently overwriting somebody else's change.
 

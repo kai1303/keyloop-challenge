@@ -729,6 +729,47 @@ describe("guest booking calendar", () => {
     ).toBe(true);
   });
 
+  it("shows only the selected month's dates and opens a date after month navigation", async () => {
+    const user = userEvent.setup();
+    render(
+      <LazyMotion features={domAnimation} strict>
+        <BookingCalendar />
+      </LazyMotion>,
+    );
+    await screen.findByRole("button", {
+      name: "Book Thursday, January 3, 2030",
+    });
+    expect(
+      screen.getAllByRole("button", { name: /January \d+, 2030/ }),
+    ).toHaveLength(31);
+    expect(screen.queryByRole("button", { name: /December 31, 2029/ })).toBeNull();
+    expect(screen.queryByRole("button", { name: /February 1, 2030/ })).toBeNull();
+
+    await user.click(screen.getByRole("button", { name: "Next month" }));
+    expect(screen.getByRole("heading", { name: "February 2030" })).toBeTruthy();
+    expect(
+      screen.getAllByRole("button", { name: /February \d+, 2030/ }),
+    ).toHaveLength(28);
+    expect(screen.queryByRole("button", { name: /January 31, 2030/ })).toBeNull();
+    expect(screen.queryByRole("button", { name: /March 1, 2030/ })).toBeNull();
+    await user.click(
+      screen.getByRole("button", {
+        name: "Book Friday, February 1, 2030",
+      }),
+    );
+    expect(screen.getByText("Friday, 1 February 2030")).toBeTruthy();
+    await waitFor(() =>
+      expect(
+        fetchMock.mock.calls.some(([url]) => {
+          if (!url.startsWith("/api/availability?")) return false;
+          return new URLSearchParams(url.split("?")[1])
+            .get("startsAt")
+            ?.startsWith("2030-02-01T09:00:");
+        }),
+      ).toBe(true),
+    );
+  });
+
   it("disables closed and past dates, and navigates months", async () => {
     const user = await openDay();
     expect(screen.getByRole("dialog", { name: "Book a service" })).toBeTruthy();

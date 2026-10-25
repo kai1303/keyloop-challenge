@@ -39,15 +39,15 @@ try{
   await test('Ten simultaneous confirmations produce one winner',async()=>{const results=await Promise.all(Array.from({length:10},(_,i)=>post('race-'+i,10)));assert.equal(results.filter(row=>row.status===201).length,1);assert.equal(results.filter(row=>row.status===409).length,9);return {requests:10,http201:1,http409:9}});
   await test('Reschedule rolls back conflicts, rejects stale versions and cancellation releases capacity',async()=>{const moved=await service.reschedule(first.id,{startsAt:starts(14),expectedVersion:first.version});assert.equal(moved.version,2);await assert.rejects(()=>service.reschedule(first.id,{startsAt:starts(10),expectedVersion:2}),{status:409});assert.equal((await service.listBookings(report.date)).find(row=>row.id===first.id).time,'14:00');await assert.rejects(()=>service.changeStatus(first.id,{status:'CANCELLED',expectedVersion:1}),{status:409});await service.changeStatus(first.id,{status:'CANCELLED',expectedVersion:2});const replacement=await post('replacement',14);assert.equal(replacement.status,201);return {version:2,occupiedMoveHttp:409,staleEditHttp:409,rebookHttp:201}});
   await test('Racing reschedule and create cannot share destination',async()=>{const source=await service.createAdmin(input('move-source',11));const results=await Promise.allSettled([service.reschedule(source.id,{startsAt:starts(12),expectedVersion:1}),post('move-racer',12).then(row=>{if(row.status!==201)throw Object.assign(new Error('conflict'),{status:row.status});return row})]);assert.equal(results.filter(row=>row.status==='fulfilled').length,1);assert.equal(results.find(row=>row.status==='rejected').reason.status,409);return {winners:1,conflicts:1}});
-  await test('Resource locks serialize different hours and dates for the same technician',async()=>{
+  await test('Conditional resource versions coordinate different hours and dates for the same technician',async()=>{
    const tech=catalog.technicians.find(row=>row.services.includes(oil)).id;
    const runner=db.createQueryRunner();await runner.connect();await runner.startTransaction();
    let pending;let waiters=0;let results;
    try{
-    await runner.query('SELECT id FROM public.users WHERE id=$1 FOR UPDATE',[tech]);
+    await runner.query('UPDATE public.users SET scheduling_version=scheduling_version+1 WHERE id=$1',[tech]);
     pending=Promise.all([post('waiting-row',15),post('other-hour',16),post('other-date',15,oil,report.nextDate)]);
     for(let attempt=0;attempt<100;attempt++){
-     const [row]=await db.query("SELECT count(*)::int AS count FROM pg_stat_activity WHERE application_name='appointment-scheduler' AND wait_event_type='Lock' AND query LIKE '%public.users%FOR UPDATE%'");
+     const [row]=await db.query("SELECT count(*)::int AS count FROM pg_stat_activity WHERE application_name='appointment-scheduler' AND wait_event_type='Lock' AND query LIKE '%UPDATE public.users%scheduling_version%'");
      waiters=row.count;if(waiters>=3)break;await new Promise(resolve=>setTimeout(resolve,10));
     }
     assert(waiters>=3,'Expected three waiting resource-row writes');

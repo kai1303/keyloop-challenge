@@ -1,3 +1,4 @@
+import { OptimisticResourceVersions1792886400000 } from '../src/database/migrations/1792886400000-optimistic-resource-versions.js';
 import { BookingResourceLocks1792800000002 } from '../src/database/migrations/1792800000002-booking-resource-locks.js';
 import { StaffAuth1792627200005 } from '../src/database/supabase-migrations/1792627200005-staff-auth.js';
 import { UnifiedUsers1792800000001 } from '../src/database/migrations/1792800000001-unified-users.js';
@@ -21,7 +22,7 @@ export function testDatabase(): DataSource {
   process.env.DEALERSHIP_TIMEZONE ??= 'UTC';
   return new DataSource({
     ...connectionOptions({ DATABASE_URL: value }),
-    migrations: [InitialScheduler1792540800000, HourlySlots1792627200000, AdminBookings1792627200002, StaffAuth1792627200005, OptimisticSlots1792713600000, BookingRequests1792713600001, PublicSchema1792800000000, UnifiedUsers1792800000001, BookingResourceLocks1792800000002],
+    migrations: [InitialScheduler1792540800000, HourlySlots1792627200000, AdminBookings1792627200002, StaffAuth1792627200005, OptimisticSlots1792713600000, BookingRequests1792713600001, PublicSchema1792800000000, UnifiedUsers1792800000001, BookingResourceLocks1792800000002, OptimisticResourceVersions1792886400000],
     migrationsTableName: 'appointment_scheduler_migrations',
   });
 }

@@ -93,7 +93,7 @@ describe('persistent admin booking operations', () => {
     await expect(service.changeStatus(cancellable.id, { status: 'CONFIRMED', expectedVersion: 2 })).rejects.toBeInstanceOf(ConflictException);
     await expect(service.changeStatus('00000000-0000-4000-8000-000000000099', { status: 'CANCELLED', expectedVersion: 1 })).rejects.toBeInstanceOf(NotFoundException);
   });
-  it('locks the union of previous and next resources during opposing reschedules', async () => {
+  it('claims versions for the union of previous and next resources during opposing reschedules', async () => {
     await db.query('INSERT INTO public.technician_service_types VALUES ($1,$2)', [techB,oil]);
     const first = await service.createAdmin({ ...input(), technicianId: techA, serviceBayId: bayA });
     const second = await service.createAdmin({ ...input(1), startsAt: '2030-01-02T11:00:00Z', technicianId: techB, serviceBayId: bayB });
@@ -106,17 +106,17 @@ describe('persistent admin booking operations', () => {
     expect(await service.createAdmin({ ...input(2),technicianId:techA,serviceBayId:bayA })).toHaveProperty('id');
   });
 
-  it('waits for the resource lock before cancelling and releases capacity after commit', async () => {
+  it('retries a stale resource version before cancelling and releases capacity after commit', async () => {
     const first = await service.createAdmin(input());
     const runner = db.createQueryRunner();
     await runner.connect(); await runner.startTransaction();
-    await runner.query('SELECT id FROM public.users WHERE id=$1 FOR UPDATE',[first.technicianId]);
+    await runner.query('UPDATE public.users SET scheduling_version=scheduling_version+1 WHERE id=$1',[first.technicianId]);
     const pending = service.changeStatus(first.id,{ status:'CANCELLED',expectedVersion:1 });
     const settled = pending.then(value=>({ value }),error=>({ error }));
     let observed = false;
     try {
       for(let attempt=0;attempt<100;attempt++) {
-        const [row] = await db.query("SELECT count(*)::int AS count FROM pg_stat_activity WHERE datname=current_database() AND application_name='appointment-scheduler' AND wait_event_type='Lock' AND query LIKE '%public.users%FOR UPDATE%'");
+        const [row] = await db.query("SELECT count(*)::int AS count FROM pg_stat_activity WHERE datname=current_database() AND application_name='appointment-scheduler' AND wait_event_type='Lock' AND query LIKE '%UPDATE public.users%scheduling_version%'");
         if(row.count) { observed = true; break; }
         await new Promise(resolve=>setTimeout(resolve,10));
       }

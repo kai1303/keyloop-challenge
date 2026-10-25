@@ -24,7 +24,8 @@ function fixture(answers: (ResourcePair | null)[] = [pair, pair]) {
       return [{ technicians: answer ? [{ id: answer.technicianId, name: 'Technician' }] : [],
         bays: answer ? [{ id: answer.bayId, name: 'Bay' }] : [] }];
     }
-    if (sql.includes('FOR UPDATE')) return (values[0] as string[]).map(id => ({ id }));
+    if (sql.startsWith('SELECT id,scheduling_version')) return (values[0] as string[]).map(id => ({ id, version: 0 }));
+    if (sql.startsWith('WITH claimed AS')) return [{ id: values[0] }];
     if (sql.startsWith('INSERT INTO public.users')) return [];
     if (sql.startsWith('SELECT id FROM public.users')) return [{ id: 'customer' }];
     if (sql.startsWith('INSERT INTO public.booking_vehicles')) return [];
@@ -66,21 +67,22 @@ describe('BookingsService', () => {
     const insert = query.mock.calls.find(([sql]) =>
       sql.startsWith('INSERT INTO public.service_bookings'));
     expect(insert?.[1]?.slice(7, 10)).toEqual(['Guest', 'guest@example.com', '+84901234567']);
-    expect(query.mock.calls.some(([sql]) => sql.startsWith('UPDATE public.users'))).toBe(false);
+    expect(query.mock.calls.some(([sql]) => sql.startsWith('UPDATE public.users') && !sql.includes('scheduling_version'))).toBe(false);
   });
 
-  it('locks existing resources before rechecking booking availability and writing', async () => {
+  it('claims resource versions before rechecking booking availability and writing', async () => {
     const { service, query } = fixture();
     await service.create(input);
     const sql = query.mock.calls.map(([text]) => text);
     expect(sql.some(text => text.includes('resource_slots'))).toBe(false);
-    const locks = sql.map((text, index) => text.includes('FOR UPDATE') ? index : -1).filter(index => index >= 0);
-    expect(locks).toHaveLength(2);
-    expect(sql[locks[0]]).toContain('public.users');
-    expect(sql[locks[1]]).toContain('public.service_bays');
+    expect(sql.some(text => /FOR UPDATE|FOR SHARE|advisory/i.test(text))).toBe(false);
+    const claims = sql.map((text, index) => text.startsWith('WITH claimed AS') ? index : -1).filter(index => index >= 0);
+    expect(claims).toHaveLength(2);
+    expect(sql[claims[0]]).toContain('public.users');
+    expect(sql[claims[1]]).toContain('public.service_bays');
     const reads = sql.map((text, index) => text.includes('/* free-resources */') ? index : -1).filter(index => index >= 0);
     expect(reads).toHaveLength(2);
-    expect(reads[1]).toBeGreaterThan(locks[1]);
+    expect(reads[1]).toBeGreaterThan(claims[1]);
     expect(sql.findIndex(text => text.startsWith('INSERT INTO public.service_bookings'))).toBeGreaterThan(reads[1]);
   });
 
@@ -125,7 +127,7 @@ describe('BookingsService', () => {
     const { service, query, transaction } = fixture([null]);
     expect(await service.availability(input)).toMatchObject({ available: false });
     expect(transaction).not.toHaveBeenCalled();
-    expect(query.mock.calls.some(([sql]) => sql.includes('FOR UPDATE') || sql.startsWith('INSERT')))
+    expect(query.mock.calls.some(([sql]) => sql.includes('FOR UPDATE') || sql.startsWith('INSERT') || sql.startsWith('UPDATE') || sql.startsWith('WITH claimed AS')))
       .toBe(false);
   });
 });

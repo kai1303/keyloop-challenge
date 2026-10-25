@@ -12,7 +12,7 @@ import type {
   AdminBooking, AdminResourceSelection, Availability, BookingInput, BookingSnapshot, Confirmation, DayAvailability, Interval, ResourcePair, RescheduleInput, ServiceType, StatusInput,
 } from './booking.types.js';
 
-import { CandidateChanged, lockResources } from './resource-locks.js';
+import { CandidateChanged, claimResources } from './resource-claims.js';
 
 @Injectable()
 export class BookingsService {
@@ -172,8 +172,8 @@ export class BookingsService {
   ): Promise<ResourcePair> {
     const pair = await availablePair(manager, serviceTypeId, interval, selected, excludeBookingId);
     if (!pair) throw new ConflictException('No qualified technician and bay are available');
-    await lockResources(manager, ...(previous ? [previous, pair] : [pair]));
-    // READ COMMITTED gives this recheck a fresh snapshot after any lock wait.
+    await claimResources(manager, ...(previous ? [previous, pair] : [pair]));
+    // A fresh read after successful CAS claims catches bookings committed since the preview.
     if (!await availablePair(manager, serviceTypeId, interval, pair, excludeBookingId)) throw new CandidateChanged();
     return pair;
   }
@@ -263,7 +263,7 @@ export class BookingsService {
       const legal = booking.status === 'CONFIRMED' && (input.status === 'IN_SERVICE' || input.status === 'CANCELLED') ||
         booking.status === 'IN_SERVICE' && input.status === 'COMPLETED';
       if (!legal) throw new ConflictException('Invalid booking status transition');
-      await lockResources(manager, booking);
+      await claimResources(manager, booking);
       const updated = await manager.query<{ id: string }[]>(
         'WITH changed AS (UPDATE public.service_bookings SET status=$2, cancellation_reason=$3, version=version+1 WHERE id=$1 AND version=$4 RETURNING id) SELECT id FROM changed',
         [id, input.status, input.status === 'CANCELLED' ? input.cancellationReason?.trim() || null : null, input.expectedVersion],
