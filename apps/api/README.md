@@ -333,18 +333,19 @@ override storage and do not require the running scheduler database.
 
 Each booking write uses one READ COMMITTED transaction. Parameterized SQL selects
 qualified resources using `NOT EXISTS` over bookings overlapping the exact requested
-interval, including legacy cross-midnight intervals. The allocator then
-locks the union of old/new technician `users` rows in ID order, followed by old/new
-`service_bays` rows in ID order, using `FOR UPDATE`. A fresh read rechecks only the
-selected pair after locks are acquired. Changed candidates roll back and reselect;
+interval, including legacy cross-midnight intervals. The allocator reads the
+scheduling versions of the old/new technician `users` and `service_bays` rows,
+then conditionally increments them in ID order. PostgreSQL locks rows during each
+update. A fresh read rechecks only the selected pair after the claims. Changed
+candidates roll back and reselect;
 deadlocks/lock timeouts also retry, with at most three transaction attempts.
 Exhausted contention returns 503. Unavailable capacity or stale booking edits return 409.
 
 `service_bookings` is the only persisted occupancy state. Rescheduling updates that
 row; cancellation sets CANCELLED and frees its time. IN_SERVICE and COMPLETED
 retain occupancy. All status changes lock the current resource rows. Conditional
-booking-version updates continue to reject stale edits. Contact/vehicle writes,
-idempotency responses and booking changes commit or roll back together.
+booking-version updates continue to reject stale edits. Contact/vehicle writes
+and booking changes commit or roll back together.
 
 The forward `BookingResourceLocks1792800000002` migration drops only
 `public.resource_slots` without CASCADE. Stop all old booking writers before
@@ -359,23 +360,19 @@ independent. Existing B-tree interval indexes remain; no GiST index is added.
 Recovery requires the verified pre-cutover backup and matching source, or an
 explicit re-backfill of historical claims while writers are stopped.
 
-For local live verification, build and migrate, start the API, then run
-`node --env-file=apps/api/.env apps/api/test/live-booking-locks-e2e.mjs baseline`,
-followed by `run` and `cleanup` modes. The script creates uniquely tagged test
-records, checks concurrent HTTP writes and resource-row waits, then removes its
-own records and compares original data hashes. Its report is
-`exports/booking-locks-e2e-results.json`. These writes must target only the guarded
-local demo database, with no other business writers active.
+The saved [local concurrency report](../../exports/booking-locks-e2e-results.json)
+records an earlier run. Current concurrency behavior is checked in the
+disposable PostgreSQL integration suite.
 
-## Booking REST contract and safe retries
+## Booking REST contract
 
 The canonical public collection is `GET /bookings?month=YYYY-MM` (a customer-safe `{month, bookings}` snapshot) and `POST /bookings` (limited confirmation). Staff use `/admin/bookings`: GET with `date`, POST, GET/PATCH `/:id`, PATCH `/:id/status`, and GET `/catalog`. The old `/service-bookings`, `/calendar-bookings`, and `/:id/reschedule` routes are removed; update external callers with the frontend.
 
-Guest POST requires `technicianId` and `serviceBayId`; staff POST keeps them optional. Explicit selections never fall back to a different resource when unavailable. Both creation endpoints require `Idempotency-Key: <UUID v4>`. Reuse the same key with the same payload after a timeout or lost response. A changed request with the same key returns 409; a new operation needs a new key. Keys are scoped separately for guests and each staff identity. The private `public.booking_requests` table stores the request hash and original response atomically with the booking. Concurrent retries and retries after API restarts replay the original response. A failed transaction saves neither booking nor request claim. Replays preserve the original creation response even if the booking later changes; staff GET returns current state.
+Guest POST requires `technicianId` and `serviceBayId`; staff POST keeps them optional. Explicit selections never fall back to a different resource when unavailable. Creation has no replay key: a repeated POST is a new attempt. After a timeout or lost response, check the calendar or staff booking list before submitting again. The transaction commits or rolls back booking and contact records together; staff GET returns current state.
 
 Creation returns 201 and `Location: /admin/bookings/<id>`. That item URL always requires an Admin or Technician JWT; a guest confirmation does not grant access to customer details. No public item lookup was added.
 
-Build and run `migration:run:supabase` before starting this API against the shared local database (or `migration:run` for the standalone scheduler database). `BookingRequests1792713600001` is additive and preserves existing records. Idempotency responses contain the same data as their original responses and must remain private; retain them for the supported retry lifetime. They currently persist until explicitly removed by an operator. Frontend creation keys survive retries while the form/hook stays mounted, not a browser reload.
+Build and run `migration:run:supabase` before starting this API against the shared local database (or `migration:run` for the standalone scheduler database). `DropBookingRequests1792972800000` removes the obsolete retry-record table; existing bookings remain.
 
 The complete current route list is in [REST API reference](../../docs/rest-api.md).
 

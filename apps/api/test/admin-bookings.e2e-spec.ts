@@ -103,7 +103,6 @@ describe('guarded admin booking HTTP contract', () => {
     });
     const response = await request(app.getHttpServer())
       .post('/admin/bookings')
-      .set('Idempotency-Key', '00000000-0000-4000-8000-000000000088')
       .set('Authorization', 'Bearer test-jwt')
       .send({ ...payload, technicianId: id })
       .expect(201);
@@ -111,7 +110,6 @@ describe('guarded admin booking HTTP contract', () => {
     expect(response.headers.location).toBe('/admin/bookings/' + id);
     expect(service.createAdmin).toHaveBeenCalledWith(
       expect.objectContaining({ technicianId: id }),
-      { key: '00000000-0000-4000-8000-000000000088', scope: 'staff:admin' },
     );
     await request(app.getHttpServer())
       .patch(`/admin/bookings/${id}`)
@@ -190,7 +188,6 @@ describe('guarded admin booking HTTP contract', () => {
       .expect(400);
     await request(app.getHttpServer())
       .post('/bookings')
-      .set('Idempotency-Key', '00000000-0000-4000-8000-000000000088')
       .send({ ...payload, serviceBayId: id })
       .expect(400);
   });

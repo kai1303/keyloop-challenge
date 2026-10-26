@@ -35,10 +35,14 @@ it("creates through the private proxy with zoned start and omitted automatic res
     serviceTypeId: booking.serviceTypeId,
     startsAt: "2030-01-02T04:00:00.000Z",
   });
-  expect(new Headers(init.headers).get("Idempotency-Key")).toMatch(
-    /^[0-9a-f-]{36}$/,
-  );
+  expect(new Headers(init.headers).has("Idempotency-Key")).toBe(false);
   expect(JSON.stringify(init.headers)).not.toContain("booking-admin-key");
+});
+it("warns staff to check saved bookings after an uncertain creation failure", async () => {
+  vi.stubGlobal("fetch", vi.fn().mockRejectedValue(new TypeError("Response lost")));
+  await expect(saveBooking(booking, schedule)).rejects.toThrow(
+    "Check bookings before submitting again",
+  );
 });
 it("sends the version and selected resources when rescheduling", async () => {
   const fetcher = vi

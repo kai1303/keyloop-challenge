@@ -168,7 +168,7 @@ docker compose -f compose.scheduler-test.yaml down
 
 Keep `TEST_DATABASE_URL` pointed at `scheduler_test` on loopback port 54329.
 The suite resets its fixture tables and checks migrations, authentication,
-transactions, concurrent allocations, idempotency, and stale booking versions.
+transactions, concurrent allocations, and stale booking versions.
 Never point it at the application database on port 55322.
 
 Three inventory live tests are skipped by default. Their explicit local setup is
@@ -228,11 +228,11 @@ checked across callers, DTOs, SQL, migrations, UI state, and error handling.
 Verification used separate layers:
 
 - **Unit and frontend tests:** business boundaries, invalid inputs, loading/error
-  states, stale responses, resource selection, and retry behavior.
+  states, stale responses, resource selection, and uncertain confirmation behavior.
 - **HTTP tests:** endpoint contracts, status codes, staff permissions, and unified
   application wiring with controlled storage.
 - **Real PostgreSQL tests:** migration preservation, overlapping bookings,
-  concurrent resource allocation, idempotency, stale version conflicts, and
+  concurrent resource allocation, stale version conflicts, and
   authentication/session rules in the disposable fixture.
 - **Browser and runtime checks:** login, navigation, persistence after reload,
   request duplication, selected-time resource results, and cross-tab Realtime
@@ -257,8 +257,8 @@ production performance.
 The final checks combine TypeScript, API lint, production builds, unit/HTTP
 tests, and PostgreSQL integration tests. Trust-boundary checks remain on the
 server: request validation, JWT/session/role checks, private database access,
-resource-version claims for allocation, booking versions for stale edits, and
-transactional idempotency for creation retries. Credentials and local backups
+resource-version claims for allocation and booking versions for stale edits.
+Credentials and local backups
 are excluded from Git. The setup and test commands above are the repeatable
 review path.
 

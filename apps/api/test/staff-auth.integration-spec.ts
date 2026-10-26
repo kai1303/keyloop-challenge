@@ -241,7 +241,6 @@ it.each(['admin', 'technician'])(
       .expect(200);
     await request(app.getHttpServer())
       .post('/admin/bookings')
-      .set('Idempotency-Key', '00000000-0000-4000-8000-000000000088')
       .set(headers)
       .send({
         name: 'Guest',

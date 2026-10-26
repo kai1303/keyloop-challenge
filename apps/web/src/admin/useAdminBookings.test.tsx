@@ -80,7 +80,6 @@ it("waits for server confirmation and refetches after creation", async () => {
     row,
     expect.objectContaining({ timeZone: "UTC" }),
     undefined,
-    expect.stringMatching(/^[0-9a-f-]{36}$/),
   );
   expect(result.current.bookings).toEqual([row]);
 });
@@ -102,34 +101,14 @@ it("retains backend conflict errors and never fabricates a booking", async () =>
   expect(result.current.bookings).toEqual([]);
 });
 
-it("keeps a creation key for uncertain retries and replaces it after success or changed data", async () => {
+it("surfaces a failed creation without retaining a retry key", async () => {
   const { result } = setup();
   await waitFor(() => expect(result.current.loading).toBe(false));
-  mocks.saveBooking
-    .mockRejectedValueOnce(new Error("Response lost"))
-    .mockResolvedValue(row);
+  mocks.saveBooking.mockRejectedValue(new Error("Response lost"));
   await act(async () => {
     await expect(result.current.save(row)).rejects.toThrow("Response lost");
   });
-  const key = mocks.saveBooking.mock.calls.at(-1)?.[3];
-  await act(async () => {
-    await result.current.save(row);
-  });
-  expect(mocks.saveBooking.mock.calls.at(-1)?.[3]).toBe(key);
-  await act(async () => {
-    await result.current.save(row);
-  });
-  const next = mocks.saveBooking.mock.calls.at(-1)?.[3];
-  expect(next).not.toBe(key);
-  mocks.saveBooking.mockRejectedValue(new Error("Response lost"));
-  await act(async () => {
-    await expect(result.current.save(row)).rejects.toThrow();
-  });
-  const failedKey = mocks.saveBooking.mock.calls.at(-1)?.[3];
-  await act(async () => {
-    await expect(
-      result.current.save({ ...row, name: "Changed" }),
-    ).rejects.toThrow();
-  });
-  expect(mocks.saveBooking.mock.calls.at(-1)?.[3]).not.toBe(failedKey);
+  expect(mocks.saveBooking).toHaveBeenCalledTimes(1);
+  expect(mocks.saveBooking.mock.calls[0]).toHaveLength(3);
+  expect(result.current.bookings).toEqual([]);
 });

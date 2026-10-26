@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { DateTime } from "luxon";
 import { Button } from "@keyloop-interview/ui/components/button";
 import { DialogClose } from "@keyloop-interview/ui/components/dialog";
@@ -50,28 +50,7 @@ export function BookingForm({
   const [uncertain, setUncertain] = useState(false);
   const [technicianId, setTechnicianId] = useState("");
   const [bayId, setBayId] = useState("");
-  const creation = useRef<{
-    body: string;
-    key: string;
-    startsAt: string;
-    technicianName: string;
-    bayName: string;
-  } | null>(null);
   const slots = startTimes(date, service.durationMinutes, schedule);
-  // A lost confirmation must remain retryable after its start leaves the live choices.
-  if (
-    uncertain &&
-    chosenTime &&
-    creation.current?.startsAt === chosenTime &&
-    !slots.some((slot) => slot.value === chosenTime)
-  ) {
-    slots.unshift({
-      value: chosenTime,
-      label: DateTime.fromISO(chosenTime)
-        .setZone(schedule.timeZone)
-        .toFormat("HH:mm"),
-    });
-  }
   const startsAt =
     chosenTime && slots.some((slot) => slot.value === chosenTime)
       ? chosenTime
@@ -102,7 +81,8 @@ export function BookingForm({
     !!startsAt &&
     !!technicianId &&
     !!bayId &&
-    (uncertain || selectedAvailable);
+    !uncertain &&
+    selectedAvailable;
   const [pending, setPending] = useState(false);
   const [error, setError] = useState("");
   const [confirmation, setConfirmation] = useState<Confirmation | null>(null);
@@ -186,7 +166,6 @@ export function BookingForm({
       !snapshot ||
       snapshot.key !== key ||
       pending ||
-      uncertain ||
       confirmation
     )
       return;
@@ -198,7 +177,7 @@ export function BookingForm({
     setBayId((previous) =>
       snapshot.data.bays.some((item) => item.id === previous) ? previous : "",
     );
-  }, [snapshot, key, pending, uncertain, confirmation]);
+  }, [snapshot, key, pending, confirmation]);
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -211,18 +190,6 @@ export function BookingForm({
       technicianId,
       serviceBayId: bayId,
     });
-    if (creation.current?.body !== body)
-      creation.current = {
-        body,
-        key: crypto.randomUUID(),
-        startsAt,
-        technicianName:
-          resources.technicians.find((item) => item.id === technicianId)
-            ?.name ?? "Previous selection",
-        bayName:
-          resources.bays.find((item) => item.id === bayId)?.name ??
-          "Previous selection",
-      };
     setPending(true);
     setError("");
     try {
@@ -230,7 +197,6 @@ export function BookingForm({
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Idempotency-Key": creation.current!.key,
         },
         body,
       });
@@ -238,15 +204,19 @@ export function BookingForm({
       setConfirmation(booking);
       onBooked();
     } catch (failure) {
-      setUncertain(
-        !(failure instanceof BookingRequestError && failure.status < 500),
+      const unknown = !(
+        failure instanceof BookingRequestError && failure.status < 500
       );
+      setUncertain(unknown);
+      if (unknown) onBooked();
       if (failure instanceof BookingRequestError && failure.status === 409)
         refresh();
       setError(
-        failure instanceof Error
-          ? failure.message
-          : "Unable to confirm appointment",
+        unknown
+          ? "Confirmation may have succeeded. Check the calendar or contact staff before trying again."
+          : failure instanceof Error
+            ? failure.message
+            : "Unable to confirm appointment",
       );
     } finally {
       setPending(false);
@@ -384,7 +354,6 @@ export function BookingForm({
               value: technicianId,
               set: setTechnicianId,
               options: resources.technicians,
-              previousName: creation.current?.technicianName,
             },
             {
               id: "bay",
@@ -393,27 +362,15 @@ export function BookingForm({
               value: bayId,
               set: setBayId,
               options: resources.bays,
-              previousName: creation.current?.bayName,
             },
           ].map((field) => {
-            const options = [...field.options];
-            // Keep an uncertain POST's exact selection retryable after it occupies the resource.
-            if (
-              uncertain &&
-              field.value &&
-              !options.some((item) => item.id === field.value)
-            )
-              options.push({
-                id: field.value,
-                name: field.previousName ?? "Previous selection",
-              });
             return (
               <div key={field.id} className="space-y-1.5">
                 <Label htmlFor={"booking-" + field.id}>{field.label}</Label>
                 <Select
                   value={field.value}
                   required
-                  disabled={checking || !startsAt || !options.length}
+                  disabled={checking || !startsAt || !field.options.length}
                   onValueChange={(value) => {
                     field.set(value);
                     setUncertain(false);
@@ -425,14 +382,14 @@ export function BookingForm({
                       placeholder={
                         !startsAt
                           ? "Select a time first"
-                          : !options.length
+                          : !field.options.length
                             ? "None available"
                             : field.placeholder
                       }
                     />
                   </SelectTrigger>
                   <SelectContent>
-                    {options.map((item) => (
+                    {field.options.map((item) => (
                       <SelectItem key={item.id} value={item.id}>
                         {item.name}
                       </SelectItem>

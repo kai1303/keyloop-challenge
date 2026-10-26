@@ -76,16 +76,15 @@ time; unavailable times are reported after selection rather than prefetching
 capacity for every start. Both resource selections are required; there is no
 guest auto-assignment. Changing service/time clears the selections and cancels
 obsolete requests. Date-scoped Realtime/focus refreshes both calendar and resource
-reads. Errors disable confirmation, while exact uncertain POST retries remain
-recoverable. Only resource names/IDs are public; customer and login details stay
+reads. Errors disable confirmation. After an uncertain POST response, check the
+calendar or contact staff before another submission. Only resource names/IDs are public; customer and login details stay
 private. Confirmation locks and rechecks the exact selected pair using the same
 SQL before saving. The compatible `/availability/slots` endpoint runs the SQL over
 all generated starts in one resource query for callers needing a day preview.
 
 ## Booking writes
 
-Both creation routes require `Content-Type: application/json` and
-`Idempotency-Key: <UUID v4>`. Public creation accepts:
+Both creation routes require `Content-Type: application/json`. Public creation accepts:
 
 ```json
 {
@@ -105,21 +104,17 @@ Staff may omit either for automatic selection. Guest creation returns 400 for mi
 `Location: /admin/bookings/<id>`. This is a staff-only API resource URL, not a
 public booking lookup. Guests receive no customer-detail access through it.
 
-Reuse the same key and payload after an uncertain response. Identical attempts
-replay the original response, including after another API instance handles the
-retry. Changing the request with the same key returns 409. Guest keys and each
-staff user's keys have separate scopes. Failed transactions persist no request
-claim. Idempotency responses remain private in PostgreSQL until explicitly
-removed; clients must not assume retries are protected after those records are
-removed. The frontend keeps keys in memory for its mounted form/hook lifetime.
+Creation has no replay key. A second POST is a new booking attempt; after a timeout
+or lost response, check the calendar or staff booking list before submitting again.
+The booking transaction either commits the booking and contact records together or
+rolls them back together.
 
 `PATCH /admin/bookings/:id` accepts `startsAt`, `expectedVersion` (integer >= 1),
 and optional resource UUIDs. `PATCH /admin/bookings/:id/status` accepts `status`,
 `expectedVersion`, and optional `cancellationReason`. Status must be `CONFIRMED`,
 `IN_SERVICE`, `COMPLETED`, or `CANCELLED`, and the transition must be legal.
 Unavailable resources or stale edits return 409. Exhausted transaction
-contention returns 503. Read the item URL for current state; an idempotent
-creation replay intentionally retains the original creation snapshot.
+contention returns 503. Read the staff item URL for current state.
 
 ## Lead pages
 
@@ -142,8 +137,7 @@ use the shared `/api` proxy. The backend JWT/role guard protects staff and
 item-detail routes. The old `/service-bookings`, `/calendar-bookings`, and
 `/admin/bookings/:id/reschedule` routes were removed; external clients must update.
 
-Before starting the changed API, build and apply the additive
-`BookingRequests1792713600001` migration using the existing TypeORM migration
-command for the selected database. It creates a private idempotency table without
-modifying existing bookings. The [API runbook](../apps/api/README.md) has the
-commands. No additional runtime dependency is required.
+Before starting the changed API, build and apply
+`DropBookingRequests1792972800000` using the TypeORM migration command for the
+selected database. It drops the obsolete retry-record table without changing
+bookings. The [API runbook](../apps/api/README.md) has the commands.

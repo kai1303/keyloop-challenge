@@ -44,7 +44,7 @@ Admin. Only explicit public metadata or allowed roles widen that boundary.
    navigation expose only allowed screens. Session changes clear private query
    caches. Signing out revokes the session before clearing browser state.
 
-Booking creation also requires a UUID `Idempotency-Key`. Staff keys are scoped to the current verified user; guest creation uses a separate scope. `Location` points to a guarded staff item URL and does not authorize a guest to read customer details.
+Booking creation returns `Location` pointing to a guarded staff item URL; it does not authorize a guest to read customer details. A repeated POST is a new booking attempt.
 
 A cookie alone cannot authorize a staff business API. The old shared booking key
 is no longer accepted. The HTTP-only cookie retains Better Auth's SameSite

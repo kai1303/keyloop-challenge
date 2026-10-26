@@ -4,13 +4,14 @@ import { BookingsService } from '../src/bookings/bookings.service.js';
 import { ScheduleRules } from '../src/bookings/schedule-rules.js';
 import { StaffAuth1792627200005 } from '../src/database/supabase-migrations/1792627200005-staff-auth.js';
 import { PublicSchema1792800000000 } from '../src/database/migrations/1792800000000-public-schema.js';
+import { DropBookingRequests1792972800000 } from '../src/database/migrations/1792972800000-drop-booking-requests.js';
 
 it('moves existing bookings and staff to public without changing rows, identities, or inventory', async () => {
   const db = testDatabase();
   await db.initialize();
   try {
     await db.runMigrations();
-    await db.query('TRUNCATE public.session, public.account, public.booking_requests, public.service_bookings, public.booking_vehicles, public.users, public.technician_service_types, public.service_bays, public.service_types');
+    await db.query('TRUNCATE public.session, public.account, public.service_bookings, public.booking_vehicles, public.users, public.technician_service_types, public.service_bays, public.service_types');
     await db.transaction(seedCatalog);
     const service = new BookingsService(
       db,
@@ -31,6 +32,7 @@ it('moves existing bookings and staff to public without changing rows, identitie
     await runner.connect();
     await runner.startTransaction();
     try {
+      await new DropBookingRequests1792972800000().down(runner);
       const tables = [
         'users',
         'booking_vehicles',

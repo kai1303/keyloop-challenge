@@ -1,5 +1,3 @@
-import type { CreationRequest } from './creation-request.js';
-import { createHash } from 'node:crypto';
 import { DateTime } from 'luxon';
 import {
   ConflictException, Inject, Injectable, NotFoundException, ServiceUnavailableException,
@@ -67,33 +65,15 @@ export class BookingsService {
     };
   }
 
-  create(input: BookingInput, selected?: Partial<ResourcePair>, request?: CreationRequest): Promise<Confirmation>;
-  create(input: BookingInput, selected: Partial<ResourcePair> | undefined, request: CreationRequest | undefined, staff: true): Promise<AdminBooking>;
-  async create(input: BookingInput, selected?: Partial<ResourcePair>, request?: CreationRequest, staff = false): Promise<Confirmation | AdminBooking> {
+  create(input: BookingInput, selected?: Partial<ResourcePair>): Promise<Confirmation>;
+  create(input: BookingInput, selected: Partial<ResourcePair> | undefined, staff: true): Promise<AdminBooking>;
+  async create(input: BookingInput, selected?: Partial<ResourcePair>, staff = false): Promise<Confirmation | AdminBooking> {
     const contact = {
       name: input.name.trim(), email: input.email.trim().toLowerCase(),
       phoneNumber: input.phoneNumber.trim(),
       registrationNumber: input.registrationNumber.trim().toUpperCase(),
     };
-    const requestHash = request ? createHash('sha256').update(JSON.stringify({
-      ...contact, serviceTypeId: input.serviceTypeId, startsAt: new Date(input.startsAt).toISOString(),
-      technicianId: selected?.technicianId ?? null, bayId: selected?.bayId ?? null,
-    })).digest('hex') : null;
     return this.bookingTransaction(async manager => {
-      if (request) {
-        // The unique insert waits for concurrent attempts; rollback also releases the request claim.
-        const inserted = await manager.query<{ key: string }[]>(
-          'INSERT INTO public.booking_requests (scope, key, request_hash) VALUES ($1,$2,$3) ON CONFLICT DO NOTHING RETURNING key',
-          [request.scope, request.key, requestHash],
-        );
-        if (!inserted.length) {
-          const [previous] = await manager.query<{ request_hash: string; response: Confirmation | AdminBooking }[]>(
-            'SELECT request_hash, response FROM public.booking_requests WHERE scope=$1 AND key=$2', [request.scope, request.key],
-          );
-          if (previous.request_hash !== requestHash) throw new ConflictException('Idempotency key was already used for a different booking request');
-          return previous.response;
-        }
-      }
       const service = await this.serviceType(manager, input.serviceTypeId);
       const interval = this.rules.interval(input.startsAt, service.durationMinutes);
       const pair = await this.allocate(manager, service.id, interval, selected);
@@ -135,12 +115,7 @@ export class BookingsService {
         startsAt: booking.startsAt.toISOString(), endsAt: booking.endsAt.toISOString(),
         status: booking.status,
       };
-      const result = staff ? (await this.readBookings(manager, 'b.id = $1', [booking.id]))[0] : confirmation;
-      if (request) await manager.query(
-        'UPDATE public.booking_requests SET response=$3::jsonb WHERE scope=$1 AND key=$2',
-        [request.scope, request.key, JSON.stringify(result)],
-      );
-      return result;
+      return staff ? (await this.readBookings(manager, 'b.id = $1', [booking.id]))[0] : confirmation;
     });
   }
 
@@ -224,8 +199,8 @@ export class BookingsService {
     });
   }
 
-  async createAdmin(input: BookingInput & AdminResourceSelection, request?: CreationRequest): Promise<AdminBooking> {
-    return this.create(input, { technicianId: input.technicianId, bayId: input.serviceBayId }, request, true);
+  async createAdmin(input: BookingInput & AdminResourceSelection): Promise<AdminBooking> {
+    return this.create(input, { technicianId: input.technicianId, bayId: input.serviceBayId }, true);
   }
 
   private async currentBooking(manager: EntityManager, id: string, expectedVersion: number) {

@@ -879,7 +879,7 @@ describe("guest booking calendar", () => {
     ).toBeNull();
   });
 
-  it("reuses the creation key after a lost response without rechecking occupied availability", async () => {
+  it("warns after a lost response and does not submit the same selection again", async () => {
     const user = await openDay();
     await selectResources(user);
     const original = fetchMock.getMockImplementation()!;
@@ -896,14 +896,12 @@ describe("guest booking calendar", () => {
     await user.click(
       screen.getByRole("button", { name: "Confirm appointment" }),
     );
-    await screen.findByText("Response lost");
+    await screen.findByText(
+      "Confirmation may have succeeded. Check the calendar or contact staff before trying again.",
+    );
     unavailableStarts.add("2030-01-03T09:00:00.000Z");
     fireEvent(window, new Event("focus"));
     await screen.findByText("This time is fully booked. Choose another time.");
-    expect(
-      screen.getByRole("combobox", { name: "Available technician" })
-        .textContent,
-    ).toContain("Technician A");
     await waitFor(() =>
       expect(
         (
@@ -911,25 +909,16 @@ describe("guest booking calendar", () => {
             name: "Confirm appointment",
           }) as HTMLButtonElement
         ).disabled,
-      ).toBe(false),
+      ).toBe(true),
     );
-
-    await user.click(
-      screen.getByRole("button", { name: "Confirm appointment" }),
-    );
-    await screen.findByRole("heading", { name: "Appointment confirmed" });
     const requests = fetchMock.mock.calls.filter(
       ([url]) => url === "/api/bookings",
     );
-    expect(requests).toHaveLength(2);
-    const keys = requests.map(([, init]) =>
-      new Headers(init.headers).get("Idempotency-Key"),
-    );
-    expect(keys[0]).toMatch(/^[0-9a-f-]{36}$/);
-    expect(keys[1]).toBe(keys[0]);
+    expect(requests).toHaveLength(1);
+    expect(new Headers(requests[0][1].headers).has("Idempotency-Key")).toBe(false);
   });
 
-  it("recovers a committed booking after its start has passed and availability refreshes", async () => {
+  it("keeps confirmation disabled when a lost response passes the selected start", async () => {
     vi.setSystemTime(new Date("2030-01-03T08:59:59Z"));
     const user = await openDay();
     await selectResources(user);
@@ -949,7 +938,9 @@ describe("guest booking calendar", () => {
     await user.click(
       screen.getByRole("button", { name: "Confirm appointment" }),
     );
-    await screen.findByText("Response lost after start");
+    await screen.findByText(
+      "Confirmation may have succeeded. Check the calendar or contact staff before trying again.",
+    );
     await act(async () => {
       window.dispatchEvent(new Event("focus"));
     });
@@ -959,18 +950,11 @@ describe("guest booking calendar", () => {
           .length,
       ).toBeGreaterThan(1),
     );
-    await user.click(
-      screen.getByRole("button", { name: "Confirm appointment" }),
-    );
-    await screen.findByRole("heading", { name: "Appointment confirmed" });
+    expect((screen.getByRole("button", { name: "Confirm appointment" }) as HTMLButtonElement).disabled).toBe(true);
     const requests = fetchMock.mock.calls.filter(
       ([url]) => url === "/api/bookings",
     );
-    expect(requests).toHaveLength(2);
-    expect(requests[1][1].body).toBe(requests[0][1].body);
-    expect(new Headers(requests[1][1].headers).get("Idempotency-Key")).toBe(
-      new Headers(requests[0][1].headers).get("Idempotency-Key"),
-    );
+    expect(requests).toHaveLength(1);
   });
 
   it("keeps the form and shows a conflict if confirmation loses the slot", async () => {

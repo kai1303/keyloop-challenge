@@ -12,15 +12,16 @@ describe('public booking tables', () => {
     expect((await db.query("SELECT to_regclass('public.technicians') AS old"))[0].old).toBeNull();
   });
 
-  it('stores occupancy only in bookings and removes resource claims', async () => {
+  it('stores occupancy only in bookings and removes retry and resource claim tables', async () => {
     const rows: { table_name: string }[] = await db.query(
       "SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' AND table_name IN ('booking_requests','resource_slots','service_bays','service_bookings','service_types','technician_service_types','users','booking_vehicles')",
     );
     expect(rows.map(row => row.table_name).sort()).toEqual([
-      'booking_requests', 'booking_vehicles', 'service_bays', 'service_bookings', 'service_types',
+      'booking_vehicles', 'service_bays', 'service_bookings', 'service_types',
       'technician_service_types', 'users',
     ]);
     expect((await db.query("SELECT to_regclass('public.resource_slots') AS obsolete"))[0].obsolete).toBeNull();
+    expect((await db.query("SELECT to_regclass('public.booking_requests') AS obsolete"))[0].obsolete).toBeNull();
   });
 it('seeds the catalog idempotently', async () => {
   const { seedCatalog } = await import('../src/database/seed.js');

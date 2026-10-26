@@ -90,18 +90,15 @@ it('keeps guest booking validation and the staff guard in the merged app', async
   };
   await request(app.getHttpServer())
     .post('/bookings')
-      .set('Idempotency-Key', '00000000-0000-4000-8000-000000000088')
     .send({ ...body, userId: id })
     .expect(400);
   expect(create).not.toHaveBeenCalled();
   await request(app.getHttpServer())
     .post('/bookings')
-      .set('Idempotency-Key', '00000000-0000-4000-8000-000000000088')
     .send(body)
     .expect(201, booking);
   expect(create).toHaveBeenCalledWith(
     expect.objectContaining({ name: 'Guest', email: 'guest@example.com' }),
     { technicianId: body.technicianId, bayId: body.serviceBayId },
-    { key: '00000000-0000-4000-8000-000000000088', scope: 'guest' },
   );
 });

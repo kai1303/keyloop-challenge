@@ -7,7 +7,7 @@ DECLARE
 BEGIN
   FOREACH relation IN ARRAY ARRAY[
     'public.vehicles', 'public.sales_leads', 'public.sales_lead_activities',
-    'public.appointment_scheduler_migrations', 'public.booking_requests', 'public.users',
+    'public.appointment_scheduler_migrations', 'public.users',
     'public.booking_vehicles', 'public.service_bookings', 'public.service_types',
     'public.service_bays',
     'public.technician_service_types', 'public.session',
@@ -23,6 +23,9 @@ BEGIN
   IF to_regclass('public.resource_slots') IS NOT NULL THEN
     RAISE EXCEPTION 'Obsolete resource_slots table must be removed';
   END IF;
+  IF to_regclass('public.booking_requests') IS NOT NULL THEN
+    RAISE EXCEPTION 'Obsolete booking_requests table must be removed';
+  END IF;
   IF EXISTS (SELECT FROM pg_namespace WHERE nspname IN ('scheduler','staff_auth')) THEN
     RAISE EXCEPTION 'Application schemas were not consolidated into public';
   END IF;
@@ -30,7 +33,7 @@ BEGIN
     RAISE EXCEPTION 'Inventory and customer vehicles must remain distinct';
   END IF;
   FOREACH role_name IN ARRAY ARRAY['anon', 'authenticated'] LOOP
-    FOREACH relation IN ARRAY ARRAY['users','booking_vehicles','service_types','service_bays','technician_service_types','service_bookings','booking_requests','session','account','verification','jwks','rateLimit'] LOOP
+    FOREACH relation IN ARRAY ARRAY['users','booking_vehicles','service_types','service_bays','technician_service_types','service_bookings','session','account','verification','jwks','rateLimit'] LOOP
       IF has_table_privilege(role_name, format('public.%I',relation), 'SELECT,INSERT,UPDATE,DELETE')
         OR NOT (SELECT relrowsecurity FROM pg_class WHERE oid=format('public.%I',relation)::regclass) THEN
         RAISE EXCEPTION 'Moved table % must have RLS and deny browser role %', relation, role_name;

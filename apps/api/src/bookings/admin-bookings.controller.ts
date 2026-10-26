@@ -1,20 +1,16 @@
-import { creationRequest } from './creation-request.js';
 import {
   Body,
   Controller,
   Get,
-  Headers,
   Param,
   ParseUUIDPipe,
   Patch,
   Post,
   Query,
-  Req,
   Res,
 } from '@nestjs/common';
 import { BookingsService } from './bookings.service.js';
 import { Roles } from '../auth/staff-auth.guard.js';
-import type { StaffRequest } from '../auth/staff-auth.guard.js';
 import type { Response } from 'express';
 import {
   AdminBookingsQuery,
@@ -41,14 +37,9 @@ export class AdminBookingsController {
   @Post()
   async create(
     @Body() input: AdminCreateBookingDto,
-    @Headers('idempotency-key') key: string,
-    @Req() request: StaffRequest,
     @Res({ passthrough: true }) response: Response,
   ) {
-    const booking = await this.bookings.createAdmin(
-      input,
-      creationRequest(key, 'staff:' + request.staff.id),
-    );
+    const booking = await this.bookings.createAdmin(input);
     response.location('/admin/bookings/' + booking.id);
     return booking;
   }

@@ -1,10 +1,8 @@
-import { creationRequest } from './creation-request.js';
 import { Public } from '../auth/staff-auth.guard.js';
 import {
   Body,
   Controller,
   Get,
-  Headers,
   Post,
   Query,
   Res,
@@ -55,13 +53,11 @@ export class BookingsController {
   @Post('bookings')
   async create(
     @Body() input: GuestCreateBookingDto,
-    @Headers('idempotency-key') key: string,
     @Res({ passthrough: true }) response: Response,
   ) {
     const booking = await this.bookings.create(
       input,
       { technicianId: input.technicianId, bayId: input.serviceBayId },
-      creationRequest(key, 'guest'),
     );
     response.location('/admin/bookings/' + booking.id);
     return booking;

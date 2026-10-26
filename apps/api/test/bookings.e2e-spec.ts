@@ -143,7 +143,6 @@ describe('guest booking HTTP contracts', () => {
   it('creates a guest booking without exposing customer details', async () => {
     const response = await request(app.getHttpServer())
       .post('/bookings')
-      .set('Idempotency-Key', '00000000-0000-4000-8000-000000000088')
       .send(payload)
       .expect(201);
     expect(response.headers.location).toBe('/admin/bookings/' + response.body.id);
@@ -156,7 +155,6 @@ describe('guest booking HTTP contracts', () => {
         registrationNumber: 'AB-123',
       }),
       { technicianId: payload.technicianId, bayId: payload.serviceBayId },
-      { key: '00000000-0000-4000-8000-000000000088', scope: 'guest' },
     );
   });
 
@@ -175,7 +173,6 @@ describe('guest booking HTTP contracts', () => {
   ])('requires valid selections and rejects customer identity assignments', async (invalid) => {
     await request(app.getHttpServer())
       .post('/bookings')
-      .set('Idempotency-Key', '00000000-0000-4000-8000-000000000088')
       .send(invalid)
       .expect(400);
     expect(service.create).not.toHaveBeenCalled();
@@ -240,7 +237,6 @@ describe('guest booking HTTP contracts', () => {
     );
     const response = await request(app.getHttpServer())
       .post('/bookings')
-      .set('Idempotency-Key', '00000000-0000-4000-8000-000000000088')
       .send(payload)
       .expect(409);
     expect(response.body).not.toHaveProperty('email');
@@ -253,11 +249,4 @@ describe('guest booking HTTP contracts', () => {
       .query({ email: payload.email })
       .expect(400);
   });
-  it.each([undefined, 'invalid'])('requires a UUID creation key: %s', async key => {
-    const call = request(app.getHttpServer()).post('/bookings').send(payload);
-    if (key) call.set('Idempotency-Key', key);
-    await call.expect(400);
-    expect(service.create).not.toHaveBeenCalled();
-  });
-
 });

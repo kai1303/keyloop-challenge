@@ -125,7 +125,6 @@ export async function saveBooking(
   draft: BookingDraft,
   schedule: BookingScheduleConfig,
   previous?: Booking,
-  idempotencyKey: string = crypto.randomUUID(),
 ): Promise<Booking> {
   const startsAt = bookingStartIso(draft.date, draft.time, schedule);
   const body = previous
@@ -139,16 +138,17 @@ export async function saveBooking(
         startsAt,
         ...selected(draft),
       };
-  return parseBooking(
-    await request(previous ? "/" + encodeURIComponent(previous.id) : "", {
+  try {
+    return parseBooking(await request(previous ? "/" + encodeURIComponent(previous.id) : "", {
       method: previous ? "PATCH" : "POST",
-      headers: {
-        "Content-Type": "application/json",
-        ...(!previous ? { "Idempotency-Key": idempotencyKey } : {}),
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
-    }),
-  );
+    }));
+  } catch (error) {
+    if (!previous && (error instanceof TypeError || error instanceof DOMException))
+      throw new Error("Booking response was lost. Check bookings before submitting again.", { cause: error });
+    throw error;
+  }
 }
 export async function setBookingStatus(
   booking: Booking,

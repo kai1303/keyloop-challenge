@@ -7,7 +7,7 @@ it('adds resource versions without changing profiles, bays or access privileges'
   await db.initialize();
   try {
     await db.runMigrations();
-    await db.query('TRUNCATE public.session,public.account,public.booking_requests,public.service_bookings,public.booking_vehicles,public.users,public.technician_service_types,public.service_bays,public.service_types');
+    await db.query('TRUNCATE public.session,public.account,public.service_bookings,public.booking_vehicles,public.users,public.technician_service_types,public.service_bays,public.service_types');
     await db.transaction(seedCatalog);
     const migration = new OptimisticResourceVersions1792886400000();
     await db.transaction(manager => migration.down(manager.queryRunner!));

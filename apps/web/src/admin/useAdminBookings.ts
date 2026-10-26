@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   bookingRealtimeClient,
@@ -13,7 +13,6 @@ import type { Booking, BookingDraft, BookingStatus } from "./booking-model";
 
 export function useAdminBookings() {
   const client = useQueryClient();
-  const creation = useRef<{ body: string; key: string } | null>(null);
   const [chosenDate, setDate] = useState("");
   const [connected, setConnected] = useState(false);
   const catalog = useQuery({
@@ -75,21 +74,9 @@ export function useAdminBookings() {
         return Promise.reject(
           new Error("Booking configuration is unavailable"),
         );
-      if (!previous) {
-        const body = JSON.stringify(draft);
-        if (creation.current?.body !== body)
-          creation.current = { body, key: crypto.randomUUID() };
-      }
-      const key = creation.current?.key;
-      return mutation
-        .mutateAsync(() =>
-          saveBooking(draft, catalog.data!.schedule, previous, key),
-        )
-        .then((result) => {
-          if (!previous && creation.current?.key === key)
-            creation.current = null;
-          return result;
-        });
+      return mutation.mutateAsync(() =>
+        saveBooking(draft, catalog.data!.schedule, previous),
+      );
     },
     changeStatus: (booking: Booking, status: BookingStatus, reason?: string) =>
       mutation.mutateAsync(() => setBookingStatus(booking, status, reason)),

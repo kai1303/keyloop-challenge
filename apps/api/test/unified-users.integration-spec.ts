@@ -1,4 +1,5 @@
 import { OptimisticResourceVersions1792886400000 } from '../src/database/migrations/1792886400000-optimistic-resource-versions.js';
+import { DropBookingRequests1792972800000 } from '../src/database/migrations/1792972800000-drop-booking-requests.js';
 import { BookingResourceLocks1792800000002 } from '../src/database/migrations/1792800000002-booking-resource-locks.js';
 import { Pool } from 'pg';
 import { betterAuth } from 'better-auth';
@@ -17,7 +18,7 @@ it('merges matching identities, preserves credentials/sessions/assignments, and 
   url.pathname = '/scheduler_users_upgrade_test';
   await control.query('CREATE DATABASE scheduler_users_upgrade_test');
   const migrations = (control.options.migrations as Function[]).filter(
-    (migration) => migration !== UnifiedUsers1792800000001 && migration !== BookingResourceLocks1792800000002 && migration !== OptimisticResourceVersions1792886400000,
+    (migration) => migration !== UnifiedUsers1792800000001 && migration !== BookingResourceLocks1792800000002 && migration !== OptimisticResourceVersions1792886400000 && migration !== DropBookingRequests1792972800000,
   );
   const options = control.options;
   if (options.type !== 'postgres') throw new Error('Expected PostgreSQL fixture');
